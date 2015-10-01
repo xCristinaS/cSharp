@@ -1,0 +1,9 @@
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\bin\Debug\02_Ventana.exe.config
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\bin\Debug\02_Ventana.exe
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\bin\Debug\02_Ventana.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\02_Ventana.csprojResolveAssemblyReference.cache
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\_02_Ventana.Form1.resources
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\_02_Ventana.Properties.Resources.resources
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\02_Ventana.csproj.GenerateResource.Cache
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\02_Ventana.exe
+C:\Users\xCristina_S\Desktop\ViSpace\02_Ventana\02_Ventana\obj\Debug\02_Ventana.pdb

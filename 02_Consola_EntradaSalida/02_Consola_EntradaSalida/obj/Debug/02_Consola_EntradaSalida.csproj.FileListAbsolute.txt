@@ -1,0 +1,6 @@
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\bin\Debug\02_Consola_EntradaSalida.exe.config
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\bin\Debug\02_Consola_EntradaSalida.exe
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\bin\Debug\02_Consola_EntradaSalida.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\obj\Debug\02_Consola_EntradaSalida.csprojResolveAssemblyReference.cache
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\obj\Debug\02_Consola_EntradaSalida.exe
+C:\Users\xCristina_S\Desktop\ViSpace\02_Consola_EntradaSalida\02_Consola_EntradaSalida\obj\Debug\02_Consola_EntradaSalida.pdb

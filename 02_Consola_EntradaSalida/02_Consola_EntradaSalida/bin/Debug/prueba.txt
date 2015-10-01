@@ -1,0 +1,2 @@
+Esto se escribe en prueba.txt
+Esto se agrega al fichero, pero no borra el contenido anterior.

@@ -1,0 +1,6 @@
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\bin\Debug\01_Consola.exe.config
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\bin\Debug\01_Consola.exe
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\bin\Debug\01_Consola.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\obj\Debug\01_Consola.csprojResolveAssemblyReference.cache
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\obj\Debug\01_Consola.exe
+C:\Users\xCristina_S\Desktop\ViSpace\01_Consola\01_Consola\obj\Debug\01_Consola.pdb

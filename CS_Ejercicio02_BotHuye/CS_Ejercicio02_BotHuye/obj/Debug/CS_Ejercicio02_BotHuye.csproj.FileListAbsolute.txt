@@ -1,0 +1,9 @@
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\bin\Debug\CS_Ejercicio02_BotHuye.exe.config
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\bin\Debug\CS_Ejercicio02_BotHuye.exe
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\bin\Debug\CS_Ejercicio02_BotHuye.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.csprojResolveAssemblyReference.cache
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.Form1.resources
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.Properties.Resources.resources
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.csproj.GenerateResource.Cache
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.exe
+C:\Users\xCristina_S\Desktop\ViSpace\CS_Ejercicio02_BotHuye\CS_Ejercicio02_BotHuye\obj\Debug\CS_Ejercicio02_BotHuye.pdb

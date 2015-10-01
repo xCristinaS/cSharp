@@ -1,0 +1,9 @@
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\bin\Debug\CS_01_Clase_Ventana.exe.config
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\bin\Debug\CS_01_Clase_Ventana.exe
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\bin\Debug\CS_01_Clase_Ventana.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.csprojResolveAssemblyReference.cache
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.Properties.Resources.resources
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.csproj.GenerateResource.Cache
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.exe
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.pdb
+C:\Users\xCristina_S\Desktop\ViSpace\CS_01_Clase_Ventana\CS_01_Clase_Ventana\obj\Debug\CS_01_Clase_Ventana.Form1.resources
