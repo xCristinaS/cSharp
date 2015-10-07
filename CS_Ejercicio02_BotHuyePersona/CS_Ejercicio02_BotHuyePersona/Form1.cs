@@ -22,7 +22,6 @@ namespace CS_Ejercicio02_BotHuyePersona
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             persona1 = new Persona(this.Size);
@@ -45,7 +44,6 @@ namespace CS_Ejercicio02_BotHuyePersona
             }
             posRat = e.Location;
         }
-
         private void button1_Click(object sender, EventArgs e) 
         {
             PersonaBoton eliminar = null;
@@ -61,21 +59,28 @@ namespace CS_Ejercicio02_BotHuyePersona
             if (lista.Count == 0)
             {
                 timer1.Dispose();
+                timer2.Dispose();
                 MessageBox.Show("El monstruo ha acabado con todos!");
                 this.Close();
             }
         }
-
         private void timer1_Tick(object sender, EventArgs e)
-        {
-            lista.AddLast(new PersonaBoton(new Persona(this.Size)));
-            this.Controls.Add(lista.Last.Value.getBoton());
-            lista.Last.Value.getBoton().Click += new EventHandler(this.button1_Click);
+        {            
             foreach (PersonaBoton pB in lista)
             {
                 pB.getPersona().crecer();
                 pB.actualizar();
             }
+        }
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            agregarPersonita();
+        }
+        private void agregarPersonita()
+        {
+            lista.AddLast(new PersonaBoton(new Persona(this.Size)));
+            this.Controls.Add(lista.Last.Value.getBoton());
+            lista.Last.Value.getBoton().Click += new EventHandler(this.button1_Click);
         }
     }
 }

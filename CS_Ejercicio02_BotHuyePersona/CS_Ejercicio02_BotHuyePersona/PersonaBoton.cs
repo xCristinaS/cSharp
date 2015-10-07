@@ -59,7 +59,7 @@ namespace CS_Ejercicio02_BotHuyePersona
         }
         public void morir()
         {
-            persona.gritar();
+            //persona.gritar();
             persona = null;
             boton.Dispose();
         }
