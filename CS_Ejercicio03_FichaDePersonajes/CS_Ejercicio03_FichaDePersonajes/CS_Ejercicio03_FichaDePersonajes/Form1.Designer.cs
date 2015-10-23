@@ -28,17 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblNomPers = new System.Windows.Forms.Label();
-            this.lblNomJug = new System.Windows.Forms.Label();
-            this.txtNombrePersonaje = new System.Windows.Forms.TextBox();
-            this.txtNombreJugador = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.rbtnFemenino = new System.Windows.Forms.RadioButton();
-            this.lblGenero = new System.Windows.Forms.Label();
-            this.rbtnMasculino = new System.Windows.Forms.RadioButton();
-            this.combRaza = new System.Windows.Forms.ComboBox();
-            this.conbClase = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lblReflejos = new System.Windows.Forms.Label();
             this.lblIniciativa = new System.Windows.Forms.Label();
@@ -52,6 +41,9 @@
             this.lblVitalidad = new System.Windows.Forms.Label();
             this.lblAtributos = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.puntosRepartir = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.habilidadesPorSelec = new System.Windows.Forms.Label();
             this.cboxLeerLabios = new System.Windows.Forms.CheckBox();
             this.cboxInterrog = new System.Windows.Forms.CheckBox();
             this.cboxIntimidar = new System.Windows.Forms.CheckBox();
@@ -73,150 +65,25 @@
             this.cboxAbrCerr = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.habilidadesPorSelec = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.puntosRepartir = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.lblNomPers = new System.Windows.Forms.Label();
+            this.lblNomJug = new System.Windows.Forms.Label();
+            this.txtNombrePersonaje = new System.Windows.Forms.TextBox();
+            this.txtNombreJugador = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtnFemenino = new System.Windows.Forms.RadioButton();
+            this.lblGenero = new System.Windows.Forms.Label();
+            this.rbtnMasculino = new System.Windows.Forms.RadioButton();
+            this.combRaza = new System.Windows.Forms.ComboBox();
+            this.combClase = new System.Windows.Forms.ComboBox();
+            this.imagenPersonaje = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenPersonaje)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblNomPers
-            // 
-            this.lblNomPers.AutoSize = true;
-            this.lblNomPers.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomPers.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomPers.Location = new System.Drawing.Point(13, 10);
-            this.lblNomPers.Name = "lblNomPers";
-            this.lblNomPers.Size = new System.Drawing.Size(132, 17);
-            this.lblNomPers.TabIndex = 0;
-            this.lblNomPers.Text = "Nombre del personaje: ";
-            // 
-            // lblNomJug
-            // 
-            this.lblNomJug.AutoSize = true;
-            this.lblNomJug.BackColor = System.Drawing.Color.Transparent;
-            this.lblNomJug.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNomJug.Location = new System.Drawing.Point(24, 37);
-            this.lblNomJug.Name = "lblNomJug";
-            this.lblNomJug.Size = new System.Drawing.Size(121, 17);
-            this.lblNomJug.TabIndex = 1;
-            this.lblNomJug.Text = "Nombre del jugador: ";
-            this.lblNomJug.Click += new System.EventHandler(this.lblNomJug_Click);
-            // 
-            // txtNombrePersonaje
-            // 
-            this.txtNombrePersonaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtNombrePersonaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombrePersonaje.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombrePersonaje.Location = new System.Drawing.Point(151, 7);
-            this.txtNombrePersonaje.Name = "txtNombrePersonaje";
-            this.txtNombrePersonaje.Size = new System.Drawing.Size(188, 24);
-            this.txtNombrePersonaje.TabIndex = 2;
-            // 
-            // txtNombreJugador
-            // 
-            this.txtNombreJugador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.txtNombreJugador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtNombreJugador.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreJugador.Location = new System.Drawing.Point(151, 34);
-            this.txtNombreJugador.Name = "txtNombreJugador";
-            this.txtNombreJugador.Size = new System.Drawing.Size(188, 24);
-            this.txtNombreJugador.TabIndex = 3;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.rbtnFemenino);
-            this.panel1.Controls.Add(this.lblGenero);
-            this.panel1.Controls.Add(this.rbtnMasculino);
-            this.panel1.Location = new System.Drawing.Point(16, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(113, 97);
-            this.panel1.TabIndex = 4;
-            // 
-            // rbtnFemenino
-            // 
-            this.rbtnFemenino.AutoSize = true;
-            this.rbtnFemenino.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnFemenino.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnFemenino.Location = new System.Drawing.Point(11, 36);
-            this.rbtnFemenino.Name = "rbtnFemenino";
-            this.rbtnFemenino.Size = new System.Drawing.Size(80, 21);
-            this.rbtnFemenino.TabIndex = 1;
-            this.rbtnFemenino.TabStop = true;
-            this.rbtnFemenino.Text = "Femenino";
-            this.rbtnFemenino.UseVisualStyleBackColor = false;
-            // 
-            // lblGenero
-            // 
-            this.lblGenero.AutoSize = true;
-            this.lblGenero.BackColor = System.Drawing.Color.Transparent;
-            this.lblGenero.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGenero.Location = new System.Drawing.Point(8, 11);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(51, 17);
-            this.lblGenero.TabIndex = 5;
-            this.lblGenero.Text = "Género:";
-            // 
-            // rbtnMasculino
-            // 
-            this.rbtnMasculino.AutoSize = true;
-            this.rbtnMasculino.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnMasculino.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtnMasculino.Location = new System.Drawing.Point(11, 63);
-            this.rbtnMasculino.Name = "rbtnMasculino";
-            this.rbtnMasculino.Size = new System.Drawing.Size(82, 21);
-            this.rbtnMasculino.TabIndex = 0;
-            this.rbtnMasculino.TabStop = true;
-            this.rbtnMasculino.Text = "Masculino";
-            this.rbtnMasculino.UseVisualStyleBackColor = false;
-            // 
-            // combRaza
-            // 
-            this.combRaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.combRaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.combRaza.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.combRaza.FormattingEnabled = true;
-            this.combRaza.Location = new System.Drawing.Point(151, 81);
-            this.combRaza.Name = "combRaza";
-            this.combRaza.Size = new System.Drawing.Size(188, 25);
-            this.combRaza.TabIndex = 5;
-            this.combRaza.Text = "Raza";
-            this.combRaza.SelectedIndexChanged += new System.EventHandler(this.combRaza_SelectedIndexChanged);
-            // 
-            // conbClase
-            // 
-            this.conbClase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.conbClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.conbClase.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conbClase.FormattingEnabled = true;
-            this.conbClase.Location = new System.Drawing.Point(151, 115);
-            this.conbClase.Name = "conbClase";
-            this.conbClase.Size = new System.Drawing.Size(188, 25);
-            this.conbClase.TabIndex = 6;
-            this.conbClase.Text = "Clase";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Controls.Add(this.conbClase);
-            this.panel2.Controls.Add(this.combRaza);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.txtNombreJugador);
-            this.panel2.Controls.Add(this.txtNombrePersonaje);
-            this.panel2.Controls.Add(this.lblNomJug);
-            this.panel2.Controls.Add(this.lblNomPers);
-            this.panel2.Location = new System.Drawing.Point(41, 41);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(537, 149);
-            this.panel2.TabIndex = 7;
             // 
             // panel3
             // 
@@ -379,6 +246,34 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(355, 569);
             this.panel4.TabIndex = 9;
+            // 
+            // puntosRepartir
+            // 
+            this.puntosRepartir.AutoSize = true;
+            this.puntosRepartir.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.puntosRepartir.Location = new System.Drawing.Point(191, 552);
+            this.puntosRepartir.Name = "puntosRepartir";
+            this.puntosRepartir.Size = new System.Drawing.Size(97, 16);
+            this.puntosRepartir.TabIndex = 23;
+            this.puntosRepartir.Text = "Puntos a repartir: ";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(134, 568);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
+            this.webBrowser1.TabIndex = 22;
+            // 
+            // habilidadesPorSelec
+            // 
+            this.habilidadesPorSelec.AutoSize = true;
+            this.habilidadesPorSelec.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.habilidadesPorSelec.Location = new System.Drawing.Point(13, 552);
+            this.habilidadesPorSelec.Name = "habilidadesPorSelec";
+            this.habilidadesPorSelec.Size = new System.Drawing.Size(123, 16);
+            this.habilidadesPorSelec.TabIndex = 21;
+            this.habilidadesPorSelec.Text = "Quedan por seleccionar:";
             // 
             // cboxLeerLabios
             // 
@@ -630,50 +525,159 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.clicCerrar);
             // 
-            // habilidadesPorSelec
+            // lblNomPers
             // 
-            this.habilidadesPorSelec.AutoSize = true;
-            this.habilidadesPorSelec.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.habilidadesPorSelec.Location = new System.Drawing.Point(13, 552);
-            this.habilidadesPorSelec.Name = "habilidadesPorSelec";
-            this.habilidadesPorSelec.Size = new System.Drawing.Size(123, 16);
-            this.habilidadesPorSelec.TabIndex = 21;
-            this.habilidadesPorSelec.Text = "Quedan por seleccionar:";
+            this.lblNomPers.AutoSize = true;
+            this.lblNomPers.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomPers.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomPers.Location = new System.Drawing.Point(13, 10);
+            this.lblNomPers.Name = "lblNomPers";
+            this.lblNomPers.Size = new System.Drawing.Size(132, 17);
+            this.lblNomPers.TabIndex = 0;
+            this.lblNomPers.Text = "Nombre del personaje: ";
             // 
-            // webBrowser1
+            // lblNomJug
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(134, 568);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 22;
+            this.lblNomJug.AutoSize = true;
+            this.lblNomJug.BackColor = System.Drawing.Color.Transparent;
+            this.lblNomJug.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomJug.Location = new System.Drawing.Point(24, 37);
+            this.lblNomJug.Name = "lblNomJug";
+            this.lblNomJug.Size = new System.Drawing.Size(121, 17);
+            this.lblNomJug.TabIndex = 1;
+            this.lblNomJug.Text = "Nombre del jugador: ";
             // 
-            // puntosRepartir
+            // txtNombrePersonaje
             // 
-            this.puntosRepartir.AutoSize = true;
-            this.puntosRepartir.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.puntosRepartir.Location = new System.Drawing.Point(191, 552);
-            this.puntosRepartir.Name = "puntosRepartir";
-            this.puntosRepartir.Size = new System.Drawing.Size(97, 16);
-            this.puntosRepartir.TabIndex = 23;
-            this.puntosRepartir.Text = "Puntos a repartir: ";
+            this.txtNombrePersonaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtNombrePersonaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombrePersonaje.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombrePersonaje.Location = new System.Drawing.Point(151, 7);
+            this.txtNombrePersonaje.Name = "txtNombrePersonaje";
+            this.txtNombrePersonaje.Size = new System.Drawing.Size(188, 24);
+            this.txtNombrePersonaje.TabIndex = 2;
             // 
-            // pictureBox2
+            // txtNombreJugador
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(366, 7);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(154, 133);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.txtNombreJugador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.txtNombreJugador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombreJugador.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreJugador.Location = new System.Drawing.Point(151, 34);
+            this.txtNombreJugador.Name = "txtNombreJugador";
+            this.txtNombreJugador.Size = new System.Drawing.Size(188, 24);
+            this.txtNombreJugador.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.rbtnFemenino);
+            this.panel1.Controls.Add(this.lblGenero);
+            this.panel1.Controls.Add(this.rbtnMasculino);
+            this.panel1.Location = new System.Drawing.Point(16, 53);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(113, 97);
+            this.panel1.TabIndex = 4;
+            // 
+            // rbtnFemenino
+            // 
+            this.rbtnFemenino.AutoSize = true;
+            this.rbtnFemenino.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnFemenino.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnFemenino.Location = new System.Drawing.Point(11, 36);
+            this.rbtnFemenino.Name = "rbtnFemenino";
+            this.rbtnFemenino.Size = new System.Drawing.Size(80, 21);
+            this.rbtnFemenino.TabIndex = 1;
+            this.rbtnFemenino.TabStop = true;
+            this.rbtnFemenino.Text = "Femenino";
+            this.rbtnFemenino.UseVisualStyleBackColor = false;
+            // 
+            // lblGenero
+            // 
+            this.lblGenero.AutoSize = true;
+            this.lblGenero.BackColor = System.Drawing.Color.Transparent;
+            this.lblGenero.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGenero.Location = new System.Drawing.Point(8, 11);
+            this.lblGenero.Name = "lblGenero";
+            this.lblGenero.Size = new System.Drawing.Size(51, 17);
+            this.lblGenero.TabIndex = 5;
+            this.lblGenero.Text = "Género:";
+            // 
+            // rbtnMasculino
+            // 
+            this.rbtnMasculino.AutoSize = true;
+            this.rbtnMasculino.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnMasculino.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnMasculino.Location = new System.Drawing.Point(11, 63);
+            this.rbtnMasculino.Name = "rbtnMasculino";
+            this.rbtnMasculino.Size = new System.Drawing.Size(82, 21);
+            this.rbtnMasculino.TabIndex = 0;
+            this.rbtnMasculino.TabStop = true;
+            this.rbtnMasculino.Text = "Masculino";
+            this.rbtnMasculino.UseVisualStyleBackColor = false;
+            // 
+            // combRaza
+            // 
+            this.combRaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.combRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combRaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combRaza.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combRaza.FormattingEnabled = true;
+            this.combRaza.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.combRaza.Items.AddRange(new object[] {
+            "Ser mágico",
+            "Ser mundano"});
+            this.combRaza.Location = new System.Drawing.Point(151, 81);
+            this.combRaza.Name = "combRaza";
+            this.combRaza.Size = new System.Drawing.Size(188, 25);
+            this.combRaza.TabIndex = 5;
+            this.combRaza.SelectedIndexChanged += new System.EventHandler(this.comboboxCambiado);
+            // 
+            // combClase
+            // 
+            this.combClase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.combClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.combClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.combClase.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.combClase.FormattingEnabled = true;
+            this.combClase.Location = new System.Drawing.Point(151, 115);
+            this.combClase.Name = "combClase";
+            this.combClase.Size = new System.Drawing.Size(188, 25);
+            this.combClase.TabIndex = 6;
+            this.combClase.SelectedIndexChanged += new System.EventHandler(this.comboboxCambiado);
+            // 
+            // imagenPersonaje
+            // 
+            this.imagenPersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imagenPersonaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imagenPersonaje.Location = new System.Drawing.Point(366, 7);
+            this.imagenPersonaje.Name = "imagenPersonaje";
+            this.imagenPersonaje.Size = new System.Drawing.Size(154, 133);
+            this.imagenPersonaje.TabIndex = 7;
+            this.imagenPersonaje.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.imagenPersonaje);
+            this.panel2.Controls.Add(this.combClase);
+            this.panel2.Controls.Add(this.combRaza);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.txtNombreJugador);
+            this.panel2.Controls.Add(this.txtNombrePersonaje);
+            this.panel2.Controls.Add(this.lblNomJug);
+            this.panel2.Controls.Add(this.lblNomPers);
+            this.panel2.Location = new System.Drawing.Point(41, 41);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(537, 149);
+            this.panel2.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.fondo3;
+            this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1008, 661);
             this.Controls.Add(this.pictureBox1);
@@ -687,33 +691,21 @@
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagenPersonaje)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblNomPers;
-        private System.Windows.Forms.Label lblNomJug;
-        private System.Windows.Forms.TextBox txtNombrePersonaje;
-        private System.Windows.Forms.TextBox txtNombreJugador;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RadioButton rbtnFemenino;
-        private System.Windows.Forms.Label lblGenero;
-        private System.Windows.Forms.RadioButton rbtnMasculino;
-        private System.Windows.Forms.ComboBox combRaza;
-        private System.Windows.Forms.ComboBox conbClase;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lblAtributos;
         private System.Windows.Forms.Label lblReflejos;
@@ -751,7 +743,18 @@
         private System.Windows.Forms.Label puntosRepartir;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label habilidadesPorSelec;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label lblNomPers;
+        private System.Windows.Forms.Label lblNomJug;
+        private System.Windows.Forms.TextBox txtNombrePersonaje;
+        private System.Windows.Forms.TextBox txtNombreJugador;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbtnFemenino;
+        private System.Windows.Forms.Label lblGenero;
+        private System.Windows.Forms.RadioButton rbtnMasculino;
+        private System.Windows.Forms.ComboBox combRaza;
+        private System.Windows.Forms.ComboBox combClase;
+        private System.Windows.Forms.PictureBox imagenPersonaje;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

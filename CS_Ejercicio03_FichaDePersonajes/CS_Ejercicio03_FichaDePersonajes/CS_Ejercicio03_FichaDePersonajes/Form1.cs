@@ -23,19 +23,22 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
         }
 
-        private void lblNomJug_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void combRaza_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void clicCerrar(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void comboboxCambiado(object sender, EventArgs e)
+        {
+            if (combRaza.SelectedIndex == 0)
+            {
+                String[] personajes = { "Mago", "Nigromante" };
+                combClase.Items.AddRange(personajes);
+            }
+            else
+            {
+
+            }
         }
     }
 }

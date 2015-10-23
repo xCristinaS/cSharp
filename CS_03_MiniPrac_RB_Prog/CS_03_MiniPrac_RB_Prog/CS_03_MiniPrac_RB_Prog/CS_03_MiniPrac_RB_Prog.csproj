@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}</ProjectGuid>
+    <ProjectGuid>{3087FD6E-46DD-4D56-9E48-30E002DFFBDD}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CS_Ejercicio03_FichaDePersonajes</RootNamespace>
-    <AssemblyName>CS_Ejercicio03_FichaDePersonajes</AssemblyName>
+    <RootNamespace>CS_03_MiniPrac_RB_Prog</RootNamespace>
+    <AssemblyName>CS_03_MiniPrac_RB_Prog</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -65,7 +65,6 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,57 +78,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondo3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Equis.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Equis1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazador.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazadora.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maga.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mago.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nigromante.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladina.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
