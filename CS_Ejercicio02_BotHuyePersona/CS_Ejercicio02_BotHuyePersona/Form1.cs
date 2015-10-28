@@ -15,7 +15,6 @@ namespace CS_Ejercicio02_BotHuyePersona
     {
         private static Point posRat = new Point(0, 0);
         private static int cont = 0;
-        Persona persona1;
         LinkedList<PersonaBoton> lista = new LinkedList<PersonaBoton>();
 
         public Form1()
@@ -24,12 +23,7 @@ namespace CS_Ejercicio02_BotHuyePersona
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            persona1 = new Persona(this.Size);
-            button1.Size = persona1.getTamanio();
-            button1.Location = persona1.getPosicion();
-            button1.BackgroundImage = persona1.getImagen();
-
-            lista.AddLast(new PersonaBoton(persona1, button1));
+            agregarPersonita();
         }
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {

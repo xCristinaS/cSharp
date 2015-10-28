@@ -19,7 +19,7 @@ namespace CS_Ejercicio02_BotHuyePersona
         {
             Random rnd = new Random();
             int tamanioP = rnd.Next(Constantes.TAMANIO_MIN_PERSONA, Constantes.TAMANIO_MAX_PERSONA);
-            posicion = new Point(rnd.Next(Constantes.LIMITES_CAMPO, tamanioForm.Width), rnd.Next(Constantes.LIMITES_CAMPO, tamanioForm.Height));
+            posicion = new Point(rnd.Next(Constantes.LIMITES_CAMPO, tamanioForm.Width - tamanioP), rnd.Next(Constantes.LIMITES_CAMPO, tamanioForm.Height - tamanioP));
             velocidad = rnd.Next(Constantes.MAX_VELOCIDAD);
             tamanio = new Size(tamanioP, tamanioP);
 
@@ -61,13 +61,6 @@ namespace CS_Ejercicio02_BotHuyePersona
                     imagen = Properties.Resources.p12;
                     break;
             }
-        }
-        public Persona(Size tamanioForm, int ancho, int alto, int vel)
-        {
-            Random rnd = new Random();
-            posicion = new Point(rnd.Next(Constantes.LIMITES_CAMPO,tamanioForm.Width), rnd.Next(Constantes.LIMITES_CAMPO, tamanioForm.Height));
-            tamanio = new Size(ancho, alto);
-            velocidad = vel;
         }
         private int mirar(Point posicionMonstruo)
         {
