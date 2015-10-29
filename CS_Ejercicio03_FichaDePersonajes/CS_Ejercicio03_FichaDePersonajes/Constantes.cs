@@ -9,6 +9,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public const int MAX_VALOR_ATRIB_ALEATORIO = 15;
         public const int MIN_VALOR_ATRIB_ALEATORIO = 1;
         public const byte MAX_TIRADAS = 3;
+        public const int PTOS_REPARTIR_ATB = 20;
         public const string PTOS_A_REP = "Puntos a repartir: ";
         public const string HAB_POR_SELEC = "Habilidades por seleccionar: ";
 

@@ -106,7 +106,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
-            this.lblPuntosRepartirH = new System.Windows.Forms.Label();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -638,7 +637,6 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.lblPuntosRepartirH);
             this.panel4.Controls.Add(this.lblHabilidadesPorSelec);
             this.panel4.Controls.Add(this.cboxLeerLabios);
             this.panel4.Controls.Add(this.cboxInterrog);
@@ -660,7 +658,7 @@
             this.panel4.Controls.Add(this.cboxEsquivar);
             this.panel4.Controls.Add(this.cboxAbrCerr);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(635, 41);
+            this.panel4.Location = new System.Drawing.Point(609, 41);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(421, 608);
             this.panel4.TabIndex = 9;
@@ -1076,15 +1074,6 @@
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.clicCerrar);
             // 
-            // lblPuntosRepartirH
-            // 
-            this.lblPuntosRepartirH.AutoSize = true;
-            this.lblPuntosRepartirH.Location = new System.Drawing.Point(81, 324);
-            this.lblPuntosRepartirH.Name = "lblPuntosRepartirH";
-            this.lblPuntosRepartirH.Size = new System.Drawing.Size(35, 13);
-            this.lblPuntosRepartirH.TabIndex = 22;
-            this.lblPuntosRepartirH.Text = "label2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1217,7 +1206,6 @@
         private System.Windows.Forms.PictureBox incFuer;
         private System.Windows.Forms.PictureBox incDest;
         private System.Windows.Forms.PictureBox incPerc;
-        private System.Windows.Forms.Label lblPuntosRepartirH;
     }
 }
 

@@ -14,7 +14,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private String[] personajesMagicos = { "Mago", "Nigromante" };
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
-        private int numTirada = 0, ptosRepAtrib = 15, ptosRepHab = 20, cbPorSelec = 7;
+        private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, cbPorSelec = 7;
         private Random rnd = new Random();
 
         public Form1() {
@@ -24,7 +24,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void Form1_Load(object sender, EventArgs e) {
             obtenerValoresAleatorios();
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
-            lblPuntosRepartirH.Text = Constantes.PTOS_A_REP + ptosRepHab;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + cbPorSelec;
 
             foreach (object pb in panelAtributos.Controls) {
@@ -218,7 +217,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbVelocidad.Value += valoresAtributosAleatorios[8];
             pbVitalidad.Value += valoresAtributosAleatorios[9];
 
-            ptosRepAtrib = 15;
+            ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
 
