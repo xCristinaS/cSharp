@@ -130,9 +130,6 @@
   <data name="daguera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\daguera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mago" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mago.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -168,5 +165,11 @@
   </data>
   <data name="dadoApagado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dadoApagado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flechaDer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechaDer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flechaIzq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechaIzq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

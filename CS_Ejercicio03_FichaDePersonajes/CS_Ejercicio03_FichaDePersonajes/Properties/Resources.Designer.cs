@@ -153,9 +153,19 @@ namespace CS_Ejercicio03_FichaDePersonajes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fondo {
+        internal static System.Drawing.Bitmap flechaDer {
             get {
-                object obj = ResourceManager.GetObject("fondo", resourceCulture);
+                object obj = ResourceManager.GetObject("flechaDer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flechaIzq {
+            get {
+                object obj = ResourceManager.GetObject("flechaIzq", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
