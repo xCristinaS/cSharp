@@ -103,7 +103,6 @@ namespace _05_MiniPrac_Botonera {
         private void modificar(object sender, EventArgs e) {
             modoEdicionActivado();
             txtNombre.Text = nombreSelec;
-            btnModo.Text = VI;
             modify = true;
         }
 
@@ -134,6 +133,8 @@ namespace _05_MiniPrac_Botonera {
                 nombres.Add(txtNombre.Text);
             else {
                 nombres[nombres.IndexOf(nombreSelec)] = txtNombre.Text;
+                modoVisionActivado();
+                btnModo.Text = NUEVO;
             }
             txtNombre.Text = "";
         }
