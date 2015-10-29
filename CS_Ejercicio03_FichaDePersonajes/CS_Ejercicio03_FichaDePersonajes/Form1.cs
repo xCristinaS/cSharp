@@ -14,12 +14,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private String[] personajesMagicos = { "Mago", "Nigromante" };
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
-        private byte numTirada = 0, ptosRepAtrib = 15, ptosRepHab = 20, cbPorSelec = 7;
+        private int numTirada = 0, ptosRepAtrib = 15, ptosRepHab = 20, cbPorSelec = 7;
         private Random rnd = new Random();
 
         public Form1() {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -27,6 +26,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
             lblPuntosRepartirH.Text = Constantes.PTOS_A_REP + ptosRepHab;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + cbPorSelec;
+
+            foreach (object pb in panelAtributos.Controls) {
+                if (pb is PictureBox)
+                    ((PictureBox)pb).Tag = 0;
+            }
         }
 
         private void clicCerrar(object sender, EventArgs e) {
@@ -213,6 +217,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbReflejos.Value += valoresAtributosAleatorios[7];
             pbVelocidad.Value += valoresAtributosAleatorios[8];
             pbVitalidad.Value += valoresAtributosAleatorios[9];
+
+            ptosRepAtrib = 15;
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
 
         private void resetValoresAtrib() {
@@ -242,6 +249,104 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 imgDado.BackgroundImage = Properties.Resources.dadoApagado;
                 dadoApagado = true;
             }
+        }
+
+        private void repartirPtosAtb(object sender, EventArgs e) {
+            if (!combClase.Text.Equals(""))
+                if (ptosRepAtrib > 0 && ((PictureBox)sender).Name.StartsWith("i"))
+                    incrementarAtributo(sender);
+                else if (((int)((PictureBox)sender).Tag) > 0)
+                    decrementarAtributo(sender);
+        }
+
+        private void incrementarAtributo(object sender) {
+            if (sender.Equals(incVit) && pbVitalidad.Value < pbVitalidad.Maximum) {
+                pbVitalidad.Value++;
+                ptosRepAtrib--;
+                decVit.Tag = ((int)decVit.Tag) + 1;
+            } else if (sender.Equals(incCar) && pbCarisma.Value < pbCarisma.Maximum) {
+                pbCarisma.Value++;
+                ptosRepAtrib--;
+                decCar.Tag = ((int)decCar.Tag) + 1;
+            } else if (sender.Equals(incCor) && pbCoraje.Value < pbCoraje.Maximum) {
+                pbCoraje.Value++;
+                ptosRepAtrib--;
+                decCor.Tag = ((int)decCor.Tag) + 1;
+            } else if (sender.Equals(incDest) && pbDestreza.Value < pbDestreza.Maximum) {
+                pbDestreza.Value++;
+                ptosRepAtrib--;
+                decDest.Tag = ((int)decDest.Tag) + 1;
+            } else if (sender.Equals(incFuer) && pbFuerza.Value < pbFuerza.Maximum) {
+                pbFuerza.Value++;
+                ptosRepAtrib--;
+                decFuer.Tag = ((int)decFuer.Tag) + 1;
+            } else if (sender.Equals(incIng) && pbIngenio.Value < pbIngenio.Maximum) {
+                pbIngenio.Value++;
+                ptosRepAtrib--;
+                decIng.Tag = ((int)decIng.Tag) + 1;
+            } else if (sender.Equals(incIni) && pbIniciativa.Value < pbIniciativa.Maximum) {
+                pbIniciativa.Value++;
+                ptosRepAtrib--;
+                decIni.Tag = ((int)decIni.Tag) + 1;
+            } else if (sender.Equals(incPerc) && pbPercepcion.Value < pbPercepcion.Maximum) {
+                pbPercepcion.Value++;
+                ptosRepAtrib--;
+                decPerc.Tag = ((int)decPerc.Tag) + 1;
+            } else if (sender.Equals(incRef) && pbReflejos.Value < pbReflejos.Maximum) {
+                pbReflejos.Value++;
+                ptosRepAtrib--;
+                decRef.Tag = ((int)decRef.Tag) + 1;
+            } else if (sender.Equals(incVel) && pbVelocidad.Value < pbVelocidad.Maximum) {
+                pbVelocidad.Value++;
+                ptosRepAtrib--;
+                decVel.Tag = ((int)decVel.Tag) + 1;
+            } 
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
+        }
+
+        private void decrementarAtributo(object sender) {
+            if (sender.Equals(decVit) && pbVitalidad.Value > 0) {
+                pbVitalidad.Value--;
+                ptosRepAtrib++;
+                decVit.Tag = ((int)decVit.Tag) - 1;
+            } else if (sender.Equals(decCar) && pbCarisma.Value > 0) {
+                pbCarisma.Value--;
+                ptosRepAtrib++;
+                decCar.Tag = ((int)decCar.Tag) - 1;
+            } else if (sender.Equals(decCor) && pbCoraje.Value > 0) {
+                pbCoraje.Value--;
+                ptosRepAtrib++;
+                decCor.Tag = ((int)decCor.Tag) - 1;
+            } else if (sender.Equals(decDest) && pbDestreza.Value > 0) {
+                pbDestreza.Value--;
+                ptosRepAtrib++;
+                decDest.Tag = ((int)decDest.Tag) - 1;
+            } else if (sender.Equals(decFuer) && pbFuerza.Value > 0) {
+                pbFuerza.Value--;
+                ptosRepAtrib++;
+                decFuer.Tag = ((int)decFuer.Tag) - 1;
+            } else if (sender.Equals(decIng) && pbIngenio.Value > 0) {
+                pbIngenio.Value--;
+                ptosRepAtrib++;
+                decIng.Tag = ((int)decIng.Tag) - 1;
+            } else if (sender.Equals(decIni) && pbIniciativa.Value > 0) {
+                pbIniciativa.Value--;
+                ptosRepAtrib++;
+                decIni.Tag = ((int)decIni.Tag) - 1;
+            } else if (sender.Equals(decPerc) && pbPercepcion.Value > 0) {
+                pbPercepcion.Value--;
+                ptosRepAtrib++;
+                decPerc.Tag = ((int)decPerc.Tag) - 1;
+            } else if (sender.Equals(decRef) && pbReflejos.Value > 0) {
+                pbReflejos.Value--;
+                ptosRepAtrib++;
+                decRef.Tag = ((int)decRef.Tag) - 1;
+            } else if (sender.Equals(decVel) && pbVelocidad.Value > 0) {
+                pbVelocidad.Value--;
+                ptosRepAtrib++;
+                decVel.Tag = ((int)decVel.Tag) - 1;
+            }
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
 
         private void obtenerValoresAleatorios() {

@@ -28,7 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelAtributos = new System.Windows.Forms.Panel();
+            this.incVel = new System.Windows.Forms.PictureBox();
+            this.incRef = new System.Windows.Forms.PictureBox();
+            this.incIni = new System.Windows.Forms.PictureBox();
+            this.incCar = new System.Windows.Forms.PictureBox();
+            this.incCor = new System.Windows.Forms.PictureBox();
+            this.incIng = new System.Windows.Forms.PictureBox();
+            this.incFuer = new System.Windows.Forms.PictureBox();
+            this.incDest = new System.Windows.Forms.PictureBox();
+            this.incPerc = new System.Windows.Forms.PictureBox();
+            this.incVit = new System.Windows.Forms.PictureBox();
+            this.decVel = new System.Windows.Forms.PictureBox();
+            this.decRef = new System.Windows.Forms.PictureBox();
+            this.decIni = new System.Windows.Forms.PictureBox();
+            this.decCar = new System.Windows.Forms.PictureBox();
+            this.decCor = new System.Windows.Forms.PictureBox();
+            this.decIng = new System.Windows.Forms.PictureBox();
+            this.decFuer = new System.Windows.Forms.PictureBox();
+            this.decPerc = new System.Windows.Forms.PictureBox();
+            this.decDest = new System.Windows.Forms.PictureBox();
+            this.decVit = new System.Windows.Forms.PictureBox();
             this.lblPuntosRepartirA = new System.Windows.Forms.Label();
             this.pbVelocidad = new System.Windows.Forms.ProgressBar();
             this.pbReflejos = new System.Windows.Forms.ProgressBar();
@@ -52,7 +72,6 @@
             this.lblVitalidad = new System.Windows.Forms.Label();
             this.lblAtributos = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.lblPuntosRepartirH = new System.Windows.Forms.Label();
             this.lblHabilidadesPorSelec = new System.Windows.Forms.Label();
             this.cboxLeerLabios = new System.Windows.Forms.CheckBox();
             this.cboxInterrog = new System.Windows.Forms.CheckBox();
@@ -87,109 +106,310 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
-            this.decVit = new System.Windows.Forms.PictureBox();
-            this.decDest = new System.Windows.Forms.PictureBox();
-            this.decPerc = new System.Windows.Forms.PictureBox();
-            this.decFuer = new System.Windows.Forms.PictureBox();
-            this.decIng = new System.Windows.Forms.PictureBox();
-            this.decCor = new System.Windows.Forms.PictureBox();
-            this.decCar = new System.Windows.Forms.PictureBox();
-            this.decIni = new System.Windows.Forms.PictureBox();
-            this.decRef = new System.Windows.Forms.PictureBox();
-            this.decVel = new System.Windows.Forms.PictureBox();
-            this.incVit = new System.Windows.Forms.PictureBox();
-            this.incPerc = new System.Windows.Forms.PictureBox();
-            this.incDest = new System.Windows.Forms.PictureBox();
-            this.incFuer = new System.Windows.Forms.PictureBox();
-            this.incIng = new System.Windows.Forms.PictureBox();
-            this.incCor = new System.Windows.Forms.PictureBox();
-            this.incCar = new System.Windows.Forms.PictureBox();
-            this.incIni = new System.Windows.Forms.PictureBox();
-            this.incRef = new System.Windows.Forms.PictureBox();
-            this.incVel = new System.Windows.Forms.PictureBox();
-            this.panel3.SuspendLayout();
+            this.lblPuntosRepartirH = new System.Windows.Forms.Label();
+            this.panelAtributos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incIni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incCor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incIng)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incFuer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incDest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incPerc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incVit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decVel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decRef)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decIni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decCar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decCor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decIng)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decFuer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPerc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decDest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decVit)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decVit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decDest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decPerc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decFuer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decIng)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decCor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decCar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decRef)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decVel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incVit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incPerc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incDest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incFuer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incIng)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incCor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incCar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incIni)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel3
+            // panelAtributos
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.incVel);
-            this.panel3.Controls.Add(this.incRef);
-            this.panel3.Controls.Add(this.incIni);
-            this.panel3.Controls.Add(this.incCar);
-            this.panel3.Controls.Add(this.incCor);
-            this.panel3.Controls.Add(this.incIng);
-            this.panel3.Controls.Add(this.incFuer);
-            this.panel3.Controls.Add(this.incDest);
-            this.panel3.Controls.Add(this.incPerc);
-            this.panel3.Controls.Add(this.incVit);
-            this.panel3.Controls.Add(this.decVel);
-            this.panel3.Controls.Add(this.decRef);
-            this.panel3.Controls.Add(this.decIni);
-            this.panel3.Controls.Add(this.decCar);
-            this.panel3.Controls.Add(this.decCor);
-            this.panel3.Controls.Add(this.decIng);
-            this.panel3.Controls.Add(this.decFuer);
-            this.panel3.Controls.Add(this.decPerc);
-            this.panel3.Controls.Add(this.decDest);
-            this.panel3.Controls.Add(this.decVit);
-            this.panel3.Controls.Add(this.lblPuntosRepartirA);
-            this.panel3.Controls.Add(this.pbVelocidad);
-            this.panel3.Controls.Add(this.pbReflejos);
-            this.panel3.Controls.Add(this.pbIniciativa);
-            this.panel3.Controls.Add(this.pbCarisma);
-            this.panel3.Controls.Add(this.pbCoraje);
-            this.panel3.Controls.Add(this.pbIngenio);
-            this.panel3.Controls.Add(this.pbFuerza);
-            this.panel3.Controls.Add(this.pbDestreza);
-            this.panel3.Controls.Add(this.pbPercepcion);
-            this.panel3.Controls.Add(this.pbVitalidad);
-            this.panel3.Controls.Add(this.lblReflejos);
-            this.panel3.Controls.Add(this.lblIniciativa);
-            this.panel3.Controls.Add(this.lblCarisma);
-            this.panel3.Controls.Add(this.lblCoraje);
-            this.panel3.Controls.Add(this.lblVelocidad);
-            this.panel3.Controls.Add(this.lblIngenio);
-            this.panel3.Controls.Add(this.lblFuerza);
-            this.panel3.Controls.Add(this.lblDestreza);
-            this.panel3.Controls.Add(this.lblPercepcion);
-            this.panel3.Controls.Add(this.lblVitalidad);
-            this.panel3.Controls.Add(this.lblAtributos);
-            this.panel3.Location = new System.Drawing.Point(12, 209);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(348, 384);
-            this.panel3.TabIndex = 8;
+            this.panelAtributos.BackColor = System.Drawing.Color.Transparent;
+            this.panelAtributos.Controls.Add(this.incVel);
+            this.panelAtributos.Controls.Add(this.incRef);
+            this.panelAtributos.Controls.Add(this.incIni);
+            this.panelAtributos.Controls.Add(this.incCar);
+            this.panelAtributos.Controls.Add(this.incCor);
+            this.panelAtributos.Controls.Add(this.incIng);
+            this.panelAtributos.Controls.Add(this.incFuer);
+            this.panelAtributos.Controls.Add(this.incDest);
+            this.panelAtributos.Controls.Add(this.incPerc);
+            this.panelAtributos.Controls.Add(this.incVit);
+            this.panelAtributos.Controls.Add(this.decVel);
+            this.panelAtributos.Controls.Add(this.decRef);
+            this.panelAtributos.Controls.Add(this.decIni);
+            this.panelAtributos.Controls.Add(this.decCar);
+            this.panelAtributos.Controls.Add(this.decCor);
+            this.panelAtributos.Controls.Add(this.decIng);
+            this.panelAtributos.Controls.Add(this.decFuer);
+            this.panelAtributos.Controls.Add(this.decPerc);
+            this.panelAtributos.Controls.Add(this.decDest);
+            this.panelAtributos.Controls.Add(this.decVit);
+            this.panelAtributos.Controls.Add(this.lblPuntosRepartirA);
+            this.panelAtributos.Controls.Add(this.pbVelocidad);
+            this.panelAtributos.Controls.Add(this.pbReflejos);
+            this.panelAtributos.Controls.Add(this.pbIniciativa);
+            this.panelAtributos.Controls.Add(this.pbCarisma);
+            this.panelAtributos.Controls.Add(this.pbCoraje);
+            this.panelAtributos.Controls.Add(this.pbIngenio);
+            this.panelAtributos.Controls.Add(this.pbFuerza);
+            this.panelAtributos.Controls.Add(this.pbDestreza);
+            this.panelAtributos.Controls.Add(this.pbPercepcion);
+            this.panelAtributos.Controls.Add(this.pbVitalidad);
+            this.panelAtributos.Controls.Add(this.lblReflejos);
+            this.panelAtributos.Controls.Add(this.lblIniciativa);
+            this.panelAtributos.Controls.Add(this.lblCarisma);
+            this.panelAtributos.Controls.Add(this.lblCoraje);
+            this.panelAtributos.Controls.Add(this.lblVelocidad);
+            this.panelAtributos.Controls.Add(this.lblIngenio);
+            this.panelAtributos.Controls.Add(this.lblFuerza);
+            this.panelAtributos.Controls.Add(this.lblDestreza);
+            this.panelAtributos.Controls.Add(this.lblPercepcion);
+            this.panelAtributos.Controls.Add(this.lblVitalidad);
+            this.panelAtributos.Controls.Add(this.lblAtributos);
+            this.panelAtributos.Location = new System.Drawing.Point(12, 209);
+            this.panelAtributos.Name = "panelAtributos";
+            this.panelAtributos.Size = new System.Drawing.Size(348, 384);
+            this.panelAtributos.TabIndex = 8;
+            // 
+            // incVel
+            // 
+            this.incVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incVel.Location = new System.Drawing.Point(210, 301);
+            this.incVel.Name = "incVel";
+            this.incVel.Size = new System.Drawing.Size(16, 25);
+            this.incVel.TabIndex = 44;
+            this.incVel.TabStop = false;
+            this.incVel.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incRef
+            // 
+            this.incRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incRef.Location = new System.Drawing.Point(210, 272);
+            this.incRef.Name = "incRef";
+            this.incRef.Size = new System.Drawing.Size(16, 25);
+            this.incRef.TabIndex = 43;
+            this.incRef.TabStop = false;
+            this.incRef.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incIni
+            // 
+            this.incIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incIni.Location = new System.Drawing.Point(210, 243);
+            this.incIni.Name = "incIni";
+            this.incIni.Size = new System.Drawing.Size(16, 25);
+            this.incIni.TabIndex = 42;
+            this.incIni.TabStop = false;
+            this.incIni.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incCar
+            // 
+            this.incCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incCar.Location = new System.Drawing.Point(210, 214);
+            this.incCar.Name = "incCar";
+            this.incCar.Size = new System.Drawing.Size(16, 25);
+            this.incCar.TabIndex = 41;
+            this.incCar.TabStop = false;
+            this.incCar.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incCor
+            // 
+            this.incCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incCor.Location = new System.Drawing.Point(210, 185);
+            this.incCor.Name = "incCor";
+            this.incCor.Size = new System.Drawing.Size(16, 25);
+            this.incCor.TabIndex = 40;
+            this.incCor.TabStop = false;
+            this.incCor.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incIng
+            // 
+            this.incIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incIng.Location = new System.Drawing.Point(210, 156);
+            this.incIng.Name = "incIng";
+            this.incIng.Size = new System.Drawing.Size(16, 25);
+            this.incIng.TabIndex = 39;
+            this.incIng.TabStop = false;
+            this.incIng.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incFuer
+            // 
+            this.incFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incFuer.Location = new System.Drawing.Point(210, 127);
+            this.incFuer.Name = "incFuer";
+            this.incFuer.Size = new System.Drawing.Size(16, 25);
+            this.incFuer.TabIndex = 38;
+            this.incFuer.TabStop = false;
+            this.incFuer.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incDest
+            // 
+            this.incDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incDest.Location = new System.Drawing.Point(210, 98);
+            this.incDest.Name = "incDest";
+            this.incDest.Size = new System.Drawing.Size(16, 25);
+            this.incDest.TabIndex = 37;
+            this.incDest.TabStop = false;
+            this.incDest.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incPerc
+            // 
+            this.incPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incPerc.Location = new System.Drawing.Point(210, 69);
+            this.incPerc.Name = "incPerc";
+            this.incPerc.Size = new System.Drawing.Size(16, 25);
+            this.incPerc.TabIndex = 36;
+            this.incPerc.TabStop = false;
+            this.incPerc.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // incVit
+            // 
+            this.incVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.incVit.Location = new System.Drawing.Point(210, 40);
+            this.incVit.Name = "incVit";
+            this.incVit.Size = new System.Drawing.Size(16, 25);
+            this.incVit.TabIndex = 35;
+            this.incVit.TabStop = false;
+            this.incVit.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decVel
+            // 
+            this.decVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decVel.Location = new System.Drawing.Point(188, 301);
+            this.decVel.Name = "decVel";
+            this.decVel.Size = new System.Drawing.Size(16, 25);
+            this.decVel.TabIndex = 34;
+            this.decVel.TabStop = false;
+            this.decVel.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decRef
+            // 
+            this.decRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decRef.Location = new System.Drawing.Point(188, 272);
+            this.decRef.Name = "decRef";
+            this.decRef.Size = new System.Drawing.Size(16, 25);
+            this.decRef.TabIndex = 33;
+            this.decRef.TabStop = false;
+            this.decRef.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decIni
+            // 
+            this.decIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decIni.Location = new System.Drawing.Point(188, 243);
+            this.decIni.Name = "decIni";
+            this.decIni.Size = new System.Drawing.Size(16, 25);
+            this.decIni.TabIndex = 32;
+            this.decIni.TabStop = false;
+            this.decIni.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decCar
+            // 
+            this.decCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decCar.Location = new System.Drawing.Point(188, 214);
+            this.decCar.Name = "decCar";
+            this.decCar.Size = new System.Drawing.Size(16, 25);
+            this.decCar.TabIndex = 31;
+            this.decCar.TabStop = false;
+            this.decCar.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decCor
+            // 
+            this.decCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decCor.Location = new System.Drawing.Point(188, 185);
+            this.decCor.Name = "decCor";
+            this.decCor.Size = new System.Drawing.Size(16, 25);
+            this.decCor.TabIndex = 30;
+            this.decCor.TabStop = false;
+            this.decCor.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decIng
+            // 
+            this.decIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decIng.Location = new System.Drawing.Point(188, 156);
+            this.decIng.Name = "decIng";
+            this.decIng.Size = new System.Drawing.Size(16, 25);
+            this.decIng.TabIndex = 29;
+            this.decIng.TabStop = false;
+            this.decIng.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decFuer
+            // 
+            this.decFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decFuer.Location = new System.Drawing.Point(188, 127);
+            this.decFuer.Name = "decFuer";
+            this.decFuer.Size = new System.Drawing.Size(16, 25);
+            this.decFuer.TabIndex = 28;
+            this.decFuer.TabStop = false;
+            this.decFuer.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decPerc
+            // 
+            this.decPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decPerc.Location = new System.Drawing.Point(188, 69);
+            this.decPerc.Name = "decPerc";
+            this.decPerc.Size = new System.Drawing.Size(16, 25);
+            this.decPerc.TabIndex = 27;
+            this.decPerc.TabStop = false;
+            this.decPerc.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decDest
+            // 
+            this.decDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decDest.Location = new System.Drawing.Point(188, 98);
+            this.decDest.Name = "decDest";
+            this.decDest.Size = new System.Drawing.Size(16, 25);
+            this.decDest.TabIndex = 26;
+            this.decDest.TabStop = false;
+            this.decDest.Click += new System.EventHandler(this.repartirPtosAtb);
+            // 
+            // decVit
+            // 
+            this.decVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.decVit.Location = new System.Drawing.Point(188, 40);
+            this.decVit.Name = "decVit";
+            this.decVit.Size = new System.Drawing.Size(16, 25);
+            this.decVit.TabIndex = 25;
+            this.decVit.TabStop = false;
+            this.decVit.Click += new System.EventHandler(this.repartirPtosAtb);
             // 
             // lblPuntosRepartirA
             // 
             this.lblPuntosRepartirA.AutoSize = true;
             this.lblPuntosRepartirA.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntosRepartirA.Location = new System.Drawing.Point(10, 339);
+            this.lblPuntosRepartirA.Location = new System.Drawing.Point(10, 341);
             this.lblPuntosRepartirA.Name = "lblPuntosRepartirA";
             this.lblPuntosRepartirA.Size = new System.Drawing.Size(97, 16);
             this.lblPuntosRepartirA.TabIndex = 24;
@@ -440,26 +660,16 @@
             this.panel4.Controls.Add(this.cboxEsquivar);
             this.panel4.Controls.Add(this.cboxAbrCerr);
             this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(575, 41);
+            this.panel4.Location = new System.Drawing.Point(635, 41);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(421, 608);
             this.panel4.TabIndex = 9;
-            // 
-            // lblPuntosRepartirH
-            // 
-            this.lblPuntosRepartirH.AutoSize = true;
-            this.lblPuntosRepartirH.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuntosRepartirH.Location = new System.Drawing.Point(276, 592);
-            this.lblPuntosRepartirH.Name = "lblPuntosRepartirH";
-            this.lblPuntosRepartirH.Size = new System.Drawing.Size(97, 16);
-            this.lblPuntosRepartirH.TabIndex = 23;
-            this.lblPuntosRepartirH.Text = "Puntos a repartir: ";
             // 
             // lblHabilidadesPorSelec
             // 
             this.lblHabilidadesPorSelec.AutoSize = true;
             this.lblHabilidadesPorSelec.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHabilidadesPorSelec.Location = new System.Drawing.Point(97, 592);
+            this.lblHabilidadesPorSelec.Location = new System.Drawing.Point(181, 558);
             this.lblHabilidadesPorSelec.Name = "lblHabilidadesPorSelec";
             this.lblHabilidadesPorSelec.Size = new System.Drawing.Size(144, 16);
             this.lblHabilidadesPorSelec.TabIndex = 21;
@@ -866,205 +1076,14 @@
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.clicCerrar);
             // 
-            // decVit
+            // lblPuntosRepartirH
             // 
-            this.decVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decVit.Location = new System.Drawing.Point(188, 40);
-            this.decVit.Name = "decVit";
-            this.decVit.Size = new System.Drawing.Size(16, 25);
-            this.decVit.TabIndex = 25;
-            this.decVit.TabStop = false;
-            // 
-            // decDest
-            // 
-            this.decDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decDest.Location = new System.Drawing.Point(188, 98);
-            this.decDest.Name = "decDest";
-            this.decDest.Size = new System.Drawing.Size(16, 25);
-            this.decDest.TabIndex = 26;
-            this.decDest.TabStop = false;
-            // 
-            // decPerc
-            // 
-            this.decPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decPerc.Location = new System.Drawing.Point(188, 69);
-            this.decPerc.Name = "decPerc";
-            this.decPerc.Size = new System.Drawing.Size(16, 25);
-            this.decPerc.TabIndex = 27;
-            this.decPerc.TabStop = false;
-            // 
-            // decFuer
-            // 
-            this.decFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decFuer.Location = new System.Drawing.Point(188, 127);
-            this.decFuer.Name = "decFuer";
-            this.decFuer.Size = new System.Drawing.Size(16, 25);
-            this.decFuer.TabIndex = 28;
-            this.decFuer.TabStop = false;
-            // 
-            // decIng
-            // 
-            this.decIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decIng.Location = new System.Drawing.Point(188, 156);
-            this.decIng.Name = "decIng";
-            this.decIng.Size = new System.Drawing.Size(16, 25);
-            this.decIng.TabIndex = 29;
-            this.decIng.TabStop = false;
-            // 
-            // decCor
-            // 
-            this.decCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decCor.Location = new System.Drawing.Point(188, 185);
-            this.decCor.Name = "decCor";
-            this.decCor.Size = new System.Drawing.Size(16, 25);
-            this.decCor.TabIndex = 30;
-            this.decCor.TabStop = false;
-            // 
-            // decCar
-            // 
-            this.decCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decCar.Location = new System.Drawing.Point(188, 214);
-            this.decCar.Name = "decCar";
-            this.decCar.Size = new System.Drawing.Size(16, 25);
-            this.decCar.TabIndex = 31;
-            this.decCar.TabStop = false;
-            // 
-            // decIni
-            // 
-            this.decIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decIni.Location = new System.Drawing.Point(188, 243);
-            this.decIni.Name = "decIni";
-            this.decIni.Size = new System.Drawing.Size(16, 25);
-            this.decIni.TabIndex = 32;
-            this.decIni.TabStop = false;
-            // 
-            // decRef
-            // 
-            this.decRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decRef.Location = new System.Drawing.Point(188, 272);
-            this.decRef.Name = "decRef";
-            this.decRef.Size = new System.Drawing.Size(16, 25);
-            this.decRef.TabIndex = 33;
-            this.decRef.TabStop = false;
-            // 
-            // decVel
-            // 
-            this.decVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
-            this.decVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.decVel.Location = new System.Drawing.Point(188, 301);
-            this.decVel.Name = "decVel";
-            this.decVel.Size = new System.Drawing.Size(16, 25);
-            this.decVel.TabIndex = 34;
-            this.decVel.TabStop = false;
-            // 
-            // incVit
-            // 
-            this.incVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incVit.Location = new System.Drawing.Point(210, 40);
-            this.incVit.Name = "incVit";
-            this.incVit.Size = new System.Drawing.Size(16, 25);
-            this.incVit.TabIndex = 35;
-            this.incVit.TabStop = false;
-            // 
-            // incPerc
-            // 
-            this.incPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incPerc.Location = new System.Drawing.Point(210, 69);
-            this.incPerc.Name = "incPerc";
-            this.incPerc.Size = new System.Drawing.Size(16, 25);
-            this.incPerc.TabIndex = 36;
-            this.incPerc.TabStop = false;
-            // 
-            // incDest
-            // 
-            this.incDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incDest.Location = new System.Drawing.Point(210, 98);
-            this.incDest.Name = "incDest";
-            this.incDest.Size = new System.Drawing.Size(16, 25);
-            this.incDest.TabIndex = 37;
-            this.incDest.TabStop = false;
-            // 
-            // incFuer
-            // 
-            this.incFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incFuer.Location = new System.Drawing.Point(210, 127);
-            this.incFuer.Name = "incFuer";
-            this.incFuer.Size = new System.Drawing.Size(16, 25);
-            this.incFuer.TabIndex = 38;
-            this.incFuer.TabStop = false;
-            // 
-            // incIng
-            // 
-            this.incIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incIng.Location = new System.Drawing.Point(210, 156);
-            this.incIng.Name = "incIng";
-            this.incIng.Size = new System.Drawing.Size(16, 25);
-            this.incIng.TabIndex = 39;
-            this.incIng.TabStop = false;
-            // 
-            // incCor
-            // 
-            this.incCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incCor.Location = new System.Drawing.Point(210, 185);
-            this.incCor.Name = "incCor";
-            this.incCor.Size = new System.Drawing.Size(16, 25);
-            this.incCor.TabIndex = 40;
-            this.incCor.TabStop = false;
-            // 
-            // incCar
-            // 
-            this.incCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incCar.Location = new System.Drawing.Point(210, 214);
-            this.incCar.Name = "incCar";
-            this.incCar.Size = new System.Drawing.Size(16, 25);
-            this.incCar.TabIndex = 41;
-            this.incCar.TabStop = false;
-            // 
-            // incIni
-            // 
-            this.incIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incIni.Location = new System.Drawing.Point(210, 243);
-            this.incIni.Name = "incIni";
-            this.incIni.Size = new System.Drawing.Size(16, 25);
-            this.incIni.TabIndex = 42;
-            this.incIni.TabStop = false;
-            // 
-            // incRef
-            // 
-            this.incRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incRef.Location = new System.Drawing.Point(210, 272);
-            this.incRef.Name = "incRef";
-            this.incRef.Size = new System.Drawing.Size(16, 25);
-            this.incRef.TabIndex = 43;
-            this.incRef.TabStop = false;
-            // 
-            // incVel
-            // 
-            this.incVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
-            this.incVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.incVel.Location = new System.Drawing.Point(210, 301);
-            this.incVel.Name = "incVel";
-            this.incVel.Size = new System.Drawing.Size(16, 25);
-            this.incVel.TabIndex = 44;
-            this.incVel.TabStop = false;
+            this.lblPuntosRepartirH.AutoSize = true;
+            this.lblPuntosRepartirH.Location = new System.Drawing.Point(81, 324);
+            this.lblPuntosRepartirH.Name = "lblPuntosRepartirH";
+            this.lblPuntosRepartirH.Size = new System.Drawing.Size(35, 13);
+            this.lblPuntosRepartirH.TabIndex = 22;
+            this.lblPuntosRepartirH.Text = "label2";
             // 
             // Form1
             // 
@@ -1076,7 +1095,7 @@
             this.Controls.Add(this.imgDado);
             this.Controls.Add(this.imgCerrar);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -1085,8 +1104,28 @@
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelAtributos.ResumeLayout(false);
+            this.panelAtributos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.incVel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incRef)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incIni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incCor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incIng)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incFuer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incDest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incPerc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.incVit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decVel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decRef)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decIni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decCar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decCor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decIng)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decFuer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decPerc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decDest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decVit)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1095,32 +1134,12 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decVit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decDest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decPerc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decFuer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decIng)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decCor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decCar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decRef)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.decVel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incVit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incPerc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incDest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incFuer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incIng)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incCor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incCar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incIni)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incRef)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.incVel)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panelAtributos;
         private System.Windows.Forms.Label lblAtributos;
         private System.Windows.Forms.Label lblReflejos;
         private System.Windows.Forms.Label lblIniciativa;
@@ -1154,7 +1173,6 @@
         private System.Windows.Forms.CheckBox cboxAbrCerr;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox imgCerrar;
-        private System.Windows.Forms.Label lblPuntosRepartirH;
         private System.Windows.Forms.Label lblHabilidadesPorSelec;
         private System.Windows.Forms.Label lblNomPers;
         private System.Windows.Forms.Label lblNomJug;
@@ -1199,6 +1217,7 @@
         private System.Windows.Forms.PictureBox incFuer;
         private System.Windows.Forms.PictureBox incDest;
         private System.Windows.Forms.PictureBox incPerc;
+        private System.Windows.Forms.Label lblPuntosRepartirH;
     }
 }
 
