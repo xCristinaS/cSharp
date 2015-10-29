@@ -13,9 +13,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
     public partial class Form1 : Form {
         private String[] personajesMagicos = { "Mago", "Nigromante" };
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
-        int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
-        private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, cbPorSelec = 7;
-        private Random rnd = new Random();
+        int[] valoresAtributosAleatorios = new int[10], valoresHabAleatorios = new int[19]; private bool dadoApagado = false;
+        private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
+        private Random rnd = new Random(); LinkedList<string> textoHab = new LinkedList<string>();
 
         public Form1() {
             InitializeComponent();
@@ -24,11 +24,17 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void Form1_Load(object sender, EventArgs e) {
             obtenerValoresAleatorios();
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
-            lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + cbPorSelec;
+            lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
 
-            foreach (object pb in panelAtributos.Controls) {
-                if (pb is PictureBox)
-                    ((PictureBox)pb).Tag = 0;
+            foreach (object pbAtributo in panelAtributos.Controls) {
+                if (pbAtributo is PictureBox)
+                    ((PictureBox)pbAtributo).Tag = 0;
+            }
+
+            foreach (object cbHabilidad in panelHabilidades.Controls) {
+                if (cbHabilidad is CheckBox) {
+                    textoHab.AddLast(((CheckBox)cbHabilidad).Text);
+                }
             }
         }
 
@@ -45,6 +51,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
             if (!combRaza.Text.Equals("")) {
                 resetValoresAtrib();
+                resetValoresHab();
                 this.BackgroundImage = null;
             }
         }
@@ -203,6 +210,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     break;
             }
             darValorAtributosAleatorios();
+            asignarValoresHab();
         }
 
         private void darValorAtributosAleatorios() {
@@ -232,22 +240,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbReflejos.Value = 0;
             pbVelocidad.Value = 0;
             pbVitalidad.Value = 0;
-        }
-
-        private void tirarDado(object sender, EventArgs e) {
-            String personaje;
-            if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
-                resetValoresAtrib();
-                personaje = combClase.SelectedItem.ToString();
-                obtenerValoresAleatorios();
-                asignarAtributosPlusPSJ(personaje);
-                numTirada++;
-            }
-
-            if (!dadoApagado && numTirada == Constantes.MAX_TIRADAS) {
-                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
-                dadoApagado = true;
-            }
         }
 
         private void repartirPtosAtb(object sender, EventArgs e) {
@@ -348,9 +340,51 @@ namespace CS_Ejercicio03_FichaDePersonajes
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
 
+        private void asignarValoresHab() {
+            int cont = 0; string cadena=""; CheckBox hab;
+            foreach (object cbHabilidad in panelHabilidades.Controls) {
+                if (cbHabilidad is CheckBox) {
+                    hab = ((CheckBox)cbHabilidad);
+                    cadena = " " + valoresHabAleatorios[cont] + Constantes.PORCENTAJE;
+                    hab.Text = textoHab.ElementAt(cont) + cadena;
+                    cont++;
+                }
+            }
+        }
+
+        private void resetValoresHab() {
+            int cont = 0; CheckBox hab;
+            foreach (object cbHabilidad in panelHabilidades.Controls) {
+                if (cbHabilidad is CheckBox) {
+                    hab = ((CheckBox)cbHabilidad);
+                    hab.Text = textoHab.ElementAt(cont);
+                    cont++;
+                }
+            }
+        }
+
+        private void tirarDado(object sender, EventArgs e) {
+            String personaje;
+            if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
+                resetValoresAtrib();
+                personaje = combClase.SelectedItem.ToString();
+                obtenerValoresAleatorios();
+                asignarAtributosPlusPSJ(personaje);
+                asignarValoresHab();
+                numTirada++;
+            }
+
+            if (!dadoApagado && numTirada == Constantes.MAX_TIRADAS) {
+                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
+                dadoApagado = true;
+            }
+        }
+
         private void obtenerValoresAleatorios() {
             for (int i = 0; i < valoresAtributosAleatorios.Length; i++)
-                valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ATRIB_ALEATORIO, Constantes.MAX_VALOR_ATRIB_ALEATORIO);
+                valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
+            for (int i = 0; i < valoresHabAleatorios.Length; i++)
+                valoresHabAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
         }
     }
 }

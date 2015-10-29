@@ -71,7 +71,7 @@
             this.lblPercepcion = new System.Windows.Forms.Label();
             this.lblVitalidad = new System.Windows.Forms.Label();
             this.lblAtributos = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panelHabilidades = new System.Windows.Forms.Panel();
             this.lblHabilidadesPorSelec = new System.Windows.Forms.Label();
             this.cboxLeerLabios = new System.Windows.Forms.CheckBox();
             this.cboxInterrog = new System.Windows.Forms.CheckBox();
@@ -127,7 +127,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.decPerc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.decDest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.decVit)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.panelHabilidades.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
@@ -634,34 +634,34 @@
             this.lblAtributos.TabIndex = 0;
             this.lblAtributos.Text = "ATRIBUTOS";
             // 
-            // panel4
+            // panelHabilidades
             // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.lblHabilidadesPorSelec);
-            this.panel4.Controls.Add(this.cboxLeerLabios);
-            this.panel4.Controls.Add(this.cboxInterrog);
-            this.panel4.Controls.Add(this.cboxIntimidar);
-            this.panel4.Controls.Add(this.cboxPrimerosAux);
-            this.panel4.Controls.Add(this.cboxPunteria);
-            this.panel4.Controls.Add(this.cboxSaltar);
-            this.panel4.Controls.Add(this.cboxDisfrazarse);
-            this.panel4.Controls.Add(this.cboxEquilibrio);
-            this.panel4.Controls.Add(this.cboxEnganiar);
-            this.panel4.Controls.Add(this.cboxNadar);
-            this.panel4.Controls.Add(this.cboxEscalar);
-            this.panel4.Controls.Add(this.cboxHurtar);
-            this.panel4.Controls.Add(this.cboxOcultarse);
-            this.panel4.Controls.Add(this.cboxTrampasFosos);
-            this.panel4.Controls.Add(this.cboxPersuasion);
-            this.panel4.Controls.Add(this.cboxDetMent);
-            this.panel4.Controls.Add(this.cboxSigilo);
-            this.panel4.Controls.Add(this.cboxEsquivar);
-            this.panel4.Controls.Add(this.cboxAbrCerr);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(609, 41);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(421, 608);
-            this.panel4.TabIndex = 9;
+            this.panelHabilidades.BackColor = System.Drawing.Color.Transparent;
+            this.panelHabilidades.Controls.Add(this.lblHabilidadesPorSelec);
+            this.panelHabilidades.Controls.Add(this.cboxLeerLabios);
+            this.panelHabilidades.Controls.Add(this.cboxInterrog);
+            this.panelHabilidades.Controls.Add(this.cboxIntimidar);
+            this.panelHabilidades.Controls.Add(this.cboxPrimerosAux);
+            this.panelHabilidades.Controls.Add(this.cboxPunteria);
+            this.panelHabilidades.Controls.Add(this.cboxSaltar);
+            this.panelHabilidades.Controls.Add(this.cboxDisfrazarse);
+            this.panelHabilidades.Controls.Add(this.cboxEquilibrio);
+            this.panelHabilidades.Controls.Add(this.cboxEnganiar);
+            this.panelHabilidades.Controls.Add(this.cboxNadar);
+            this.panelHabilidades.Controls.Add(this.cboxEscalar);
+            this.panelHabilidades.Controls.Add(this.cboxHurtar);
+            this.panelHabilidades.Controls.Add(this.cboxOcultarse);
+            this.panelHabilidades.Controls.Add(this.cboxTrampasFosos);
+            this.panelHabilidades.Controls.Add(this.cboxPersuasion);
+            this.panelHabilidades.Controls.Add(this.cboxDetMent);
+            this.panelHabilidades.Controls.Add(this.cboxSigilo);
+            this.panelHabilidades.Controls.Add(this.cboxEsquivar);
+            this.panelHabilidades.Controls.Add(this.cboxAbrCerr);
+            this.panelHabilidades.Controls.Add(this.label1);
+            this.panelHabilidades.Location = new System.Drawing.Point(609, 41);
+            this.panelHabilidades.Name = "panelHabilidades";
+            this.panelHabilidades.Size = new System.Drawing.Size(421, 608);
+            this.panelHabilidades.TabIndex = 9;
             // 
             // lblHabilidadesPorSelec
             // 
@@ -1083,7 +1083,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 661);
             this.Controls.Add(this.imgDado);
             this.Controls.Add(this.imgCerrar);
-            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panel2);
             this.DoubleBuffered = true;
@@ -1115,8 +1115,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.decPerc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.decDest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.decVit)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.panelHabilidades.ResumeLayout(false);
+            this.panelHabilidades.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1140,7 +1140,7 @@
         private System.Windows.Forms.Label lblDestreza;
         private System.Windows.Forms.Label lblPercepcion;
         private System.Windows.Forms.Label lblVitalidad;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panelHabilidades;
         private System.Windows.Forms.CheckBox cboxLeerLabios;
         private System.Windows.Forms.CheckBox cboxInterrog;
         private System.Windows.Forms.CheckBox cboxIntimidar;
