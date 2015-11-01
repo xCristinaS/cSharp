@@ -13,28 +13,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
     public partial class Form1 : Form {
         private String[] personajesMagicos = { "Mago", "Nigromante" };
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
-        int[] valoresAtributosAleatorios = new int[10], valoresHabAleatorios = new int[19]; private bool dadoApagado = false;
+        int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
-        private Random rnd = new Random(); LinkedList<string> textoHab = new LinkedList<string>();
+        private Random rnd = new Random(); 
 
         public Form1() {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            obtenerValoresAleatorios();
+            obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
-
+            // A todos los picture box que están en el panel de atributos les cambio su .Tag a valor 0, para despúes poder 
+            // jugar con los valores que se le vayan dando e incrementar o decrementar las progressbar de habilidades en 
+            // función de los puntos que reparta el usuario. 
             foreach (object pbAtributo in panelAtributos.Controls) {
                 if (pbAtributo is PictureBox)
                     ((PictureBox)pbAtributo).Tag = 0;
-            }
-
-            foreach (object cbHabilidad in panelHabilidades.Controls) {
-                if (cbHabilidad is CheckBox) {
-                    textoHab.AddLast(((CheckBox)cbHabilidad).Text);
-                }
             }
         }
 
@@ -44,18 +40,20 @@ namespace CS_Ejercicio03_FichaDePersonajes
         // Este método es lanzado cuando cambia el comboboxRaza. 
         private void comboboxCambiado(object sender, EventArgs e) {
             combClase.Items.Clear();
+            // Los valores del combClase variarán en función de la raza seleccionada. Si el indice es 0, se cargarán 
+            // los personajesMagicos en el combClase, en caso contrario se cargarán los personajesMundanos.
             if (combRaza.SelectedIndex == 0)
                 combClase.Items.AddRange(personajesMagicos);
             else
                 combClase.Items.AddRange(personajesMundanos);
-
+            // Cuando cambio la raza, la clase se desselecciona, y por tanto debo resetear los valores de los atributos
+            // de la clase que se hubiera seleccionado anteriormente y quitar la imagen del psj. 
             if (!combRaza.Text.Equals("")) {
                 resetValoresAtrib();
-                resetValoresHab();
                 this.BackgroundImage = null;
             }
         }
-
+        
         private void actualizarImg(object sender, EventArgs e) {
             mostrarImgPersonaje(sender);
         }
@@ -63,21 +61,25 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mostrarImgPersonaje(object sender) {
             String personaje;
             if (!combClase.Text.Equals("")) {
-                personaje = combClase.SelectedItem.ToString();
+                personaje = combClase.SelectedItem.ToString(); 
                 // Sólo doy el plus a los atributos si quien lanzó el evento fue el cambio de clase del personaje.
                 // El plus de los atributos variará en función del personaje seleccionado. 
                 if (sender.Equals(combClase))
                     asignarAtributosPlusPSJ(personaje);
+                // A la cadena del personaje seleccionado le quito el último carácter y lo paso a minúsculas.
                 personaje = personaje.Substring(0, personaje.Length - 1);
                 personaje = personaje.ToLower();
 
+                // Si el personaje seleccionado es diferente al nigromante, que es el único personaje que 
+                // no tiene género, a la cadena del personaje seleccionado le agrego una "a" en caso de que
+                // el genero sea femenino y una "o" en caso de que sea masculino. 
                 if (!personaje.Equals("nigromant")) {
                     if (rbtnFemenino.Checked)
                         personaje += "a";
                     if (rbtnMasculino.Checked)
                         personaje += "o";
                 }
-
+                // Evalúo la cadena personaje y establezco la imagen de fondo correspondiente al personaje seleccionado y su género. 
                 switch (personaje) {
                     case "cazadoa": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el femenino se añade una "a".
                         this.BackgroundImage = Properties.Resources.cazadora;
@@ -121,7 +123,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             }
         }
-
+        // Doy un valor extra a cada atributo en función del personaje seleccionado. 
         private void asignarAtributosPlusPSJ(String personaje) {
             switch (personaje) {
                 case "Mago":
@@ -209,8 +211,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     pbVitalidad.Value = Constantes.CAZADOR_VITALIDAD_PLUS;
                     break;
             }
-            darValorAtributosAleatorios();
-            asignarValoresHab();
+            darValorAtributosAleatorios(); // Cada vez que se cambia de personaje debo volver a sumar los valores aleatorios a la base de ptos por personaje.
         }
 
         private void darValorAtributosAleatorios() {
@@ -224,7 +225,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbReflejos.Value += valoresAtributosAleatorios[7];
             pbVelocidad.Value += valoresAtributosAleatorios[8];
             pbVitalidad.Value += valoresAtributosAleatorios[9];
-
+            // Reestablezco los puntos a repartir, puesto que si he llegado aquí es porque se ha cambiado de personaje y
+            // en ese caso, si se hizo un reparto de puntos para el personaje anterior fue suprimido.
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
@@ -243,6 +245,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void repartirPtosAtb(object sender, EventArgs e) {
+            // Si hay un personaje seleccionado y el evento lo lanzó una flecha (imagen en pictureBox) de incremento, incrementaré el atributo
+            // en caso de que el evento fuera lanzado al hacer clic en una flecha de decremento, decremento el valor del atributo asociado a dicha flecha. 
             if (!combClase.Text.Equals(""))
                 if (ptosRepAtrib > 0 && ((PictureBox)sender).Name.StartsWith("i"))
                     incrementarAtributo(sender);
@@ -251,6 +255,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void incrementarAtributo(object sender) {
+            // Evalúo qué flecha de incremento fue clickeada e incremento en 1 el valor de la progressBar asociada a 
+            // dicha flecha. A su vez, al .Tag asociado a la flecha de decremento le doy un +1. Lo que pretendo con esto, 
+            // es que únicamente se pueda decrementar cuando previamente se haya incrementado, para nunca alterar la base 
+            // que se estableció al sumar los puntos asociados a cada personaje con los valores aleatorios. 
             if (sender.Equals(incVit) && pbVitalidad.Value < pbVitalidad.Maximum) {
                 pbVitalidad.Value++;
                 ptosRepAtrib--;
@@ -292,10 +300,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 ptosRepAtrib--;
                 decVel.Tag = ((int)decVel.Tag) + 1;
             } 
-            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
         }
 
         private void decrementarAtributo(object sender) {
+            // Evalúo que flecha de decremento fue seleccionada y decremento el valor de la progressbar asociada a dicha flecha.
+            // Sólo podre decrementar el valor de la progressbar si el tag de la flecha de decremento fue previamente incrementado (esta 
+            // comprobación se hace previamente, en el evento "repartirPtosAtb" que es el que se lanza al hacer clic en la flecha de decremento).
             if (sender.Equals(decVit) && pbVitalidad.Value > 0) {
                 pbVitalidad.Value--;
                 ptosRepAtrib++;
@@ -337,54 +348,57 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 ptosRepAtrib++;
                 decVel.Tag = ((int)decVel.Tag) - 1;
             }
-            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
         }
 
-        private void asignarValoresHab() {
-            int cont = 0; string cadena=""; CheckBox hab;
-            foreach (object cbHabilidad in panelHabilidades.Controls) {
-                if (cbHabilidad is CheckBox) {
-                    hab = ((CheckBox)cbHabilidad);
-                    cadena = " " + valoresHabAleatorios[cont] + Constantes.PORCENTAJE;
-                    hab.Text = textoHab.ElementAt(cont) + cadena;
-                    cont++;
-                }
-            }
-        }
+        private void habilidadesCheckedChange(object sender, EventArgs e) {
+            CheckBox cb = (CheckBox)sender; 
+            if (cb.Checked) 
+                habPorSelect--; // Si se ha seleccionado un checkbox decremento la cantidad de habilidades por seleccionar. 
+            else
+                habPorSelect++; // Si se ha seleccionado un checkbox incremento la cantidad de habilidades por seleccionar.
 
-        private void resetValoresHab() {
-            int cont = 0; CheckBox hab;
-            foreach (object cbHabilidad in panelHabilidades.Controls) {
-                if (cbHabilidad is CheckBox) {
-                    hab = ((CheckBox)cbHabilidad);
-                    hab.Text = textoHab.ElementAt(cont);
-                    cont++;
+            if (habPorSelect == 0) {
+                // Si ya se han seleccionado el máximo número de habilidades, deshabilito todas las que no estén marcadas. 
+                foreach (object cb2 in panelHabilidades.Controls) {
+                    if (cb2 is CheckBox)
+                        if (!((CheckBox)cb2).Checked)
+                            ((CheckBox)cb2).Enabled = false;
+                }
+            } else {
+                // Si quedan habilidades por seleccionar, habilito todas las que estén desmarcadas. 
+                foreach (object cb2 in panelHabilidades.Controls) {
+                    if (cb2 is CheckBox)
+                        if (!((CheckBox)cb2).Checked)
+                            ((CheckBox)cb2).Enabled = true;
                 }
             }
+            lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
         }
 
         private void tirarDado(object sender, EventArgs e) {
             String personaje;
+            // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
             if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
-                resetValoresAtrib();
-                personaje = combClase.SelectedItem.ToString();
-                obtenerValoresAleatorios();
-                asignarAtributosPlusPSJ(personaje);
-                asignarValoresHab();
-                numTirada++;
+                resetValoresAtrib(); // Pongo los atributos a 0. 
+                personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
+                obtenerValoresAleatorios(); // Relleno el array con valores aleatorios nuevamente. 
+                asignarAtributosPlusPSJ(personaje); // Doy valor a los atributos en base al personaje, éste metodo añadirá la base aleatoria. 
+                numTirada++; // Incremento número de tirada. 
             }
-
+            // Si el dado estaba habilidato y el número de tiradas llega al máximo permitido, apago el dado y cambio la imagen del dado 
+            // para que aparezca deshabilitado. 
             if (!dadoApagado && numTirada == Constantes.MAX_TIRADAS) {
                 imgDado.BackgroundImage = Properties.Resources.dadoApagado;
                 dadoApagado = true;
+                imgDado.Enabled = false;
             }
         }
 
         private void obtenerValoresAleatorios() {
+            // Relleno el array de valores aleatorios para los atributos. 
             for (int i = 0; i < valoresAtributosAleatorios.Length; i++)
                 valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
-            for (int i = 0; i < valoresHabAleatorios.Length; i++)
-                valoresHabAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
         }
     }
 }

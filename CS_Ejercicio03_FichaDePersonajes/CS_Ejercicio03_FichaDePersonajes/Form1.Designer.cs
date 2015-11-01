@@ -684,6 +684,7 @@
             this.cboxLeerLabios.TabIndex = 20;
             this.cboxLeerLabios.Text = "Leer los labios";
             this.cboxLeerLabios.UseVisualStyleBackColor = true;
+            this.cboxLeerLabios.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxInterrog
             // 
@@ -696,6 +697,7 @@
             this.cboxInterrog.TabIndex = 19;
             this.cboxInterrog.Text = "Interrogatorio";
             this.cboxInterrog.UseVisualStyleBackColor = true;
+            this.cboxInterrog.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxIntimidar
             // 
@@ -708,6 +710,7 @@
             this.cboxIntimidar.TabIndex = 18;
             this.cboxIntimidar.Text = "Intimidar";
             this.cboxIntimidar.UseVisualStyleBackColor = true;
+            this.cboxIntimidar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxPrimerosAux
             // 
@@ -720,6 +723,7 @@
             this.cboxPrimerosAux.TabIndex = 17;
             this.cboxPrimerosAux.Text = "Primeros auxilios";
             this.cboxPrimerosAux.UseVisualStyleBackColor = true;
+            this.cboxPrimerosAux.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxPunteria
             // 
@@ -732,6 +736,7 @@
             this.cboxPunteria.TabIndex = 16;
             this.cboxPunteria.Text = "Puntería";
             this.cboxPunteria.UseVisualStyleBackColor = true;
+            this.cboxPunteria.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxSaltar
             // 
@@ -744,6 +749,7 @@
             this.cboxSaltar.TabIndex = 15;
             this.cboxSaltar.Text = "Saltar";
             this.cboxSaltar.UseVisualStyleBackColor = true;
+            this.cboxSaltar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxDisfrazarse
             // 
@@ -756,6 +762,7 @@
             this.cboxDisfrazarse.TabIndex = 14;
             this.cboxDisfrazarse.Text = "Disfrazarse";
             this.cboxDisfrazarse.UseVisualStyleBackColor = true;
+            this.cboxDisfrazarse.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxEquilibrio
             // 
@@ -768,6 +775,7 @@
             this.cboxEquilibrio.TabIndex = 13;
             this.cboxEquilibrio.Text = "Equilibrio";
             this.cboxEquilibrio.UseVisualStyleBackColor = true;
+            this.cboxEquilibrio.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxEnganiar
             // 
@@ -781,6 +789,7 @@
             this.cboxEnganiar.TabIndex = 12;
             this.cboxEnganiar.Text = "Engañar";
             this.cboxEnganiar.UseVisualStyleBackColor = true;
+            this.cboxEnganiar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxNadar
             // 
@@ -793,6 +802,7 @@
             this.cboxNadar.TabIndex = 11;
             this.cboxNadar.Text = "Nadar";
             this.cboxNadar.UseVisualStyleBackColor = true;
+            this.cboxNadar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxEscalar
             // 
@@ -805,6 +815,7 @@
             this.cboxEscalar.TabIndex = 10;
             this.cboxEscalar.Text = "Escalar";
             this.cboxEscalar.UseVisualStyleBackColor = true;
+            this.cboxEscalar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxHurtar
             // 
@@ -817,6 +828,7 @@
             this.cboxHurtar.TabIndex = 9;
             this.cboxHurtar.Text = "Hurtar";
             this.cboxHurtar.UseVisualStyleBackColor = true;
+            this.cboxHurtar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxOcultarse
             // 
@@ -829,6 +841,7 @@
             this.cboxOcultarse.TabIndex = 8;
             this.cboxOcultarse.Text = "Ocultarse";
             this.cboxOcultarse.UseVisualStyleBackColor = true;
+            this.cboxOcultarse.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxTrampasFosos
             // 
@@ -841,6 +854,7 @@
             this.cboxTrampasFosos.TabIndex = 7;
             this.cboxTrampasFosos.Text = "Detectar trampas y fosos";
             this.cboxTrampasFosos.UseVisualStyleBackColor = true;
+            this.cboxTrampasFosos.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxPersuasion
             // 
@@ -853,6 +867,7 @@
             this.cboxPersuasion.TabIndex = 6;
             this.cboxPersuasion.Text = "Persuasion";
             this.cboxPersuasion.UseVisualStyleBackColor = true;
+            this.cboxPersuasion.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxDetMent
             // 
@@ -865,6 +880,7 @@
             this.cboxDetMent.TabIndex = 5;
             this.cboxDetMent.Text = "Detectar mentiras";
             this.cboxDetMent.UseVisualStyleBackColor = true;
+            this.cboxDetMent.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxSigilo
             // 
@@ -877,6 +893,7 @@
             this.cboxSigilo.TabIndex = 4;
             this.cboxSigilo.Text = "Sigilo";
             this.cboxSigilo.UseVisualStyleBackColor = true;
+            this.cboxSigilo.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxEsquivar
             // 
@@ -889,6 +906,7 @@
             this.cboxEsquivar.TabIndex = 3;
             this.cboxEsquivar.Text = "Esquivar";
             this.cboxEsquivar.UseVisualStyleBackColor = true;
+            this.cboxEsquivar.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // cboxAbrCerr
             // 
@@ -901,6 +919,7 @@
             this.cboxAbrCerr.TabIndex = 2;
             this.cboxAbrCerr.Text = "Abrir cerraduras";
             this.cboxAbrCerr.UseVisualStyleBackColor = true;
+            this.cboxAbrCerr.CheckedChanged += new System.EventHandler(this.habilidadesCheckedChange);
             // 
             // label1
             // 
