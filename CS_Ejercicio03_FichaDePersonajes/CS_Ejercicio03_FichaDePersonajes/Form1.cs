@@ -16,7 +16,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
-
+        /*
+        //[DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        IntPtr cursor = LoadCursorFromFile(@"C:\cursor.cur");
+        */
         public Form1() {
             InitializeComponent();
         }
@@ -38,6 +42,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
             imgDado.Visible = false;
+
+            //this.Cursor = new Cursor(cursor);
         }
 
         private void clicCerrar(object sender, EventArgs e) {
@@ -57,7 +63,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             if (!combRaza.Text.Equals("")) {
                 resetValoresAtrib();
                 limpiarHabilidadesMarcadas();
-                this.BackgroundImage = null;
+                this.BackgroundImage = Properties.Resources.fondo;
             }
         }
         
@@ -421,22 +427,22 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void menuCarga(object sender, EventArgs e) {
-            barraCarga.Value++; int num = 23;
-            
+            barraCarga.Value++; int num = 20;
+            // Hago que la barra de carga vaya más rápido conforme avanza. 
             if (!carga1 && barraCarga.Value > 80) {
-                timer1.Interval -= num;
+                timer1.Interval -= num/3;
                 carga1 = true;
             } else if (!carga2 && barraCarga.Value > 60) {
                 carga2 = true;
-                timer1.Interval -= num;
+                timer1.Interval -= num/2;
             } else if (!carga3 && barraCarga.Value > 40) {
                 carga3 = true;
                 timer1.Interval -= num;
-            } else if (!carga4 && barraCarga.Value > 20) {
-                timer1.Interval -= num;
+            } else if (!carga4 && barraCarga.Value > 10) {
+                timer1.Interval -= (num*3);
                 carga4 = true;
             }
-
+            // Cuando la barra se completa, muestro la ficha. 
             if (barraCarga.Value == barraCarga.Maximum) {
                 panelPsj.Visible = true;
                 panelAtributos.Visible = true;

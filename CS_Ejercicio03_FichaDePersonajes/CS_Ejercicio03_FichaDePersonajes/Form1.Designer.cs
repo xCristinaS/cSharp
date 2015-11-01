@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panelAtributos = new System.Windows.Forms.Panel();
             this.incVel = new System.Windows.Forms.PictureBox();
             this.incRef = new System.Windows.Forms.PictureBox();
@@ -105,12 +106,12 @@
             this.combRaza = new System.Windows.Forms.ComboBox();
             this.combClase = new System.Windows.Forms.ComboBox();
             this.panelPsj = new System.Windows.Forms.Panel();
-            this.imgDado = new System.Windows.Forms.PictureBox();
-            this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.barraCarga = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblMsgCarga = new System.Windows.Forms.Label();
+            this.imgDado = new System.Windows.Forms.PictureBox();
+            this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -186,12 +187,12 @@
             this.panelAtributos.Controls.Add(this.lblAtributos);
             this.panelAtributos.Location = new System.Drawing.Point(12, 209);
             this.panelAtributos.Name = "panelAtributos";
-            this.panelAtributos.Size = new System.Drawing.Size(348, 384);
+            this.panelAtributos.Size = new System.Drawing.Size(348, 372);
             this.panelAtributos.TabIndex = 8;
             // 
             // incVel
             // 
-            this.incVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incVel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incVel.BackgroundImage")));
             this.incVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incVel.Location = new System.Drawing.Point(210, 301);
             this.incVel.Name = "incVel";
@@ -202,7 +203,7 @@
             // 
             // incRef
             // 
-            this.incRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incRef.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incRef.BackgroundImage")));
             this.incRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incRef.Location = new System.Drawing.Point(210, 272);
             this.incRef.Name = "incRef";
@@ -213,7 +214,7 @@
             // 
             // incIni
             // 
-            this.incIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incIni.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incIni.BackgroundImage")));
             this.incIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incIni.Location = new System.Drawing.Point(210, 243);
             this.incIni.Name = "incIni";
@@ -224,7 +225,7 @@
             // 
             // incCar
             // 
-            this.incCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incCar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incCar.BackgroundImage")));
             this.incCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incCar.Location = new System.Drawing.Point(210, 214);
             this.incCar.Name = "incCar";
@@ -235,7 +236,7 @@
             // 
             // incCor
             // 
-            this.incCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incCor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incCor.BackgroundImage")));
             this.incCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incCor.Location = new System.Drawing.Point(210, 185);
             this.incCor.Name = "incCor";
@@ -246,7 +247,7 @@
             // 
             // incIng
             // 
-            this.incIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incIng.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incIng.BackgroundImage")));
             this.incIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incIng.Location = new System.Drawing.Point(210, 156);
             this.incIng.Name = "incIng";
@@ -257,7 +258,7 @@
             // 
             // incFuer
             // 
-            this.incFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incFuer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incFuer.BackgroundImage")));
             this.incFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incFuer.Location = new System.Drawing.Point(210, 127);
             this.incFuer.Name = "incFuer";
@@ -268,7 +269,7 @@
             // 
             // incDest
             // 
-            this.incDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incDest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incDest.BackgroundImage")));
             this.incDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incDest.Location = new System.Drawing.Point(210, 98);
             this.incDest.Name = "incDest";
@@ -279,7 +280,7 @@
             // 
             // incPerc
             // 
-            this.incPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incPerc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incPerc.BackgroundImage")));
             this.incPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incPerc.Location = new System.Drawing.Point(210, 69);
             this.incPerc.Name = "incPerc";
@@ -290,7 +291,7 @@
             // 
             // incVit
             // 
-            this.incVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaDer;
+            this.incVit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("incVit.BackgroundImage")));
             this.incVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.incVit.Location = new System.Drawing.Point(210, 40);
             this.incVit.Name = "incVit";
@@ -301,7 +302,7 @@
             // 
             // decVel
             // 
-            this.decVel.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decVel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decVel.BackgroundImage")));
             this.decVel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decVel.Location = new System.Drawing.Point(188, 301);
             this.decVel.Name = "decVel";
@@ -312,7 +313,7 @@
             // 
             // decRef
             // 
-            this.decRef.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decRef.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decRef.BackgroundImage")));
             this.decRef.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decRef.Location = new System.Drawing.Point(188, 272);
             this.decRef.Name = "decRef";
@@ -323,7 +324,7 @@
             // 
             // decIni
             // 
-            this.decIni.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decIni.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decIni.BackgroundImage")));
             this.decIni.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decIni.Location = new System.Drawing.Point(188, 243);
             this.decIni.Name = "decIni";
@@ -334,7 +335,7 @@
             // 
             // decCar
             // 
-            this.decCar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decCar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decCar.BackgroundImage")));
             this.decCar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decCar.Location = new System.Drawing.Point(188, 214);
             this.decCar.Name = "decCar";
@@ -345,7 +346,7 @@
             // 
             // decCor
             // 
-            this.decCor.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decCor.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decCor.BackgroundImage")));
             this.decCor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decCor.Location = new System.Drawing.Point(188, 185);
             this.decCor.Name = "decCor";
@@ -356,7 +357,7 @@
             // 
             // decIng
             // 
-            this.decIng.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decIng.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decIng.BackgroundImage")));
             this.decIng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decIng.Location = new System.Drawing.Point(188, 156);
             this.decIng.Name = "decIng";
@@ -367,7 +368,7 @@
             // 
             // decFuer
             // 
-            this.decFuer.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decFuer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decFuer.BackgroundImage")));
             this.decFuer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decFuer.Location = new System.Drawing.Point(188, 127);
             this.decFuer.Name = "decFuer";
@@ -378,7 +379,7 @@
             // 
             // decPerc
             // 
-            this.decPerc.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decPerc.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decPerc.BackgroundImage")));
             this.decPerc.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decPerc.Location = new System.Drawing.Point(188, 69);
             this.decPerc.Name = "decPerc";
@@ -389,7 +390,7 @@
             // 
             // decDest
             // 
-            this.decDest.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decDest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decDest.BackgroundImage")));
             this.decDest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decDest.Location = new System.Drawing.Point(188, 98);
             this.decDest.Name = "decDest";
@@ -400,7 +401,7 @@
             // 
             // decVit
             // 
-            this.decVit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.flechaIzq;
+            this.decVit.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("decVit.BackgroundImage")));
             this.decVit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.decVit.Location = new System.Drawing.Point(188, 40);
             this.decVit.Name = "decVit";
@@ -421,8 +422,8 @@
             // 
             // pbVelocidad
             // 
-            this.pbVelocidad.BackColor = System.Drawing.Color.White;
-            this.pbVelocidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbVelocidad.BackColor = System.Drawing.Color.LightYellow;
+            this.pbVelocidad.ForeColor = System.Drawing.SystemColors.Control;
             this.pbVelocidad.Location = new System.Drawing.Point(82, 303);
             this.pbVelocidad.Maximum = 30;
             this.pbVelocidad.Name = "pbVelocidad";
@@ -432,8 +433,8 @@
             // 
             // pbReflejos
             // 
-            this.pbReflejos.BackColor = System.Drawing.Color.White;
-            this.pbReflejos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbReflejos.BackColor = System.Drawing.Color.LightYellow;
+            this.pbReflejos.ForeColor = System.Drawing.SystemColors.Control;
             this.pbReflejos.Location = new System.Drawing.Point(82, 274);
             this.pbReflejos.Maximum = 30;
             this.pbReflejos.Name = "pbReflejos";
@@ -443,8 +444,8 @@
             // 
             // pbIniciativa
             // 
-            this.pbIniciativa.BackColor = System.Drawing.Color.White;
-            this.pbIniciativa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbIniciativa.BackColor = System.Drawing.Color.LightYellow;
+            this.pbIniciativa.ForeColor = System.Drawing.SystemColors.Control;
             this.pbIniciativa.Location = new System.Drawing.Point(82, 245);
             this.pbIniciativa.Maximum = 30;
             this.pbIniciativa.Name = "pbIniciativa";
@@ -454,8 +455,8 @@
             // 
             // pbCarisma
             // 
-            this.pbCarisma.BackColor = System.Drawing.Color.White;
-            this.pbCarisma.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbCarisma.BackColor = System.Drawing.Color.LightYellow;
+            this.pbCarisma.ForeColor = System.Drawing.SystemColors.Control;
             this.pbCarisma.Location = new System.Drawing.Point(82, 216);
             this.pbCarisma.Maximum = 30;
             this.pbCarisma.Name = "pbCarisma";
@@ -465,8 +466,8 @@
             // 
             // pbCoraje
             // 
-            this.pbCoraje.BackColor = System.Drawing.Color.White;
-            this.pbCoraje.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbCoraje.BackColor = System.Drawing.Color.LightYellow;
+            this.pbCoraje.ForeColor = System.Drawing.SystemColors.Control;
             this.pbCoraje.Location = new System.Drawing.Point(82, 187);
             this.pbCoraje.Maximum = 30;
             this.pbCoraje.Name = "pbCoraje";
@@ -476,8 +477,8 @@
             // 
             // pbIngenio
             // 
-            this.pbIngenio.BackColor = System.Drawing.Color.White;
-            this.pbIngenio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbIngenio.BackColor = System.Drawing.Color.LightYellow;
+            this.pbIngenio.ForeColor = System.Drawing.SystemColors.Control;
             this.pbIngenio.Location = new System.Drawing.Point(82, 158);
             this.pbIngenio.Maximum = 30;
             this.pbIngenio.Name = "pbIngenio";
@@ -487,8 +488,8 @@
             // 
             // pbFuerza
             // 
-            this.pbFuerza.BackColor = System.Drawing.Color.White;
-            this.pbFuerza.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbFuerza.BackColor = System.Drawing.Color.LightYellow;
+            this.pbFuerza.ForeColor = System.Drawing.SystemColors.Control;
             this.pbFuerza.Location = new System.Drawing.Point(82, 129);
             this.pbFuerza.Maximum = 30;
             this.pbFuerza.Name = "pbFuerza";
@@ -498,8 +499,8 @@
             // 
             // pbDestreza
             // 
-            this.pbDestreza.BackColor = System.Drawing.Color.White;
-            this.pbDestreza.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbDestreza.BackColor = System.Drawing.Color.LightYellow;
+            this.pbDestreza.ForeColor = System.Drawing.SystemColors.Control;
             this.pbDestreza.Location = new System.Drawing.Point(82, 100);
             this.pbDestreza.Maximum = 30;
             this.pbDestreza.Name = "pbDestreza";
@@ -509,8 +510,8 @@
             // 
             // pbPercepcion
             // 
-            this.pbPercepcion.BackColor = System.Drawing.Color.White;
-            this.pbPercepcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbPercepcion.BackColor = System.Drawing.Color.LightYellow;
+            this.pbPercepcion.ForeColor = System.Drawing.SystemColors.Control;
             this.pbPercepcion.Location = new System.Drawing.Point(82, 71);
             this.pbPercepcion.Maximum = 30;
             this.pbPercepcion.Name = "pbPercepcion";
@@ -520,8 +521,8 @@
             // 
             // pbVitalidad
             // 
-            this.pbVitalidad.BackColor = System.Drawing.Color.White;
-            this.pbVitalidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.pbVitalidad.BackColor = System.Drawing.Color.LightYellow;
+            this.pbVitalidad.ForeColor = System.Drawing.SystemColors.Control;
             this.pbVitalidad.Location = new System.Drawing.Point(82, 42);
             this.pbVitalidad.Maximum = 30;
             this.pbVitalidad.Name = "pbVitalidad";
@@ -960,7 +961,7 @@
             // 
             // txtNombrePersonaje
             // 
-            this.txtNombrePersonaje.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.txtNombrePersonaje.BackColor = System.Drawing.Color.LightYellow;
             this.txtNombrePersonaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombrePersonaje.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombrePersonaje.Location = new System.Drawing.Point(151, 7);
@@ -970,7 +971,7 @@
             // 
             // txtNombreJugador
             // 
-            this.txtNombreJugador.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.txtNombreJugador.BackColor = System.Drawing.Color.LightYellow;
             this.txtNombreJugador.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreJugador.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreJugador.Location = new System.Drawing.Point(151, 34);
@@ -984,9 +985,9 @@
             this.panelGenero.Controls.Add(this.rbtnFemenino);
             this.panelGenero.Controls.Add(this.lblGenero);
             this.panelGenero.Controls.Add(this.rbtnMasculino);
-            this.panelGenero.Location = new System.Drawing.Point(16, 53);
+            this.panelGenero.Location = new System.Drawing.Point(16, 57);
             this.panelGenero.Name = "panelGenero";
-            this.panelGenero.Size = new System.Drawing.Size(113, 97);
+            this.panelGenero.Size = new System.Drawing.Size(113, 89);
             this.panelGenero.TabIndex = 4;
             // 
             // rbtnFemenino
@@ -1031,7 +1032,7 @@
             // 
             // combRaza
             // 
-            this.combRaza.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.combRaza.BackColor = System.Drawing.Color.LightYellow;
             this.combRaza.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combRaza.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.combRaza.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1048,7 +1049,7 @@
             // 
             // combClase
             // 
-            this.combClase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(193)))));
+            this.combClase.BackColor = System.Drawing.Color.LightYellow;
             this.combClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.combClase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.combClase.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1074,12 +1075,48 @@
             this.panelPsj.Size = new System.Drawing.Size(348, 149);
             this.panelPsj.TabIndex = 7;
             // 
+            // barraCarga
+            // 
+            this.barraCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(185)))), ((int)(((byte)(216)))));
+            this.barraCarga.Location = new System.Drawing.Point(280, 530);
+            this.barraCarga.Name = "barraCarga";
+            this.barraCarga.Size = new System.Drawing.Size(400, 36);
+            this.barraCarga.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.barraCarga.TabIndex = 26;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.menuCarga);
+            // 
+            // lblBienvenido
+            // 
+            this.lblBienvenido.AutoSize = true;
+            this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
+            this.lblBienvenido.Font = new System.Drawing.Font("Monotype Corsiva", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenido.Location = new System.Drawing.Point(165, 201);
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(705, 164);
+            this.lblBienvenido.TabIndex = 27;
+            this.lblBienvenido.Text = "¡Bienvenido! ";
+            // 
+            // lblMsgCarga
+            // 
+            this.lblMsgCarga.AutoSize = true;
+            this.lblMsgCarga.BackColor = System.Drawing.Color.Transparent;
+            this.lblMsgCarga.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsgCarga.Location = new System.Drawing.Point(365, 569);
+            this.lblMsgCarga.Name = "lblMsgCarga";
+            this.lblMsgCarga.Size = new System.Drawing.Size(238, 22);
+            this.lblMsgCarga.TabIndex = 28;
+            this.lblMsgCarga.Text = "Por favor, espere mientras carga...";
+            // 
             // imgDado
             // 
             this.imgDado.BackColor = System.Drawing.Color.Transparent;
-            this.imgDado.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.dado;
+            this.imgDado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgDado.BackgroundImage")));
             this.imgDado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgDado.Location = new System.Drawing.Point(12, 599);
+            this.imgDado.Location = new System.Drawing.Point(30, 587);
             this.imgDado.Name = "imgDado";
             this.imgDado.Size = new System.Drawing.Size(56, 50);
             this.imgDado.TabIndex = 25;
@@ -1098,46 +1135,14 @@
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.clicCerrar);
             // 
-            // barraCarga
-            // 
-            this.barraCarga.Location = new System.Drawing.Point(280, 530);
-            this.barraCarga.Name = "barraCarga";
-            this.barraCarga.Size = new System.Drawing.Size(400, 36);
-            this.barraCarga.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.barraCarga.TabIndex = 26;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.menuCarga);
-            // 
-            // lblBienvenido
-            // 
-            this.lblBienvenido.AutoSize = true;
-            this.lblBienvenido.Font = new System.Drawing.Font("Monotype Corsiva", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenido.Location = new System.Drawing.Point(135, 171);
-            this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(705, 164);
-            this.lblBienvenido.TabIndex = 27;
-            this.lblBienvenido.Text = "¡Bienvenido! ";
-            // 
-            // lblMsgCarga
-            // 
-            this.lblMsgCarga.AutoSize = true;
-            this.lblMsgCarga.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsgCarga.Location = new System.Drawing.Point(368, 569);
-            this.lblMsgCarga.Name = "lblMsgCarga";
-            this.lblMsgCarga.Size = new System.Drawing.Size(235, 22);
-            this.lblMsgCarga.TabIndex = 28;
-            this.lblMsgCarga.Text = "Por favor, espere unos segundos...";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1008, 661);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1024, 661);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.barraCarga);

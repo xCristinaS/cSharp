@@ -144,6 +144,36 @@
   <ItemGroup>
     <None Include="Resources\flechaIzq.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arquero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paladin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paladina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arquera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gerrera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guerrera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eevee.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cursor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guerrero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daguero.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -121,12 +121,6 @@
   <data name="maga" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arquera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arquera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="daguera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\daguera.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,21 +129,6 @@
   </data>
   <data name="Equis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Equis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paladin.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arquero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arquero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paladina" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paladina.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cazadora" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cazadora.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,16 +139,40 @@
   <data name="nigromante" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nigromante.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="daguero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\daguero.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arquera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arquera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arquero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arquero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dadoApagado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dadoApagado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="daguero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daguero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flechaDer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flechaDer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flechaIzq" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flechaIzq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guerrera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guerrera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guerrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guerrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paladin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paladina" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\paladina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
