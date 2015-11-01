@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelAtributos = new System.Windows.Forms.Panel();
             this.incVel = new System.Windows.Forms.PictureBox();
             this.incRef = new System.Windows.Forms.PictureBox();
@@ -97,15 +98,19 @@
             this.lblNomJug = new System.Windows.Forms.Label();
             this.txtNombrePersonaje = new System.Windows.Forms.TextBox();
             this.txtNombreJugador = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelGenero = new System.Windows.Forms.Panel();
             this.rbtnFemenino = new System.Windows.Forms.RadioButton();
             this.lblGenero = new System.Windows.Forms.Label();
             this.rbtnMasculino = new System.Windows.Forms.RadioButton();
             this.combRaza = new System.Windows.Forms.ComboBox();
             this.combClase = new System.Windows.Forms.ComboBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelPsj = new System.Windows.Forms.Panel();
             this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
+            this.barraCarga = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblBienvenido = new System.Windows.Forms.Label();
+            this.lblMsgCarga = new System.Windows.Forms.Label();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -128,8 +133,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.decDest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.decVit)).BeginInit();
             this.panelHabilidades.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelGenero.SuspendLayout();
+            this.panelPsj.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             this.SuspendLayout();
@@ -973,16 +978,16 @@
             this.txtNombreJugador.Size = new System.Drawing.Size(188, 24);
             this.txtNombreJugador.TabIndex = 3;
             // 
-            // panel1
+            // panelGenero
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.rbtnFemenino);
-            this.panel1.Controls.Add(this.lblGenero);
-            this.panel1.Controls.Add(this.rbtnMasculino);
-            this.panel1.Location = new System.Drawing.Point(16, 53);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(113, 97);
-            this.panel1.TabIndex = 4;
+            this.panelGenero.BackColor = System.Drawing.Color.Transparent;
+            this.panelGenero.Controls.Add(this.rbtnFemenino);
+            this.panelGenero.Controls.Add(this.lblGenero);
+            this.panelGenero.Controls.Add(this.rbtnMasculino);
+            this.panelGenero.Location = new System.Drawing.Point(16, 53);
+            this.panelGenero.Name = "panelGenero";
+            this.panelGenero.Size = new System.Drawing.Size(113, 97);
+            this.panelGenero.TabIndex = 4;
             // 
             // rbtnFemenino
             // 
@@ -1054,20 +1059,20 @@
             this.combClase.TabIndex = 6;
             this.combClase.SelectedIndexChanged += new System.EventHandler(this.actualizarImg);
             // 
-            // panel2
+            // panelPsj
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.combClase);
-            this.panel2.Controls.Add(this.combRaza);
-            this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.txtNombreJugador);
-            this.panel2.Controls.Add(this.txtNombrePersonaje);
-            this.panel2.Controls.Add(this.lblNomJug);
-            this.panel2.Controls.Add(this.lblNomPers);
-            this.panel2.Location = new System.Drawing.Point(12, 41);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(348, 149);
-            this.panel2.TabIndex = 7;
+            this.panelPsj.BackColor = System.Drawing.Color.Transparent;
+            this.panelPsj.Controls.Add(this.combClase);
+            this.panelPsj.Controls.Add(this.combRaza);
+            this.panelPsj.Controls.Add(this.panelGenero);
+            this.panelPsj.Controls.Add(this.txtNombreJugador);
+            this.panelPsj.Controls.Add(this.txtNombrePersonaje);
+            this.panelPsj.Controls.Add(this.lblNomJug);
+            this.panelPsj.Controls.Add(this.lblNomPers);
+            this.panelPsj.Location = new System.Drawing.Point(12, 41);
+            this.panelPsj.Name = "panelPsj";
+            this.panelPsj.Size = new System.Drawing.Size(348, 149);
+            this.panelPsj.TabIndex = 7;
             // 
             // imgDado
             // 
@@ -1093,6 +1098,39 @@
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.clicCerrar);
             // 
+            // barraCarga
+            // 
+            this.barraCarga.Location = new System.Drawing.Point(280, 530);
+            this.barraCarga.Name = "barraCarga";
+            this.barraCarga.Size = new System.Drawing.Size(400, 36);
+            this.barraCarga.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.barraCarga.TabIndex = 26;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.menuCarga);
+            // 
+            // lblBienvenido
+            // 
+            this.lblBienvenido.AutoSize = true;
+            this.lblBienvenido.Font = new System.Drawing.Font("Monotype Corsiva", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenido.Location = new System.Drawing.Point(135, 171);
+            this.lblBienvenido.Name = "lblBienvenido";
+            this.lblBienvenido.Size = new System.Drawing.Size(705, 164);
+            this.lblBienvenido.TabIndex = 27;
+            this.lblBienvenido.Text = "¡Bienvenido! ";
+            // 
+            // lblMsgCarga
+            // 
+            this.lblMsgCarga.AutoSize = true;
+            this.lblMsgCarga.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsgCarga.Location = new System.Drawing.Point(368, 569);
+            this.lblMsgCarga.Name = "lblMsgCarga";
+            this.lblMsgCarga.Size = new System.Drawing.Size(235, 22);
+            this.lblMsgCarga.TabIndex = 28;
+            this.lblMsgCarga.Text = "Por favor, espere unos segundos...";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1100,11 +1138,14 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1008, 661);
+            this.Controls.Add(this.lblMsgCarga);
+            this.Controls.Add(this.lblBienvenido);
+            this.Controls.Add(this.barraCarga);
             this.Controls.Add(this.imgDado);
             this.Controls.Add(this.imgCerrar);
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.panelAtributos);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelPsj);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -1136,13 +1177,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.decVit)).EndInit();
             this.panelHabilidades.ResumeLayout(false);
             this.panelHabilidades.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panelGenero.ResumeLayout(false);
+            this.panelGenero.PerformLayout();
+            this.panelPsj.ResumeLayout(false);
+            this.panelPsj.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1186,13 +1228,13 @@
         private System.Windows.Forms.Label lblNomJug;
         private System.Windows.Forms.TextBox txtNombrePersonaje;
         private System.Windows.Forms.TextBox txtNombreJugador;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelGenero;
         private System.Windows.Forms.RadioButton rbtnFemenino;
         private System.Windows.Forms.Label lblGenero;
         private System.Windows.Forms.RadioButton rbtnMasculino;
         private System.Windows.Forms.ComboBox combRaza;
         private System.Windows.Forms.ComboBox combClase;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelPsj;
         private System.Windows.Forms.ProgressBar pbVelocidad;
         private System.Windows.Forms.ProgressBar pbReflejos;
         private System.Windows.Forms.ProgressBar pbIniciativa;
@@ -1225,6 +1267,10 @@
         private System.Windows.Forms.PictureBox incFuer;
         private System.Windows.Forms.PictureBox incDest;
         private System.Windows.Forms.PictureBox incPerc;
+        private System.Windows.Forms.ProgressBar barraCarga;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblBienvenido;
+        private System.Windows.Forms.Label lblMsgCarga;
     }
 }
 

@@ -15,7 +15,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
-        private Random rnd = new Random(); 
+        private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
 
         public Form1() {
             InitializeComponent();
@@ -32,6 +32,12 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 if (pbAtributo is PictureBox)
                     ((PictureBox)pbAtributo).Tag = 0;
             }
+
+            // Oculto todos los elementos para emular un menú de carga. 
+            panelPsj.Visible = false;
+            panelAtributos.Visible = false;
+            panelHabilidades.Visible = false;
+            imgDado.Visible = false;
         }
 
         private void clicCerrar(object sender, EventArgs e) {
@@ -50,6 +56,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             // de la clase que se hubiera seleccionado anteriormente y quitar la imagen del psj. 
             if (!combRaza.Text.Equals("")) {
                 resetValoresAtrib();
+                limpiarHabilidadesMarcadas();
                 this.BackgroundImage = null;
             }
         }
@@ -61,11 +68,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mostrarImgPersonaje(object sender) {
             String personaje;
             if (!combClase.Text.Equals("")) {
-                personaje = combClase.SelectedItem.ToString(); 
+                personaje = combClase.SelectedItem.ToString();
                 // Sólo doy el plus a los atributos si quien lanzó el evento fue el cambio de clase del personaje.
                 // El plus de los atributos variará en función del personaje seleccionado. 
-                if (sender.Equals(combClase))
+                if (sender.Equals(combClase)) {
                     asignarAtributosPlusPSJ(personaje);
+                    limpiarHabilidadesMarcadas();
+                }
                 // A la cadena del personaje seleccionado le quito el último carácter y lo paso a minúsculas.
                 personaje = personaje.Substring(0, personaje.Length - 1);
                 personaje = personaje.ToLower();
@@ -376,6 +385,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
         }
 
+        private void limpiarHabilidadesMarcadas() {
+            // Para limpiar las habilidades marcadas al cambiar de personaje. 
+            foreach (object cb2 in panelHabilidades.Controls) {
+                if (cb2 is CheckBox)
+                    if (((CheckBox)cb2).Checked)
+                        ((CheckBox)cb2).Checked = false;
+            }
+            lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + Constantes.HABILIDADES_SELECCIONABLES;
+        }
+
         private void tirarDado(object sender, EventArgs e) {
             String personaje;
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
@@ -399,6 +418,36 @@ namespace CS_Ejercicio03_FichaDePersonajes
             // Relleno el array de valores aleatorios para los atributos. 
             for (int i = 0; i < valoresAtributosAleatorios.Length; i++)
                 valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
+        }
+
+        private void menuCarga(object sender, EventArgs e) {
+            barraCarga.Value++; int num = 23;
+            
+            if (!carga1 && barraCarga.Value > 80) {
+                timer1.Interval -= num;
+                carga1 = true;
+            } else if (!carga2 && barraCarga.Value > 60) {
+                carga2 = true;
+                timer1.Interval -= num;
+            } else if (!carga3 && barraCarga.Value > 40) {
+                carga3 = true;
+                timer1.Interval -= num;
+            } else if (!carga4 && barraCarga.Value > 20) {
+                timer1.Interval -= num;
+                carga4 = true;
+            }
+
+            if (barraCarga.Value == barraCarga.Maximum) {
+                panelPsj.Visible = true;
+                panelAtributos.Visible = true;
+                panelHabilidades.Visible = true;
+                imgDado.Visible = true;
+                timer1.Enabled = false;
+                barraCarga.Enabled = false;
+                barraCarga.Visible = false;
+                lblBienvenido.Visible = false;
+                lblMsgCarga.Visible = false;
+            }
         }
     }
 }
