@@ -16,7 +16,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private String[] personajesMagicos = { "Mago", "Nigromante" };
         String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
-        private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
+        private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
         /*
         [DllImport("user32.dll")]
@@ -524,12 +524,12 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void tirarDado(object sender, EventArgs e) {
-            String personaje;
+            String personaje; 
+            /*
+            timer2.Enabled = true;
+            */
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
             if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
-                /*
-                imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 90);
-                */
                 resetValoresAtrib(); // Pongo los atributos a 0. 
                 resetFlechasAtributos();
                 personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
@@ -552,7 +552,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
         }
 
-        private void menuCarga(object sender, EventArgs e) {
+        private void menuCarga(object sender, EventArgs e) { // Evento que lanza el timer1.
             barraCarga.Value++; int num = 20;
             // Hago que la barra de carga vaya más rápido conforme avanza. 
             if (!carga1 && barraCarga.Value > 80) {
@@ -618,6 +618,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
             gfx.Dispose();
             //return the image
             return bmp;
+        }
+        
+        private void timer2_Tick(object sender, EventArgs e) {
+            if (aux < 100) {
+                imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 15);
+                aux++;
+            } else {
+                timer2.Enabled = false;
+                aux = 0;
+            }
         }
         */
     }

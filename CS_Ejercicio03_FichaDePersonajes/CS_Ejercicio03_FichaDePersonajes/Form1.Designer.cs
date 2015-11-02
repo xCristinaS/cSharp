@@ -112,6 +112,7 @@
             this.lblMsgCarga = new System.Windows.Forms.Label();
             this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -1138,6 +1139,11 @@
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.clicCerrar);
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1279,6 +1285,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblMsgCarga;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 
