@@ -263,6 +263,16 @@ namespace CS_Ejercicio03_FichaDePersonajes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nuevoPersonaje {
+            get {
+                object obj = ResourceManager.GetObject("nuevoPersonaje", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap paladin {
             get {
                 object obj = ResourceManager.GetObject("paladin", resourceCulture);

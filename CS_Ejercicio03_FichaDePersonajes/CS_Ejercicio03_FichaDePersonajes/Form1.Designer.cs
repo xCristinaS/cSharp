@@ -117,6 +117,7 @@
             this.menuSeleccion = new System.Windows.Forms.Panel();
             this.nuevoPersonaje = new System.Windows.Forms.PictureBox();
             this.imgAtrasNP = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -1136,6 +1137,7 @@
             this.imgDado.Size = new System.Drawing.Size(56, 50);
             this.imgDado.TabIndex = 25;
             this.imgDado.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgDado, "Lanzar dado.");
             this.imgDado.Click += new System.EventHandler(this.tirarDado);
             // 
             // imgCerrar
@@ -1165,6 +1167,7 @@
             this.imgSave.Size = new System.Drawing.Size(56, 50);
             this.imgSave.TabIndex = 29;
             this.imgSave.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgSave, "Guardar personaje.");
             this.imgSave.Click += new System.EventHandler(this.guardarPersonaje);
             // 
             // menuSeleccion
@@ -1173,17 +1176,20 @@
             this.menuSeleccion.Controls.Add(this.nuevoPersonaje);
             this.menuSeleccion.Location = new System.Drawing.Point(3, 41);
             this.menuSeleccion.Name = "menuSeleccion";
-            this.menuSeleccion.Size = new System.Drawing.Size(1009, 445);
+            this.menuSeleccion.Size = new System.Drawing.Size(1009, 605);
             this.menuSeleccion.TabIndex = 30;
             // 
             // nuevoPersonaje
             // 
-            this.nuevoPersonaje.BackColor = System.Drawing.Color.Black;
-            this.nuevoPersonaje.Location = new System.Drawing.Point(346, 176);
+            this.nuevoPersonaje.BackColor = System.Drawing.Color.Transparent;
+            this.nuevoPersonaje.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.nuevoPersonaje;
+            this.nuevoPersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.nuevoPersonaje.Location = new System.Drawing.Point(57, 13);
             this.nuevoPersonaje.Name = "nuevoPersonaje";
-            this.nuevoPersonaje.Size = new System.Drawing.Size(100, 50);
+            this.nuevoPersonaje.Size = new System.Drawing.Size(329, 583);
             this.nuevoPersonaje.TabIndex = 0;
             this.nuevoPersonaje.TabStop = false;
+            this.toolTip1.SetToolTip(this.nuevoPersonaje, "Crear un nuevo personaje.");
             this.nuevoPersonaje.Click += new System.EventHandler(this.cargarPagNewPersonaje);
             // 
             // imgAtrasNP
@@ -1196,7 +1202,13 @@
             this.imgAtrasNP.Size = new System.Drawing.Size(56, 50);
             this.imgAtrasNP.TabIndex = 32;
             this.imgAtrasNP.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgAtrasNP, "Volver atras.");
             this.imgAtrasNP.Click += new System.EventHandler(this.volverMenuSelec);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutomaticDelay = 800;
+            this.toolTip1.IsBalloon = true;
             // 
             // Form1
             // 
@@ -1206,6 +1218,7 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.menuSeleccion);
             this.Controls.Add(this.imgAtrasNP);
             this.Controls.Add(this.imgSave);
             this.Controls.Add(this.lblMsgCarga);
@@ -1216,7 +1229,6 @@
             this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panelPsj);
             this.Controls.Add(this.panelHabilidades);
-            this.Controls.Add(this.menuSeleccion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -1351,6 +1363,7 @@
         private System.Windows.Forms.Panel menuSeleccion;
         private System.Windows.Forms.PictureBox nuevoPersonaje;
         private System.Windows.Forms.PictureBox imgAtrasNP;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
