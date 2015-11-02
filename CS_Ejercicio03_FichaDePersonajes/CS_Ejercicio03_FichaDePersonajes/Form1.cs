@@ -455,6 +455,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 barraCarga.Visible = false;
                 lblBienvenido.Visible = false;
                 lblMsgCarga.Visible = false;
+                this.BackgroundImage = Properties.Resources.fondo;
             }
         }
     }

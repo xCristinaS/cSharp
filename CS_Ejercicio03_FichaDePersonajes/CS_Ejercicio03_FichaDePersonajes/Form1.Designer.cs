@@ -1078,7 +1078,7 @@
             // barraCarga
             // 
             this.barraCarga.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(185)))), ((int)(((byte)(216)))));
-            this.barraCarga.Location = new System.Drawing.Point(280, 530);
+            this.barraCarga.Location = new System.Drawing.Point(280, 560);
             this.barraCarga.Name = "barraCarga";
             this.barraCarga.Size = new System.Drawing.Size(400, 36);
             this.barraCarga.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
@@ -1105,7 +1105,7 @@
             this.lblMsgCarga.AutoSize = true;
             this.lblMsgCarga.BackColor = System.Drawing.Color.Transparent;
             this.lblMsgCarga.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMsgCarga.Location = new System.Drawing.Point(365, 569);
+            this.lblMsgCarga.Location = new System.Drawing.Point(365, 599);
             this.lblMsgCarga.Name = "lblMsgCarga";
             this.lblMsgCarga.Size = new System.Drawing.Size(238, 22);
             this.lblMsgCarga.TabIndex = 28;
@@ -1140,7 +1140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
             this.Controls.Add(this.lblMsgCarga);

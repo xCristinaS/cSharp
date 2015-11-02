@@ -249,5 +249,15 @@ namespace CS_Ejercicio03_FichaDePersonajes.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pantallaCarga {
+            get {
+                object obj = ResourceManager.GetObject("pantallaCarga", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
