@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,13 +18,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
-        
+        /*
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
         IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
 
         WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-
+        */
         public Form1() {
             InitializeComponent();
         }
@@ -47,10 +48,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
             imgDado.Visible = false;
-
+            /*
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
             wplayer.controls.play();
+            */
         }
 
         private void clicCerrar(object sender, EventArgs e) {
@@ -525,6 +527,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
             String personaje;
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
             if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
+                /*
+                imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 90);
+                */
                 resetValoresAtrib(); // Pongo los atributos a 0. 
                 resetFlechasAtributos();
                 personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
@@ -593,5 +598,27 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
+        /*
+        public static Image RotateImage(Image img, float rotationAngle) {
+            //create an empty Bitmap image
+            Bitmap bmp = new Bitmap(img.Width, img.Height);
+            //turn the Bitmap into a Graphics object
+            Graphics gfx = Graphics.FromImage(bmp);
+            //now we set the rotation point to the center of our image
+            gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
+            //now rotate the image
+            gfx.RotateTransform(rotationAngle);
+            gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
+            //set the InterpolationMode to HighQualityBicubic so to ensure a high
+            //quality image once it is transformed to the specified size
+            gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            //now draw our new image onto the graphics object
+            gfx.DrawImage(img, new Point(0, 0));
+            //dispose of our Graphics object
+            gfx.Dispose();
+            //return the image
+            return bmp;
+        }
+        */
     }
 }
