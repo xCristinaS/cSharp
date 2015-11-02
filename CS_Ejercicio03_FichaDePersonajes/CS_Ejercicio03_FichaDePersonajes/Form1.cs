@@ -21,7 +21,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
         IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
-        
+
+        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
         public Form1() {
             InitializeComponent();
         }
@@ -45,7 +47,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgDado.Visible = false;
 
             this.Cursor = new Cursor(cursor);
-            
+            wplayer.URL = @"songGOT.mp3";
+            wplayer.controls.play();
         }
 
         private void clicCerrar(object sender, EventArgs e) {
