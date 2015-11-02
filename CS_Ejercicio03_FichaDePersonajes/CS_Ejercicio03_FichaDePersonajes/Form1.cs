@@ -18,6 +18,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
+        
         /*
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
@@ -44,10 +45,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             }
             // Oculto todos los elementos para emular un menú de carga. 
-            panelPsj.Visible = false;
-            panelAtributos.Visible = false;
-            panelHabilidades.Visible = false;
-            imgDado.Visible = false;
+            ocultarPaginaNewPersonaje();
             /*
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
@@ -75,7 +73,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 limpiarHabilidadesMarcadas();
                 this.BackgroundImage = Properties.Resources.fondo;
             }
-        }
+        } 
         
         private void actualizarImg(object sender, EventArgs e) {
             mostrarImgPersonaje(sender);
@@ -552,7 +550,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
         }
 
-        private void menuCarga(object sender, EventArgs e) { // Evento que lanza el timer1.
+        private void menuCarga(object sender, EventArgs e) { // Evento que lanza el timer1. Con este evento emulo una página de carga al inicio. 
             barraCarga.Value++; int num = 20;
             // Hago que la barra de carga vaya más rápido conforme avanza. 
             if (!carga1 && barraCarga.Value > 80) {
@@ -570,10 +568,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Cuando la barra se completa, muestro la ficha. 
             if (barraCarga.Value == barraCarga.Maximum) {
-                panelPsj.Visible = true;
-                panelAtributos.Visible = true;
-                panelHabilidades.Visible = true;
-                imgDado.Visible = true;
+                mostrarPaginaNewPersonaje();
                 timer1.Enabled = false;
                 barraCarga.Enabled = false;
                 barraCarga.Visible = false;
@@ -631,6 +626,40 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             */
         }
-        
+
+        private void comprobarSiRelleno(object sender, EventArgs e) {
+            // Compruebo si los campos del panel de personaje están rellenos. Si es así, se habilitará el botón de guardado.
+            // En caso contrario se deshabilita. 
+            if (!txtNombreJugador.Text.Equals("") && !txtNombrePersonaje.Text.Equals("") && !combClase.Text.Equals("")) {
+                imgSave.Enabled = true;
+                imgSave.BackgroundImage = Properties.Resources.save;
+            } else {
+                imgSave.Enabled = false;
+                imgSave.BackgroundImage = Properties.Resources.saveOff;
+            }
+        }
+
+        private void guardarPersonaje(object sender, EventArgs e) {
+            int[] atributos = {pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value};
+            bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
+                                  cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
+            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, habilidades, numTirada, habPorSelect, ptosRepAtrib);
+        }
+
+        private void ocultarPaginaNewPersonaje() {
+            panelPsj.Visible = false;
+            panelAtributos.Visible = false;
+            panelHabilidades.Visible = false;
+            imgDado.Visible = false;
+            imgSave.Visible = false;
+        }
+
+        private void mostrarPaginaNewPersonaje() {
+            panelPsj.Visible = true;
+            panelAtributos.Visible = true;
+            panelHabilidades.Visible = true;
+            imgDado.Visible = true;
+            imgSave.Visible = true;
+        }
     }
 }

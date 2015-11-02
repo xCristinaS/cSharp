@@ -113,6 +113,7 @@
             this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.imgSave = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -139,6 +140,7 @@
             this.panelPsj.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -969,6 +971,7 @@
             this.txtNombrePersonaje.Name = "txtNombrePersonaje";
             this.txtNombrePersonaje.Size = new System.Drawing.Size(188, 24);
             this.txtNombrePersonaje.TabIndex = 2;
+            this.txtNombrePersonaje.TextChanged += new System.EventHandler(this.comprobarSiRelleno);
             // 
             // txtNombreJugador
             // 
@@ -979,6 +982,7 @@
             this.txtNombreJugador.Name = "txtNombreJugador";
             this.txtNombreJugador.Size = new System.Drawing.Size(188, 24);
             this.txtNombreJugador.TabIndex = 3;
+            this.txtNombreJugador.TextChanged += new System.EventHandler(this.comprobarSiRelleno);
             // 
             // panelGenero
             // 
@@ -1063,6 +1067,7 @@
             this.combClase.Size = new System.Drawing.Size(188, 25);
             this.combClase.TabIndex = 6;
             this.combClase.SelectedIndexChanged += new System.EventHandler(this.actualizarImg);
+            this.combClase.TextChanged += new System.EventHandler(this.comprobarSiRelleno);
             // 
             // panelPsj
             // 
@@ -1144,6 +1149,18 @@
             this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // imgSave
+            // 
+            this.imgSave.BackColor = System.Drawing.Color.Transparent;
+            this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.saveOff;
+            this.imgSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgSave.Location = new System.Drawing.Point(101, 587);
+            this.imgSave.Name = "imgSave";
+            this.imgSave.Size = new System.Drawing.Size(56, 50);
+            this.imgSave.TabIndex = 29;
+            this.imgSave.TabStop = false;
+            this.imgSave.Click += new System.EventHandler(this.guardarPersonaje);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1152,6 +1169,7 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.imgSave);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.barraCarga);
@@ -1197,6 +1215,7 @@
             this.panelPsj.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1286,6 +1305,7 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblMsgCarga;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox imgSave;
     }
 }
 

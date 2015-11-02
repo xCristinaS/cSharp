@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace CS_Ejercicio03_FichaDePersonajes {
     class Personaje {
         private string nombreP, nombreJ, genero, raza, clase;
-        private int[] atributos = new int[10];
-        private bool[] habilidades = new bool[19];
-        int numTirada, habSeleccionadas, ptosARepartirA;
+        private int[] atributos;
+        private bool[] habilidades;
+        int numTirada, habPorSeleccionar, ptosARepartirA;
 
-        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, bool[] habilidades, int numTirada, int habSeleccionadas, int ptosARepartirA) {
+        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA) {
             this.nombreP = nombreP;
             this.nombreJ = nombreJ;
             this.genero = genero;
@@ -20,7 +20,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             this.atributos = atributos;
             this.habilidades = habilidades;
             this.numTirada = numTirada;
-            this.habSeleccionadas = habSeleccionadas;
+            this.habPorSeleccionar = habPorSeleccionar;
             this.ptosARepartirA = ptosARepartirA;
         }
 
@@ -29,7 +29,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return numTirada;
         }
         public int getHabSeleccionadas() {
-            return habSeleccionadas;
+            return habPorSeleccionar;
         }
         public int getPtosARepartirA() {
             return ptosARepartirA;
@@ -61,7 +61,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         }
 
         public void setHabSeleccionadas(int habSeleccionadas) {
-            this.habSeleccionadas = habSeleccionadas;
+            this.habPorSeleccionar = habSeleccionadas;
         }
 
         public void setPtosARepartirA(int ptosARepartirA) {
