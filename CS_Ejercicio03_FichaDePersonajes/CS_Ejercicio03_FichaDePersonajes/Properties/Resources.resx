@@ -118,23 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Equis" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Equis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="maga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arquera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arquera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arquero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arquero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cazador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cazador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cazadora" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cazadora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="dado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dadoApagado" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dadoApagado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,32 +130,47 @@
   <data name="daguera" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\daguera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="daguero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\daguero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="flechaDer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flechaDer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flechaIzq" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flechaIzq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Equis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Equis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paladin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="guerrera" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guerrera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arquero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arquero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flechaDerApagada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechaDerApagada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flechaIzqApagada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechaIzqApagada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="paladina" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\paladina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="pantallaCarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pantallaCarga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cazadora" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cazadora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cazador" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cazador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flechaIzq" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flechaIzq.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mago" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,13 +178,10 @@
   <data name="nigromante" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nigromante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="pantallaCarga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pantallaCarga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="daguero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\daguero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flechaDerApagada" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flechaDerApagada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flechaIzqApagada" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flechaIzqApagada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="guerrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guerrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

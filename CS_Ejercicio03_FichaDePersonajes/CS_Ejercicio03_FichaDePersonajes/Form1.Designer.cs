@@ -994,14 +994,17 @@
             // 
             this.rbtnFemenino.AutoSize = true;
             this.rbtnFemenino.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnFemenino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.rbtnFemenino.Checked = true;
             this.rbtnFemenino.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbtnFemenino.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.rbtnFemenino.Location = new System.Drawing.Point(11, 36);
             this.rbtnFemenino.Name = "rbtnFemenino";
             this.rbtnFemenino.Size = new System.Drawing.Size(80, 21);
             this.rbtnFemenino.TabIndex = 1;
             this.rbtnFemenino.TabStop = true;
             this.rbtnFemenino.Text = "Femenino";
+            this.rbtnFemenino.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rbtnFemenino.UseVisualStyleBackColor = false;
             this.rbtnFemenino.CheckedChanged += new System.EventHandler(this.actualizarImg);
             // 
