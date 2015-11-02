@@ -18,7 +18,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
         
-        // Esto lo hago para poder cambiar el cursor del ratón.
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
         IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
@@ -45,7 +44,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelHabilidades.Visible = false;
             imgDado.Visible = false;
 
-            // Aqui cambio el cursor del ratón.
             this.Cursor = new Cursor(cursor);
             
         }
