@@ -46,6 +46,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Oculto todos los elementos para emular un menú de carga. 
             ocultarPaginaNewPersonaje();
+            menuSeleccion.Visible = false;
             /*
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
@@ -568,7 +569,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Cuando la barra se completa, muestro la ficha. 
             if (barraCarga.Value == barraCarga.Maximum) {
-                mostrarPaginaNewPersonaje();
+                menuSeleccion.Visible = true;
                 timer1.Enabled = false;
                 barraCarga.Enabled = false;
                 barraCarga.Visible = false;
@@ -593,28 +594,29 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
+
         /*
-        public static Image RotateImage(Image img, float rotationAngle) {
-            //create an empty Bitmap image
-            Bitmap bmp = new Bitmap(img.Width, img.Height);
-            //turn the Bitmap into a Graphics object
-            Graphics gfx = Graphics.FromImage(bmp);
-            //now we set the rotation point to the center of our image
-            gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
-            //now rotate the image
-            gfx.RotateTransform(rotationAngle);
-            gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
-            //set the InterpolationMode to HighQualityBicubic so to ensure a high
-            //quality image once it is transformed to the specified size
-            gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
-            //now draw our new image onto the graphics object
-            gfx.DrawImage(img, new Point(0, 0));
-            //dispose of our Graphics object
-            gfx.Dispose();
-            //return the image
-            return bmp;
-        }
-        */
+public static Image RotateImage(Image img, float rotationAngle) {
+   //create an empty Bitmap image
+   Bitmap bmp = new Bitmap(img.Width, img.Height);
+   //turn the Bitmap into a Graphics object
+   Graphics gfx = Graphics.FromImage(bmp);
+   //now we set the rotation point to the center of our image
+   gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
+   //now rotate the image
+   gfx.RotateTransform(rotationAngle);
+   gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
+   //set the InterpolationMode to HighQualityBicubic so to ensure a high
+   //quality image once it is transformed to the specified size
+   gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
+   //now draw our new image onto the graphics object
+   gfx.DrawImage(img, new Point(0, 0));
+   //dispose of our Graphics object
+   gfx.Dispose();
+   //return the image
+   return bmp;
+}
+*/
         private void timer2_Tick(object sender, EventArgs e) {
             /*
             if (aux < 100) {
@@ -652,6 +654,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelHabilidades.Visible = false;
             imgDado.Visible = false;
             imgSave.Visible = false;
+            imgAtrasNP.Visible = false;
         }
 
         private void mostrarPaginaNewPersonaje() {
@@ -660,6 +663,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelHabilidades.Visible = true;
             imgDado.Visible = true;
             imgSave.Visible = true;
+            imgAtrasNP.Visible = true;
+        }
+
+        private void volverMenuSelec(object sender, EventArgs e) {
+            if (sender.Equals(imgAtrasNP)) {
+                txtNombreJugador.Text = "";
+                txtNombrePersonaje.Text = "";
+                combRaza.SelectedItem = null;
+                ocultarPaginaNewPersonaje();
+            }
+
+            this.BackgroundImage = Properties.Resources.fondo;
+            menuSeleccion.Visible = true;
+        }
+
+        private void cargarPagNewPersonaje(object sender, EventArgs e) {
+            menuSeleccion.Visible = false;
+            mostrarPaginaNewPersonaje();
         }
     }
 }

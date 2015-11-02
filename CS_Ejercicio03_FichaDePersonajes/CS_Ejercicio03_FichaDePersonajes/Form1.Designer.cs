@@ -114,6 +114,9 @@
             this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.imgSave = new System.Windows.Forms.PictureBox();
+            this.menuSeleccion = new System.Windows.Forms.Panel();
+            this.nuevoPersonaje = new System.Windows.Forms.PictureBox();
+            this.imgAtrasNP = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -141,6 +144,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSave)).BeginInit();
+            this.menuSeleccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nuevoPersonaje)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasNP)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1125,7 +1131,7 @@
             this.imgDado.BackColor = System.Drawing.Color.Transparent;
             this.imgDado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgDado.BackgroundImage")));
             this.imgDado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgDado.Location = new System.Drawing.Point(30, 587);
+            this.imgDado.Location = new System.Drawing.Point(101, 587);
             this.imgDado.Name = "imgDado";
             this.imgDado.Size = new System.Drawing.Size(56, 50);
             this.imgDado.TabIndex = 25;
@@ -1154,12 +1160,43 @@
             this.imgSave.BackColor = System.Drawing.Color.Transparent;
             this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.saveOff;
             this.imgSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgSave.Location = new System.Drawing.Point(101, 587);
+            this.imgSave.Location = new System.Drawing.Point(182, 587);
             this.imgSave.Name = "imgSave";
             this.imgSave.Size = new System.Drawing.Size(56, 50);
             this.imgSave.TabIndex = 29;
             this.imgSave.TabStop = false;
             this.imgSave.Click += new System.EventHandler(this.guardarPersonaje);
+            // 
+            // menuSeleccion
+            // 
+            this.menuSeleccion.BackColor = System.Drawing.Color.Transparent;
+            this.menuSeleccion.Controls.Add(this.nuevoPersonaje);
+            this.menuSeleccion.Location = new System.Drawing.Point(3, 41);
+            this.menuSeleccion.Name = "menuSeleccion";
+            this.menuSeleccion.Size = new System.Drawing.Size(1009, 445);
+            this.menuSeleccion.TabIndex = 30;
+            // 
+            // nuevoPersonaje
+            // 
+            this.nuevoPersonaje.BackColor = System.Drawing.Color.Black;
+            this.nuevoPersonaje.Location = new System.Drawing.Point(346, 176);
+            this.nuevoPersonaje.Name = "nuevoPersonaje";
+            this.nuevoPersonaje.Size = new System.Drawing.Size(100, 50);
+            this.nuevoPersonaje.TabIndex = 0;
+            this.nuevoPersonaje.TabStop = false;
+            this.nuevoPersonaje.Click += new System.EventHandler(this.cargarPagNewPersonaje);
+            // 
+            // imgAtrasNP
+            // 
+            this.imgAtrasNP.BackColor = System.Drawing.Color.Transparent;
+            this.imgAtrasNP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.goBack;
+            this.imgAtrasNP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgAtrasNP.Location = new System.Drawing.Point(23, 587);
+            this.imgAtrasNP.Name = "imgAtrasNP";
+            this.imgAtrasNP.Size = new System.Drawing.Size(56, 50);
+            this.imgAtrasNP.TabIndex = 32;
+            this.imgAtrasNP.TabStop = false;
+            this.imgAtrasNP.Click += new System.EventHandler(this.volverMenuSelec);
             // 
             // Form1
             // 
@@ -1169,15 +1206,17 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.imgAtrasNP);
             this.Controls.Add(this.imgSave);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.barraCarga);
             this.Controls.Add(this.imgDado);
             this.Controls.Add(this.imgCerrar);
-            this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panelPsj);
+            this.Controls.Add(this.panelHabilidades);
+            this.Controls.Add(this.menuSeleccion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -1216,6 +1255,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSave)).EndInit();
+            this.menuSeleccion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nuevoPersonaje)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasNP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1306,6 +1348,9 @@
         private System.Windows.Forms.Label lblMsgCarga;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.PictureBox imgSave;
+        private System.Windows.Forms.Panel menuSeleccion;
+        private System.Windows.Forms.PictureBox nuevoPersonaje;
+        private System.Windows.Forms.PictureBox imgAtrasNP;
     }
 }
 
