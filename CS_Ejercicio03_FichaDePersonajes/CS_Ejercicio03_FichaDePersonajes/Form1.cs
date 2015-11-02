@@ -619,8 +619,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
             //return the image
             return bmp;
         }
-        
+        */
         private void timer2_Tick(object sender, EventArgs e) {
+            /*
             if (aux < 100) {
                 imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 15);
                 aux++;
@@ -628,7 +629,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 timer2.Enabled = false;
                 aux = 0;
             }
+            */
         }
-        */
+        
     }
 }
