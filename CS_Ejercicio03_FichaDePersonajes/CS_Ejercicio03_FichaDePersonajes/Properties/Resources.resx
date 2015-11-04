@@ -196,4 +196,85 @@
   <data name="nuevoPersonaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nuevoPersonaje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="album" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\album.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="albumOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\albumOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arco" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="armaduraL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\armaduraL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="armaduraP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\armaduraP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ballesta" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ballesta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ballesta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ballesta2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="baston" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baston.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="catana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dagaDorada" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dagaDorada.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="escudo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escudo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada2manos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada2manos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadaMagica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadaMagica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadaMagica2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadaMagica2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadasDobles" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadasDobles.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guadania" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guadania.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hacha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hacha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lanza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lanza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="martillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\martillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mazo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mazo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

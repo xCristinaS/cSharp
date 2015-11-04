@@ -110,14 +110,39 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblMsgCarga = new System.Windows.Forms.Label();
-            this.imgDado = new System.Windows.Forms.PictureBox();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.imgSave = new System.Windows.Forms.PictureBox();
             this.menuSeleccion = new System.Windows.Forms.Panel();
+            this.imgAlbum = new System.Windows.Forms.PictureBox();
             this.nuevoPersonaje = new System.Windows.Forms.PictureBox();
             this.imgAtrasNP = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.imgEquipamiento = new System.Windows.Forms.PictureBox();
+            this.imgDado = new System.Windows.Forms.PictureBox();
+            this.imgPropiedades = new System.Windows.Forms.PictureBox();
+            this.imgSave = new System.Windows.Forms.PictureBox();
+            this.mObj1 = new System.Windows.Forms.PictureBox();
+            this.panelObjetos = new System.Windows.Forms.Panel();
+            this.obj9 = new System.Windows.Forms.PictureBox();
+            this.obj8 = new System.Windows.Forms.PictureBox();
+            this.obj7 = new System.Windows.Forms.PictureBox();
+            this.obj6 = new System.Windows.Forms.PictureBox();
+            this.obj5 = new System.Windows.Forms.PictureBox();
+            this.obj4 = new System.Windows.Forms.PictureBox();
+            this.obj3 = new System.Windows.Forms.PictureBox();
+            this.obj2 = new System.Windows.Forms.PictureBox();
+            this.obj1 = new System.Windows.Forms.PictureBox();
+            this.lblObjetosEq = new System.Windows.Forms.Label();
+            this.panelMochila = new System.Windows.Forms.Panel();
+            this.mObj9 = new System.Windows.Forms.PictureBox();
+            this.mObj8 = new System.Windows.Forms.PictureBox();
+            this.mObj7 = new System.Windows.Forms.PictureBox();
+            this.mObj6 = new System.Windows.Forms.PictureBox();
+            this.mObj5 = new System.Windows.Forms.PictureBox();
+            this.mObj4 = new System.Windows.Forms.PictureBox();
+            this.mObj3 = new System.Windows.Forms.PictureBox();
+            this.mObj2 = new System.Windows.Forms.PictureBox();
+            this.lblMochila = new System.Windows.Forms.Label();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -142,12 +167,35 @@
             this.panelHabilidades.SuspendLayout();
             this.panelGenero.SuspendLayout();
             this.panelPsj.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).BeginInit();
             this.menuSeleccion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAlbum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuevoPersonaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAtrasNP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEquipamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPropiedades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj1)).BeginInit();
+            this.panelObjetos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj1)).BeginInit();
+            this.panelMochila.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -197,7 +245,7 @@
             this.panelAtributos.Controls.Add(this.lblAtributos);
             this.panelAtributos.Location = new System.Drawing.Point(12, 209);
             this.panelAtributos.Name = "panelAtributos";
-            this.panelAtributos.Size = new System.Drawing.Size(348, 372);
+            this.panelAtributos.Size = new System.Drawing.Size(240, 372);
             this.panelAtributos.TabIndex = 8;
             // 
             // incVel
@@ -674,16 +722,16 @@
             this.panelHabilidades.Controls.Add(this.cboxEsquivar);
             this.panelHabilidades.Controls.Add(this.cboxAbrCerr);
             this.panelHabilidades.Controls.Add(this.label1);
-            this.panelHabilidades.Location = new System.Drawing.Point(609, 41);
+            this.panelHabilidades.Location = new System.Drawing.Point(802, 41);
             this.panelHabilidades.Name = "panelHabilidades";
-            this.panelHabilidades.Size = new System.Drawing.Size(421, 608);
+            this.panelHabilidades.Size = new System.Drawing.Size(210, 608);
             this.panelHabilidades.TabIndex = 9;
             // 
             // lblHabilidadesPorSelec
             // 
             this.lblHabilidadesPorSelec.AutoSize = true;
             this.lblHabilidadesPorSelec.Font = new System.Drawing.Font("Monotype Corsiva", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHabilidadesPorSelec.Location = new System.Drawing.Point(181, 558);
+            this.lblHabilidadesPorSelec.Location = new System.Drawing.Point(31, 556);
             this.lblHabilidadesPorSelec.Name = "lblHabilidadesPorSelec";
             this.lblHabilidadesPorSelec.Size = new System.Drawing.Size(144, 16);
             this.lblHabilidadesPorSelec.TabIndex = 21;
@@ -694,7 +742,7 @@
             this.cboxLeerLabios.AutoSize = true;
             this.cboxLeerLabios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxLeerLabios.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxLeerLabios.Location = new System.Drawing.Point(184, 519);
+            this.cboxLeerLabios.Location = new System.Drawing.Point(34, 517);
             this.cboxLeerLabios.Name = "cboxLeerLabios";
             this.cboxLeerLabios.Size = new System.Drawing.Size(102, 21);
             this.cboxLeerLabios.TabIndex = 20;
@@ -707,7 +755,7 @@
             this.cboxInterrog.AutoSize = true;
             this.cboxInterrog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxInterrog.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxInterrog.Location = new System.Drawing.Point(184, 492);
+            this.cboxInterrog.Location = new System.Drawing.Point(34, 490);
             this.cboxInterrog.Name = "cboxInterrog";
             this.cboxInterrog.Size = new System.Drawing.Size(102, 21);
             this.cboxInterrog.TabIndex = 19;
@@ -720,7 +768,7 @@
             this.cboxIntimidar.AutoSize = true;
             this.cboxIntimidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxIntimidar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxIntimidar.Location = new System.Drawing.Point(184, 465);
+            this.cboxIntimidar.Location = new System.Drawing.Point(34, 463);
             this.cboxIntimidar.Name = "cboxIntimidar";
             this.cboxIntimidar.Size = new System.Drawing.Size(77, 21);
             this.cboxIntimidar.TabIndex = 18;
@@ -733,7 +781,7 @@
             this.cboxPrimerosAux.AutoSize = true;
             this.cboxPrimerosAux.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxPrimerosAux.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxPrimerosAux.Location = new System.Drawing.Point(184, 438);
+            this.cboxPrimerosAux.Location = new System.Drawing.Point(34, 436);
             this.cboxPrimerosAux.Name = "cboxPrimerosAux";
             this.cboxPrimerosAux.Size = new System.Drawing.Size(117, 21);
             this.cboxPrimerosAux.TabIndex = 17;
@@ -746,7 +794,7 @@
             this.cboxPunteria.AutoSize = true;
             this.cboxPunteria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxPunteria.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxPunteria.Location = new System.Drawing.Point(184, 411);
+            this.cboxPunteria.Location = new System.Drawing.Point(34, 409);
             this.cboxPunteria.Name = "cboxPunteria";
             this.cboxPunteria.Size = new System.Drawing.Size(72, 21);
             this.cboxPunteria.TabIndex = 16;
@@ -759,7 +807,7 @@
             this.cboxSaltar.AutoSize = true;
             this.cboxSaltar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxSaltar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxSaltar.Location = new System.Drawing.Point(184, 384);
+            this.cboxSaltar.Location = new System.Drawing.Point(34, 382);
             this.cboxSaltar.Name = "cboxSaltar";
             this.cboxSaltar.Size = new System.Drawing.Size(57, 21);
             this.cboxSaltar.TabIndex = 15;
@@ -772,7 +820,7 @@
             this.cboxDisfrazarse.AutoSize = true;
             this.cboxDisfrazarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxDisfrazarse.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxDisfrazarse.Location = new System.Drawing.Point(184, 357);
+            this.cboxDisfrazarse.Location = new System.Drawing.Point(34, 357);
             this.cboxDisfrazarse.Name = "cboxDisfrazarse";
             this.cboxDisfrazarse.Size = new System.Drawing.Size(89, 21);
             this.cboxDisfrazarse.TabIndex = 14;
@@ -785,7 +833,7 @@
             this.cboxEquilibrio.AutoSize = true;
             this.cboxEquilibrio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxEquilibrio.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxEquilibrio.Location = new System.Drawing.Point(184, 330);
+            this.cboxEquilibrio.Location = new System.Drawing.Point(34, 330);
             this.cboxEquilibrio.Name = "cboxEquilibrio";
             this.cboxEquilibrio.Size = new System.Drawing.Size(79, 21);
             this.cboxEquilibrio.TabIndex = 13;
@@ -799,7 +847,7 @@
             this.cboxEnganiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxEnganiar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxEnganiar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cboxEnganiar.Location = new System.Drawing.Point(184, 303);
+            this.cboxEnganiar.Location = new System.Drawing.Point(34, 303);
             this.cboxEnganiar.Name = "cboxEnganiar";
             this.cboxEnganiar.Size = new System.Drawing.Size(70, 21);
             this.cboxEnganiar.TabIndex = 12;
@@ -812,7 +860,7 @@
             this.cboxNadar.AutoSize = true;
             this.cboxNadar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxNadar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxNadar.Location = new System.Drawing.Point(184, 276);
+            this.cboxNadar.Location = new System.Drawing.Point(34, 276);
             this.cboxNadar.Name = "cboxNadar";
             this.cboxNadar.Size = new System.Drawing.Size(59, 21);
             this.cboxNadar.TabIndex = 11;
@@ -825,7 +873,7 @@
             this.cboxEscalar.AutoSize = true;
             this.cboxEscalar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxEscalar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxEscalar.Location = new System.Drawing.Point(184, 249);
+            this.cboxEscalar.Location = new System.Drawing.Point(34, 249);
             this.cboxEscalar.Name = "cboxEscalar";
             this.cboxEscalar.Size = new System.Drawing.Size(64, 21);
             this.cboxEscalar.TabIndex = 10;
@@ -838,7 +886,7 @@
             this.cboxHurtar.AutoSize = true;
             this.cboxHurtar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxHurtar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxHurtar.Location = new System.Drawing.Point(184, 222);
+            this.cboxHurtar.Location = new System.Drawing.Point(34, 222);
             this.cboxHurtar.Name = "cboxHurtar";
             this.cboxHurtar.Size = new System.Drawing.Size(62, 21);
             this.cboxHurtar.TabIndex = 9;
@@ -851,7 +899,7 @@
             this.cboxOcultarse.AutoSize = true;
             this.cboxOcultarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxOcultarse.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxOcultarse.Location = new System.Drawing.Point(184, 195);
+            this.cboxOcultarse.Location = new System.Drawing.Point(34, 195);
             this.cboxOcultarse.Name = "cboxOcultarse";
             this.cboxOcultarse.Size = new System.Drawing.Size(76, 21);
             this.cboxOcultarse.TabIndex = 8;
@@ -864,7 +912,7 @@
             this.cboxTrampasFosos.AutoSize = true;
             this.cboxTrampasFosos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxTrampasFosos.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxTrampasFosos.Location = new System.Drawing.Point(184, 168);
+            this.cboxTrampasFosos.Location = new System.Drawing.Point(34, 168);
             this.cboxTrampasFosos.Name = "cboxTrampasFosos";
             this.cboxTrampasFosos.Size = new System.Drawing.Size(158, 21);
             this.cboxTrampasFosos.TabIndex = 7;
@@ -877,7 +925,7 @@
             this.cboxPersuasion.AutoSize = true;
             this.cboxPersuasion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxPersuasion.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxPersuasion.Location = new System.Drawing.Point(184, 141);
+            this.cboxPersuasion.Location = new System.Drawing.Point(34, 141);
             this.cboxPersuasion.Name = "cboxPersuasion";
             this.cboxPersuasion.Size = new System.Drawing.Size(83, 21);
             this.cboxPersuasion.TabIndex = 6;
@@ -890,7 +938,7 @@
             this.cboxDetMent.AutoSize = true;
             this.cboxDetMent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxDetMent.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxDetMent.Location = new System.Drawing.Point(184, 114);
+            this.cboxDetMent.Location = new System.Drawing.Point(34, 114);
             this.cboxDetMent.Name = "cboxDetMent";
             this.cboxDetMent.Size = new System.Drawing.Size(123, 21);
             this.cboxDetMent.TabIndex = 5;
@@ -903,7 +951,7 @@
             this.cboxSigilo.AutoSize = true;
             this.cboxSigilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxSigilo.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxSigilo.Location = new System.Drawing.Point(184, 91);
+            this.cboxSigilo.Location = new System.Drawing.Point(34, 91);
             this.cboxSigilo.Name = "cboxSigilo";
             this.cboxSigilo.Size = new System.Drawing.Size(55, 21);
             this.cboxSigilo.TabIndex = 4;
@@ -916,7 +964,7 @@
             this.cboxEsquivar.AutoSize = true;
             this.cboxEsquivar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxEsquivar.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxEsquivar.Location = new System.Drawing.Point(184, 64);
+            this.cboxEsquivar.Location = new System.Drawing.Point(34, 64);
             this.cboxEsquivar.Name = "cboxEsquivar";
             this.cboxEsquivar.Size = new System.Drawing.Size(72, 21);
             this.cboxEsquivar.TabIndex = 3;
@@ -929,7 +977,7 @@
             this.cboxAbrCerr.AutoSize = true;
             this.cboxAbrCerr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cboxAbrCerr.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboxAbrCerr.Location = new System.Drawing.Point(184, 37);
+            this.cboxAbrCerr.Location = new System.Drawing.Point(34, 37);
             this.cboxAbrCerr.Name = "cboxAbrCerr";
             this.cboxAbrCerr.Size = new System.Drawing.Size(113, 21);
             this.cboxAbrCerr.TabIndex = 2;
@@ -941,7 +989,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 7);
+            this.label1.Location = new System.Drawing.Point(30, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(130, 22);
             this.label1.TabIndex = 1;
@@ -1127,19 +1175,6 @@
             this.lblMsgCarga.TabIndex = 28;
             this.lblMsgCarga.Text = "Por favor, espere mientras carga...";
             // 
-            // imgDado
-            // 
-            this.imgDado.BackColor = System.Drawing.Color.Transparent;
-            this.imgDado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgDado.BackgroundImage")));
-            this.imgDado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgDado.Location = new System.Drawing.Point(101, 587);
-            this.imgDado.Name = "imgDado";
-            this.imgDado.Size = new System.Drawing.Size(56, 50);
-            this.imgDado.TabIndex = 25;
-            this.imgDado.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgDado, "Lanzar dado.");
-            this.imgDado.Click += new System.EventHandler(this.tirarDado);
-            // 
             // imgCerrar
             // 
             this.imgCerrar.BackColor = System.Drawing.Color.Transparent;
@@ -1157,27 +1192,27 @@
             this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // imgSave
-            // 
-            this.imgSave.BackColor = System.Drawing.Color.Transparent;
-            this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.saveOff;
-            this.imgSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgSave.Location = new System.Drawing.Point(182, 587);
-            this.imgSave.Name = "imgSave";
-            this.imgSave.Size = new System.Drawing.Size(56, 50);
-            this.imgSave.TabIndex = 29;
-            this.imgSave.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgSave, "Guardar personaje.");
-            this.imgSave.Click += new System.EventHandler(this.guardarPersonaje);
-            // 
             // menuSeleccion
             // 
             this.menuSeleccion.BackColor = System.Drawing.Color.Transparent;
+            this.menuSeleccion.Controls.Add(this.imgAlbum);
             this.menuSeleccion.Controls.Add(this.nuevoPersonaje);
             this.menuSeleccion.Location = new System.Drawing.Point(3, 41);
             this.menuSeleccion.Name = "menuSeleccion";
-            this.menuSeleccion.Size = new System.Drawing.Size(1009, 605);
+            this.menuSeleccion.Size = new System.Drawing.Size(1009, 112);
             this.menuSeleccion.TabIndex = 30;
+            // 
+            // imgAlbum
+            // 
+            this.imgAlbum.BackColor = System.Drawing.Color.Transparent;
+            this.imgAlbum.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.albumOff;
+            this.imgAlbum.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgAlbum.Location = new System.Drawing.Point(560, 13);
+            this.imgAlbum.Name = "imgAlbum";
+            this.imgAlbum.Size = new System.Drawing.Size(398, 355);
+            this.imgAlbum.TabIndex = 1;
+            this.imgAlbum.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgAlbum, "Ver album de personajes.");
             // 
             // nuevoPersonaje
             // 
@@ -1186,7 +1221,7 @@
             this.nuevoPersonaje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.nuevoPersonaje.Location = new System.Drawing.Point(57, 13);
             this.nuevoPersonaje.Name = "nuevoPersonaje";
-            this.nuevoPersonaje.Size = new System.Drawing.Size(329, 583);
+            this.nuevoPersonaje.Size = new System.Drawing.Size(329, 524);
             this.nuevoPersonaje.TabIndex = 0;
             this.nuevoPersonaje.TabStop = false;
             this.toolTip1.SetToolTip(this.nuevoPersonaje, "Crear un nuevo personaje.");
@@ -1207,8 +1242,324 @@
             // 
             // toolTip1
             // 
-            this.toolTip1.AutomaticDelay = 800;
+            this.toolTip1.AutomaticDelay = 2000;
+            this.toolTip1.AutoPopDelay = 800;
+            this.toolTip1.InitialDelay = 2000;
             this.toolTip1.IsBalloon = true;
+            this.toolTip1.ReshowDelay = 2000;
+            // 
+            // imgEquipamiento
+            // 
+            this.imgEquipamiento.BackColor = System.Drawing.Color.DarkRed;
+            this.imgEquipamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgEquipamiento.Location = new System.Drawing.Point(147, 587);
+            this.imgEquipamiento.Name = "imgEquipamiento";
+            this.imgEquipamiento.Size = new System.Drawing.Size(56, 50);
+            this.imgEquipamiento.TabIndex = 35;
+            this.imgEquipamiento.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgEquipamiento, "Mostrar equipamiento.");
+            this.imgEquipamiento.Click += new System.EventHandler(this.imgEquipamiento_Click);
+            // 
+            // imgDado
+            // 
+            this.imgDado.BackColor = System.Drawing.Color.Transparent;
+            this.imgDado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgDado.BackgroundImage")));
+            this.imgDado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgDado.Location = new System.Drawing.Point(85, 587);
+            this.imgDado.Name = "imgDado";
+            this.imgDado.Size = new System.Drawing.Size(56, 50);
+            this.imgDado.TabIndex = 34;
+            this.imgDado.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgDado, "Lanzar dado.");
+            this.imgDado.Click += new System.EventHandler(this.tirarDado);
+            // 
+            // imgPropiedades
+            // 
+            this.imgPropiedades.BackColor = System.Drawing.Color.Yellow;
+            this.imgPropiedades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgPropiedades.Location = new System.Drawing.Point(209, 587);
+            this.imgPropiedades.Name = "imgPropiedades";
+            this.imgPropiedades.Size = new System.Drawing.Size(56, 50);
+            this.imgPropiedades.TabIndex = 36;
+            this.imgPropiedades.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgPropiedades, "Mostrar propiedades.");
+            this.imgPropiedades.Click += new System.EventHandler(this.imgPropiedades_Click);
+            // 
+            // imgSave
+            // 
+            this.imgSave.BackColor = System.Drawing.Color.Transparent;
+            this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.saveOff;
+            this.imgSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgSave.Location = new System.Drawing.Point(271, 587);
+            this.imgSave.Name = "imgSave";
+            this.imgSave.Size = new System.Drawing.Size(56, 50);
+            this.imgSave.TabIndex = 37;
+            this.imgSave.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgSave, "Guardar personaje.");
+            this.imgSave.Click += new System.EventHandler(this.guardarPersonaje);
+            // 
+            // mObj1
+            // 
+            this.mObj1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj1.Location = new System.Drawing.Point(18, 52);
+            this.mObj1.Name = "mObj1";
+            this.mObj1.Size = new System.Drawing.Size(100, 80);
+            this.mObj1.TabIndex = 1;
+            this.mObj1.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj1, "Doble clic para sacar objecto.");
+            this.mObj1.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj1.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj1.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // panelObjetos
+            // 
+            this.panelObjetos.BackColor = System.Drawing.Color.Transparent;
+            this.panelObjetos.Controls.Add(this.obj9);
+            this.panelObjetos.Controls.Add(this.obj8);
+            this.panelObjetos.Controls.Add(this.obj7);
+            this.panelObjetos.Controls.Add(this.obj6);
+            this.panelObjetos.Controls.Add(this.obj5);
+            this.panelObjetos.Controls.Add(this.obj4);
+            this.panelObjetos.Controls.Add(this.obj3);
+            this.panelObjetos.Controls.Add(this.obj2);
+            this.panelObjetos.Controls.Add(this.obj1);
+            this.panelObjetos.Controls.Add(this.lblObjetosEq);
+            this.panelObjetos.Location = new System.Drawing.Point(12, 236);
+            this.panelObjetos.Name = "panelObjetos";
+            this.panelObjetos.Size = new System.Drawing.Size(348, 338);
+            this.panelObjetos.TabIndex = 40;
+            // 
+            // obj9
+            // 
+            this.obj9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj9.Location = new System.Drawing.Point(230, 238);
+            this.obj9.Name = "obj9";
+            this.obj9.Size = new System.Drawing.Size(100, 80);
+            this.obj9.TabIndex = 9;
+            this.obj9.TabStop = false;
+            this.obj9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj8
+            // 
+            this.obj8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj8.Location = new System.Drawing.Point(124, 238);
+            this.obj8.Name = "obj8";
+            this.obj8.Size = new System.Drawing.Size(100, 80);
+            this.obj8.TabIndex = 8;
+            this.obj8.TabStop = false;
+            this.obj8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj7
+            // 
+            this.obj7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj7.Location = new System.Drawing.Point(18, 238);
+            this.obj7.Name = "obj7";
+            this.obj7.Size = new System.Drawing.Size(100, 80);
+            this.obj7.TabIndex = 7;
+            this.obj7.TabStop = false;
+            this.obj7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj6
+            // 
+            this.obj6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj6.Location = new System.Drawing.Point(230, 146);
+            this.obj6.Name = "obj6";
+            this.obj6.Size = new System.Drawing.Size(100, 80);
+            this.obj6.TabIndex = 6;
+            this.obj6.TabStop = false;
+            this.obj6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj5
+            // 
+            this.obj5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj5.Location = new System.Drawing.Point(124, 146);
+            this.obj5.Name = "obj5";
+            this.obj5.Size = new System.Drawing.Size(100, 80);
+            this.obj5.TabIndex = 5;
+            this.obj5.TabStop = false;
+            this.obj5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj4
+            // 
+            this.obj4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj4.Location = new System.Drawing.Point(18, 146);
+            this.obj4.Name = "obj4";
+            this.obj4.Size = new System.Drawing.Size(100, 80);
+            this.obj4.TabIndex = 4;
+            this.obj4.TabStop = false;
+            this.obj4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj3
+            // 
+            this.obj3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj3.Location = new System.Drawing.Point(230, 52);
+            this.obj3.Name = "obj3";
+            this.obj3.Size = new System.Drawing.Size(100, 80);
+            this.obj3.TabIndex = 3;
+            this.obj3.TabStop = false;
+            this.obj3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj2
+            // 
+            this.obj2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj2.Location = new System.Drawing.Point(124, 52);
+            this.obj2.Name = "obj2";
+            this.obj2.Size = new System.Drawing.Size(100, 80);
+            this.obj2.TabIndex = 2;
+            this.obj2.TabStop = false;
+            this.obj2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // obj1
+            // 
+            this.obj1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.obj1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.obj1.Location = new System.Drawing.Point(18, 52);
+            this.obj1.Name = "obj1";
+            this.obj1.Size = new System.Drawing.Size(100, 80);
+            this.obj1.TabIndex = 1;
+            this.obj1.TabStop = false;
+            this.obj1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
+            // 
+            // lblObjetosEq
+            // 
+            this.lblObjetosEq.AutoSize = true;
+            this.lblObjetosEq.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjetosEq.Location = new System.Drawing.Point(7, 11);
+            this.lblObjetosEq.Name = "lblObjetosEq";
+            this.lblObjetosEq.Size = new System.Drawing.Size(195, 22);
+            this.lblObjetosEq.TabIndex = 0;
+            this.lblObjetosEq.Text = "OBJETOS EQUIPABLES";
+            // 
+            // panelMochila
+            // 
+            this.panelMochila.BackColor = System.Drawing.Color.Transparent;
+            this.panelMochila.Controls.Add(this.mObj9);
+            this.panelMochila.Controls.Add(this.mObj8);
+            this.panelMochila.Controls.Add(this.mObj7);
+            this.panelMochila.Controls.Add(this.mObj6);
+            this.panelMochila.Controls.Add(this.mObj5);
+            this.panelMochila.Controls.Add(this.mObj4);
+            this.panelMochila.Controls.Add(this.mObj3);
+            this.panelMochila.Controls.Add(this.mObj2);
+            this.panelMochila.Controls.Add(this.mObj1);
+            this.panelMochila.Controls.Add(this.lblMochila);
+            this.panelMochila.Location = new System.Drawing.Point(664, 236);
+            this.panelMochila.Name = "panelMochila";
+            this.panelMochila.Size = new System.Drawing.Size(348, 338);
+            this.panelMochila.TabIndex = 41;
+            // 
+            // mObj9
+            // 
+            this.mObj9.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj9.Location = new System.Drawing.Point(230, 238);
+            this.mObj9.Name = "mObj9";
+            this.mObj9.Size = new System.Drawing.Size(100, 80);
+            this.mObj9.TabIndex = 9;
+            this.mObj9.TabStop = false;
+            // 
+            // mObj8
+            // 
+            this.mObj8.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj8.Location = new System.Drawing.Point(124, 238);
+            this.mObj8.Name = "mObj8";
+            this.mObj8.Size = new System.Drawing.Size(100, 80);
+            this.mObj8.TabIndex = 8;
+            this.mObj8.TabStop = false;
+            // 
+            // mObj7
+            // 
+            this.mObj7.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj7.Location = new System.Drawing.Point(18, 238);
+            this.mObj7.Name = "mObj7";
+            this.mObj7.Size = new System.Drawing.Size(100, 80);
+            this.mObj7.TabIndex = 7;
+            this.mObj7.TabStop = false;
+            // 
+            // mObj6
+            // 
+            this.mObj6.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj6.Location = new System.Drawing.Point(230, 146);
+            this.mObj6.Name = "mObj6";
+            this.mObj6.Size = new System.Drawing.Size(100, 80);
+            this.mObj6.TabIndex = 6;
+            this.mObj6.TabStop = false;
+            // 
+            // mObj5
+            // 
+            this.mObj5.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj5.Location = new System.Drawing.Point(124, 146);
+            this.mObj5.Name = "mObj5";
+            this.mObj5.Size = new System.Drawing.Size(100, 80);
+            this.mObj5.TabIndex = 5;
+            this.mObj5.TabStop = false;
+            // 
+            // mObj4
+            // 
+            this.mObj4.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj4.Location = new System.Drawing.Point(18, 146);
+            this.mObj4.Name = "mObj4";
+            this.mObj4.Size = new System.Drawing.Size(100, 80);
+            this.mObj4.TabIndex = 4;
+            this.mObj4.TabStop = false;
+            // 
+            // mObj3
+            // 
+            this.mObj3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj3.Location = new System.Drawing.Point(230, 52);
+            this.mObj3.Name = "mObj3";
+            this.mObj3.Size = new System.Drawing.Size(100, 80);
+            this.mObj3.TabIndex = 3;
+            this.mObj3.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj3, "Doble clic para sacar objecto.");
+            this.mObj3.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj3.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj3.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // mObj2
+            // 
+            this.mObj2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj2.Location = new System.Drawing.Point(124, 52);
+            this.mObj2.Name = "mObj2";
+            this.mObj2.Size = new System.Drawing.Size(100, 80);
+            this.mObj2.TabIndex = 2;
+            this.mObj2.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj2, "Doble clic para sacar objecto.");
+            this.mObj2.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj2.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj2.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // lblMochila
+            // 
+            this.lblMochila.AutoSize = true;
+            this.lblMochila.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMochila.Location = new System.Drawing.Point(168, 11);
+            this.lblMochila.Name = "lblMochila";
+            this.lblMochila.Size = new System.Drawing.Size(90, 22);
+            this.lblMochila.TabIndex = 0;
+            this.lblMochila.Text = "MOCHILA";
             // 
             // Form1
             // 
@@ -1218,17 +1569,21 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
-            this.Controls.Add(this.menuSeleccion);
-            this.Controls.Add(this.imgAtrasNP);
-            this.Controls.Add(this.imgSave);
-            this.Controls.Add(this.lblMsgCarga);
-            this.Controls.Add(this.lblBienvenido);
-            this.Controls.Add(this.barraCarga);
+            this.Controls.Add(this.panelMochila);
+            this.Controls.Add(this.panelObjetos);
+            this.Controls.Add(this.imgEquipamiento);
             this.Controls.Add(this.imgDado);
+            this.Controls.Add(this.imgPropiedades);
+            this.Controls.Add(this.imgSave);
+            this.Controls.Add(this.imgAtrasNP);
             this.Controls.Add(this.imgCerrar);
-            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panelPsj);
             this.Controls.Add(this.panelHabilidades);
+            this.Controls.Add(this.lblMsgCarga);
+            this.Controls.Add(this.barraCarga);
+            this.Controls.Add(this.menuSeleccion);
+            this.Controls.Add(this.panelAtributos);
+            this.Controls.Add(this.lblBienvenido);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -1264,12 +1619,37 @@
             this.panelGenero.PerformLayout();
             this.panelPsj.ResumeLayout(false);
             this.panelPsj.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).EndInit();
             this.menuSeleccion.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgAlbum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuevoPersonaje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAtrasNP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgEquipamiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgDado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPropiedades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj1)).EndInit();
+            this.panelObjetos.ResumeLayout(false);
+            this.panelObjetos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.obj1)).EndInit();
+            this.panelMochila.ResumeLayout(false);
+            this.panelMochila.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1333,7 +1713,6 @@
         private System.Windows.Forms.ProgressBar pbPercepcion;
         private System.Windows.Forms.ProgressBar pbVitalidad;
         private System.Windows.Forms.Label lblPuntosRepartirA;
-        private System.Windows.Forms.PictureBox imgDado;
         private System.Windows.Forms.PictureBox decVel;
         private System.Windows.Forms.PictureBox decRef;
         private System.Windows.Forms.PictureBox decIni;
@@ -1359,11 +1738,37 @@
         private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblMsgCarga;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.PictureBox imgSave;
         private System.Windows.Forms.Panel menuSeleccion;
         private System.Windows.Forms.PictureBox nuevoPersonaje;
         private System.Windows.Forms.PictureBox imgAtrasNP;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox imgAlbum;
+        private System.Windows.Forms.PictureBox imgEquipamiento;
+        private System.Windows.Forms.PictureBox imgDado;
+        private System.Windows.Forms.PictureBox imgPropiedades;
+        private System.Windows.Forms.PictureBox imgSave;
+        private System.Windows.Forms.Panel panelObjetos;
+        private System.Windows.Forms.Label lblObjetosEq;
+        private System.Windows.Forms.PictureBox obj9;
+        private System.Windows.Forms.PictureBox obj8;
+        private System.Windows.Forms.PictureBox obj7;
+        private System.Windows.Forms.PictureBox obj6;
+        private System.Windows.Forms.PictureBox obj5;
+        private System.Windows.Forms.PictureBox obj4;
+        private System.Windows.Forms.PictureBox obj3;
+        private System.Windows.Forms.PictureBox obj2;
+        private System.Windows.Forms.PictureBox obj1;
+        private System.Windows.Forms.Panel panelMochila;
+        private System.Windows.Forms.PictureBox mObj9;
+        private System.Windows.Forms.PictureBox mObj8;
+        private System.Windows.Forms.PictureBox mObj7;
+        private System.Windows.Forms.PictureBox mObj6;
+        private System.Windows.Forms.PictureBox mObj5;
+        private System.Windows.Forms.PictureBox mObj4;
+        private System.Windows.Forms.PictureBox mObj3;
+        private System.Windows.Forms.PictureBox mObj2;
+        private System.Windows.Forms.PictureBox mObj1;
+        private System.Windows.Forms.Label lblMochila;
     }
 }
 

@@ -13,8 +13,8 @@ using System.Windows.Forms;
 namespace CS_Ejercicio03_FichaDePersonajes
 {
     public partial class Form1 : Form {
-        private String[] personajesMagicos = { "Mago", "Nigromante" };
-        String[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
+        private string[] personajesMagicos = { "Mago", "Nigromante" };
+        string[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
@@ -31,7 +31,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            mObj1.AllowDrop = true;
+            mObj2.AllowDrop = true;
+            mObj3.AllowDrop = true;
             obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
+            deshabilitarHabilidades(); // Para que no se puedan marcar si no hay personaje seleccionado. 
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
             // A todos los picture box que están en el panel de atributos les cambio su .Tag a valor 0, para despúes poder 
@@ -57,8 +61,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void clicCerrar(object sender, EventArgs e) {
             this.Close();
         }
-        // Este método es lanzado cuando cambia el comboboxRaza. 
-        private void comboboxCambiado(object sender, EventArgs e) {
+        
+        private void comboboxCambiado(object sender, EventArgs e) { // Este método es lanzado cuando cambia el comboboxRaza. 
             combClase.Items.Clear();
             // Los valores del combClase variarán en función de la raza seleccionada. Si el indice es 0, se cargarán 
             // los personajesMagicos en el combClase, en caso contrario se cargarán los personajesMundanos.
@@ -70,8 +74,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
             // de la clase que se hubiera seleccionado anteriormente y quitar la imagen del psj. 
             if (!combRaza.Text.Equals("")) {
                 resetValoresAtrib();
+                vaciarMochila();
+                vaciarObjetosEquip();
                 resetFlechasAtributos();
                 limpiarHabilidadesMarcadas();
+                deshabilitarHabilidades();
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         } 
@@ -83,11 +90,14 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mostrarImgPersonaje(object sender) {
             String personaje;
             if (!combClase.Text.Equals("")) {
+                habilitarHabilidades();
                 personaje = combClase.SelectedItem.ToString();
                 // Sólo doy el plus a los atributos si quien lanzó el evento fue el cambio de clase del personaje.
                 // El plus de los atributos variará en función del personaje seleccionado. 
                 if (sender.Equals(combClase)) {
                     asignarAtributosPlusPSJ(personaje);
+                    cargarObjetosEquipables(personaje);
+                    vaciarMochila();
                     limpiarHabilidadesMarcadas();
                     resetFlechasAtributos();
                 }
@@ -148,8 +158,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             }
         }
-        // Doy un valor extra a cada atributo en función del personaje seleccionado. 
-        private void asignarAtributosPlusPSJ(String personaje) {
+         
+        private void asignarAtributosPlusPSJ(string personaje) { // Doy un valor extra a cada atributo en función del personaje seleccionado.
             switch (personaje) {
                 case "Mago":
                     pbCarisma.Value = Constantes.MAGO_CARISMA_PLUS;
@@ -512,6 +522,22 @@ namespace CS_Ejercicio03_FichaDePersonajes
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
         }
 
+        private void habilitarHabilidades() {
+            // Habilito los checkbox siempre y cuando haya un personaje seleccionado. 
+            foreach (object cb2 in panelHabilidades.Controls) {
+                if (cb2 is CheckBox)
+                    ((CheckBox)cb2).Enabled = true;
+            }
+        }
+
+        private void deshabilitarHabilidades() {
+           // Deshabilito los checkbox si no hay personaje seleccionado. 
+                foreach (object cb2 in panelHabilidades.Controls) {
+                    if (cb2 is CheckBox)
+                        ((CheckBox)cb2).Enabled = false;
+                }
+            }
+
         private void limpiarHabilidadesMarcadas() {
             // Para limpiar las habilidades marcadas al cambiar de personaje. 
             foreach (object cb2 in panelHabilidades.Controls) {
@@ -594,7 +620,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
-
         /*
 public static Image RotateImage(Image img, float rotationAngle) {
    //create an empty Bitmap image
@@ -645,7 +670,123 @@ public static Image RotateImage(Image img, float rotationAngle) {
             int[] atributos = {pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value};
             bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
-            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, habilidades, numTirada, habPorSelect, ptosRepAtrib);
+            int[] tagsAtb = {(int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag};
+            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib);
+        }
+
+        private void cargarObjetosEquipables(string personaje) {
+            obj9.BackgroundImage = Properties.Resources.cuchillos;
+            if (personaje.Equals("Guerrero")) {
+                obj1.BackgroundImage = Properties.Resources.hacha;
+                obj2.BackgroundImage = Properties.Resources.mazo;
+                obj3.BackgroundImage = Properties.Resources.martillo;
+                obj4.BackgroundImage = Properties.Resources.lanza;
+                obj5.BackgroundImage = Properties.Resources.espada2manos;
+                obj6.BackgroundImage = Properties.Resources.armaduraP;
+                obj7.BackgroundImage = Properties.Resources.escudo;
+                obj8.BackgroundImage = null;
+            } else if (personaje.Equals("Mago")) {
+                obj1.BackgroundImage = Properties.Resources.baston;
+                obj2.BackgroundImage = Properties.Resources.espadaMagica;
+                obj3.BackgroundImage = Properties.Resources.espadaMagica2;
+                obj4.BackgroundImage = null;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = Properties.Resources.armaduraL;
+            } else if (personaje.Equals("Paladin")) {
+                obj1.BackgroundImage = Properties.Resources.espada5;
+                obj2.BackgroundImage = Properties.Resources.espadon;
+                obj3.BackgroundImage = Properties.Resources.armaduraP;
+                obj4.BackgroundImage = Properties.Resources.escudo;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = null;
+            } else if (personaje.Equals("Daguero")) {
+                obj1.BackgroundImage = Properties.Resources.catana;
+                obj2.BackgroundImage = Properties.Resources.cuchillo2;
+                obj3.BackgroundImage = Properties.Resources.dagaDorada;
+                obj4.BackgroundImage = Properties.Resources.espadasDobles;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = Properties.Resources.armaduraL;
+            } else if (personaje.Equals("Nigromante")) {
+                obj1.BackgroundImage = Properties.Resources.guadania;
+                obj2.BackgroundImage = null;
+                obj3.BackgroundImage = null;
+                obj4.BackgroundImage = null;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = null;
+            } else if (personaje.Equals("Cazador")) {
+                obj1.BackgroundImage = Properties.Resources.ballesta;
+                obj2.BackgroundImage = Properties.Resources.ballesta2;
+                obj3.BackgroundImage = Properties.Resources.espada1;
+                obj4.BackgroundImage = Properties.Resources.cuchillo1;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = Properties.Resources.armaduraL;
+            } else if (personaje.Equals("Arquero")) {
+                obj1.BackgroundImage = Properties.Resources.arco;
+                obj2.BackgroundImage = null;
+                obj3.BackgroundImage = null;
+                obj4.BackgroundImage = null;
+                obj5.BackgroundImage = null;
+                obj6.BackgroundImage = null;
+                obj7.BackgroundImage = null;
+                obj8.BackgroundImage = Properties.Resources.armaduraL;
+            }
+        }
+
+        private void obj_MouseDown(object sender, MouseEventArgs e) {
+            PictureBox img = (PictureBox)sender; // Drag and drop. Aqui agarro el elemento. 
+            if (img.BackgroundImage != null) 
+                img.DoDragDrop(img.BackgroundImage, DragDropEffects.Move);
+        }
+
+        private void mObj_DragEnter(object sender, DragEventArgs e) {
+            e.Effect = DragDropEffects.Move; 
+        }
+
+        private void mObj_DragDrop(object sender, DragEventArgs e) {
+            PictureBox img = (PictureBox)sender;
+            img.BackgroundImage = (Image)e.Data.GetData(DataFormats.Bitmap);
+            // Busco entre los objetos algun objeto igual al que he arrastrado a la mochila y pongo el pictureBox a null. 
+            foreach (object o in panelObjetos.Controls) {
+                if (o is PictureBox)
+                    if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage))
+                        ((PictureBox)o).BackgroundImage = null;
+            }
+        }
+
+        private void sacarObjMochila(object sender, EventArgs e) {
+            // Paso el objeto de la mochila a la parte de objetos equipables en el primer hueco que encuentre. 
+            PictureBox img = (PictureBox)sender; Boolean hecho = false;
+            foreach (object o in panelObjetos.Controls) {
+                if (o is PictureBox)
+                    if (!hecho && ((PictureBox)o).BackgroundImage == null) {
+                        ((PictureBox)o).BackgroundImage = img.BackgroundImage;
+                        hecho = true;
+                    }
+            }
+            img.BackgroundImage = null;
+        }
+
+        private void vaciarMochila() { // Vacio la mochila cuando cambio de personaje. 
+            mObj1.BackgroundImage = null;
+            mObj2.BackgroundImage = null;
+            mObj3.BackgroundImage = null;
+        }
+
+        private void vaciarObjetosEquip() { // Vacio el inventario cuando cambio de raza. 
+            foreach (object o in panelObjetos.Controls) {
+                if (o is PictureBox)
+                    ((PictureBox)o).BackgroundImage = null;
+            }
         }
 
         private void ocultarPaginaNewPersonaje() {
@@ -655,6 +796,10 @@ public static Image RotateImage(Image img, float rotationAngle) {
             imgDado.Visible = false;
             imgSave.Visible = false;
             imgAtrasNP.Visible = false;
+            imgPropiedades.Visible = false;
+            imgEquipamiento.Visible = false;
+            panelObjetos.Visible = false;
+            panelMochila.Visible = false;
         }
 
         private void mostrarPaginaNewPersonaje() {
@@ -664,6 +809,24 @@ public static Image RotateImage(Image img, float rotationAngle) {
             imgDado.Visible = true;
             imgSave.Visible = true;
             imgAtrasNP.Visible = true;
+            imgPropiedades.Visible = true;
+            imgEquipamiento.Visible = true;
+            panelObjetos.Visible = false;
+            panelMochila.Visible = false;
+        }
+
+        private void imgPropiedades_Click(object sender, EventArgs e) {
+            panelObjetos.Visible = false;
+            panelMochila.Visible = false;
+            panelAtributos.Visible = true;
+            panelHabilidades.Visible = true;
+        }
+
+        private void imgEquipamiento_Click(object sender, EventArgs e) {
+            panelAtributos.Visible = false;
+            panelHabilidades.Visible = false;
+            panelMochila.Visible = true;
+            panelObjetos.Visible = true;
         }
 
         private void volverMenuSelec(object sender, EventArgs e) {
