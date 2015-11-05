@@ -787,7 +787,7 @@ public static Image RotateImage(Image img, float rotationAngle) {
             // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
             foreach (object o in panelObjetos.Controls) {
                 if (!centinela && o is PictureBox)
-                    if (((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage)) {
+                    if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage)) {
                         ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
                         ((PictureBox)o).Tag = img.BackgroundImage; // Guardo la imagen "encendida" en el tag. 
                         ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
