@@ -411,6 +411,198 @@
   <ItemGroup>
     <None Include="Resources\arcoOff.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaEd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eden1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eden2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eden1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eden2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaEdOffpng.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaEdOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bayonetaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daga1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bayoneta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daga1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada6Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada7Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada8Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaMagica2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaMagicaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaMagica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaMagica2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\daga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaMOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esp1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esp2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esp1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\esp2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hachaC1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hachaC1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espN1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espN2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espN1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espN2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n3Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n4Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\n4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco3Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco4Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco5Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arco6Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\atras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guardarOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mochila.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\propiedades.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

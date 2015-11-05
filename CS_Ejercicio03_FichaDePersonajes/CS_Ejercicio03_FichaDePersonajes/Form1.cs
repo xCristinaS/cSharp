@@ -31,9 +31,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            mObj1.AllowDrop = true;
-            mObj2.AllowDrop = true;
-            mObj3.AllowDrop = true;
+            habilitarDragDrop();
             obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
             deshabilitarHabilidades(); // Para que no se puedan marcar si no hay personaje seleccionado. 
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
@@ -79,6 +77,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 resetFlechasAtributos();
                 limpiarHabilidadesMarcadas();
                 deshabilitarHabilidades();
+                combClase.Text = "";
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         } 
@@ -550,11 +549,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
         private void tirarDado(object sender, EventArgs e) {
             String personaje; 
-            /*
-            timer2.Enabled = true;
-            */
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
             if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
+                /*
+                timer2.Enabled = true;
+                */
                 resetValoresAtrib(); // Pongo los atributos a 0. 
                 resetFlechasAtributos();
                 personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
@@ -595,6 +594,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Cuando la barra se completa, muestro la ficha. 
             if (barraCarga.Value == barraCarga.Maximum) {
+                imgCerrar.Visible = true;
                 menuSeleccion.Visible = true;
                 timer1.Enabled = false;
                 barraCarga.Enabled = false;
@@ -620,7 +620,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
-        /*
+    /*    
 public static Image RotateImage(Image img, float rotationAngle) {
    //create an empty Bitmap image
    Bitmap bmp = new Bitmap(img.Width, img.Height);
@@ -657,12 +657,12 @@ public static Image RotateImage(Image img, float rotationAngle) {
         private void comprobarSiRelleno(object sender, EventArgs e) {
             // Compruebo si los campos del panel de personaje están rellenos. Si es así, se habilitará el botón de guardado.
             // En caso contrario se deshabilita. 
-            if (!txtNombreJugador.Text.Equals("") && !txtNombrePersonaje.Text.Equals("") && !combClase.Text.Equals("")) {
+            if (!combClase.Text.Equals("") && !txtNombreJugador.Text.Equals("") && !txtNombrePersonaje.Text.Equals("")) {
                 imgSave.Enabled = true;
-                imgSave.BackgroundImage = Properties.Resources.save;
+                imgSave.BackgroundImage = Properties.Resources.guardar;
             } else {
                 imgSave.Enabled = false;
-                imgSave.BackgroundImage = Properties.Resources.saveOff;
+                imgSave.BackgroundImage = Properties.Resources.guardarOff;
             }
         }
 
@@ -692,18 +692,23 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj6.Tag = Properties.Resources.armaduraPOff;
                 obj7.BackgroundImage = Properties.Resources.escudo;
                 obj7.Tag = Properties.Resources.escudoOff;
-                obj8.BackgroundImage = null;
+                obj8.BackgroundImage = Properties.Resources.espadaEd;
+                obj8.Tag = Properties.Resources.espadaEdOff;
             } else if (personaje.Equals("Mago")) {
                 obj1.BackgroundImage = Properties.Resources.baston;
                 obj1.Tag = Properties.Resources.bastonOff;
-                obj2.BackgroundImage = Properties.Resources.espadaMagica;
-                obj2.Tag = Properties.Resources.espadaMagicaOff;
-                obj3.BackgroundImage = Properties.Resources.espadaMagica2;
-                obj3.Tag = Properties.Resources.espadaMagica2Off;
-                obj4.BackgroundImage = null;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
+                obj2.BackgroundImage = Properties.Resources.dagaMagica;
+                obj2.Tag = Properties.Resources.dagaMagicaOff;
+                obj3.BackgroundImage = Properties.Resources.dagaMagica2;
+                obj3.Tag = Properties.Resources.dagaMagica2Off;
+                obj4.BackgroundImage = Properties.Resources.eden1;
+                obj4.Tag = Properties.Resources.eden1Off;
+                obj5.BackgroundImage = Properties.Resources.eden2;
+                obj5.Tag = Properties.Resources.eden2Off;
+                obj6.BackgroundImage = Properties.Resources.espN1;
+                obj6.Tag = Properties.Resources.espN1Off;
+                obj7.BackgroundImage = Properties.Resources.espadaM;
+                obj7.Tag = Properties.Resources.espadaMOff;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
                 obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Paladin")) {
@@ -715,10 +720,14 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj3.Tag = Properties.Resources.armaduraPOff;
                 obj4.BackgroundImage = Properties.Resources.escudo;
                 obj4.Tag  = Properties.Resources.escudoOff;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
-                obj8.BackgroundImage = null;
+                obj5.BackgroundImage = Properties.Resources.espadaEd;
+                obj5.Tag = Properties.Resources.espadaEdOff;
+                obj6.BackgroundImage = Properties.Resources.espada6;
+                obj6.Tag = Properties.Resources.espada6Off;
+                obj7.BackgroundImage = Properties.Resources.espada8;
+                obj7.Tag = Properties.Resources.espada8Off;
+                obj8.BackgroundImage = Properties.Resources.espada7;
+                obj8.Tag = Properties.Resources.espada7Off;
             } else if (personaje.Equals("Daguero")) {
                 obj1.BackgroundImage = Properties.Resources.catana;
                 obj1.Tag = Properties.Resources.catanaOff;
@@ -728,21 +737,31 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj3.Tag = Properties.Resources.dagaDoradaOff;
                 obj4.BackgroundImage = Properties.Resources.espadasDobles;
                 obj4.Tag = Properties.Resources.espadasDoblesOff;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
+                obj5.BackgroundImage = Properties.Resources.daga1;
+                obj5.Tag = Properties.Resources.daga1Off;
+                obj6.BackgroundImage = Properties.Resources.bayoneta;
+                obj6.Tag = Properties.Resources.bayonetaOff;
+                obj7.BackgroundImage = Properties.Resources.daga;
+                obj7.Tag = Properties.Resources.dagaOff;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
                 obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Nigromante")) {
                 obj1.BackgroundImage = Properties.Resources.guadania;
                 obj1.Tag = Properties.Resources.guadaniaOff;
-                obj2.BackgroundImage = null;
-                obj3.BackgroundImage = null;
-                obj4.BackgroundImage = null;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
-                obj8.BackgroundImage = null;
+                obj2.BackgroundImage = Properties.Resources.a1;
+                obj2.Tag = Properties.Resources.a1Off;
+                obj3.BackgroundImage = Properties.Resources.espN1;
+                obj3.Tag = Properties.Resources.espN1Off;
+                obj4.BackgroundImage = Properties.Resources.espN2;
+                obj4.Tag = Properties.Resources.espN2Off;
+                obj5.BackgroundImage = Properties.Resources.n1;
+                obj5.Tag = Properties.Resources.n1Off;
+                obj6.BackgroundImage = Properties.Resources.n2;
+                obj6.Tag = Properties.Resources.n2Off;
+                obj7.BackgroundImage = Properties.Resources.n3;
+                obj7.Tag = Properties.Resources.n3Off;
+                obj8.BackgroundImage = Properties.Resources.n4;
+                obj8.Tag = Properties.Resources.n4Off;
             } else if (personaje.Equals("Cazador")) {
                 obj1.BackgroundImage = Properties.Resources.ballesta;
                 obj1.Tag = Properties.Resources.ballestaOff;
@@ -752,20 +771,29 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj3.Tag = Properties.Resources.espada1Off;
                 obj4.BackgroundImage = Properties.Resources.cuchillo1;
                 obj4.Tag = Properties.Resources.cuchillo1Off;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
+                obj5.BackgroundImage = Properties.Resources.esp1;
+                obj5.Tag = Properties.Resources.esp1Off;
+                obj6.BackgroundImage = Properties.Resources.esp2;
+                obj6.Tag = Properties.Resources.esp2Off;
+                obj7.BackgroundImage = Properties.Resources.hachaC1;
+                obj7.Tag = Properties.Resources.hachaC1Off;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
                 obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Arquero")) {
                 obj1.BackgroundImage = Properties.Resources.arco;
                 obj1.Tag = Properties.Resources.arcoOff;
-                obj2.BackgroundImage = null;
-                obj3.BackgroundImage = null;
-                obj4.BackgroundImage = null;
-                obj5.BackgroundImage = null;
-                obj6.BackgroundImage = null;
-                obj7.BackgroundImage = null;
+                obj2.BackgroundImage = Properties.Resources.arco1;
+                obj2.Tag = Properties.Resources.arco1Off;
+                obj3.BackgroundImage = Properties.Resources.arco2;
+                obj3.Tag = Properties.Resources.arco2Off;
+                obj4.BackgroundImage = Properties.Resources.arco3;
+                obj4.Tag = Properties.Resources.arco3Off;
+                obj5.BackgroundImage = Properties.Resources.arco4;
+                obj5.Tag = Properties.Resources.arco4Off;
+                obj6.BackgroundImage = Properties.Resources.arco5;
+                obj6.Tag = Properties.Resources.arco5Off;
+                obj7.BackgroundImage = Properties.Resources.arco6;
+                obj7.Tag = Properties.Resources.arco6Off;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
                 obj8.Tag = Properties.Resources.armaduraLOff;
             }
@@ -778,7 +806,8 @@ public static Image RotateImage(Image img, float rotationAngle) {
         }
 
         private void mObj_DragEnter(object sender, DragEventArgs e) {
-            e.Effect = DragDropEffects.Move; 
+            if (((PictureBox)sender).BackgroundImage == null)
+                e.Effect = DragDropEffects.Move; 
         }
 
         private void mObj_DragDrop(object sender, DragEventArgs e) {
@@ -825,6 +854,13 @@ public static Image RotateImage(Image img, float rotationAngle) {
             }
         }
 
+        private void habilitarDragDrop() {
+            mObj1.AllowDrop = true;
+            mObj2.AllowDrop = true;
+            mObj3.AllowDrop = true;
+            mObj4.AllowDrop = true;
+        }
+
         private void ocultarPaginaNewPersonaje() {
             panelPsj.Visible = false;
             panelAtributos.Visible = false;
@@ -836,6 +872,7 @@ public static Image RotateImage(Image img, float rotationAngle) {
             imgEquipamiento.Visible = false;
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
+            imgCerrar.Visible = false;
         }
 
         private void mostrarPaginaNewPersonaje() {
@@ -870,6 +907,11 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 txtNombreJugador.Text = "";
                 txtNombrePersonaje.Text = "";
                 combRaza.SelectedItem = null;
+                limpiarHabilidadesMarcadas();
+                resetValoresAtrib();
+                vaciarMochila();
+                vaciarObjetosEquip();
+                resetFlechasAtributos();
                 ocultarPaginaNewPersonaje();
             }
 

@@ -122,6 +122,8 @@
             this.imgPropiedades = new System.Windows.Forms.PictureBox();
             this.imgSave = new System.Windows.Forms.PictureBox();
             this.mObj1 = new System.Windows.Forms.PictureBox();
+            this.mObj3 = new System.Windows.Forms.PictureBox();
+            this.mObj2 = new System.Windows.Forms.PictureBox();
             this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
@@ -134,14 +136,13 @@
             this.obj1 = new System.Windows.Forms.PictureBox();
             this.lblObjetosEq = new System.Windows.Forms.Label();
             this.panelMochila = new System.Windows.Forms.Panel();
+            this.mObj10 = new System.Windows.Forms.PictureBox();
             this.mObj9 = new System.Windows.Forms.PictureBox();
             this.mObj8 = new System.Windows.Forms.PictureBox();
             this.mObj7 = new System.Windows.Forms.PictureBox();
             this.mObj6 = new System.Windows.Forms.PictureBox();
             this.mObj5 = new System.Windows.Forms.PictureBox();
             this.mObj4 = new System.Windows.Forms.PictureBox();
-            this.mObj3 = new System.Windows.Forms.PictureBox();
-            this.mObj2 = new System.Windows.Forms.PictureBox();
             this.lblMochila = new System.Windows.Forms.Label();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
@@ -177,6 +178,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPropiedades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).BeginInit();
             this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
@@ -188,14 +191,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.obj2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).BeginInit();
             this.panelMochila.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1178,9 +1180,9 @@
             // imgCerrar
             // 
             this.imgCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.imgCerrar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.Equis;
+            this.imgCerrar.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.cerrar;
             this.imgCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgCerrar.Location = new System.Drawing.Point(969, 12);
+            this.imgCerrar.Location = new System.Drawing.Point(995, 0);
             this.imgCerrar.Name = "imgCerrar";
             this.imgCerrar.Size = new System.Drawing.Size(27, 23);
             this.imgCerrar.TabIndex = 21;
@@ -1199,7 +1201,7 @@
             this.menuSeleccion.Controls.Add(this.nuevoPersonaje);
             this.menuSeleccion.Location = new System.Drawing.Point(3, 41);
             this.menuSeleccion.Name = "menuSeleccion";
-            this.menuSeleccion.Size = new System.Drawing.Size(1009, 112);
+            this.menuSeleccion.Size = new System.Drawing.Size(1009, 204);
             this.menuSeleccion.TabIndex = 30;
             // 
             // imgAlbum
@@ -1230,7 +1232,7 @@
             // imgAtrasNP
             // 
             this.imgAtrasNP.BackColor = System.Drawing.Color.Transparent;
-            this.imgAtrasNP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.goBack;
+            this.imgAtrasNP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
             this.imgAtrasNP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgAtrasNP.Location = new System.Drawing.Point(23, 587);
             this.imgAtrasNP.Name = "imgAtrasNP";
@@ -1250,7 +1252,8 @@
             // 
             // imgEquipamiento
             // 
-            this.imgEquipamiento.BackColor = System.Drawing.Color.DarkRed;
+            this.imgEquipamiento.BackColor = System.Drawing.Color.Transparent;
+            this.imgEquipamiento.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.mochila;
             this.imgEquipamiento.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgEquipamiento.Location = new System.Drawing.Point(147, 587);
             this.imgEquipamiento.Name = "imgEquipamiento";
@@ -1275,7 +1278,8 @@
             // 
             // imgPropiedades
             // 
-            this.imgPropiedades.BackColor = System.Drawing.Color.Yellow;
+            this.imgPropiedades.BackColor = System.Drawing.Color.Transparent;
+            this.imgPropiedades.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.propiedades;
             this.imgPropiedades.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgPropiedades.Location = new System.Drawing.Point(209, 587);
             this.imgPropiedades.Name = "imgPropiedades";
@@ -1288,7 +1292,7 @@
             // imgSave
             // 
             this.imgSave.BackColor = System.Drawing.Color.Transparent;
-            this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.saveOff;
+            this.imgSave.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.guardarOff;
             this.imgSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.imgSave.Location = new System.Drawing.Point(271, 587);
             this.imgSave.Name = "imgSave";
@@ -1302,7 +1306,7 @@
             // 
             this.mObj1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj1.Location = new System.Drawing.Point(18, 52);
+            this.mObj1.Location = new System.Drawing.Point(118, 56);
             this.mObj1.Name = "mObj1";
             this.mObj1.Size = new System.Drawing.Size(100, 80);
             this.mObj1.TabIndex = 1;
@@ -1311,6 +1315,34 @@
             this.mObj1.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
             this.mObj1.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
             this.mObj1.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // mObj3
+            // 
+            this.mObj3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj3.Location = new System.Drawing.Point(120, 159);
+            this.mObj3.Name = "mObj3";
+            this.mObj3.Size = new System.Drawing.Size(100, 80);
+            this.mObj3.TabIndex = 3;
+            this.mObj3.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj3, "Doble clic para sacar objecto.");
+            this.mObj3.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj3.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj3.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // mObj2
+            // 
+            this.mObj2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj2.Location = new System.Drawing.Point(233, 56);
+            this.mObj2.Name = "mObj2";
+            this.mObj2.Size = new System.Drawing.Size(100, 80);
+            this.mObj2.TabIndex = 2;
+            this.mObj2.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj2, "Doble clic para sacar objecto.");
+            this.mObj2.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj2.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj2.DoubleClick += new System.EventHandler(this.sacarObjMochila);
             // 
             // panelObjetos
             // 
@@ -1442,6 +1474,7 @@
             // panelMochila
             // 
             this.panelMochila.BackColor = System.Drawing.Color.Transparent;
+            this.panelMochila.Controls.Add(this.mObj10);
             this.panelMochila.Controls.Add(this.mObj9);
             this.panelMochila.Controls.Add(this.mObj8);
             this.panelMochila.Controls.Add(this.mObj7);
@@ -1452,17 +1485,28 @@
             this.panelMochila.Controls.Add(this.mObj2);
             this.panelMochila.Controls.Add(this.mObj1);
             this.panelMochila.Controls.Add(this.lblMochila);
-            this.panelMochila.Location = new System.Drawing.Point(664, 236);
+            this.panelMochila.Location = new System.Drawing.Point(664, 41);
             this.panelMochila.Name = "panelMochila";
-            this.panelMochila.Size = new System.Drawing.Size(348, 338);
+            this.panelMochila.Size = new System.Drawing.Size(348, 580);
             this.panelMochila.TabIndex = 41;
+            // 
+            // mObj10
+            // 
+            this.mObj10.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
+            this.mObj10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mObj10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj10.Location = new System.Drawing.Point(233, 478);
+            this.mObj10.Name = "mObj10";
+            this.mObj10.Size = new System.Drawing.Size(100, 80);
+            this.mObj10.TabIndex = 10;
+            this.mObj10.TabStop = false;
             // 
             // mObj9
             // 
             this.mObj9.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj9.Location = new System.Drawing.Point(230, 238);
+            this.mObj9.Location = new System.Drawing.Point(120, 478);
             this.mObj9.Name = "mObj9";
             this.mObj9.Size = new System.Drawing.Size(100, 80);
             this.mObj9.TabIndex = 9;
@@ -1473,7 +1517,7 @@
             this.mObj8.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj8.Location = new System.Drawing.Point(124, 238);
+            this.mObj8.Location = new System.Drawing.Point(233, 371);
             this.mObj8.Name = "mObj8";
             this.mObj8.Size = new System.Drawing.Size(100, 80);
             this.mObj8.TabIndex = 8;
@@ -1484,7 +1528,7 @@
             this.mObj7.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj7.Location = new System.Drawing.Point(18, 238);
+            this.mObj7.Location = new System.Drawing.Point(120, 371);
             this.mObj7.Name = "mObj7";
             this.mObj7.Size = new System.Drawing.Size(100, 80);
             this.mObj7.TabIndex = 7;
@@ -1495,7 +1539,7 @@
             this.mObj6.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj6.Location = new System.Drawing.Point(230, 146);
+            this.mObj6.Location = new System.Drawing.Point(233, 263);
             this.mObj6.Name = "mObj6";
             this.mObj6.Size = new System.Drawing.Size(100, 80);
             this.mObj6.TabIndex = 6;
@@ -1506,7 +1550,7 @@
             this.mObj5.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj5.Location = new System.Drawing.Point(124, 146);
+            this.mObj5.Location = new System.Drawing.Point(120, 262);
             this.mObj5.Name = "mObj5";
             this.mObj5.Size = new System.Drawing.Size(100, 80);
             this.mObj5.TabIndex = 5;
@@ -1514,48 +1558,22 @@
             // 
             // mObj4
             // 
-            this.mObj4.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj4.Location = new System.Drawing.Point(18, 146);
+            this.mObj4.Location = new System.Drawing.Point(233, 159);
             this.mObj4.Name = "mObj4";
             this.mObj4.Size = new System.Drawing.Size(100, 80);
             this.mObj4.TabIndex = 4;
             this.mObj4.TabStop = false;
-            // 
-            // mObj3
-            // 
-            this.mObj3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.mObj3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj3.Location = new System.Drawing.Point(230, 52);
-            this.mObj3.Name = "mObj3";
-            this.mObj3.Size = new System.Drawing.Size(100, 80);
-            this.mObj3.TabIndex = 3;
-            this.mObj3.TabStop = false;
-            this.toolTip1.SetToolTip(this.mObj3, "Doble clic para sacar objecto.");
-            this.mObj3.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
-            this.mObj3.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
-            this.mObj3.DoubleClick += new System.EventHandler(this.sacarObjMochila);
-            // 
-            // mObj2
-            // 
-            this.mObj2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.mObj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mObj2.Location = new System.Drawing.Point(124, 52);
-            this.mObj2.Name = "mObj2";
-            this.mObj2.Size = new System.Drawing.Size(100, 80);
-            this.mObj2.TabIndex = 2;
-            this.mObj2.TabStop = false;
-            this.toolTip1.SetToolTip(this.mObj2, "Doble clic para sacar objecto.");
-            this.mObj2.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
-            this.mObj2.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
-            this.mObj2.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            this.mObj4.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
+            this.mObj4.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
+            this.mObj4.DoubleClick += new System.EventHandler(this.sacarObjMochila);
             // 
             // lblMochila
             // 
             this.lblMochila.AutoSize = true;
             this.lblMochila.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMochila.Location = new System.Drawing.Point(168, 11);
+            this.lblMochila.Location = new System.Drawing.Point(184, 9);
             this.lblMochila.Name = "lblMochila";
             this.lblMochila.Size = new System.Drawing.Size(90, 22);
             this.lblMochila.TabIndex = 0;
@@ -1581,9 +1599,9 @@
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.barraCarga);
-            this.Controls.Add(this.menuSeleccion);
             this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.lblBienvenido);
+            this.Controls.Add(this.menuSeleccion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -1629,6 +1647,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgPropiedades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).EndInit();
             this.panelObjetos.ResumeLayout(false);
             this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
@@ -1642,14 +1662,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).EndInit();
             this.panelMochila.ResumeLayout(false);
             this.panelMochila.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mObj10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mObj3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mObj2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1769,6 +1788,7 @@
         private System.Windows.Forms.PictureBox mObj2;
         private System.Windows.Forms.PictureBox mObj1;
         private System.Windows.Forms.Label lblMochila;
+        private System.Windows.Forms.PictureBox mObj10;
     }
 }
 
