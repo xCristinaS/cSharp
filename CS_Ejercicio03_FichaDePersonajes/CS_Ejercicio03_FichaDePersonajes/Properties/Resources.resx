@@ -277,4 +277,76 @@
   <data name="_lock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arcoOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arcoOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="armaduraLOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\armaduraLOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="armaduraPOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\armaduraPOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ballesta2Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ballesta2Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ballestaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ballestaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bastonOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bastonOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="catanaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\catanaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillo1Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillo1Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillo2Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillo2Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cuchillosOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cuchillosOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dagaDoradaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dagaDoradaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="escudoOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\escudoOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada1Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada1Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada2manosOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada2manosOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espada5Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espada5Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadaMagica2Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadaMagica2Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadaMagicaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadaMagicaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadasDoblesOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadasDoblesOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="espadonOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\espadonOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="guadaniaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\guadaniaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hachaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hachaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lanzaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lanzaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="martilloOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\martilloOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mazoOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mazoOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

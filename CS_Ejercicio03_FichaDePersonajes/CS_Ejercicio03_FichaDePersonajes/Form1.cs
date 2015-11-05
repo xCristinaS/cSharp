@@ -676,44 +676,66 @@ public static Image RotateImage(Image img, float rotationAngle) {
 
         private void cargarObjetosEquipables(string personaje) {
             obj9.BackgroundImage = Properties.Resources.cuchillos;
+            obj9.Tag = Properties.Resources.cuchillosOff;
             if (personaje.Equals("Guerrero")) {
                 obj1.BackgroundImage = Properties.Resources.hacha;
+                obj1.Tag= Properties.Resources.hachaOff;
                 obj2.BackgroundImage = Properties.Resources.mazo;
+                obj2.Tag = Properties.Resources.mazoOff;
                 obj3.BackgroundImage = Properties.Resources.martillo;
+                obj3.Tag = Properties.Resources.martilloOff;
                 obj4.BackgroundImage = Properties.Resources.lanza;
+                obj4.Tag = Properties.Resources.lanzaOff;
                 obj5.BackgroundImage = Properties.Resources.espada2manos;
+                obj5.Tag = Properties.Resources.espada2manosOff;
                 obj6.BackgroundImage = Properties.Resources.armaduraP;
+                obj6.Tag = Properties.Resources.armaduraPOff;
                 obj7.BackgroundImage = Properties.Resources.escudo;
+                obj7.Tag = Properties.Resources.escudoOff;
                 obj8.BackgroundImage = null;
             } else if (personaje.Equals("Mago")) {
                 obj1.BackgroundImage = Properties.Resources.baston;
+                obj1.Tag = Properties.Resources.bastonOff;
                 obj2.BackgroundImage = Properties.Resources.espadaMagica;
+                obj2.Tag = Properties.Resources.espadaMagicaOff;
                 obj3.BackgroundImage = Properties.Resources.espadaMagica2;
+                obj3.Tag = Properties.Resources.espadaMagica2Off;
                 obj4.BackgroundImage = null;
                 obj5.BackgroundImage = null;
                 obj6.BackgroundImage = null;
                 obj7.BackgroundImage = null;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
+                obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Paladin")) {
                 obj1.BackgroundImage = Properties.Resources.espada5;
+                obj1.Tag = Properties.Resources.espada5Off;
                 obj2.BackgroundImage = Properties.Resources.espadon;
+                obj2.Tag = Properties.Resources.espadonOff;
                 obj3.BackgroundImage = Properties.Resources.armaduraP;
+                obj3.Tag = Properties.Resources.armaduraPOff;
                 obj4.BackgroundImage = Properties.Resources.escudo;
+                obj4.Tag  = Properties.Resources.escudoOff;
                 obj5.BackgroundImage = null;
                 obj6.BackgroundImage = null;
                 obj7.BackgroundImage = null;
                 obj8.BackgroundImage = null;
             } else if (personaje.Equals("Daguero")) {
                 obj1.BackgroundImage = Properties.Resources.catana;
+                obj1.Tag = Properties.Resources.catanaOff;
                 obj2.BackgroundImage = Properties.Resources.cuchillo2;
+                obj2.Tag = Properties.Resources.cuchillo2Off;
                 obj3.BackgroundImage = Properties.Resources.dagaDorada;
+                obj3.Tag = Properties.Resources.dagaDoradaOff;
                 obj4.BackgroundImage = Properties.Resources.espadasDobles;
+                obj4.Tag = Properties.Resources.espadasDoblesOff;
                 obj5.BackgroundImage = null;
                 obj6.BackgroundImage = null;
                 obj7.BackgroundImage = null;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
+                obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Nigromante")) {
                 obj1.BackgroundImage = Properties.Resources.guadania;
+                obj1.Tag = Properties.Resources.guadaniaOff;
                 obj2.BackgroundImage = null;
                 obj3.BackgroundImage = null;
                 obj4.BackgroundImage = null;
@@ -723,15 +745,21 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj8.BackgroundImage = null;
             } else if (personaje.Equals("Cazador")) {
                 obj1.BackgroundImage = Properties.Resources.ballesta;
+                obj1.Tag = Properties.Resources.ballestaOff;
                 obj2.BackgroundImage = Properties.Resources.ballesta2;
+                obj2.Tag = Properties.Resources.ballesta2Off;
                 obj3.BackgroundImage = Properties.Resources.espada1;
+                obj3.Tag = Properties.Resources.espada1Off;
                 obj4.BackgroundImage = Properties.Resources.cuchillo1;
+                obj4.Tag = Properties.Resources.cuchillo1Off;
                 obj5.BackgroundImage = null;
                 obj6.BackgroundImage = null;
                 obj7.BackgroundImage = null;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
+                obj8.Tag = Properties.Resources.armaduraLOff;
             } else if (personaje.Equals("Arquero")) {
                 obj1.BackgroundImage = Properties.Resources.arco;
+                obj1.Tag = Properties.Resources.arcoOff;
                 obj2.BackgroundImage = null;
                 obj3.BackgroundImage = null;
                 obj4.BackgroundImage = null;
@@ -739,6 +767,7 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 obj6.BackgroundImage = null;
                 obj7.BackgroundImage = null;
                 obj8.BackgroundImage = Properties.Resources.armaduraL;
+                obj8.Tag = Properties.Resources.armaduraLOff;
             }
         }
 
@@ -753,27 +782,34 @@ public static Image RotateImage(Image img, float rotationAngle) {
         }
 
         private void mObj_DragDrop(object sender, DragEventArgs e) {
-            PictureBox img = (PictureBox)sender;
+            PictureBox img = (PictureBox)sender; bool centinela = false;
             img.BackgroundImage = (Image)e.Data.GetData(DataFormats.Bitmap);
-            // Busco entre los objetos algun objeto igual al que he arrastrado a la mochila y pongo el pictureBox a null. 
+            // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
             foreach (object o in panelObjetos.Controls) {
-                if (o is PictureBox)
-                    if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage))
-                        ((PictureBox)o).BackgroundImage = null;
+                if (!centinela && o is PictureBox)
+                    if (((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage)) {
+                        ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
+                        ((PictureBox)o).Tag = img.BackgroundImage; // Guardo la imagen "encendida" en el tag. 
+                        ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
+                        centinela = true;
+                    }
             }
         }
 
         private void sacarObjMochila(object sender, EventArgs e) {
-            // Paso el objeto de la mochila a la parte de objetos equipables en el primer hueco que encuentre. 
-            PictureBox img = (PictureBox)sender; Boolean hecho = false;
+            // Saco el objeto de la mochila y enciendo la imagen en objetos equipables. Vuelvo a habilitar el picturebox. 
+            PictureBox img = (PictureBox)sender; bool centinela = false; Image aux;
             foreach (object o in panelObjetos.Controls) {
-                if (o is PictureBox)
-                    if (!hecho && ((PictureBox)o).BackgroundImage == null) {
-                        ((PictureBox)o).BackgroundImage = img.BackgroundImage;
-                        hecho = true;
+                if (!centinela && o is PictureBox)
+                    if (img.BackgroundImage.Equals((Image)((PictureBox)o).Tag)) {
+                        aux = ((PictureBox)o).BackgroundImage; // Guardo en aux la imagen apagada. 
+                        ((PictureBox)o).BackgroundImage = img.BackgroundImage; // Pongo la imagen del objeto encendida en objetos equipables. 
+                        ((PictureBox)o).Tag = aux; // Vuelvo a meter la imagen apagada en el tag. 
+                        ((PictureBox)o).Enabled = true; // vuelvo a habilitar el pictureBox para que me permita volver a hacer drag and drop. 
+                        centinela = true;
                     }
             }
-            img.BackgroundImage = null;
+            img.BackgroundImage = null; // Saco el objeto de la mochila. 
         }
 
         private void vaciarMochila() { // Vacio la mochila cuando cambio de personaje. 

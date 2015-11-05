@@ -274,9 +274,6 @@
     <None Include="Resources\armaduraL.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cuchillosOff.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\arco.png" />
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +338,78 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\escudo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\armaduraLOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\armaduraPOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ballesta2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ballestaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bastonOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catanaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuchillo2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuchillosOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dagaDoradaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\escudoOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada2manosOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaMagica2Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadaMagicaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadasDoblesOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espadonOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\guadaniaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hachaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lanzaOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\martilloOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mazoOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espada5Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuchillo1Off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arcoOff.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
