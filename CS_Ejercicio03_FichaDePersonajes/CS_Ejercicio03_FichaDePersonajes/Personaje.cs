@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace CS_Ejercicio03_FichaDePersonajes {
     class Personaje {
         private string nombreP, nombreJ, genero, raza, clase;
         private int[] atributos, tagsAtb;
         private bool[] habilidades;
-        int numTirada, habPorSeleccionar, ptosARepartirA;
+        private int numTirada, habPorSeleccionar, ptosARepartirA;
+        private Image imagenPj;
+        private Image[] objetosMochila;
 
-        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA) {
+        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA, Image imagenPj, Image[] objetosMochila) {
             this.nombreP = nombreP;
             this.nombreJ = nombreJ;
             this.genero = genero;
@@ -23,6 +26,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             this.numTirada = numTirada;
             this.habPorSeleccionar = habPorSeleccionar;
             this.ptosARepartirA = ptosARepartirA;
+            this.imagenPj = imagenPj;
+            this.objetosMochila = objetosMochila;
         }
 
         // Getters
@@ -31,6 +36,9 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         }
         public int getHabSeleccionadas() {
             return habPorSeleccionar;
+        }
+        public Image[] getObjetosMochila() {
+            return objetosMochila;
         }
         public int getPtosARepartirA() {
             return ptosARepartirA;
@@ -56,11 +64,19 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public int[] getAtributos() {
             return atributos;
         }
+        public Image getImagenPj() {
+            return imagenPj;
+        }
         // Setters.
         public void setNumTirada(int numTirada) {
             this.numTirada = numTirada;
         }
-
+        public void setImagenPj(Image imagenPj) {
+            this.imagenPj = imagenPj;
+        }
+        public void setObjetosMochila(Image[] objetosMochila) {
+            this.objetosMochila = objetosMochila;
+        }
         public void setHabSeleccionadas(int habSeleccionadas) {
             this.habPorSeleccionar = habSeleccionadas;
         }

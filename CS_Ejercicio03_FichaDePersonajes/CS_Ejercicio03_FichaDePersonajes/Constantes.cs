@@ -14,6 +14,9 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public const string PTOS_A_REP = "Puntos a repartir: ";
         public const string HAB_POR_SELEC = "Habilidades por seleccionar: ";
         public const char PORCENTAJE = '%';
+        public const string LBL_NOMBRE_PJ = "Nombre del personaje: ";
+        public const string LBL_NOMBRE_JUG = "Nombre del jugador: ";
+        public const string LBL_TIPO = "Tipo: ";
 
         // Incremento atributos Guerrero:
         public const int GUERRERO_FUERZA_PLUS = 10;

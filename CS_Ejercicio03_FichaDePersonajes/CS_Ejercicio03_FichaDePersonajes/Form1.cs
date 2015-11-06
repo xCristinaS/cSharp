@@ -18,19 +18,20 @@ namespace CS_Ejercicio03_FichaDePersonajes
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
-        
-        /*
+        private Album album = new Album();
+
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
         IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
 
         WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-        */
+        
         public Form1() {
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            imgCerrar.Visible = false;
             habilitarDragDrop();
             obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
             deshabilitarHabilidades(); // Para que no se puedan marcar si no hay personaje seleccionado. 
@@ -48,12 +49,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Oculto todos los elementos para emular un menú de carga. 
             ocultarPaginaNewPersonaje();
+            panelVistaPersonaje.Visible = false;
             menuSeleccion.Visible = false;
-            /*
+
+            if (!album.vacio()) {
+                imgAlbum.BackgroundImage = Properties.Resources.album;
+            }
+
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
             wplayer.controls.play();
-            */
         }
 
         private void clicCerrar(object sender, EventArgs e) {
@@ -77,7 +82,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 resetFlechasAtributos();
                 limpiarHabilidadesMarcadas();
                 deshabilitarHabilidades();
-                combClase.Text = "";
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         } 
@@ -551,9 +555,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             String personaje; 
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
             if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
-                /*
                 timer2.Enabled = true;
-                */
                 resetValoresAtrib(); // Pongo los atributos a 0. 
                 resetFlechasAtributos();
                 personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
@@ -620,30 +622,29 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
-    /*    
-public static Image RotateImage(Image img, float rotationAngle) {
-   //create an empty Bitmap image
-   Bitmap bmp = new Bitmap(img.Width, img.Height);
-   //turn the Bitmap into a Graphics object
-   Graphics gfx = Graphics.FromImage(bmp);
-   //now we set the rotation point to the center of our image
-   gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
-   //now rotate the image
-   gfx.RotateTransform(rotationAngle);
-   gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
-   //set the InterpolationMode to HighQualityBicubic so to ensure a high
-   //quality image once it is transformed to the specified size
-   gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
-   //now draw our new image onto the graphics object
-   gfx.DrawImage(img, new Point(0, 0));
-   //dispose of our Graphics object
-   gfx.Dispose();
-   //return the image
-   return bmp;
-}
-*/
+        
+        public static Image RotateImage(Image img, float rotationAngle) {
+           //create an empty Bitmap image
+           Bitmap bmp = new Bitmap(img.Width, img.Height);
+           //turn the Bitmap into a Graphics object
+           Graphics gfx = Graphics.FromImage(bmp);
+           //now we set the rotation point to the center of our image
+           gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
+           //now rotate the image
+           gfx.RotateTransform(rotationAngle);
+           gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
+           //set the InterpolationMode to HighQualityBicubic so to ensure a high
+           //quality image once it is transformed to the specified size
+           gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
+           //now draw our new image onto the graphics object
+           gfx.DrawImage(img, new Point(0, 0));
+           //dispose of our Graphics object
+           gfx.Dispose();
+           //return the image
+           return bmp;
+        }
+
         private void timer2_Tick(object sender, EventArgs e) {
-            /*
             if (aux < 100) {
                 imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 15);
                 aux++;
@@ -651,19 +652,21 @@ public static Image RotateImage(Image img, float rotationAngle) {
                 timer2.Enabled = false;
                 aux = 0;
             }
-            */
         }
 
         private void comprobarSiRelleno(object sender, EventArgs e) {
             // Compruebo si los campos del panel de personaje están rellenos. Si es así, se habilitará el botón de guardado.
             // En caso contrario se deshabilita. 
+            if (sender is ComboBox && ((ComboBox)sender).Equals(combRaza))
+                combClase.SelectedItem = null;
+
             if (!combClase.Text.Equals("") && !txtNombreJugador.Text.Equals("") && !txtNombrePersonaje.Text.Equals("")) {
                 imgSave.Enabled = true;
                 imgSave.BackgroundImage = Properties.Resources.guardar;
             } else {
                 imgSave.Enabled = false;
                 imgSave.BackgroundImage = Properties.Resources.guardarOff;
-            }
+            } 
         }
 
         private void guardarPersonaje(object sender, EventArgs e) {
@@ -671,7 +674,17 @@ public static Image RotateImage(Image img, float rotationAngle) {
             bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
             int[] tagsAtb = {(int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag};
-            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib);
+            Image[] objetosMochila = { mObj1.BackgroundImage, mObj2.BackgroundImage, mObj3.BackgroundImage, mObj4.BackgroundImage };
+            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, this.BackgroundImage, objetosMochila);
+
+            album.agregarPersonaje(p);
+
+            if (album.cuantosPjHay() == 1) {
+                imgAlbum.BackgroundImage = Properties.Resources.album;
+            }
+
+            ocultarPaginaNewPersonaje();
+            menuSeleccion.Visible = true;
         }
 
         private void cargarObjetosEquipables(string personaje) {
@@ -806,7 +819,7 @@ public static Image RotateImage(Image img, float rotationAngle) {
         }
 
         private void mObj_DragEnter(object sender, DragEventArgs e) {
-            if (((PictureBox)sender).BackgroundImage == null)
+            if (((PictureBox)sender).BackgroundImage == null) // Si no hay una imagen ya en ese hueco de la mochila se podrá soltar la imagen.
                 e.Effect = DragDropEffects.Move; 
         }
 
@@ -845,6 +858,7 @@ public static Image RotateImage(Image img, float rotationAngle) {
             mObj1.BackgroundImage = null;
             mObj2.BackgroundImage = null;
             mObj3.BackgroundImage = null;
+            mObj4.BackgroundImage = null;
         }
 
         private void vaciarObjetosEquip() { // Vacio el inventario cuando cambio de raza. 
@@ -872,7 +886,6 @@ public static Image RotateImage(Image img, float rotationAngle) {
             imgEquipamiento.Visible = false;
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
-            imgCerrar.Visible = false;
         }
 
         private void mostrarPaginaNewPersonaje() {
@@ -922,6 +935,26 @@ public static Image RotateImage(Image img, float rotationAngle) {
         private void cargarPagNewPersonaje(object sender, EventArgs e) {
             menuSeleccion.Visible = false;
             mostrarPaginaNewPersonaje();
+        }
+
+        private void imgAlbum_Click(object sender, EventArgs e) {
+            menuSeleccion.Visible = false;
+            panelVistaPersonaje.Visible = true;
+
+            cargarPersonajeModoVision();
+        }
+
+        private void imgAtrasVP_Click(object sender, EventArgs e) {
+            panelVistaPersonaje.Visible = false;
+            menuSeleccion.Visible = true;
+        }
+
+        private void cargarPersonajeModoVision() {
+            Personaje p = album.personajeActual();
+            panelVistaPersonaje.BackgroundImage = p.getImagenPj();
+            lblNombPersMV.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
+            lblNombJugMV.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
+            lblTipoPsjMV.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
         }
     }
 }
