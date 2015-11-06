@@ -899,6 +899,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgEquipamiento.Visible = true;
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
+            this.BackgroundImage = Properties.Resources.fondo;
         }
 
         private void imgPropiedades_Click(object sender, EventArgs e) {
@@ -941,20 +942,86 @@ namespace CS_Ejercicio03_FichaDePersonajes
             menuSeleccion.Visible = false;
             panelVistaPersonaje.Visible = true;
 
-            cargarPersonajeModoVision();
+            cargarPersonajeModoVision(album.personajeActual());
         }
 
         private void imgAtrasVP_Click(object sender, EventArgs e) {
             panelVistaPersonaje.Visible = false;
+            menuSeleccion.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
         }
 
-        private void cargarPersonajeModoVision() {
-            Personaje p = album.personajeActual();
+        private void cargarPersonajeModoVision(Personaje p) {
+            string[] hab = dameNombresHab(p);
             panelVistaPersonaje.BackgroundImage = p.getImagenPj();
             lblNombPersMV.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
             lblNombJugMV.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
             lblTipoPsjMV.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
+            pbVitMV.Value = p.getAtributos()[0]; pbPercMV.Value = p.getAtributos()[1]; pbDestMV.Value = p.getAtributos()[2];
+            pbFuerMV.Value = p.getAtributos()[3]; pbIngMV.Value = p.getAtributos()[4]; pbCorMV.Value = p.getAtributos()[5];
+            pbCarMV.Value = p.getAtributos()[6]; pbIniMV.Value = p.getAtributos()[7]; pbRefMV.Value = p.getAtributos()[8];
+            pbVelMV.Value = p.getAtributos()[9];
+            hab1MV.Text = hab[0]; hab2MV.Text = hab[1]; hab3MV.Text = hab[2]; hab4MV.Text = hab[3];
+            hab5MV.Text = hab[4]; hab6MV.Text = hab[5]; hab7MV.Text = hab[6]; hab8MV.Text = hab[7];
+            imgObj1MV.BackgroundImage = p.getObjetosMochila()[0];
+            imgObj2MV.BackgroundImage = p.getObjetosMochila()[1];
+            imgObj3MV.BackgroundImage = p.getObjetosMochila()[2];
+            imgObj4MV.BackgroundImage = p.getObjetosMochila()[3];
+        }
+
+        private string[] dameNombresHab(Personaje p) {
+            string[] rs = new string[8]; int cont = 0;
+            for (int i = 0; i < p.getHabilidades().Length; i++)
+                if (p.getHabilidades()[i]) {
+                    rs[cont] = getTextCheckboxHab(i);
+                    cont++;
+                }
+            return rs;
+        }
+
+        private string getTextCheckboxHab(int num) {
+            switch (num) {
+                case 0:
+                    return cboxAbrCerr.Text;
+                case 1:
+                    return cboxEsquivar.Text;
+                case 2:
+                    return cboxSigilo.Text;
+                case 3:
+                    return cboxDetMent.Text;
+                case 4:
+                    return cboxPersuasion.Text;
+                case 5:
+                    return cboxTrampasFosos.Text;
+                case 6:
+                    return cboxOcultarse.Text;
+                case 7:
+                    return cboxHurtar.Text;
+                case 8:
+                    return cboxEscalar.Text;
+                case 9:
+                    return cboxNadar.Text;
+                case 10:
+                    return cboxEnganiar.Text;
+                case 11:
+                    return cboxEquilibrio.Text;
+                case 12:
+                    return cboxDisfrazarse.Text;
+                case 13:
+                    return cboxSaltar.Text;
+                case 14:
+                    return cboxPunteria.Text;
+                case 15:
+                    return cboxPrimerosAux.Text;
+                case 16:
+                    return cboxIntimidar.Text;
+                case 17:
+                    return cboxInterrog.Text;
+                case 18:
+                    return cboxLeerLabios.Text;
+                default:
+                    return "";
+            }
         }
     }
 }

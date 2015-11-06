@@ -124,6 +124,10 @@
             this.mObj1 = new System.Windows.Forms.PictureBox();
             this.mObj3 = new System.Windows.Forms.PictureBox();
             this.mObj2 = new System.Windows.Forms.PictureBox();
+            this.imgAtrasVP = new System.Windows.Forms.PictureBox();
+            this.imgObj3MV = new System.Windows.Forms.PictureBox();
+            this.imgObj2MV = new System.Windows.Forms.PictureBox();
+            this.imgObj1MV = new System.Windows.Forms.PictureBox();
             this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
@@ -145,11 +149,19 @@
             this.mObj4 = new System.Windows.Forms.PictureBox();
             this.lblMochila = new System.Windows.Forms.Label();
             this.panelVistaPersonaje = new System.Windows.Forms.Panel();
-            this.imgAtrasVP = new System.Windows.Forms.PictureBox();
-            this.PanelDatosPsjMV = new System.Windows.Forms.Panel();
-            this.lblNombJugMV = new System.Windows.Forms.Label();
-            this.lblNombPersMV = new System.Windows.Forms.Label();
-            this.lblTipoPsjMV = new System.Windows.Forms.Label();
+            this.panelHabMV = new System.Windows.Forms.Panel();
+            this.hab3MV = new System.Windows.Forms.Label();
+            this.hab8MV = new System.Windows.Forms.Label();
+            this.hab7MV = new System.Windows.Forms.Label();
+            this.hab6MV = new System.Windows.Forms.Label();
+            this.hab5MV = new System.Windows.Forms.Label();
+            this.hab4MV = new System.Windows.Forms.Label();
+            this.hab2MV = new System.Windows.Forms.Label();
+            this.hab1MV = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panelMochMV = new System.Windows.Forms.Panel();
+            this.imgObj4MV = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panelAtbPsjMV = new System.Windows.Forms.Panel();
             this.pbVelMV = new System.Windows.Forms.ProgressBar();
             this.pbRefMV = new System.Windows.Forms.ProgressBar();
@@ -159,7 +171,7 @@
             this.pbIngMV = new System.Windows.Forms.ProgressBar();
             this.pbFuerMV = new System.Windows.Forms.ProgressBar();
             this.pbDestMV = new System.Windows.Forms.ProgressBar();
-            this.pvPercMV = new System.Windows.Forms.ProgressBar();
+            this.pbPercMV = new System.Windows.Forms.ProgressBar();
             this.pbVitMV = new System.Windows.Forms.ProgressBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -172,22 +184,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.panelMochMV = new System.Windows.Forms.Panel();
-            this.imgObj4MV = new System.Windows.Forms.PictureBox();
-            this.imgObj3MV = new System.Windows.Forms.PictureBox();
-            this.imgObj2MV = new System.Windows.Forms.PictureBox();
-            this.imgObj1MV = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panelHabMV = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.hab1MV = new System.Windows.Forms.Label();
-            this.hab2MV = new System.Windows.Forms.Label();
-            this.hab4MV = new System.Windows.Forms.Label();
-            this.hab5MV = new System.Windows.Forms.Label();
-            this.hab6MV = new System.Windows.Forms.Label();
-            this.hab7MV = new System.Windows.Forms.Label();
-            this.hab8MV = new System.Windows.Forms.Label();
-            this.hab3MV = new System.Windows.Forms.Label();
+            this.PanelDatosPsjMV = new System.Windows.Forms.Panel();
+            this.lblTipoPsjMV = new System.Windows.Forms.Label();
+            this.lblNombJugMV = new System.Windows.Forms.Label();
+            this.lblNombPersMV = new System.Windows.Forms.Label();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -224,6 +224,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasVP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj3MV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).BeginInit();
             this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
@@ -243,15 +247,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
             this.panelVistaPersonaje.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasVP)).BeginInit();
-            this.PanelDatosPsjMV.SuspendLayout();
-            this.panelAtbPsjMV.SuspendLayout();
+            this.panelHabMV.SuspendLayout();
             this.panelMochMV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj4MV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj3MV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).BeginInit();
-            this.panelHabMV.SuspendLayout();
+            this.panelAtbPsjMV.SuspendLayout();
+            this.PanelDatosPsjMV.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1400,6 +1400,52 @@
             this.mObj2.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
             this.mObj2.DoubleClick += new System.EventHandler(this.sacarObjMochila);
             // 
+            // imgAtrasVP
+            // 
+            this.imgAtrasVP.BackColor = System.Drawing.Color.Transparent;
+            this.imgAtrasVP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
+            this.imgAtrasVP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgAtrasVP.Location = new System.Drawing.Point(9, 584);
+            this.imgAtrasVP.Name = "imgAtrasVP";
+            this.imgAtrasVP.Size = new System.Drawing.Size(56, 50);
+            this.imgAtrasVP.TabIndex = 33;
+            this.imgAtrasVP.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgAtrasVP, "Volver atras.");
+            this.imgAtrasVP.Click += new System.EventHandler(this.imgAtrasVP_Click);
+            // 
+            // imgObj3MV
+            // 
+            this.imgObj3MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgObj3MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgObj3MV.Location = new System.Drawing.Point(120, 159);
+            this.imgObj3MV.Name = "imgObj3MV";
+            this.imgObj3MV.Size = new System.Drawing.Size(100, 80);
+            this.imgObj3MV.TabIndex = 3;
+            this.imgObj3MV.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgObj3MV, "Doble clic para sacar objecto.");
+            // 
+            // imgObj2MV
+            // 
+            this.imgObj2MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgObj2MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgObj2MV.Location = new System.Drawing.Point(233, 56);
+            this.imgObj2MV.Name = "imgObj2MV";
+            this.imgObj2MV.Size = new System.Drawing.Size(100, 80);
+            this.imgObj2MV.TabIndex = 2;
+            this.imgObj2MV.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgObj2MV, "Doble clic para sacar objecto.");
+            // 
+            // imgObj1MV
+            // 
+            this.imgObj1MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgObj1MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgObj1MV.Location = new System.Drawing.Point(119, 56);
+            this.imgObj1MV.Name = "imgObj1MV";
+            this.imgObj1MV.Size = new System.Drawing.Size(100, 80);
+            this.imgObj1MV.TabIndex = 1;
+            this.imgObj1MV.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgObj1MV, "Doble clic para sacar objecto.");
+            // 
             // panelObjetos
             // 
             this.panelObjetos.BackColor = System.Drawing.Color.Transparent;
@@ -1643,67 +1689,158 @@
             this.panelVistaPersonaje.Controls.Add(this.panelAtbPsjMV);
             this.panelVistaPersonaje.Controls.Add(this.PanelDatosPsjMV);
             this.panelVistaPersonaje.Controls.Add(this.imgAtrasVP);
-            this.panelVistaPersonaje.Location = new System.Drawing.Point(3, 29);
+            this.panelVistaPersonaje.Location = new System.Drawing.Point(-8, -7);
             this.panelVistaPersonaje.Name = "panelVistaPersonaje";
-            this.panelVistaPersonaje.Size = new System.Drawing.Size(1009, 631);
+            this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 677);
             this.panelVistaPersonaje.TabIndex = 2;
             // 
-            // imgAtrasVP
+            // panelHabMV
             // 
-            this.imgAtrasVP.BackColor = System.Drawing.Color.Transparent;
-            this.imgAtrasVP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
-            this.imgAtrasVP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgAtrasVP.Location = new System.Drawing.Point(9, 584);
-            this.imgAtrasVP.Name = "imgAtrasVP";
-            this.imgAtrasVP.Size = new System.Drawing.Size(56, 50);
-            this.imgAtrasVP.TabIndex = 33;
-            this.imgAtrasVP.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgAtrasVP, "Volver atras.");
-            this.imgAtrasVP.Click += new System.EventHandler(this.imgAtrasVP_Click);
+            this.panelHabMV.BackColor = System.Drawing.Color.Transparent;
+            this.panelHabMV.Controls.Add(this.hab3MV);
+            this.panelHabMV.Controls.Add(this.hab8MV);
+            this.panelHabMV.Controls.Add(this.hab7MV);
+            this.panelHabMV.Controls.Add(this.hab6MV);
+            this.panelHabMV.Controls.Add(this.hab5MV);
+            this.panelHabMV.Controls.Add(this.hab4MV);
+            this.panelHabMV.Controls.Add(this.hab2MV);
+            this.panelHabMV.Controls.Add(this.hab1MV);
+            this.panelHabMV.Controls.Add(this.label15);
+            this.panelHabMV.Location = new System.Drawing.Point(734, 39);
+            this.panelHabMV.Name = "panelHabMV";
+            this.panelHabMV.Size = new System.Drawing.Size(260, 244);
+            this.panelHabMV.TabIndex = 43;
             // 
-            // PanelDatosPsjMV
+            // hab3MV
             // 
-            this.PanelDatosPsjMV.BackColor = System.Drawing.Color.Transparent;
-            this.PanelDatosPsjMV.Controls.Add(this.lblTipoPsjMV);
-            this.PanelDatosPsjMV.Controls.Add(this.lblNombJugMV);
-            this.PanelDatosPsjMV.Controls.Add(this.lblNombPersMV);
-            this.PanelDatosPsjMV.Location = new System.Drawing.Point(9, 39);
-            this.PanelDatosPsjMV.Name = "PanelDatosPsjMV";
-            this.PanelDatosPsjMV.Size = new System.Drawing.Size(377, 106);
-            this.PanelDatosPsjMV.TabIndex = 34;
+            this.hab3MV.AutoSize = true;
+            this.hab3MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab3MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab3MV.Location = new System.Drawing.Point(62, 89);
+            this.hab3MV.Name = "hab3MV";
+            this.hab3MV.Size = new System.Drawing.Size(132, 17);
+            this.hab3MV.TabIndex = 9;
+            this.hab3MV.Text = "Nombre del personaje: ";
             // 
-            // lblNombJugMV
+            // hab8MV
             // 
-            this.lblNombJugMV.AutoSize = true;
-            this.lblNombJugMV.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombJugMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombJugMV.Location = new System.Drawing.Point(13, 37);
-            this.lblNombJugMV.Name = "lblNombJugMV";
-            this.lblNombJugMV.Size = new System.Drawing.Size(121, 17);
-            this.lblNombJugMV.TabIndex = 1;
-            this.lblNombJugMV.Text = "Nombre del jugador: ";
+            this.hab8MV.AutoSize = true;
+            this.hab8MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab8MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab8MV.Location = new System.Drawing.Point(62, 212);
+            this.hab8MV.Name = "hab8MV";
+            this.hab8MV.Size = new System.Drawing.Size(132, 17);
+            this.hab8MV.TabIndex = 8;
+            this.hab8MV.Text = "Nombre del personaje: ";
             // 
-            // lblNombPersMV
+            // hab7MV
             // 
-            this.lblNombPersMV.AutoSize = true;
-            this.lblNombPersMV.BackColor = System.Drawing.Color.Transparent;
-            this.lblNombPersMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombPersMV.Location = new System.Drawing.Point(13, 10);
-            this.lblNombPersMV.Name = "lblNombPersMV";
-            this.lblNombPersMV.Size = new System.Drawing.Size(132, 17);
-            this.lblNombPersMV.TabIndex = 0;
-            this.lblNombPersMV.Text = "Nombre del personaje: ";
+            this.hab7MV.AutoSize = true;
+            this.hab7MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab7MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab7MV.Location = new System.Drawing.Point(62, 187);
+            this.hab7MV.Name = "hab7MV";
+            this.hab7MV.Size = new System.Drawing.Size(132, 17);
+            this.hab7MV.TabIndex = 7;
+            this.hab7MV.Text = "Nombre del personaje: ";
             // 
-            // lblTipoPsjMV
+            // hab6MV
             // 
-            this.lblTipoPsjMV.AutoSize = true;
-            this.lblTipoPsjMV.BackColor = System.Drawing.Color.Transparent;
-            this.lblTipoPsjMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTipoPsjMV.Location = new System.Drawing.Point(13, 64);
-            this.lblTipoPsjMV.Name = "lblTipoPsjMV";
-            this.lblTipoPsjMV.Size = new System.Drawing.Size(40, 17);
-            this.lblTipoPsjMV.TabIndex = 2;
-            this.lblTipoPsjMV.Text = "Tipo: ";
+            this.hab6MV.AutoSize = true;
+            this.hab6MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab6MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab6MV.Location = new System.Drawing.Point(62, 162);
+            this.hab6MV.Name = "hab6MV";
+            this.hab6MV.Size = new System.Drawing.Size(132, 17);
+            this.hab6MV.TabIndex = 6;
+            this.hab6MV.Text = "Nombre del personaje: ";
+            // 
+            // hab5MV
+            // 
+            this.hab5MV.AutoSize = true;
+            this.hab5MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab5MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab5MV.Location = new System.Drawing.Point(62, 138);
+            this.hab5MV.Name = "hab5MV";
+            this.hab5MV.Size = new System.Drawing.Size(132, 17);
+            this.hab5MV.TabIndex = 5;
+            this.hab5MV.Text = "Nombre del personaje: ";
+            // 
+            // hab4MV
+            // 
+            this.hab4MV.AutoSize = true;
+            this.hab4MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab4MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab4MV.Location = new System.Drawing.Point(62, 114);
+            this.hab4MV.Name = "hab4MV";
+            this.hab4MV.Size = new System.Drawing.Size(132, 17);
+            this.hab4MV.TabIndex = 4;
+            this.hab4MV.Text = "Nombre del personaje: ";
+            // 
+            // hab2MV
+            // 
+            this.hab2MV.AutoSize = true;
+            this.hab2MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab2MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab2MV.Location = new System.Drawing.Point(62, 64);
+            this.hab2MV.Name = "hab2MV";
+            this.hab2MV.Size = new System.Drawing.Size(132, 17);
+            this.hab2MV.TabIndex = 3;
+            this.hab2MV.Text = "Nombre del personaje: ";
+            // 
+            // hab1MV
+            // 
+            this.hab1MV.AutoSize = true;
+            this.hab1MV.BackColor = System.Drawing.Color.Transparent;
+            this.hab1MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hab1MV.Location = new System.Drawing.Point(62, 37);
+            this.hab1MV.Name = "hab1MV";
+            this.hab1MV.Size = new System.Drawing.Size(132, 17);
+            this.hab1MV.TabIndex = 2;
+            this.hab1MV.Text = "Nombre del personaje: ";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(61, 6);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(130, 22);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "HABILIDADES";
+            // 
+            // panelMochMV
+            // 
+            this.panelMochMV.BackColor = System.Drawing.Color.Transparent;
+            this.panelMochMV.Controls.Add(this.imgObj4MV);
+            this.panelMochMV.Controls.Add(this.imgObj3MV);
+            this.panelMochMV.Controls.Add(this.imgObj2MV);
+            this.panelMochMV.Controls.Add(this.imgObj1MV);
+            this.panelMochMV.Controls.Add(this.label2);
+            this.panelMochMV.Location = new System.Drawing.Point(615, 289);
+            this.panelMochMV.Name = "panelMochMV";
+            this.panelMochMV.Size = new System.Drawing.Size(379, 265);
+            this.panelMochMV.TabIndex = 42;
+            // 
+            // imgObj4MV
+            // 
+            this.imgObj4MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgObj4MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgObj4MV.Location = new System.Drawing.Point(233, 159);
+            this.imgObj4MV.Name = "imgObj4MV";
+            this.imgObj4MV.Size = new System.Drawing.Size(100, 80);
+            this.imgObj4MV.TabIndex = 4;
+            this.imgObj4MV.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(184, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 22);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "MOCHILA";
             // 
             // panelAtbPsjMV
             // 
@@ -1716,7 +1853,7 @@
             this.panelAtbPsjMV.Controls.Add(this.pbIngMV);
             this.panelAtbPsjMV.Controls.Add(this.pbFuerMV);
             this.panelAtbPsjMV.Controls.Add(this.pbDestMV);
-            this.panelAtbPsjMV.Controls.Add(this.pvPercMV);
+            this.panelAtbPsjMV.Controls.Add(this.pbPercMV);
             this.panelAtbPsjMV.Controls.Add(this.pbVitMV);
             this.panelAtbPsjMV.Controls.Add(this.label3);
             this.panelAtbPsjMV.Controls.Add(this.label4);
@@ -1729,7 +1866,7 @@
             this.panelAtbPsjMV.Controls.Add(this.label11);
             this.panelAtbPsjMV.Controls.Add(this.label12);
             this.panelAtbPsjMV.Controls.Add(this.label13);
-            this.panelAtbPsjMV.Location = new System.Drawing.Point(9, 181);
+            this.panelAtbPsjMV.Location = new System.Drawing.Point(17, 182);
             this.panelAtbPsjMV.Name = "panelAtbPsjMV";
             this.panelAtbPsjMV.Size = new System.Drawing.Size(348, 372);
             this.panelAtbPsjMV.TabIndex = 35;
@@ -1822,16 +1959,16 @@
             this.pbDestMV.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbDestMV.TabIndex = 13;
             // 
-            // pvPercMV
+            // pbPercMV
             // 
-            this.pvPercMV.BackColor = System.Drawing.Color.LightYellow;
-            this.pvPercMV.ForeColor = System.Drawing.SystemColors.Control;
-            this.pvPercMV.Location = new System.Drawing.Point(82, 71);
-            this.pvPercMV.Maximum = 30;
-            this.pvPercMV.Name = "pvPercMV";
-            this.pvPercMV.Size = new System.Drawing.Size(100, 23);
-            this.pvPercMV.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pvPercMV.TabIndex = 12;
+            this.pbPercMV.BackColor = System.Drawing.Color.LightYellow;
+            this.pbPercMV.ForeColor = System.Drawing.SystemColors.Control;
+            this.pbPercMV.Location = new System.Drawing.Point(82, 71);
+            this.pbPercMV.Maximum = 30;
+            this.pbPercMV.Name = "pbPercMV";
+            this.pbPercMV.Size = new System.Drawing.Size(100, 23);
+            this.pbPercMV.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbPercMV.TabIndex = 12;
             // 
             // pbVitMV
             // 
@@ -1954,186 +2091,49 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "ATRIBUTOS";
             // 
-            // panelMochMV
+            // PanelDatosPsjMV
             // 
-            this.panelMochMV.BackColor = System.Drawing.Color.Transparent;
-            this.panelMochMV.Controls.Add(this.imgObj4MV);
-            this.panelMochMV.Controls.Add(this.imgObj3MV);
-            this.panelMochMV.Controls.Add(this.imgObj2MV);
-            this.panelMochMV.Controls.Add(this.imgObj1MV);
-            this.panelMochMV.Controls.Add(this.label2);
-            this.panelMochMV.Location = new System.Drawing.Point(615, 289);
-            this.panelMochMV.Name = "panelMochMV";
-            this.panelMochMV.Size = new System.Drawing.Size(379, 265);
-            this.panelMochMV.TabIndex = 42;
+            this.PanelDatosPsjMV.BackColor = System.Drawing.Color.Transparent;
+            this.PanelDatosPsjMV.Controls.Add(this.lblTipoPsjMV);
+            this.PanelDatosPsjMV.Controls.Add(this.lblNombJugMV);
+            this.PanelDatosPsjMV.Controls.Add(this.lblNombPersMV);
+            this.PanelDatosPsjMV.Location = new System.Drawing.Point(17, 39);
+            this.PanelDatosPsjMV.Name = "PanelDatosPsjMV";
+            this.PanelDatosPsjMV.Size = new System.Drawing.Size(377, 106);
+            this.PanelDatosPsjMV.TabIndex = 34;
             // 
-            // imgObj4MV
+            // lblTipoPsjMV
             // 
-            this.imgObj4MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgObj4MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgObj4MV.Location = new System.Drawing.Point(233, 159);
-            this.imgObj4MV.Name = "imgObj4MV";
-            this.imgObj4MV.Size = new System.Drawing.Size(100, 80);
-            this.imgObj4MV.TabIndex = 4;
-            this.imgObj4MV.TabStop = false;
+            this.lblTipoPsjMV.AutoSize = true;
+            this.lblTipoPsjMV.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipoPsjMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoPsjMV.Location = new System.Drawing.Point(13, 64);
+            this.lblTipoPsjMV.Name = "lblTipoPsjMV";
+            this.lblTipoPsjMV.Size = new System.Drawing.Size(40, 17);
+            this.lblTipoPsjMV.TabIndex = 2;
+            this.lblTipoPsjMV.Text = "Tipo: ";
             // 
-            // imgObj3MV
+            // lblNombJugMV
             // 
-            this.imgObj3MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgObj3MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgObj3MV.Location = new System.Drawing.Point(120, 159);
-            this.imgObj3MV.Name = "imgObj3MV";
-            this.imgObj3MV.Size = new System.Drawing.Size(100, 80);
-            this.imgObj3MV.TabIndex = 3;
-            this.imgObj3MV.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgObj3MV, "Doble clic para sacar objecto.");
+            this.lblNombJugMV.AutoSize = true;
+            this.lblNombJugMV.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombJugMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombJugMV.Location = new System.Drawing.Point(13, 37);
+            this.lblNombJugMV.Name = "lblNombJugMV";
+            this.lblNombJugMV.Size = new System.Drawing.Size(121, 17);
+            this.lblNombJugMV.TabIndex = 1;
+            this.lblNombJugMV.Text = "Nombre del jugador: ";
             // 
-            // imgObj2MV
+            // lblNombPersMV
             // 
-            this.imgObj2MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgObj2MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgObj2MV.Location = new System.Drawing.Point(233, 56);
-            this.imgObj2MV.Name = "imgObj2MV";
-            this.imgObj2MV.Size = new System.Drawing.Size(100, 80);
-            this.imgObj2MV.TabIndex = 2;
-            this.imgObj2MV.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgObj2MV, "Doble clic para sacar objecto.");
-            // 
-            // imgObj1MV
-            // 
-            this.imgObj1MV.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgObj1MV.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imgObj1MV.Location = new System.Drawing.Point(119, 56);
-            this.imgObj1MV.Name = "imgObj1MV";
-            this.imgObj1MV.Size = new System.Drawing.Size(100, 80);
-            this.imgObj1MV.TabIndex = 1;
-            this.imgObj1MV.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgObj1MV, "Doble clic para sacar objecto.");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(184, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "MOCHILA";
-            // 
-            // panelHabMV
-            // 
-            this.panelHabMV.BackColor = System.Drawing.Color.Transparent;
-            this.panelHabMV.Controls.Add(this.hab3MV);
-            this.panelHabMV.Controls.Add(this.hab8MV);
-            this.panelHabMV.Controls.Add(this.hab7MV);
-            this.panelHabMV.Controls.Add(this.hab6MV);
-            this.panelHabMV.Controls.Add(this.hab5MV);
-            this.panelHabMV.Controls.Add(this.hab4MV);
-            this.panelHabMV.Controls.Add(this.hab2MV);
-            this.panelHabMV.Controls.Add(this.hab1MV);
-            this.panelHabMV.Controls.Add(this.label15);
-            this.panelHabMV.Location = new System.Drawing.Point(734, 39);
-            this.panelHabMV.Name = "panelHabMV";
-            this.panelHabMV.Size = new System.Drawing.Size(260, 244);
-            this.panelHabMV.TabIndex = 43;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(61, 6);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(130, 22);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "HABILIDADES";
-            // 
-            // hab1MV
-            // 
-            this.hab1MV.AutoSize = true;
-            this.hab1MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab1MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab1MV.Location = new System.Drawing.Point(62, 37);
-            this.hab1MV.Name = "hab1MV";
-            this.hab1MV.Size = new System.Drawing.Size(132, 17);
-            this.hab1MV.TabIndex = 2;
-            this.hab1MV.Text = "Nombre del personaje: ";
-            // 
-            // hab2MV
-            // 
-            this.hab2MV.AutoSize = true;
-            this.hab2MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab2MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab2MV.Location = new System.Drawing.Point(62, 64);
-            this.hab2MV.Name = "hab2MV";
-            this.hab2MV.Size = new System.Drawing.Size(132, 17);
-            this.hab2MV.TabIndex = 3;
-            this.hab2MV.Text = "Nombre del personaje: ";
-            // 
-            // hab4MV
-            // 
-            this.hab4MV.AutoSize = true;
-            this.hab4MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab4MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab4MV.Location = new System.Drawing.Point(62, 114);
-            this.hab4MV.Name = "hab4MV";
-            this.hab4MV.Size = new System.Drawing.Size(132, 17);
-            this.hab4MV.TabIndex = 4;
-            this.hab4MV.Text = "Nombre del personaje: ";
-            // 
-            // hab5MV
-            // 
-            this.hab5MV.AutoSize = true;
-            this.hab5MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab5MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab5MV.Location = new System.Drawing.Point(62, 138);
-            this.hab5MV.Name = "hab5MV";
-            this.hab5MV.Size = new System.Drawing.Size(132, 17);
-            this.hab5MV.TabIndex = 5;
-            this.hab5MV.Text = "Nombre del personaje: ";
-            // 
-            // hab6MV
-            // 
-            this.hab6MV.AutoSize = true;
-            this.hab6MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab6MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab6MV.Location = new System.Drawing.Point(62, 162);
-            this.hab6MV.Name = "hab6MV";
-            this.hab6MV.Size = new System.Drawing.Size(132, 17);
-            this.hab6MV.TabIndex = 6;
-            this.hab6MV.Text = "Nombre del personaje: ";
-            // 
-            // hab7MV
-            // 
-            this.hab7MV.AutoSize = true;
-            this.hab7MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab7MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab7MV.Location = new System.Drawing.Point(62, 187);
-            this.hab7MV.Name = "hab7MV";
-            this.hab7MV.Size = new System.Drawing.Size(132, 17);
-            this.hab7MV.TabIndex = 7;
-            this.hab7MV.Text = "Nombre del personaje: ";
-            // 
-            // hab8MV
-            // 
-            this.hab8MV.AutoSize = true;
-            this.hab8MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab8MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab8MV.Location = new System.Drawing.Point(62, 212);
-            this.hab8MV.Name = "hab8MV";
-            this.hab8MV.Size = new System.Drawing.Size(132, 17);
-            this.hab8MV.TabIndex = 8;
-            this.hab8MV.Text = "Nombre del personaje: ";
-            // 
-            // hab3MV
-            // 
-            this.hab3MV.AutoSize = true;
-            this.hab3MV.BackColor = System.Drawing.Color.Transparent;
-            this.hab3MV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hab3MV.Location = new System.Drawing.Point(62, 89);
-            this.hab3MV.Name = "hab3MV";
-            this.hab3MV.Size = new System.Drawing.Size(132, 17);
-            this.hab3MV.TabIndex = 9;
-            this.hab3MV.Text = "Nombre del personaje: ";
+            this.lblNombPersMV.AutoSize = true;
+            this.lblNombPersMV.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombPersMV.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombPersMV.Location = new System.Drawing.Point(13, 10);
+            this.lblNombPersMV.Name = "lblNombPersMV";
+            this.lblNombPersMV.Size = new System.Drawing.Size(132, 17);
+            this.lblNombPersMV.TabIndex = 0;
+            this.lblNombPersMV.Text = "Nombre del personaje: ";
             // 
             // Form1
             // 
@@ -2206,6 +2206,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasVP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj3MV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).EndInit();
             this.panelObjetos.ResumeLayout(false);
             this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
@@ -2227,19 +2231,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
             this.panelVistaPersonaje.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasVP)).EndInit();
-            this.PanelDatosPsjMV.ResumeLayout(false);
-            this.PanelDatosPsjMV.PerformLayout();
-            this.panelAtbPsjMV.ResumeLayout(false);
-            this.panelAtbPsjMV.PerformLayout();
+            this.panelHabMV.ResumeLayout(false);
+            this.panelHabMV.PerformLayout();
             this.panelMochMV.ResumeLayout(false);
             this.panelMochMV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj4MV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj3MV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).EndInit();
-            this.panelHabMV.ResumeLayout(false);
-            this.panelHabMV.PerformLayout();
+            this.panelAtbPsjMV.ResumeLayout(false);
+            this.panelAtbPsjMV.PerformLayout();
+            this.PanelDatosPsjMV.ResumeLayout(false);
+            this.PanelDatosPsjMV.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2370,7 +2370,7 @@
         private System.Windows.Forms.ProgressBar pbIngMV;
         private System.Windows.Forms.ProgressBar pbFuerMV;
         private System.Windows.Forms.ProgressBar pbDestMV;
-        private System.Windows.Forms.ProgressBar pvPercMV;
+        private System.Windows.Forms.ProgressBar pbPercMV;
         private System.Windows.Forms.ProgressBar pbVitMV;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
