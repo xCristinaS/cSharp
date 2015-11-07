@@ -849,6 +849,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             mObj4.AllowDrop = true;
         }
         private void ocultarPaginaNewPersonaje() {
+            limpiarPagNewPersonaje();
             panelPsj.Visible = false;
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
@@ -998,6 +999,17 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 if ((p = album.mostrarAnteriorPj()) != null)
                     cargarPersonajeModoVision(p);
             }
+        }
+        private void limpiarPagNewPersonaje() {
+            limpiarHabilidadesMarcadas();
+            vaciarMochila();
+            vaciarObjetosEquip();
+            resetFlechasAtributos();
+            resetValoresAtrib();
+            txtNombreJugador.Text = "";
+            txtNombrePersonaje.Text = "";
+            combRaza.SelectedItem = null;
+            deshabilitarHabilidades();
         }
     }
 }
