@@ -113,6 +113,16 @@ namespace CS_Ejercicio03_FichaDePersonajes.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap anterior {
+            get {
+                object obj = ResourceManager.GetObject("anterior", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arco {
             get {
                 object obj = ResourceManager.GetObject("arco", resourceCulture);
@@ -1376,6 +1386,16 @@ namespace CS_Ejercicio03_FichaDePersonajes.Properties {
         internal static System.Drawing.Bitmap propiedades {
             get {
                 object obj = ResourceManager.GetObject("propiedades", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap siguiente {
+            get {
+                object obj = ResourceManager.GetObject("siguiente", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

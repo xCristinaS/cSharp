@@ -51,20 +51,20 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ocultarPaginaNewPersonaje();
             panelVistaPersonaje.Visible = false;
             menuSeleccion.Visible = false;
-
+            album.importarPjs();
             if (!album.vacio()) {
                 imgAlbum.BackgroundImage = Properties.Resources.album;
-            }
+            } else
+                imgAlbum.Enabled = false;
 
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
             wplayer.controls.play();
         }
-
         private void clicCerrar(object sender, EventArgs e) {
             this.Close();
+            album.exportarPjs();
         }
-        
         private void comboboxCambiado(object sender, EventArgs e) { // Este método es lanzado cuando cambia el comboboxRaza. 
             combClase.Items.Clear();
             // Los valores del combClase variarán en función de la raza seleccionada. Si el indice es 0, se cargarán 
@@ -85,11 +85,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         } 
-        
         private void actualizarImg(object sender, EventArgs e) {
             mostrarImgPersonaje(sender);
         }
-
         private void mostrarImgPersonaje(object sender) {
             String personaje;
             if (!combClase.Text.Equals("")) {
@@ -161,7 +159,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             }
         }
-         
         private void asignarAtributosPlusPSJ(string personaje) { // Doy un valor extra a cada atributo en función del personaje seleccionado.
             switch (personaje) {
                 case "Mago":
@@ -251,7 +248,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             darValorAtributosAleatorios(); // Cada vez que se cambia de personaje debo volver a sumar los valores aleatorios a la base de ptos por personaje.
         }
-
         private void darValorAtributosAleatorios() {
             pbCarisma.Value += valoresAtributosAleatorios[0];
             pbCoraje.Value += valoresAtributosAleatorios[1];
@@ -268,7 +264,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
-
         private void resetValoresAtrib() {
             pbCarisma.Value = 0;
             pbCoraje.Value = 0;
@@ -281,7 +276,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbVelocidad.Value = 0;
             pbVitalidad.Value = 0;
         }
-
         private void repartirPtosAtb(object sender, EventArgs e) {
             // Si hay un personaje seleccionado y el evento lo lanzó una flecha (imagen en pictureBox) de incremento, incrementaré el atributo
             // en caso de que el evento fuera lanzado al hacer clic en una flecha de decremento, decremento el valor del atributo asociado a dicha flecha. 
@@ -291,7 +285,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 else if (((int)((PictureBox)sender).Tag) > 0)
                     decrementarAtributo(sender);
         }
-
         private void incrementarAtributo(object sender) {
             // Evalúo qué flecha de incremento fue clickeada e incremento en 1 el valor de la progressBar asociada a 
             // dicha flecha. A su vez, al .Tag asociado a la flecha de decremento le doy un +1. Lo que pretendo con esto, 
@@ -396,7 +389,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
         }
-
         private void decrementarAtributo(object sender) {
             // Evalúo que flecha de decremento fue seleccionada y decremento el valor de la progressbar asociada a dicha flecha.
             // Sólo podre decrementar el valor de la progressbar si el tag de la flecha de decremento fue previamente incrementado (esta 
@@ -499,7 +491,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
         }
-
         private void habilidadesCheckedChange(object sender, EventArgs e) {
             CheckBox cb = (CheckBox)sender; 
             if (cb.Checked) 
@@ -524,7 +515,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
         }
-
         private void habilitarHabilidades() {
             // Habilito los checkbox siempre y cuando haya un personaje seleccionado. 
             foreach (object cb2 in panelHabilidades.Controls) {
@@ -532,7 +522,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     ((CheckBox)cb2).Enabled = true;
             }
         }
-
         private void deshabilitarHabilidades() {
            // Deshabilito los checkbox si no hay personaje seleccionado. 
                 foreach (object cb2 in panelHabilidades.Controls) {
@@ -540,7 +529,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                         ((CheckBox)cb2).Enabled = false;
                 }
             }
-
         private void limpiarHabilidadesMarcadas() {
             // Para limpiar las habilidades marcadas al cambiar de personaje. 
             foreach (object cb2 in panelHabilidades.Controls) {
@@ -550,7 +538,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + Constantes.HABILIDADES_SELECCIONABLES;
         }
-
         private void tirarDado(object sender, EventArgs e) {
             String personaje; 
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
@@ -571,13 +558,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 imgDado.Enabled = false;
             }
         }
-
         private void obtenerValoresAleatorios() {
             // Relleno el array de valores aleatorios para los atributos. 
             for (int i = 0; i < valoresAtributosAleatorios.Length; i++)
                 valoresAtributosAleatorios[i] = rnd.Next(Constantes.MIN_VALOR_ALEATORIO, Constantes.MAX_VALOR_ALEATORIO);
         }
-
         private void menuCarga(object sender, EventArgs e) { // Evento que lanza el timer1. Con este evento emulo una página de carga al inicio. 
             barraCarga.Value++; int num = 20;
             // Hago que la barra de carga vaya más rápido conforme avanza. 
@@ -606,7 +591,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         }
-
         private void resetFlechasAtributos() {
             // Apago todas las flechas de decremento y enciendo todas las de incremento.
             // Además, les reseteo el Tag a su valor inicial y reestablezco los puntos a repartir.
@@ -622,7 +606,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
-        
         public static Image RotateImage(Image img, float rotationAngle) {
            //create an empty Bitmap image
            Bitmap bmp = new Bitmap(img.Width, img.Height);
@@ -643,7 +626,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
            //return the image
            return bmp;
         }
-
         private void timer2_Tick(object sender, EventArgs e) {
             if (aux < 100) {
                 imgDado.BackgroundImage = RotateImage(imgDado.BackgroundImage, 15);
@@ -653,7 +635,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 aux = 0;
             }
         }
-
         private void comprobarSiRelleno(object sender, EventArgs e) {
             // Compruebo si los campos del panel de personaje están rellenos. Si es así, se habilitará el botón de guardado.
             // En caso contrario se deshabilita. 
@@ -668,7 +649,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 imgSave.BackgroundImage = Properties.Resources.guardarOff;
             } 
         }
-
         private void guardarPersonaje(object sender, EventArgs e) {
             int[] atributos = {pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value};
             bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
@@ -681,12 +661,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
             if (album.cuantosPjHay() == 1) {
                 imgAlbum.BackgroundImage = Properties.Resources.album;
+                imgAlbum.Enabled = true;
             }
 
             ocultarPaginaNewPersonaje();
+            this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
         }
-
         private void cargarObjetosEquipables(string personaje) {
             obj9.BackgroundImage = Properties.Resources.cuchillos;
             obj9.Tag = Properties.Resources.cuchillosOff;
@@ -811,18 +792,15 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 obj8.Tag = Properties.Resources.armaduraLOff;
             }
         }
-
         private void obj_MouseDown(object sender, MouseEventArgs e) {
             PictureBox img = (PictureBox)sender; // Drag and drop. Aqui agarro el elemento. 
             if (img.BackgroundImage != null) 
                 img.DoDragDrop(img.BackgroundImage, DragDropEffects.Move);
         }
-
         private void mObj_DragEnter(object sender, DragEventArgs e) {
             if (((PictureBox)sender).BackgroundImage == null) // Si no hay una imagen ya en ese hueco de la mochila se podrá soltar la imagen.
                 e.Effect = DragDropEffects.Move; 
         }
-
         private void mObj_DragDrop(object sender, DragEventArgs e) {
             PictureBox img = (PictureBox)sender; bool centinela = false;
             img.BackgroundImage = (Image)e.Data.GetData(DataFormats.Bitmap);
@@ -837,7 +815,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     }
             }
         }
-
         private void sacarObjMochila(object sender, EventArgs e) {
             // Saco el objeto de la mochila y enciendo la imagen en objetos equipables. Vuelvo a habilitar el picturebox. 
             PictureBox img = (PictureBox)sender; bool centinela = false; Image aux;
@@ -853,28 +830,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             img.BackgroundImage = null; // Saco el objeto de la mochila. 
         }
-
         private void vaciarMochila() { // Vacio la mochila cuando cambio de personaje. 
             mObj1.BackgroundImage = null;
             mObj2.BackgroundImage = null;
             mObj3.BackgroundImage = null;
             mObj4.BackgroundImage = null;
         }
-
         private void vaciarObjetosEquip() { // Vacio el inventario cuando cambio de raza. 
             foreach (object o in panelObjetos.Controls) {
                 if (o is PictureBox)
                     ((PictureBox)o).BackgroundImage = null;
             }
         }
-
         private void habilitarDragDrop() {
             mObj1.AllowDrop = true;
             mObj2.AllowDrop = true;
             mObj3.AllowDrop = true;
             mObj4.AllowDrop = true;
         }
-
         private void ocultarPaginaNewPersonaje() {
             panelPsj.Visible = false;
             panelAtributos.Visible = false;
@@ -887,7 +860,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
         }
-
         private void mostrarPaginaNewPersonaje() {
             panelPsj.Visible = true;
             panelAtributos.Visible = true;
@@ -901,21 +873,18 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelMochila.Visible = false;
             this.BackgroundImage = Properties.Resources.fondo;
         }
-
         private void imgPropiedades_Click(object sender, EventArgs e) {
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
             panelAtributos.Visible = true;
             panelHabilidades.Visible = true;
         }
-
         private void imgEquipamiento_Click(object sender, EventArgs e) {
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
             panelMochila.Visible = true;
             panelObjetos.Visible = true;
         }
-
         private void volverMenuSelec(object sender, EventArgs e) {
             if (sender.Equals(imgAtrasNP)) {
                 txtNombreJugador.Text = "";
@@ -932,28 +901,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
             this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
         }
-
         private void cargarPagNewPersonaje(object sender, EventArgs e) {
             menuSeleccion.Visible = false;
             mostrarPaginaNewPersonaje();
         }
-
         private void imgAlbum_Click(object sender, EventArgs e) {
             menuSeleccion.Visible = false;
             panelVistaPersonaje.Visible = true;
 
             cargarPersonajeModoVision(album.personajeActual());
         }
-
         private void imgAtrasVP_Click(object sender, EventArgs e) {
             panelVistaPersonaje.Visible = false;
-            menuSeleccion.BackgroundImage = Properties.Resources.fondo;
+            this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
         }
-
         private void cargarPersonajeModoVision(Personaje p) {
             string[] hab = dameNombresHab(p);
-            panelVistaPersonaje.BackgroundImage = p.getImagenPj();
+            this.BackgroundImage = p.getImagenPj();
             lblNombPersMV.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
             lblNombJugMV.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
             lblTipoPsjMV.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
@@ -968,7 +933,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgObj3MV.BackgroundImage = p.getObjetosMochila()[2];
             imgObj4MV.BackgroundImage = p.getObjetosMochila()[3];
         }
-
         private string[] dameNombresHab(Personaje p) {
             string[] rs = new string[8]; int cont = 0;
             for (int i = 0; i < p.getHabilidades().Length; i++)
@@ -978,7 +942,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             return rs;
         }
-
         private string getTextCheckboxHab(int num) {
             switch (num) {
                 case 0:
@@ -1021,6 +984,19 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     return cboxLeerLabios.Text;
                 default:
                     return "";
+            }
+        }
+        private void imgEdit_Click(object sender, EventArgs e) {
+
+        }
+        private void pasarPaginaMV(object sender, EventArgs e) {
+            Personaje p;
+            if (((PictureBox)sender).Equals(imgSiguiente)) {
+                if ((p = album.mostrarSiguientePj()) != null)
+                    cargarPersonajeModoVision(p);
+            } else {
+                if ((p = album.mostrarAnteriorPj()) != null)
+                    cargarPersonajeModoVision(p);
             }
         }
     }
