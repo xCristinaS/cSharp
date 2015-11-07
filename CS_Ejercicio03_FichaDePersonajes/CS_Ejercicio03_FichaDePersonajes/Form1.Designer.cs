@@ -150,6 +150,7 @@
             this.mObj4 = new System.Windows.Forms.PictureBox();
             this.lblMochila = new System.Windows.Forms.Label();
             this.panelVistaPersonaje = new System.Windows.Forms.Panel();
+            this.imgSiguiente = new System.Windows.Forms.PictureBox();
             this.imgAnterior = new System.Windows.Forms.PictureBox();
             this.imgCerrar2 = new System.Windows.Forms.PictureBox();
             this.panelHabMV = new System.Windows.Forms.Panel();
@@ -191,7 +192,6 @@
             this.lblTipoPsjMV = new System.Windows.Forms.Label();
             this.lblNombJugMV = new System.Windows.Forms.Label();
             this.lblNombPersMV = new System.Windows.Forms.Label();
-            this.imgSiguiente = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -252,6 +252,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
             this.panelVistaPersonaje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar2)).BeginInit();
             this.panelHabMV.SuspendLayout();
@@ -259,7 +260,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj4MV)).BeginInit();
             this.panelAtbPsjMV.SuspendLayout();
             this.PanelDatosPsjMV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1419,7 +1419,7 @@
             this.imgAtrasVP.TabIndex = 33;
             this.imgAtrasVP.TabStop = false;
             this.toolTip1.SetToolTip(this.imgAtrasVP, "Volver atras.");
-            this.imgAtrasVP.Click += new System.EventHandler(this.imgAtrasVP_Click);
+            this.imgAtrasVP.Click += new System.EventHandler(this.volverMenuSelec);
             // 
             // imgObj3MV
             // 
@@ -1718,6 +1718,17 @@
             this.panelVistaPersonaje.Name = "panelVistaPersonaje";
             this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 668);
             this.panelVistaPersonaje.TabIndex = 2;
+            // 
+            // imgSiguiente
+            // 
+            this.imgSiguiente.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.siguiente;
+            this.imgSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgSiguiente.Location = new System.Drawing.Point(951, 574);
+            this.imgSiguiente.Name = "imgSiguiente";
+            this.imgSiguiente.Size = new System.Drawing.Size(79, 94);
+            this.imgSiguiente.TabIndex = 48;
+            this.imgSiguiente.TabStop = false;
+            this.imgSiguiente.Click += new System.EventHandler(this.pasarPaginaMV);
             // 
             // imgAnterior
             // 
@@ -2183,17 +2194,6 @@
             this.lblNombPersMV.TabIndex = 0;
             this.lblNombPersMV.Text = "Nombre del personaje: ";
             // 
-            // imgSiguiente
-            // 
-            this.imgSiguiente.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.siguiente;
-            this.imgSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgSiguiente.Location = new System.Drawing.Point(951, 574);
-            this.imgSiguiente.Name = "imgSiguiente";
-            this.imgSiguiente.Size = new System.Drawing.Size(79, 94);
-            this.imgSiguiente.TabIndex = 48;
-            this.imgSiguiente.TabStop = false;
-            this.imgSiguiente.Click += new System.EventHandler(this.pasarPaginaMV);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2291,6 +2291,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
             this.panelVistaPersonaje.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar2)).EndInit();
             this.panelHabMV.ResumeLayout(false);
@@ -2302,7 +2303,6 @@
             this.panelAtbPsjMV.PerformLayout();
             this.PanelDatosPsjMV.ResumeLayout(false);
             this.PanelDatosPsjMV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

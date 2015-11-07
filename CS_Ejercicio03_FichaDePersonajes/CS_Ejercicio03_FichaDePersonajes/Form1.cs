@@ -835,10 +835,14 @@ namespace CS_Ejercicio03_FichaDePersonajes
             mObj2.BackgroundImage = null;
             mObj3.BackgroundImage = null;
             mObj4.BackgroundImage = null;
+            foreach (object o in panelObjetos.Controls) {
+                if (o is PictureBox)
+                    ((PictureBox)o).Enabled = true;
+            }
         }
         private void vaciarObjetosEquip() { // Vacio el inventario cuando cambio de raza. 
             foreach (object o in panelObjetos.Controls) {
-                if (o is PictureBox)
+                if (o is PictureBox) 
                     ((PictureBox)o).BackgroundImage = null;
             }
         }
@@ -887,17 +891,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelObjetos.Visible = true;
         }
         private void volverMenuSelec(object sender, EventArgs e) {
-            if (sender.Equals(imgAtrasNP)) {
-                txtNombreJugador.Text = "";
-                txtNombrePersonaje.Text = "";
-                combRaza.SelectedItem = null;
-                limpiarHabilidadesMarcadas();
-                resetValoresAtrib();
-                vaciarMochila();
-                vaciarObjetosEquip();
-                resetFlechasAtributos();
+            if (sender.Equals(imgAtrasNP)) 
                 ocultarPaginaNewPersonaje();
-            }
+            else if (sender.Equals(imgAtrasVP))
+                panelVistaPersonaje.Visible = false;
 
             this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
@@ -911,11 +908,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelVistaPersonaje.Visible = true;
 
             cargarPersonajeModoVision(album.personajeActual());
-        }
-        private void imgAtrasVP_Click(object sender, EventArgs e) {
-            panelVistaPersonaje.Visible = false;
-            this.BackgroundImage = Properties.Resources.fondo;
-            menuSeleccion.Visible = true;
         }
         private void cargarPersonajeModoVision(Personaje p) {
             string[] hab = dameNombresHab(p);
