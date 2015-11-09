@@ -12,7 +12,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         private int[] atributos, tagsAtb;
         private bool[] habilidades;
         private int numTirada, habPorSeleccionar, ptosARepartirA;
-        private Image imagenPj;
         private Image[] objetosMochila;
 
         public Personaje() {
@@ -21,7 +20,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             objetosMochila = new Image[4];
             habilidades = new bool[19];
         }
-        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA, Image imagenPj, Image[] objetosMochila) {
+        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA, Image[] objetosMochila) {
             this.nombreP = nombreP;
             this.nombreJ = nombreJ;
             this.genero = genero;
@@ -33,7 +32,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             this.numTirada = numTirada;
             this.habPorSeleccionar = habPorSeleccionar;
             this.ptosARepartirA = ptosARepartirA;
-            this.imagenPj = imagenPj;
             this.objetosMochila = objetosMochila;
         }
         public string escribirPersonaje() {
@@ -61,7 +59,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             cadena += numTirada + ",";
             cadena += habPorSeleccionar + ",";
             cadena += ptosARepartirA + ",";
-            cadena += ConvertirImagen.imageToString(imagenPj, imagenPj.RawFormat)+ ",";
             for (i = 0; i < objetosMochila.Length; i++) {
                 if (objetosMochila[i] != null)
                     cadena += ConvertirImagen.imageToString(objetosMochila[i], objetosMochila[i].RawFormat) + ".";
@@ -85,7 +82,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             p.numTirada = Convert.ToInt32(campos[8]);
             p.habPorSeleccionar = Convert.ToInt32(campos[9]);
             p.ptosARepartirA = Convert.ToInt32(campos[10]);
-            p.imagenPj = ConvertirImagen.stringToImage(campos[11]);
             auxObjMoch = campos[12];
 
             auxAtb2 = auxAtb.Split('.');
@@ -143,15 +139,9 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public int[] getTagsAtb() {
             return tagsAtb;
         }
-        public Image getImagenPj() {
-            return imagenPj;
-        }
         // Setters.
         public void setNumTirada(int numTirada) {
             this.numTirada = numTirada;
-        }
-        public void setImagenPj(Image imagenPj) {
-            this.imagenPj = imagenPj;
         }
         public void setObjetosMochila(Image[] objetosMochila) {
             this.objetosMochila = objetosMochila;
@@ -159,35 +149,27 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public void setHabSeleccionadas(int habSeleccionadas) {
             this.habPorSeleccionar = habSeleccionadas;
         }
-
         public void setPtosARepartirA(int ptosARepartirA) {
             this.ptosARepartirA = ptosARepartirA;
         }
-
         public void setNombreP(String nombreP) {
             this.nombreP = nombreP;
         }
-
         public void setNombreJ(string nombreJ) {
             this.nombreJ = nombreJ;
         }
-
         public void setGenero(string genero) {
             this.genero = genero;
         }
-
         public void setRaza(string raza) {
             this.raza = raza;
         }
-
         public void setClase(string clase) {
             this.clase = clase;
         }
-
         public void setHabilidades(bool[] habilidades) {
             this.habilidades = habilidades;
         }
-
         public void setAtributos(int[] atributos) {
             this.atributos = atributos;
         }

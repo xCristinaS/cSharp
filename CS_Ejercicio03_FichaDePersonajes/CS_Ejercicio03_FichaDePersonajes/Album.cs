@@ -34,18 +34,18 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return lista.Count;
         }
         public void importarPjs() {
-            StreamReader lector; string linea; string[] camposPj; Personaje p;
-            if (File.Exists("..\\..\\personajes.txt")) {
-                lector = new StreamReader("..\\..\\personajes.txt");
+            StreamReader lector; string linea; Personaje p;
+            if (File.Exists("..\\..\\datosPersonajes.txt")) {
+                lector = new StreamReader("..\\..\\datosPersonajes.txt");
                 while((linea = lector.ReadLine()) != null) 
                     lista.AddLast(Personaje.montarPersonaje(linea));
                 
                 lector.Close();
             } else
-                File.Create("..\\..\\personajes.txt");
+                File.Create("..\\..\\datosPersonajes.txt");
         }
         public void exportarPjs() {
-            StreamWriter escritor = new StreamWriter("..\\..\\personajes.txt"); int i;
+            StreamWriter escritor = new StreamWriter("..\\..\\datosPersonajes.txt");
             foreach (Personaje p in lista) 
                 escritor.WriteLine(p.escribirPersonaje());
             
@@ -66,6 +66,18 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 p = lista.ElementAt(posicion);
             }
             return p;
+        }
+        public bool hayAnterior() {
+            bool r = true;
+            if (posicion == 0) 
+                r = false;
+            return r;
+        }
+        public bool haySiguiente() {
+            bool r = true;
+            if (posicion == lista.Count - 1)
+                r = false;
+            return r;
         }
     }
 }

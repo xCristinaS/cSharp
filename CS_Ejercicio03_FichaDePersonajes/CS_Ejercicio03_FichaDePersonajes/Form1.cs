@@ -52,14 +52,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelVistaPersonaje.Visible = false;
             menuSeleccion.Visible = false;
             album.importarPjs();
+            actualizarFlechasDesplazamiento();
             if (!album.vacio()) {
                 imgAlbum.BackgroundImage = Properties.Resources.album;
             } else
                 imgAlbum.Enabled = false;
-
+            
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
             wplayer.controls.play();
+            
         }
         private void clicCerrar(object sender, EventArgs e) {
             this.Close();
@@ -95,7 +97,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 personaje = combClase.SelectedItem.ToString();
                 // Sólo doy el plus a los atributos si quien lanzó el evento fue el cambio de clase del personaje.
                 // El plus de los atributos variará en función del personaje seleccionado. 
-                if (sender.Equals(combClase)) {
+                if (sender != null && sender.Equals(combClase)) { // Hago la comprobación de si el sender es != null porque llamo a este método cuando cargo el personaje para cargar su imagen. 
                     asignarAtributosPlusPSJ(personaje);
                     cargarObjetosEquipables(personaje);
                     vaciarMochila();
@@ -115,48 +117,51 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     if (rbtnMasculino.Checked)
                         personaje += "o";
                 }
-                // Evalúo la cadena personaje y establezco la imagen de fondo correspondiente al personaje seleccionado y su género. 
-                switch (personaje) {
-                    case "cazadoa": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el femenino se añade una "a".
-                        this.BackgroundImage = Properties.Resources.cazadora;
-                        break;
-                    case "cazadoo": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el masculino se le añade una "o".
-                        this.BackgroundImage = Properties.Resources.cazador;
-                        break;
-                    case "arquero":
-                        this.BackgroundImage = Properties.Resources.arquero;
-                        break;
-                    case "arquera":
-                        this.BackgroundImage = Properties.Resources.arquera;
-                        break;
-                    case "paladio": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el masculino se añade una "o".
-                        this.BackgroundImage = Properties.Resources.paladin;
-                        break;
-                    case "paladia": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el femenino se añade una "a". 
-                        this.BackgroundImage = Properties.Resources.paladina;
-                        break;
-                    case "daguero":
-                        this.BackgroundImage = Properties.Resources.daguero;
-                        break;
-                    case "daguera":
-                        this.BackgroundImage = Properties.Resources.daguera;
-                        break;
-                    case "guerrero":
-                        this.BackgroundImage = Properties.Resources.guerrero;
-                        break;
-                    case "guerrera":
-                        this.BackgroundImage = Properties.Resources.guerrera;
-                        break;
-                    case "mago":
-                        this.BackgroundImage = Properties.Resources.mago;
-                        break;
-                    case "maga":
-                        this.BackgroundImage = Properties.Resources.maga;
-                        break;
-                    case "nigromant":
-                        this.BackgroundImage = Properties.Resources.nigromante;
-                        break;
-                }
+                cargarImgPersonaje(personaje);
+            }
+        }
+        private void cargarImgPersonaje(string personaje) {
+            // Evalúo la cadena personaje y establezco la imagen de fondo correspondiente al personaje seleccionado y su género. 
+            switch (personaje) {
+                case "cazadoa": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el femenino se añade una "a".
+                    this.BackgroundImage = Properties.Resources.cazadora;
+                    break;
+                case "cazadoo": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el masculino se le añade una "o".
+                    this.BackgroundImage = Properties.Resources.cazador;
+                    break;
+                case "arquero":
+                    this.BackgroundImage = Properties.Resources.arquero;
+                    break;
+                case "arquera":
+                    this.BackgroundImage = Properties.Resources.arquera;
+                    break;
+                case "paladio": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el masculino se añade una "o".
+                    this.BackgroundImage = Properties.Resources.paladin;
+                    break;
+                case "paladia": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el femenino se añade una "a". 
+                    this.BackgroundImage = Properties.Resources.paladina;
+                    break;
+                case "daguero":
+                    this.BackgroundImage = Properties.Resources.daguero;
+                    break;
+                case "daguera":
+                    this.BackgroundImage = Properties.Resources.daguera;
+                    break;
+                case "guerrero":
+                    this.BackgroundImage = Properties.Resources.guerrero;
+                    break;
+                case "guerrera":
+                    this.BackgroundImage = Properties.Resources.guerrera;
+                    break;
+                case "mago":
+                    this.BackgroundImage = Properties.Resources.mago;
+                    break;
+                case "maga":
+                    this.BackgroundImage = Properties.Resources.maga;
+                    break;
+                case "nigromant":
+                    this.BackgroundImage = Properties.Resources.nigromante;
+                    break;
             }
         }
         private void asignarAtributosPlusPSJ(string personaje) { // Doy un valor extra a cada atributo en función del personaje seleccionado.
@@ -655,7 +660,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
             int[] tagsAtb = {(int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag};
             Image[] objetosMochila = { mObj1.BackgroundImage, mObj2.BackgroundImage, mObj3.BackgroundImage, mObj4.BackgroundImage };
-            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, this.BackgroundImage, objetosMochila);
+            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
 
             album.agregarPersonaje(p);
 
@@ -665,6 +670,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
 
             ocultarPaginaNewPersonaje();
+            actualizarFlechasDesplazamiento();
+            numTirada = 0;
             this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
         }
@@ -804,6 +811,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mObj_DragDrop(object sender, DragEventArgs e) {
             PictureBox img = (PictureBox)sender; bool centinela = false;
             img.BackgroundImage = (Image)e.Data.GetData(DataFormats.Bitmap);
+            
             // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
             foreach (object o in panelObjetos.Controls) {
                 if (!centinela && o is PictureBox)
@@ -910,8 +918,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             cargarPersonajeModoVision(album.personajeActual());
         }
         private void cargarPersonajeModoVision(Personaje p) {
-            string[] hab = dameNombresHab(p);
-            this.BackgroundImage = p.getImagenPj();
+            string[] hab = dameNombresHab(p); string personaje;
             lblNombPersMV.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
             lblNombJugMV.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
             lblTipoPsjMV.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
@@ -925,6 +932,17 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgObj2MV.BackgroundImage = p.getObjetosMochila()[1];
             imgObj3MV.BackgroundImage = p.getObjetosMochila()[2];
             imgObj4MV.BackgroundImage = p.getObjetosMochila()[3];
+
+            personaje = p.getClase();
+            personaje = personaje.Substring(0, personaje.Length - 1);
+            personaje = personaje.ToLower();
+            if (!personaje.Equals("nigromant")) {
+                if (p.getGenero().ToLower().Equals("femenino"))
+                    personaje += "a";
+                else
+                    personaje += "o";
+            }
+            cargarImgPersonaje(personaje);
         }
         private string[] dameNombresHab(Personaje p) {
             string[] rs = new string[8]; int cont = 0;
@@ -982,6 +1000,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void imgEdit_Click(object sender, EventArgs e) {
 
         }
+        private void eliminarPJ(object sender, EventArgs e) {
+
+        }
         private void pasarPaginaMV(object sender, EventArgs e) {
             Personaje p;
             if (((PictureBox)sender).Equals(imgSiguiente)) {
@@ -991,6 +1012,18 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 if ((p = album.mostrarAnteriorPj()) != null)
                     cargarPersonajeModoVision(p);
             }
+            actualizarFlechasDesplazamiento();
+        }
+        private void actualizarFlechasDesplazamiento() {
+            if (album.haySiguiente())
+                imgSiguiente.Visible = true;
+            else
+                imgSiguiente.Visible = false;
+
+            if (album.hayAnterior())
+                imgAnterior.Visible = true;
+            else
+                imgAnterior.Visible = false;
         }
         private void limpiarPagNewPersonaje() {
             limpiarHabilidadesMarcadas();

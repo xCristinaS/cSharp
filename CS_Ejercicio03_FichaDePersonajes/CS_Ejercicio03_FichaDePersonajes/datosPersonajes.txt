@@ -1,0 +1,3 @@
+sdfds,dsfsd,Femenino,Ser mundano,Arquero,14.18.23.14.13.12.9.7.19.21.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+dsf,sdsf,Femenino,Ser mundano,Cazador,16.14.17.16.15.14.9.5.21.23.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+dsfsfd,dsfsfdfds,Femenino,Ser mundano,Daguero,12.16.21.10.13.18.11.13.17.19.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,

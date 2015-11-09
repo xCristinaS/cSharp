@@ -129,6 +129,7 @@
             this.imgObj2MV = new System.Windows.Forms.PictureBox();
             this.imgObj1MV = new System.Windows.Forms.PictureBox();
             this.imgEdit = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
@@ -150,8 +151,8 @@
             this.mObj4 = new System.Windows.Forms.PictureBox();
             this.lblMochila = new System.Windows.Forms.Label();
             this.panelVistaPersonaje = new System.Windows.Forms.Panel();
-            this.imgSiguiente = new System.Windows.Forms.PictureBox();
             this.imgAnterior = new System.Windows.Forms.PictureBox();
+            this.imgSiguiente = new System.Windows.Forms.PictureBox();
             this.imgCerrar2 = new System.Windows.Forms.PictureBox();
             this.panelHabMV = new System.Windows.Forms.Panel();
             this.hab3MV = new System.Windows.Forms.Label();
@@ -233,6 +234,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
@@ -252,8 +254,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
             this.panelVistaPersonaje.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar2)).BeginInit();
             this.panelHabMV.SuspendLayout();
             this.panelMochMV.SuspendLayout();
@@ -1413,7 +1415,7 @@
             this.imgAtrasVP.BackColor = System.Drawing.Color.Transparent;
             this.imgAtrasVP.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
             this.imgAtrasVP.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgAtrasVP.Location = new System.Drawing.Point(113, 591);
+            this.imgAtrasVP.Location = new System.Drawing.Point(167, 591);
             this.imgAtrasVP.Name = "imgAtrasVP";
             this.imgAtrasVP.Size = new System.Drawing.Size(56, 50);
             this.imgAtrasVP.TabIndex = 33;
@@ -1459,13 +1461,26 @@
             this.imgEdit.BackColor = System.Drawing.Color.Transparent;
             this.imgEdit.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.edit;
             this.imgEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgEdit.Location = new System.Drawing.Point(196, 591);
+            this.imgEdit.Location = new System.Drawing.Point(312, 591);
             this.imgEdit.Name = "imgEdit";
             this.imgEdit.Size = new System.Drawing.Size(56, 50);
             this.imgEdit.TabIndex = 44;
             this.imgEdit.TabStop = false;
             this.toolTip1.SetToolTip(this.imgEdit, "Volver atras.");
             this.imgEdit.Click += new System.EventHandler(this.imgEdit_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.basura;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(240, 591);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(56, 50);
+            this.pictureBox2.TabIndex = 50;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Volver atras.");
+            this.pictureBox2.Click += new System.EventHandler(this.eliminarPJ);
             // 
             // panelObjetos
             // 
@@ -1705,8 +1720,9 @@
             // panelVistaPersonaje
             // 
             this.panelVistaPersonaje.BackColor = System.Drawing.Color.Transparent;
-            this.panelVistaPersonaje.Controls.Add(this.imgSiguiente);
+            this.panelVistaPersonaje.Controls.Add(this.pictureBox2);
             this.panelVistaPersonaje.Controls.Add(this.imgAnterior);
+            this.panelVistaPersonaje.Controls.Add(this.imgSiguiente);
             this.panelVistaPersonaje.Controls.Add(this.imgCerrar2);
             this.panelVistaPersonaje.Controls.Add(this.imgEdit);
             this.panelVistaPersonaje.Controls.Add(this.panelHabMV);
@@ -1719,27 +1735,27 @@
             this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 668);
             this.panelVistaPersonaje.TabIndex = 2;
             // 
+            // imgAnterior
+            // 
+            this.imgAnterior.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgAnterior.BackgroundImage")));
+            this.imgAnterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgAnterior.Location = new System.Drawing.Point(7, 574);
+            this.imgAnterior.Name = "imgAnterior";
+            this.imgAnterior.Size = new System.Drawing.Size(144, 94);
+            this.imgAnterior.TabIndex = 49;
+            this.imgAnterior.TabStop = false;
+            this.imgAnterior.Click += new System.EventHandler(this.pasarPaginaMV);
+            // 
             // imgSiguiente
             // 
-            this.imgSiguiente.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.siguiente;
+            this.imgSiguiente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgSiguiente.BackgroundImage")));
             this.imgSiguiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgSiguiente.Location = new System.Drawing.Point(951, 574);
+            this.imgSiguiente.Location = new System.Drawing.Point(886, 574);
             this.imgSiguiente.Name = "imgSiguiente";
-            this.imgSiguiente.Size = new System.Drawing.Size(79, 94);
+            this.imgSiguiente.Size = new System.Drawing.Size(144, 94);
             this.imgSiguiente.TabIndex = 48;
             this.imgSiguiente.TabStop = false;
             this.imgSiguiente.Click += new System.EventHandler(this.pasarPaginaMV);
-            // 
-            // imgAnterior
-            // 
-            this.imgAnterior.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.anterior;
-            this.imgAnterior.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgAnterior.Location = new System.Drawing.Point(11, 571);
-            this.imgAnterior.Name = "imgAnterior";
-            this.imgAnterior.Size = new System.Drawing.Size(79, 94);
-            this.imgAnterior.TabIndex = 47;
-            this.imgAnterior.TabStop = false;
-            this.imgAnterior.Click += new System.EventHandler(this.pasarPaginaMV);
             // 
             // imgCerrar2
             // 
@@ -2270,6 +2286,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelObjetos.ResumeLayout(false);
             this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
@@ -2291,8 +2308,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
             this.panelVistaPersonaje.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar2)).EndInit();
             this.panelHabMV.ResumeLayout(false);
             this.panelHabMV.PerformLayout();
@@ -2469,8 +2486,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox imgEdit;
         private System.Windows.Forms.PictureBox imgCerrar2;
-        private System.Windows.Forms.PictureBox imgAnterior;
         private System.Windows.Forms.PictureBox imgSiguiente;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox imgAnterior;
     }
 }
 
