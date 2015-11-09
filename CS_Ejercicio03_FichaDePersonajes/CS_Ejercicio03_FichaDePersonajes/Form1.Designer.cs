@@ -108,7 +108,6 @@
             this.panelPsj = new System.Windows.Forms.Panel();
             this.barraCarga = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblBienvenido = new System.Windows.Forms.Label();
             this.lblMsgCarga = new System.Windows.Forms.Label();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -129,7 +128,7 @@
             this.imgObj2MV = new System.Windows.Forms.PictureBox();
             this.imgObj1MV = new System.Windows.Forms.PictureBox();
             this.imgEdit = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.imgBasura = new System.Windows.Forms.PictureBox();
             this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
@@ -193,6 +192,12 @@
             this.lblTipoPsjMV = new System.Windows.Forms.Label();
             this.lblNombJugMV = new System.Windows.Forms.Label();
             this.lblNombPersMV = new System.Windows.Forms.Label();
+            this.panelDatosPjME = new System.Windows.Forms.Panel();
+            this.lblTipoME = new System.Windows.Forms.Label();
+            this.lblNombreJME = new System.Windows.Forms.Label();
+            this.lblNombrePME = new System.Windows.Forms.Label();
+            this.imgSaveME = new System.Windows.Forms.PictureBox();
+            this.imgAtrasME = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -234,7 +239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).BeginInit();
             this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
@@ -262,6 +267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj4MV)).BeginInit();
             this.panelAtbPsjMV.SuspendLayout();
             this.PanelDatosPsjMV.SuspendLayout();
+            this.panelDatosPjME.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1220,17 +1228,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.menuCarga);
             // 
-            // lblBienvenido
-            // 
-            this.lblBienvenido.AutoSize = true;
-            this.lblBienvenido.BackColor = System.Drawing.Color.Transparent;
-            this.lblBienvenido.Font = new System.Drawing.Font("Monotype Corsiva", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenido.Location = new System.Drawing.Point(165, 201);
-            this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(705, 164);
-            this.lblBienvenido.TabIndex = 27;
-            this.lblBienvenido.Text = "¡Bienvenido! ";
-            // 
             // lblMsgCarga
             // 
             this.lblMsgCarga.AutoSize = true;
@@ -1469,18 +1466,18 @@
             this.toolTip1.SetToolTip(this.imgEdit, "Volver atras.");
             this.imgEdit.Click += new System.EventHandler(this.imgEdit_Click);
             // 
-            // pictureBox2
+            // imgBasura
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.basura;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(240, 591);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(56, 50);
-            this.pictureBox2.TabIndex = 50;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Volver atras.");
-            this.pictureBox2.Click += new System.EventHandler(this.eliminarPJ);
+            this.imgBasura.BackColor = System.Drawing.Color.Transparent;
+            this.imgBasura.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.basura;
+            this.imgBasura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgBasura.Location = new System.Drawing.Point(240, 591);
+            this.imgBasura.Name = "imgBasura";
+            this.imgBasura.Size = new System.Drawing.Size(56, 50);
+            this.imgBasura.TabIndex = 50;
+            this.imgBasura.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgBasura, "Volver atras.");
+            this.imgBasura.Click += new System.EventHandler(this.eliminarPJ);
             // 
             // panelObjetos
             // 
@@ -1720,7 +1717,7 @@
             // panelVistaPersonaje
             // 
             this.panelVistaPersonaje.BackColor = System.Drawing.Color.Transparent;
-            this.panelVistaPersonaje.Controls.Add(this.pictureBox2);
+            this.panelVistaPersonaje.Controls.Add(this.imgBasura);
             this.panelVistaPersonaje.Controls.Add(this.imgAnterior);
             this.panelVistaPersonaje.Controls.Add(this.imgSiguiente);
             this.panelVistaPersonaje.Controls.Add(this.imgCerrar2);
@@ -1732,7 +1729,7 @@
             this.panelVistaPersonaje.Controls.Add(this.imgAtrasVP);
             this.panelVistaPersonaje.Location = new System.Drawing.Point(-8, -11);
             this.panelVistaPersonaje.Name = "panelVistaPersonaje";
-            this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 668);
+            this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 679);
             this.panelVistaPersonaje.TabIndex = 2;
             // 
             // imgAnterior
@@ -2210,6 +2207,76 @@
             this.lblNombPersMV.TabIndex = 0;
             this.lblNombPersMV.Text = "Nombre del personaje: ";
             // 
+            // panelDatosPjME
+            // 
+            this.panelDatosPjME.BackColor = System.Drawing.Color.Transparent;
+            this.panelDatosPjME.Controls.Add(this.lblTipoME);
+            this.panelDatosPjME.Controls.Add(this.lblNombreJME);
+            this.panelDatosPjME.Controls.Add(this.lblNombrePME);
+            this.panelDatosPjME.Location = new System.Drawing.Point(12, 38);
+            this.panelDatosPjME.Name = "panelDatosPjME";
+            this.panelDatosPjME.Size = new System.Drawing.Size(417, 165);
+            this.panelDatosPjME.TabIndex = 44;
+            // 
+            // lblTipoME
+            // 
+            this.lblTipoME.AutoSize = true;
+            this.lblTipoME.BackColor = System.Drawing.Color.Transparent;
+            this.lblTipoME.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipoME.Location = new System.Drawing.Point(13, 64);
+            this.lblTipoME.Name = "lblTipoME";
+            this.lblTipoME.Size = new System.Drawing.Size(40, 17);
+            this.lblTipoME.TabIndex = 2;
+            this.lblTipoME.Text = "Tipo: ";
+            // 
+            // lblNombreJME
+            // 
+            this.lblNombreJME.AutoSize = true;
+            this.lblNombreJME.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombreJME.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreJME.Location = new System.Drawing.Point(13, 37);
+            this.lblNombreJME.Name = "lblNombreJME";
+            this.lblNombreJME.Size = new System.Drawing.Size(121, 17);
+            this.lblNombreJME.TabIndex = 1;
+            this.lblNombreJME.Text = "Nombre del jugador: ";
+            // 
+            // lblNombrePME
+            // 
+            this.lblNombrePME.AutoSize = true;
+            this.lblNombrePME.BackColor = System.Drawing.Color.Transparent;
+            this.lblNombrePME.Font = new System.Drawing.Font("Monotype Corsiva", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombrePME.Location = new System.Drawing.Point(13, 10);
+            this.lblNombrePME.Name = "lblNombrePME";
+            this.lblNombrePME.Size = new System.Drawing.Size(132, 17);
+            this.lblNombrePME.TabIndex = 0;
+            this.lblNombrePME.Text = "Nombre del personaje: ";
+            // 
+            // imgSaveME
+            // 
+            this.imgSaveME.BackColor = System.Drawing.Color.Transparent;
+            this.imgSaveME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.guardarOff;
+            this.imgSaveME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgSaveME.Location = new System.Drawing.Point(271, 587);
+            this.imgSaveME.Name = "imgSaveME";
+            this.imgSaveME.Size = new System.Drawing.Size(56, 50);
+            this.imgSaveME.TabIndex = 45;
+            this.imgSaveME.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgSaveME, "Guardar personaje.");
+            this.imgSaveME.Click += new System.EventHandler(this.imgSaveME_Click);
+            // 
+            // imgAtrasME
+            // 
+            this.imgAtrasME.BackColor = System.Drawing.Color.Transparent;
+            this.imgAtrasME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
+            this.imgAtrasME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgAtrasME.Location = new System.Drawing.Point(23, 569);
+            this.imgAtrasME.Name = "imgAtrasME";
+            this.imgAtrasME.Size = new System.Drawing.Size(56, 88);
+            this.imgAtrasME.TabIndex = 45;
+            this.imgAtrasME.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgAtrasME, "Volver atras.");
+            this.imgAtrasME.Click += new System.EventHandler(this.imgAtrasME_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2218,7 +2285,10 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
-            this.Controls.Add(this.panelVistaPersonaje);
+            this.Controls.Add(this.panelHabilidades);
+            this.Controls.Add(this.imgSaveME);
+            this.Controls.Add(this.imgAtrasME);
+            this.Controls.Add(this.panelDatosPjME);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelObjetos);
             this.Controls.Add(this.imgEquipamiento);
@@ -2228,12 +2298,11 @@
             this.Controls.Add(this.imgAtrasNP);
             this.Controls.Add(this.imgCerrar);
             this.Controls.Add(this.panelPsj);
-            this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.barraCarga);
             this.Controls.Add(this.panelAtributos);
-            this.Controls.Add(this.lblBienvenido);
             this.Controls.Add(this.menuSeleccion);
+            this.Controls.Add(this.panelVistaPersonaje);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -2286,7 +2355,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj2MV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).EndInit();
             this.panelObjetos.ResumeLayout(false);
             this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
@@ -2320,6 +2389,10 @@
             this.panelAtbPsjMV.PerformLayout();
             this.PanelDatosPsjMV.ResumeLayout(false);
             this.PanelDatosPsjMV.PerformLayout();
+            this.panelDatosPjME.ResumeLayout(false);
+            this.panelDatosPjME.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2405,7 +2478,6 @@
         private System.Windows.Forms.PictureBox incPerc;
         private System.Windows.Forms.ProgressBar barraCarga;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblBienvenido;
         private System.Windows.Forms.Label lblMsgCarga;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Panel menuSeleccion;
@@ -2487,8 +2559,14 @@
         private System.Windows.Forms.PictureBox imgEdit;
         private System.Windows.Forms.PictureBox imgCerrar2;
         private System.Windows.Forms.PictureBox imgSiguiente;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox imgBasura;
         private System.Windows.Forms.PictureBox imgAnterior;
+        private System.Windows.Forms.Panel panelDatosPjME;
+        private System.Windows.Forms.Label lblTipoME;
+        private System.Windows.Forms.Label lblNombreJME;
+        private System.Windows.Forms.Label lblNombrePME;
+        private System.Windows.Forms.PictureBox imgAtrasME;
+        private System.Windows.Forms.PictureBox imgSaveME;
     }
 }
 

@@ -1,4 +1,3 @@
-gfg,fgf,Masculino,Ser mágico,Mago,16.21.15.18.21.14.18.15.20.13.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
-q,q,Femenino,Ser mágico,Mago,14.16.13.8.21.11.17.23.13.13.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
-qqq,q,Femenino,Ser mágico,Nigromante,18.12.19.10.15.13.13.21.7.21.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
-p,ppp,Femenino,Ser mundano,Daguero,10.18.13.16.10.23.17.16.17.19.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+personajillo1,a ver,Masculino,Ser mundano,Guerrero,13.13.22.17.13.26.12.18.10.13.,0.3.3.0.2.2.2.2.2.0.,True.True.True.False.False.False.False.False.False.True.False.False.True.True.False.True.False.False.False.,3,1,4,,
+personaje2,aa,Femenino,Ser mágico,Mago,9.30.3.17.18.9.9.30.10.7.,0.12.0.0.0.0.0.7.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,3,8,1,,
+personaje3,asasa,Masculino,Ser mágico,Nigromante,17.16.14.22.14.13.7.21.4.15.,4.2.5.3.2.2.2.0.0.0.,True.False.False.True.True.True.True.True.False.False.False.True.True.False.False.False.False.False.False.,1,0,0,,

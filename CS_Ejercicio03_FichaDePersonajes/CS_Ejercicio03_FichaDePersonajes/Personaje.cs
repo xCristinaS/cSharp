@@ -106,7 +106,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public int getNumTirada() {
             return numTirada;
         }
-        public int getHabSeleccionadas() {
+        public int getHabPorSeleccionar() {
             return habPorSeleccionar;
         }
         public Image[] getObjetosMochila() {
@@ -146,8 +146,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public void setObjetosMochila(Image[] objetosMochila) {
             this.objetosMochila = objetosMochila;
         }
-        public void setHabSeleccionadas(int habSeleccionadas) {
-            this.habPorSeleccionar = habSeleccionadas;
+        public void setHabPorSeleccionar(int habPorSeleccionar) {
+            this.habPorSeleccionar = habPorSeleccionar;
         }
         public void setPtosARepartirA(int ptosARepartirA) {
             this.ptosARepartirA = ptosARepartirA;

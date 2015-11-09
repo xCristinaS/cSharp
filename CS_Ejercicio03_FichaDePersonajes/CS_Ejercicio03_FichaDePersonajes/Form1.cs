@@ -17,8 +17,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
         string[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
-        private Random rnd = new Random(); bool carga1 = false, carga2 = false, carga3 = false, carga4 = false;
-        private Album album = new Album();
+        private Random rnd = new Random(); bool modoEdicion = false, carga1 = false, carga2 = false, carga3 = false, carga4 = false;
+        private Album album = new Album(); int numTiradaME = 0;
 
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
@@ -51,6 +51,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             ocultarPaginaNewPersonaje();
             panelVistaPersonaje.Visible = false;
             menuSeleccion.Visible = false;
+            ocultarModoEdicion();
             album.importarPjs();
             actualizarFlechasDesplazamiento();
             if (!album.vacio()) {
@@ -284,7 +285,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void repartirPtosAtb(object sender, EventArgs e) {
             // Si hay un personaje seleccionado y el evento lo lanzó una flecha (imagen en pictureBox) de incremento, incrementaré el atributo
             // en caso de que el evento fuera lanzado al hacer clic en una flecha de decremento, decremento el valor del atributo asociado a dicha flecha. 
-            if (!combClase.Text.Equals(""))
+            if (!combClase.Text.Equals("") || modoEdicion)
                 if (ptosRepAtrib > 0 && ((PictureBox)sender).Name.StartsWith("i"))
                     incrementarAtributo(sender);
                 else if (((int)((PictureBox)sender).Tag) > 0)
@@ -546,18 +547,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void tirarDado(object sender, EventArgs e) {
             String personaje; 
             // Si hay un personaje seleccionado y no se ha superado el numero de tiradas permitido: 
-            if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS) {
+            if (!combClase.Text.Equals("") && numTirada < Constantes.MAX_TIRADAS || modoEdicion && numTiradaME < Constantes.MAX_TIRADAS) {
                 timer2.Enabled = true;
                 resetValoresAtrib(); // Pongo los atributos a 0. 
                 resetFlechasAtributos();
-                personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
+                if (!modoEdicion)
+                    personaje = combClase.SelectedItem.ToString(); // cojo el personaje seleccionado.
+                else
+                    personaje = album.personajeActual().getClase();
                 obtenerValoresAleatorios(); // Relleno el array con valores aleatorios nuevamente. 
                 asignarAtributosPlusPSJ(personaje); // Doy valor a los atributos en base al personaje, éste metodo añadirá la base aleatoria. 
-                numTirada++; // Incremento número de tirada. 
+                if (!modoEdicion)
+                    numTirada++; // Incremento número de tirada. 
+                else
+                    numTiradaME++;
             }
             // Si el dado estaba habilidato y el número de tiradas llega al máximo permitido, apago el dado y cambio la imagen del dado 
             // para que aparezca deshabilitado. 
-            if (!dadoApagado && numTirada == Constantes.MAX_TIRADAS) {
+            if (!dadoApagado && (numTirada == Constantes.MAX_TIRADAS || numTiradaME == Constantes.MAX_TIRADAS)) {
                 imgDado.BackgroundImage = Properties.Resources.dadoApagado;
                 dadoApagado = true;
                 imgDado.Enabled = false;
@@ -591,7 +598,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 timer1.Enabled = false;
                 barraCarga.Enabled = false;
                 barraCarga.Visible = false;
-                lblBienvenido.Visible = false;
                 lblMsgCarga.Visible = false;
                 this.BackgroundImage = Properties.Resources.fondo;
             }
@@ -673,6 +679,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 ocultarPaginaNewPersonaje();
                 actualizarFlechasDesplazamiento();
                 numTirada = 0;
+                imgDado.BackgroundImage = Properties.Resources.dado;
+                imgDado.Enabled = true;
+                dadoApagado = false;
                 this.BackgroundImage = Properties.Resources.fondo;
                 menuSeleccion.Visible = true;
             } else
@@ -877,6 +886,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelMochila.Visible = false;
         }
         private void mostrarPaginaNewPersonaje() {
+            limpiarPagNewPersonaje();
             panelPsj.Visible = true;
             panelAtributos.Visible = true;
             panelHabilidades.Visible = true;
@@ -1000,7 +1010,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
         }
         private void imgEdit_Click(object sender, EventArgs e) {
-
+            panelVistaPersonaje.Visible = false;
+            cargarModoEdicion();
+            cargarPersonajeModoEdicion(album.personajeActual());
         }
         private void eliminarPJ(object sender, EventArgs e) {
             DialogResult resp = MessageBox.Show("El personaje se eliminará, ¿seguro que desea continuar?", "Advertencia", MessageBoxButtons.YesNo);
@@ -1052,6 +1064,129 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mostrarMenuSelec() {
             this.BackgroundImage = Properties.Resources.fondo;
             menuSeleccion.Visible = true;
+        }
+        private void cargarModoEdicion() {
+            modoEdicion = true;
+            imgSaveME.Visible = true;
+            imgAtrasME.Visible = true;
+            panelDatosPjME.Visible = true;
+            panelAtributos.Visible = true;
+            panelHabilidades.Visible = true;
+            imgPropiedades.Visible = true;
+            imgEquipamiento.Visible = true;
+            imgDado.Visible = true;
+        }
+        private void ocultarModoEdicion() {
+            imgSaveME.Visible = false;
+            imgAtrasME.Visible = false;
+            panelDatosPjME.Visible = false;
+            panelAtributos.Visible = false;
+            panelHabilidades.Visible = false;
+            imgPropiedades.Visible = false;
+            imgEquipamiento.Visible = false;
+            imgDado.Visible = false;
+            if (numTirada == Constantes.MAX_TIRADAS) {
+                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
+                imgDado.Enabled = false;
+                dadoApagado = true;
+            } else {
+                imgDado.BackgroundImage = Properties.Resources.dado;
+                imgDado.Enabled = true;
+                dadoApagado = false;
+            }
+            if (modoEdicion)
+                album.personajeActual().setNumTirada(numTiradaME);
+            modoEdicion = false;
+            numTiradaME = 0;
+        }
+        private void cargarPersonajeModoEdicion(Personaje p) {
+            lblNombrePME.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
+            lblNombreJME.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
+            lblTipoME.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
+            pbVitalidad.Value = p.getAtributos()[0]; pbPercepcion.Value = p.getAtributos()[1]; pbDestreza.Value = p.getAtributos()[2];
+            pbFuerza.Value = p.getAtributos()[3]; pbIngenio.Value = p.getAtributos()[4]; pbCoraje.Value = p.getAtributos()[5];
+            pbCarisma.Value = p.getAtributos()[6]; pbIniciativa.Value = p.getAtributos()[7]; pbReflejos.Value = p.getAtributos()[8];
+            pbVelocidad.Value = p.getAtributos()[9];
+            mObj1.BackgroundImage = p.getObjetosMochila()[0];
+            mObj2.BackgroundImage = p.getObjetosMochila()[1];
+            mObj3.BackgroundImage = p.getObjetosMochila()[2];
+            mObj4.BackgroundImage = p.getObjetosMochila()[3];
+            cboxAbrCerr.Checked = p.getHabilidades()[0]; cboxEsquivar.Checked = p.getHabilidades()[1]; cboxSigilo.Checked = p.getHabilidades()[2]; cboxDetMent.Checked = p.getHabilidades()[3];
+            cboxPersuasion.Checked = p.getHabilidades()[4]; cboxTrampasFosos.Checked = p.getHabilidades()[5]; cboxOcultarse.Checked = p.getHabilidades()[6]; cboxHurtar.Checked = p.getHabilidades()[7];
+            cboxEscalar.Checked = p.getHabilidades()[8]; cboxNadar.Checked = p.getHabilidades()[9]; cboxEnganiar.Checked = p.getHabilidades()[10]; cboxEquilibrio.Checked = p.getHabilidades()[11];
+            cboxDisfrazarse.Checked = p.getHabilidades()[12]; cboxSaltar.Checked = p.getHabilidades()[13]; cboxPunteria.Checked = p.getHabilidades()[14]; cboxPrimerosAux.Checked = p.getHabilidades()[15];
+            cboxIntimidar.Checked = p.getHabilidades()[16]; cboxInterrog.Checked = p.getHabilidades()[17]; cboxLeerLabios.Checked = p.getHabilidades()[18];
+            cargarObjetosEquipables(p.getClase());
+            decVit.Tag = p.getTagsAtb()[0]; decPerc.Tag = p.getTagsAtb()[1]; decDest.Tag = p.getTagsAtb()[2]; decFuer.Tag = p.getTagsAtb()[3]; decIng.Tag = p.getTagsAtb()[4]; decCor.Tag = p.getTagsAtb()[5];
+            decCar.Tag = p.getTagsAtb()[6]; decIni.Tag = p.getTagsAtb()[7]; decRef.Tag = p.getTagsAtb()[8]; decVel.Tag = p.getTagsAtb()[9];
+            ptosRepAtrib = p.getPtosARepartirA();
+            numTiradaME = p.getNumTirada();
+            habPorSelect = p.getHabPorSeleccionar();
+            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
+            lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
+            adaptarFlechasRepartoAtb();
+            if (habPorSelect > 0)
+                habilitarHabilidades();
+            if (numTiradaME == Constantes.MAX_TIRADAS) {
+                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
+                imgDado.Enabled = false;
+                dadoApagado = true;
+            } else {
+                imgDado.BackgroundImage = Properties.Resources.dado;
+                imgDado.Enabled = true;
+                dadoApagado = false;
+            }
+        }
+        private void adaptarFlechasRepartoAtb() {
+            foreach (object o in panelAtributos.Controls) {
+                if (o is PictureBox)
+                    if (((PictureBox)o).Name.StartsWith("d") && (int)((PictureBox)o).Tag > 0)
+                        ((PictureBox)o).BackgroundImage = Properties.Resources.flechaIzq;
+                    else if (((PictureBox)o).Name.StartsWith("i") && ptosRepAtrib == 0)
+                        ((PictureBox)o).BackgroundImage = Properties.Resources.flechaDerApagada;
+
+                if (o is ProgressBar)
+                    if (((ProgressBar)o).Value == ((ProgressBar)o).Maximum)
+                        switch (((ProgressBar)o).Name) {
+                            case "pbCarisma":
+                                incCar.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbCoraje":
+                                incCor.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbDestreza":
+                                incDest.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbFuerza":
+                                incFuer.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbIngenio":
+                                incIng.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbIniciativa":
+                                incIni.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbPercepcion":
+                                incPerc.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbReflejos":
+                                incRef.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbVelocidad":
+                                incVel.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                            case "pbVitalidad":
+                                incVit.BackgroundImage = Properties.Resources.flechaDerApagada;
+                                break;
+                        }
+            }
+        }
+        private void imgAtrasME_Click(object sender, EventArgs e) {
+            ocultarModoEdicion();
+            panelVistaPersonaje.Visible = true;
+        }
+        private void imgSaveME_Click(object sender, EventArgs e) {
+
         }
     }
 }
