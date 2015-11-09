@@ -57,11 +57,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 imgAlbum.BackgroundImage = Properties.Resources.album;
             } else
                 imgAlbum.Enabled = false;
-            
+            /*
             this.Cursor = new Cursor(cursor);
             wplayer.URL = @"songGOT.mp3";
             wplayer.controls.play();
-            
+            */
         }
         private void clicCerrar(object sender, EventArgs e) {
             this.Close();
@@ -655,25 +655,28 @@ namespace CS_Ejercicio03_FichaDePersonajes
             } 
         }
         private void guardarPersonaje(object sender, EventArgs e) {
-            int[] atributos = {pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value};
-            bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
+            if (!album.personajesMismoNombre(txtNombrePersonaje.Text)) {
+                int[] atributos = { pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value };
+                bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
-            int[] tagsAtb = {(int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag};
-            Image[] objetosMochila = { mObj1.BackgroundImage, mObj2.BackgroundImage, mObj3.BackgroundImage, mObj4.BackgroundImage };
-            Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
+                int[] tagsAtb = { (int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag };
+                Image[] objetosMochila = { mObj1.BackgroundImage, mObj2.BackgroundImage, mObj3.BackgroundImage, mObj4.BackgroundImage };
+                Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
 
-            album.agregarPersonaje(p);
+                album.agregarPersonaje(p);
 
-            if (album.cuantosPjHay() == 1) {
-                imgAlbum.BackgroundImage = Properties.Resources.album;
-                imgAlbum.Enabled = true;
-            }
+                if (album.cuantosPjHay() == 1) {
+                    imgAlbum.BackgroundImage = Properties.Resources.album;
+                    imgAlbum.Enabled = true;
+                }
 
-            ocultarPaginaNewPersonaje();
-            actualizarFlechasDesplazamiento();
-            numTirada = 0;
-            this.BackgroundImage = Properties.Resources.fondo;
-            menuSeleccion.Visible = true;
+                ocultarPaginaNewPersonaje();
+                actualizarFlechasDesplazamiento();
+                numTirada = 0;
+                this.BackgroundImage = Properties.Resources.fondo;
+                menuSeleccion.Visible = true;
+            } else
+                MessageBox.Show("Ya existe un personaje con ese nombre. Por favor, cambie el nombre del personaje.", "Error");
         }
         private void cargarObjetosEquipables(string personaje) {
             obj9.BackgroundImage = Properties.Resources.cuchillos;
@@ -904,8 +907,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             else if (sender.Equals(imgAtrasVP))
                 panelVistaPersonaje.Visible = false;
 
-            this.BackgroundImage = Properties.Resources.fondo;
-            menuSeleccion.Visible = true;
+            mostrarMenuSelec();
         }
         private void cargarPagNewPersonaje(object sender, EventArgs e) {
             menuSeleccion.Visible = false;
@@ -1001,7 +1003,18 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
         }
         private void eliminarPJ(object sender, EventArgs e) {
-
+            DialogResult resp = MessageBox.Show("El personaje se eliminará, ¿seguro que desea continuar?", "Advertencia", MessageBoxButtons.YesNo);
+            if (resp == System.Windows.Forms.DialogResult.Yes) {
+                album.eliminarPj();
+                actualizarFlechasDesplazamiento();
+                if (album.vacio()) {
+                    imgAlbum.Enabled = false;
+                    imgAlbum.BackgroundImage = Properties.Resources.albumOff;
+                    mostrarMenuSelec();
+                    panelVistaPersonaje.Visible = false;
+                } else
+                    cargarPersonajeModoVision(album.personajeActual());
+            }
         }
         private void pasarPaginaMV(object sender, EventArgs e) {
             Personaje p;
@@ -1035,6 +1048,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
             txtNombrePersonaje.Text = "";
             combRaza.SelectedItem = null;
             deshabilitarHabilidades();
+        }
+        private void mostrarMenuSelec() {
+            this.BackgroundImage = Properties.Resources.fondo;
+            menuSeleccion.Visible = true;
         }
     }
 }

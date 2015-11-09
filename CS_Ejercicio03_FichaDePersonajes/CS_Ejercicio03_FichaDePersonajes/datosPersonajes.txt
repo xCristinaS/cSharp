@@ -1,3 +1,4 @@
-sdfds,dsfsd,Femenino,Ser mundano,Arquero,14.18.23.14.13.12.9.7.19.21.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
-dsf,sdsf,Femenino,Ser mundano,Cazador,16.14.17.16.15.14.9.5.21.23.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
-dsfsfd,dsfsfdfds,Femenino,Ser mundano,Daguero,12.16.21.10.13.18.11.13.17.19.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+gfg,fgf,Masculino,Ser mágico,Mago,16.21.15.18.21.14.18.15.20.13.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+q,q,Femenino,Ser mágico,Mago,14.16.13.8.21.11.17.23.13.13.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+qqq,q,Femenino,Ser mágico,Nigromante,18.12.19.10.15.13.13.21.7.21.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,
+p,ppp,Femenino,Ser mundano,Daguero,10.18.13.16.10.23.17.16.17.19.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,,

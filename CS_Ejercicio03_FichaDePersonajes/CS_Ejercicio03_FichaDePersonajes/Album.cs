@@ -79,5 +79,17 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 r = false;
             return r;
         }
+        public void eliminarPj() {
+            lista.Remove(lista.ElementAt(posicion));
+            if (posicion > 0)
+                posicion--;
+        }
+        public bool personajesMismoNombre(string nombreP) {
+            bool r = false;
+            foreach (Personaje p in lista)
+                if (p.getNombreP().Equals(nombreP))
+                    r = true;
+            return r;
+        }
     }
 }
