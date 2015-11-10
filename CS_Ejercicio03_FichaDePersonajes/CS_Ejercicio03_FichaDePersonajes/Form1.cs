@@ -1080,6 +1080,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgSaveME.Visible = false;
             imgAtrasME.Visible = false;
             panelDatosPjME.Visible = false;
+            panelMochila.Visible = false;
+            panelObjetos.Visible = false;
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
             imgPropiedades.Visible = false;
@@ -1125,6 +1127,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
             adaptarFlechasRepartoAtb();
+            adaptarObjetosEquipables();
             if (habPorSelect > 0)
                 habilitarHabilidades();
             if (numTiradaME == Constantes.MAX_TIRADAS) {
@@ -1187,6 +1190,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
         private void imgSaveME_Click(object sender, EventArgs e) {
 
+        }
+        private void adaptarObjetosEquipables() {
+            bool centinela = false;
+            foreach (object equipado in panelMochila.Controls)
+                if (equipado is PictureBox && ((PictureBox)equipado).Enabled) {
+                    foreach (object o in panelObjetos.Controls) {
+                        if (!centinela && o is PictureBox) {
+                            if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(((PictureBox)equipado).BackgroundImage)) {
+                                ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
+                                ((PictureBox)o).Tag = ((PictureBox)equipado).BackgroundImage; // Guardo la imagen "encendida" en el tag. 
+                                ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
+                                centinela = true;
+                            }
+                            
+                        }
+                    }
+
+                }
         }
     }
 }

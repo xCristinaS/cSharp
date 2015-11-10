@@ -82,7 +82,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             p.numTirada = Convert.ToInt32(campos[8]);
             p.habPorSeleccionar = Convert.ToInt32(campos[9]);
             p.ptosARepartirA = Convert.ToInt32(campos[10]);
-            auxObjMoch = campos[12];
+            auxObjMoch = campos[11];
 
             auxAtb2 = auxAtb.Split('.');
             for (i = 0; i < auxAtb2.Length - 1; i++) 

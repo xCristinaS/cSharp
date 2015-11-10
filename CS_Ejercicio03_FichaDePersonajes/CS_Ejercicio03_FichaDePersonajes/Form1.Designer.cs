@@ -129,6 +129,8 @@
             this.imgObj1MV = new System.Windows.Forms.PictureBox();
             this.imgEdit = new System.Windows.Forms.PictureBox();
             this.imgBasura = new System.Windows.Forms.PictureBox();
+            this.imgSaveME = new System.Windows.Forms.PictureBox();
+            this.imgAtrasME = new System.Windows.Forms.PictureBox();
             this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
@@ -196,8 +198,6 @@
             this.lblTipoME = new System.Windows.Forms.Label();
             this.lblNombreJME = new System.Windows.Forms.Label();
             this.lblNombrePME = new System.Windows.Forms.Label();
-            this.imgSaveME = new System.Windows.Forms.PictureBox();
-            this.imgAtrasME = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -240,6 +240,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).BeginInit();
             this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
@@ -268,8 +270,6 @@
             this.panelAtbPsjMV.SuspendLayout();
             this.PanelDatosPsjMV.SuspendLayout();
             this.panelDatosPjME.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1479,6 +1479,32 @@
             this.toolTip1.SetToolTip(this.imgBasura, "Volver atras.");
             this.imgBasura.Click += new System.EventHandler(this.eliminarPJ);
             // 
+            // imgSaveME
+            // 
+            this.imgSaveME.BackColor = System.Drawing.Color.Transparent;
+            this.imgSaveME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.guardarOff;
+            this.imgSaveME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgSaveME.Location = new System.Drawing.Point(271, 587);
+            this.imgSaveME.Name = "imgSaveME";
+            this.imgSaveME.Size = new System.Drawing.Size(56, 50);
+            this.imgSaveME.TabIndex = 45;
+            this.imgSaveME.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgSaveME, "Guardar personaje.");
+            this.imgSaveME.Click += new System.EventHandler(this.imgSaveME_Click);
+            // 
+            // imgAtrasME
+            // 
+            this.imgAtrasME.BackColor = System.Drawing.Color.Transparent;
+            this.imgAtrasME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
+            this.imgAtrasME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgAtrasME.Location = new System.Drawing.Point(23, 569);
+            this.imgAtrasME.Name = "imgAtrasME";
+            this.imgAtrasME.Size = new System.Drawing.Size(56, 88);
+            this.imgAtrasME.TabIndex = 45;
+            this.imgAtrasME.TabStop = false;
+            this.toolTip1.SetToolTip(this.imgAtrasME, "Volver atras.");
+            this.imgAtrasME.Click += new System.EventHandler(this.imgAtrasME_Click);
+            // 
             // panelObjetos
             // 
             this.panelObjetos.BackColor = System.Drawing.Color.Transparent;
@@ -1630,6 +1656,7 @@
             this.mObj10.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj10.Enabled = false;
             this.mObj10.Location = new System.Drawing.Point(233, 478);
             this.mObj10.Name = "mObj10";
             this.mObj10.Size = new System.Drawing.Size(100, 80);
@@ -1641,6 +1668,7 @@
             this.mObj9.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj9.Enabled = false;
             this.mObj9.Location = new System.Drawing.Point(120, 478);
             this.mObj9.Name = "mObj9";
             this.mObj9.Size = new System.Drawing.Size(100, 80);
@@ -1652,6 +1680,7 @@
             this.mObj8.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj8.Enabled = false;
             this.mObj8.Location = new System.Drawing.Point(233, 371);
             this.mObj8.Name = "mObj8";
             this.mObj8.Size = new System.Drawing.Size(100, 80);
@@ -1663,6 +1692,7 @@
             this.mObj7.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj7.Enabled = false;
             this.mObj7.Location = new System.Drawing.Point(120, 371);
             this.mObj7.Name = "mObj7";
             this.mObj7.Size = new System.Drawing.Size(100, 80);
@@ -1674,6 +1704,7 @@
             this.mObj6.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj6.Enabled = false;
             this.mObj6.Location = new System.Drawing.Point(233, 263);
             this.mObj6.Name = "mObj6";
             this.mObj6.Size = new System.Drawing.Size(100, 80);
@@ -1685,6 +1716,7 @@
             this.mObj5.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
             this.mObj5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.mObj5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mObj5.Enabled = false;
             this.mObj5.Location = new System.Drawing.Point(120, 262);
             this.mObj5.Name = "mObj5";
             this.mObj5.Size = new System.Drawing.Size(100, 80);
@@ -2251,32 +2283,6 @@
             this.lblNombrePME.TabIndex = 0;
             this.lblNombrePME.Text = "Nombre del personaje: ";
             // 
-            // imgSaveME
-            // 
-            this.imgSaveME.BackColor = System.Drawing.Color.Transparent;
-            this.imgSaveME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.guardarOff;
-            this.imgSaveME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgSaveME.Location = new System.Drawing.Point(271, 587);
-            this.imgSaveME.Name = "imgSaveME";
-            this.imgSaveME.Size = new System.Drawing.Size(56, 50);
-            this.imgSaveME.TabIndex = 45;
-            this.imgSaveME.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgSaveME, "Guardar personaje.");
-            this.imgSaveME.Click += new System.EventHandler(this.imgSaveME_Click);
-            // 
-            // imgAtrasME
-            // 
-            this.imgAtrasME.BackColor = System.Drawing.Color.Transparent;
-            this.imgAtrasME.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.atras;
-            this.imgAtrasME.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.imgAtrasME.Location = new System.Drawing.Point(23, 569);
-            this.imgAtrasME.Name = "imgAtrasME";
-            this.imgAtrasME.Size = new System.Drawing.Size(56, 88);
-            this.imgAtrasME.TabIndex = 45;
-            this.imgAtrasME.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgAtrasME, "Volver atras.");
-            this.imgAtrasME.Click += new System.EventHandler(this.imgAtrasME_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2285,11 +2291,11 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.imgSaveME);
             this.Controls.Add(this.imgAtrasME);
             this.Controls.Add(this.panelDatosPjME);
-            this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelObjetos);
             this.Controls.Add(this.imgEquipamiento);
             this.Controls.Add(this.imgDado);
@@ -2356,6 +2362,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgObj1MV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).EndInit();
             this.panelObjetos.ResumeLayout(false);
             this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
@@ -2391,8 +2399,6 @@
             this.PanelDatosPsjMV.PerformLayout();
             this.panelDatosPjME.ResumeLayout(false);
             this.panelDatosPjME.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
