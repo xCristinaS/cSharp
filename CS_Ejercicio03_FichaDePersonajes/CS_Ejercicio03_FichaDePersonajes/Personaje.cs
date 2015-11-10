@@ -12,15 +12,15 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         private int[] atributos, tagsAtb;
         private bool[] habilidades;
         private int numTirada, habPorSeleccionar, ptosARepartirA;
-        private Image[] objetosMochila;
+        private string[] objetosMochila;
 
         public Personaje() {
             atributos = new int[10];
             tagsAtb = new int[10];
-            objetosMochila = new Image[4];
+            objetosMochila = new string[4];
             habilidades = new bool[19];
         }
-        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA, Image[] objetosMochila) {
+        public Personaje(string nombreP, string nombreJ, string genero, string raza, string clase, int[] atributos, int[] tagsAtb, bool[] habilidades, int numTirada, int habPorSeleccionar, int ptosARepartirA, string[] objetosMochila) {
             this.nombreP = nombreP;
             this.nombreJ = nombreJ;
             this.genero = genero;
@@ -60,8 +60,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             cadena += habPorSeleccionar + ",";
             cadena += ptosARepartirA + ",";
             for (i = 0; i < objetosMochila.Length; i++) {
-                if (objetosMochila[i] != null)
-                    cadena += ConvertirImagen.imageToString(objetosMochila[i], objetosMochila[i].RawFormat) + ".";
+                if (objetosMochila[i] != "")
+                    cadena += objetosMochila[i] + ".";
                 if (i == objetosMochila.Length - 1)
                     cadena += ",";
             }
@@ -98,7 +98,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
 
             auxObjMoch2 = auxObjMoch.Split('.');
             for (i = 0; i < auxObjMoch2.Length -1; i++)
-                p.objetosMochila[i] = ConvertirImagen.stringToImage(auxObjMoch2[i]);
+                p.objetosMochila[i] = auxObjMoch2[i];
 
             return p;
         }
@@ -109,7 +109,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public int getHabPorSeleccionar() {
             return habPorSeleccionar;
         }
-        public Image[] getObjetosMochila() {
+        public string[] getObjetosMochila() {
             return objetosMochila;
         }
         public int getPtosARepartirA() {
@@ -143,7 +143,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public void setNumTirada(int numTirada) {
             this.numTirada = numTirada;
         }
-        public void setObjetosMochila(Image[] objetosMochila) {
+        public void setObjetosMochila(string[] objetosMochila) {
             this.objetosMochila = objetosMochila;
         }
         public void setHabPorSeleccionar(int habPorSeleccionar) {
@@ -172,31 +172,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         }
         public void setAtributos(int[] atributos) {
             this.atributos = atributos;
-        }
-    }
-
-    public class ConvertirImagen {
-        public static string imageToString(Image image, System.Drawing.Imaging.ImageFormat format) {
-            using (MemoryStream ms = new MemoryStream()) {
-                // Convert Image to byte[]
-                image.Save(ms, format);
-                byte[] imageBytes = ms.ToArray();
-
-                // Convert byte[] to Base64 String
-                string base64String = Convert.ToBase64String(imageBytes);
-                return base64String;
-            }
-        }
-        public static Image stringToImage(string base64String) {
-            // Convert Base64 String to byte[]
-            byte[] imageBytes = Convert.FromBase64String(base64String);
-            MemoryStream ms = new MemoryStream(imageBytes, 0,
-              imageBytes.Length);
-
-            // Convert byte[] to Image
-            ms.Write(imageBytes, 0, imageBytes.Length);
-            Image image = Image.FromStream(ms, true);
-            return image;
         }
     }
 }

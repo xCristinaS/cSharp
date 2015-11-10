@@ -666,7 +666,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
                 int[] tagsAtb = { (int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag };
-                Image[] objetosMochila = { mObj1.BackgroundImage, mObj2.BackgroundImage, mObj3.BackgroundImage, mObj4.BackgroundImage };
+                string[] objetosMochila = { (string)mObj1.Tag, (string)mObj2.Tag, (string)mObj3.Tag, (string)mObj4.Tag};
                 Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
 
                 album.agregarPersonaje(p);
@@ -813,21 +813,22 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
         private void obj_MouseDown(object sender, MouseEventArgs e) {
             PictureBox img = (PictureBox)sender; // Drag and drop. Aqui agarro el elemento. 
-            if (img.BackgroundImage != null) 
-                img.DoDragDrop(img.BackgroundImage, DragDropEffects.Move);
+            img.DoDragDrop(img.Name, DragDropEffects.Copy);
         }
         private void mObj_DragEnter(object sender, DragEventArgs e) {
             if (((PictureBox)sender).BackgroundImage == null) // Si no hay una imagen ya en ese hueco de la mochila se podrá soltar la imagen.
-                e.Effect = DragDropEffects.Move; 
+                e.Effect = DragDropEffects.Copy; 
         }
         private void mObj_DragDrop(object sender, DragEventArgs e) {
-            PictureBox img = (PictureBox)sender; bool centinela = false;
-            img.BackgroundImage = (Image)e.Data.GetData(DataFormats.Bitmap);
+            PictureBox img = (PictureBox)sender; bool centinela = false; string obj;
+            obj = (string) e.Data.GetData(DataFormats.StringFormat);
             
             // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
             foreach (object o in panelObjetos.Controls) {
                 if (!centinela && o is PictureBox)
-                    if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(img.BackgroundImage)) {
+                    if (((PictureBox)o).Name.Equals(obj)) {
+                        img.BackgroundImage = ((PictureBox)o).BackgroundImage;
+                        img.Tag = obj;
                         ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
                         ((PictureBox)o).Tag = img.BackgroundImage; // Guardo la imagen "encendida" en el tag. 
                         ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
@@ -840,7 +841,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             PictureBox img = (PictureBox)sender; bool centinela = false; Image aux;
             foreach (object o in panelObjetos.Controls) {
                 if (!centinela && o is PictureBox)
-                    if (img.BackgroundImage.Equals((Image)((PictureBox)o).Tag)) {
+                    if (((PictureBox)o).Name.Equals((string)img.BackgroundImage.Tag)) {
                         aux = ((PictureBox)o).BackgroundImage; // Guardo en aux la imagen apagada. 
                         ((PictureBox)o).BackgroundImage = img.BackgroundImage; // Pongo la imagen del objeto encendida en objetos equipables. 
                         ((PictureBox)o).Tag = aux; // Vuelvo a meter la imagen apagada en el tag. 
@@ -848,13 +849,18 @@ namespace CS_Ejercicio03_FichaDePersonajes
                         centinela = true;
                     }
             }
-            img.BackgroundImage = null; // Saco el objeto de la mochila. 
+            img.BackgroundImage = null;
+            img.Tag = "";// Saco el objeto de la mochila. 
         }
         private void vaciarMochila() { // Vacio la mochila cuando cambio de personaje. 
             mObj1.BackgroundImage = null;
+            mObj1.Tag = "";
             mObj2.BackgroundImage = null;
+            mObj2.Tag = "";
             mObj3.BackgroundImage = null;
+            mObj3.Tag = "";
             mObj4.BackgroundImage = null;
+            mObj4.Tag = "";
             foreach (object o in panelObjetos.Controls) {
                 if (o is PictureBox)
                     ((PictureBox)o).Enabled = true;
@@ -930,7 +936,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             cargarPersonajeModoVision(album.personajeActual());
         }
         private void cargarPersonajeModoVision(Personaje p) {
-            string[] hab = dameNombresHab(p); string personaje;
+            string[] hab = dameNombresHab(p); string personaje; Image[] objetosMochila;
             lblNombPersMV.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
             lblNombJugMV.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
             lblTipoPsjMV.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
@@ -940,10 +946,12 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbVelMV.Value = p.getAtributos()[9];
             hab1MV.Text = hab[0]; hab2MV.Text = hab[1]; hab3MV.Text = hab[2]; hab4MV.Text = hab[3];
             hab5MV.Text = hab[4]; hab6MV.Text = hab[5]; hab7MV.Text = hab[6]; hab8MV.Text = hab[7];
-            imgObj1MV.BackgroundImage = p.getObjetosMochila()[0];
-            imgObj2MV.BackgroundImage = p.getObjetosMochila()[1];
-            imgObj3MV.BackgroundImage = p.getObjetosMochila()[2];
-            imgObj4MV.BackgroundImage = p.getObjetosMochila()[3];
+            cargarObjetosEquipables(p.getClase());
+            objetosMochila = cargarObjetosEnMochila(p.getObjetosMochila());
+            imgObj1MV.BackgroundImage = objetosMochila[0];
+            imgObj2MV.BackgroundImage = objetosMochila[1];
+            imgObj3MV.BackgroundImage = objetosMochila[2];
+            imgObj4MV.BackgroundImage = objetosMochila[3];
 
             personaje = p.getClase();
             personaje = personaje.Substring(0, personaje.Length - 1);
@@ -1012,7 +1020,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void imgEdit_Click(object sender, EventArgs e) {
             panelVistaPersonaje.Visible = false;
             cargarModoEdicion();
-            cargarPersonajeModoEdicion(album.personajeActual());
         }
         private void eliminarPJ(object sender, EventArgs e) {
             DialogResult resp = MessageBox.Show("El personaje se eliminará, ¿seguro que desea continuar?", "Advertencia", MessageBoxButtons.YesNo);
@@ -1075,6 +1082,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgPropiedades.Visible = true;
             imgEquipamiento.Visible = true;
             imgDado.Visible = true;
+            cargarPersonajeModoEdicion(album.personajeActual());
         }
         private void ocultarModoEdicion() {
             imgSaveME.Visible = false;
@@ -1100,8 +1108,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 album.personajeActual().setNumTirada(numTiradaME);
             modoEdicion = false;
             numTiradaME = 0;
+            vaciarMochila();
         }
         private void cargarPersonajeModoEdicion(Personaje p) {
+            Image[] objetosMochila;
             lblNombrePME.Text = Constantes.LBL_NOMBRE_PJ + p.getNombreP();
             lblNombreJME.Text = Constantes.LBL_NOMBRE_JUG + p.getNombreJ();
             lblTipoME.Text = Constantes.LBL_TIPO + p.getRaza() + ", " + p.getClase();
@@ -1109,16 +1119,17 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbFuerza.Value = p.getAtributos()[3]; pbIngenio.Value = p.getAtributos()[4]; pbCoraje.Value = p.getAtributos()[5];
             pbCarisma.Value = p.getAtributos()[6]; pbIniciativa.Value = p.getAtributos()[7]; pbReflejos.Value = p.getAtributos()[8];
             pbVelocidad.Value = p.getAtributos()[9];
-            mObj1.BackgroundImage = p.getObjetosMochila()[0];
-            mObj2.BackgroundImage = p.getObjetosMochila()[1];
-            mObj3.BackgroundImage = p.getObjetosMochila()[2];
-            mObj4.BackgroundImage = p.getObjetosMochila()[3];
+            cargarObjetosEquipables(p.getClase());
+            objetosMochila = cargarObjetosEnMochila(p.getObjetosMochila());
+            mObj1.BackgroundImage = objetosMochila[0];
+            mObj2.BackgroundImage = objetosMochila[1];
+            mObj3.BackgroundImage = objetosMochila[2];
+            mObj4.BackgroundImage = objetosMochila[3];
             cboxAbrCerr.Checked = p.getHabilidades()[0]; cboxEsquivar.Checked = p.getHabilidades()[1]; cboxSigilo.Checked = p.getHabilidades()[2]; cboxDetMent.Checked = p.getHabilidades()[3];
             cboxPersuasion.Checked = p.getHabilidades()[4]; cboxTrampasFosos.Checked = p.getHabilidades()[5]; cboxOcultarse.Checked = p.getHabilidades()[6]; cboxHurtar.Checked = p.getHabilidades()[7];
             cboxEscalar.Checked = p.getHabilidades()[8]; cboxNadar.Checked = p.getHabilidades()[9]; cboxEnganiar.Checked = p.getHabilidades()[10]; cboxEquilibrio.Checked = p.getHabilidades()[11];
             cboxDisfrazarse.Checked = p.getHabilidades()[12]; cboxSaltar.Checked = p.getHabilidades()[13]; cboxPunteria.Checked = p.getHabilidades()[14]; cboxPrimerosAux.Checked = p.getHabilidades()[15];
             cboxIntimidar.Checked = p.getHabilidades()[16]; cboxInterrog.Checked = p.getHabilidades()[17]; cboxLeerLabios.Checked = p.getHabilidades()[18];
-            cargarObjetosEquipables(p.getClase());
             decVit.Tag = p.getTagsAtb()[0]; decPerc.Tag = p.getTagsAtb()[1]; decDest.Tag = p.getTagsAtb()[2]; decFuer.Tag = p.getTagsAtb()[3]; decIng.Tag = p.getTagsAtb()[4]; decCor.Tag = p.getTagsAtb()[5];
             decCar.Tag = p.getTagsAtb()[6]; decIni.Tag = p.getTagsAtb()[7]; decRef.Tag = p.getTagsAtb()[8]; decVel.Tag = p.getTagsAtb()[9];
             ptosRepAtrib = p.getPtosARepartirA();
@@ -1192,22 +1203,24 @@ namespace CS_Ejercicio03_FichaDePersonajes
 
         }
         private void adaptarObjetosEquipables() {
-            bool centinela = false;
             foreach (object equipado in panelMochila.Controls)
-                if (equipado is PictureBox && ((PictureBox)equipado).Enabled) {
-                    foreach (object o in panelObjetos.Controls) {
-                        if (!centinela && o is PictureBox) {
-                            if (((PictureBox)o).BackgroundImage != null && ((PictureBox)o).BackgroundImage.Equals(((PictureBox)equipado).BackgroundImage)) {
+                if (equipado is PictureBox && ((PictureBox)equipado).Enabled) 
+                    foreach (object o in panelObjetos.Controls) 
+                        if (o is PictureBox && ((PictureBox)equipado).BackgroundImage != null && ((PictureBox)o).Name.Equals((string)((PictureBox)equipado).BackgroundImage.Tag)) {
                                 ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
                                 ((PictureBox)o).Tag = ((PictureBox)equipado).BackgroundImage; // Guardo la imagen "encendida" en el tag. 
                                 ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
-                                centinela = true;
                             }
-                            
-                        }
+        }
+        private Image[] cargarObjetosEnMochila(string[] mochila) {
+            Image[] items = new Image[4];
+            for (int i = 0; i < mochila.Length; i++)
+                foreach (object o in panelObjetos.Controls)
+                    if (o is PictureBox && ((PictureBox)o).Name.Equals(mochila[i])) {
+                        items[i] = ((PictureBox)o).BackgroundImage;
+                        items[i].Tag = mochila[i];
                     }
-
-                }
+            return items;
         }
     }
 }
