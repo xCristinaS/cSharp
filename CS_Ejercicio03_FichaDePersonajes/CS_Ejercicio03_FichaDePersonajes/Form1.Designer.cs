@@ -2291,6 +2291,7 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.imgSaveME);
@@ -2306,7 +2307,6 @@
             this.Controls.Add(this.panelPsj);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.barraCarga);
-            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.menuSeleccion);
             this.Controls.Add(this.panelVistaPersonaje);
             this.DoubleBuffered = true;

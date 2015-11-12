@@ -666,7 +666,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
                 int[] tagsAtb = { (int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag };
-                string[] objetosMochila = { (string)mObj1.Tag, (string)mObj2.Tag, (string)mObj3.Tag, (string)mObj4.Tag};
+                string[] objetosMochila = { (string)mObj1.BackgroundImage.Tag, (string)mObj2.BackgroundImage.Tag, (string)mObj3.BackgroundImage.Tag, (string)mObj4.BackgroundImage.Tag};
                 Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
 
                 album.agregarPersonaje(p);
@@ -822,13 +822,14 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mObj_DragDrop(object sender, DragEventArgs e) {
             PictureBox img = (PictureBox)sender; bool centinela = false; string obj;
             obj = (string) e.Data.GetData(DataFormats.StringFormat);
+            String prueba;
             
             // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
             foreach (object o in panelObjetos.Controls) {
                 if (!centinela && o is PictureBox)
-                    if (((PictureBox)o).Name.Equals(obj)) {
+                    if ((prueba = ((PictureBox)o).Name).Equals(obj)) {
                         img.BackgroundImage = ((PictureBox)o).BackgroundImage;
-                        img.Tag = obj;
+                        img.BackgroundImage.Tag = obj;
                         ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
                         ((PictureBox)o).Tag = img.BackgroundImage; // Guardo la imagen "encendida" en el tag. 
                         ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
@@ -1200,7 +1201,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelVistaPersonaje.Visible = true;
         }
         private void imgSaveME_Click(object sender, EventArgs e) {
+            bool modificado;
+            int[] atributos = { pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value };
+            bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
+                                  cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
+            string[] objetosMochila = { (string)mObj1.Tag, (string)mObj2.Tag, (string)mObj3.Tag, (string)mObj4.Tag };
 
+            modificado = album.personajeActual().meHanModificado(habilidades, atributos, objetosMochila);
         }
         private void adaptarObjetosEquipables() {
             foreach (object equipado in panelMochila.Controls)
@@ -1213,11 +1220,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
                             }
         }
         private Image[] cargarObjetosEnMochila(string[] mochila) {
-            Image[] items = new Image[4];
+            Image[] items = new Image[4]; String aux;
             for (int i = 0; i < mochila.Length; i++)
                 foreach (object o in panelObjetos.Controls)
                     if (o is PictureBox && ((PictureBox)o).Name.Equals(mochila[i])) {
-                        items[i] = ((PictureBox)o).BackgroundImage;
+                        items[i] = (Image)((PictureBox)o).BackgroundImage;
                         items[i].Tag = mochila[i];
                     }
             return items;

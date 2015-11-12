@@ -102,6 +102,17 @@ namespace CS_Ejercicio03_FichaDePersonajes {
 
             return p;
         }
+        public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {
+            bool r = true;
+            if (r)
+                r = this.atributos.Equals(atributos);
+            if (r)
+                r = this.habilidades.Equals(habilidades);
+            if (r)
+                r = this.objetosMochila.Equals(objetosMochila);
+
+            return r;
+        }
         // Getters
         public int getNumTirada() {
             return numTirada;
