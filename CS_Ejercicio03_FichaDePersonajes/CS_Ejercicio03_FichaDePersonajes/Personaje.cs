@@ -103,14 +103,22 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return p;
         }
         public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {
-            bool r = true;
-            if (r)
-                r = this.atributos.Equals(atributos);
-            if (r)
-                r = this.habilidades.Equals(habilidades);
-            if (r)
-                r = this.objetosMochila.Equals(objetosMochila);
-
+            bool r = false; int i;
+            if (!r) {
+                for (i = 0; !r && i < this.atributos.Length; i++)
+                    if (this.atributos[i] != atributos[i])
+                        r = true;
+            }
+            if (!r) {
+                for (i = 0; !r && i < this.habilidades.Length; i++)
+                    if (this.habilidades[i] != habilidades[i])
+                        r = true;
+            }
+            if (!r) {
+                for (i = 0; !r && i < this.objetosMochila.Length; i++)
+                    if (!this.objetosMochila[i].Equals(objetosMochila[i]))
+                        r = true;
+            }
             return r;
         }
         // Getters

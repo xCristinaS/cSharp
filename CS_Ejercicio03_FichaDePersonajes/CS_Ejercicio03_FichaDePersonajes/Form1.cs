@@ -290,6 +290,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     incrementarAtributo(sender);
                 else if (((int)((PictureBox)sender).Tag) > 0)
                     decrementarAtributo(sender);
+
+            if (modoEdicion) 
+                habilitarGuardadoME();
         }
         private void incrementarAtributo(object sender) {
             // Evalúo qué flecha de incremento fue clickeada e incremento en 1 el valor de la progressBar asociada a 
@@ -520,6 +523,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
             }
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
+            if (modoEdicion)
+                habilitarGuardadoME();
         }
         private void habilitarHabilidades() {
             // Habilito los checkbox siempre y cuando haya un personaje seleccionado. 
@@ -666,7 +671,15 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
                                   cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
                 int[] tagsAtb = { (int)decVit.Tag, (int)decPerc.Tag, (int)decDest.Tag, (int)decFuer.Tag, (int)decIng.Tag, (int)decCor.Tag, (int)decCar.Tag, (int)decIni.Tag, (int)decRef.Tag, (int)decVel.Tag };
-                string[] objetosMochila = { (string)mObj1.BackgroundImage.Tag, (string)mObj2.BackgroundImage.Tag, (string)mObj3.BackgroundImage.Tag, (string)mObj4.BackgroundImage.Tag};
+                string[] objetosMochila = new string[4];
+                if (mObj1.BackgroundImage != null)
+                    objetosMochila[0] = (string)mObj1.BackgroundImage.Tag;
+                if (mObj2.BackgroundImage != null)
+                    objetosMochila[1] = (string)mObj2.BackgroundImage.Tag;
+                if (mObj3.BackgroundImage != null)
+                    objetosMochila[2] = (string)mObj3.BackgroundImage.Tag;
+                if (mObj4.BackgroundImage != null)
+                    objetosMochila[3] = (string)mObj4.BackgroundImage.Tag;
                 Personaje p = new Personaje(txtNombrePersonaje.Text, txtNombreJugador.Text, rbtnFemenino.Checked ? rbtnFemenino.Text : rbtnMasculino.Text, combRaza.SelectedItem.ToString(), combClase.SelectedItem.ToString(), atributos, tagsAtb, habilidades, numTirada, habPorSelect, ptosRepAtrib, objetosMochila);
 
                 album.agregarPersonaje(p);
@@ -836,6 +849,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
                         centinela = true;
                     }
             }
+            if (modoEdicion)
+                habilitarGuardadoME();
         }
         private void sacarObjMochila(object sender, EventArgs e) {
             // Saco el objeto de la mochila y enciendo la imagen en objetos equipables. Vuelvo a habilitar el picturebox. 
@@ -852,6 +867,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             img.BackgroundImage = null;
             img.Tag = "";// Saco el objeto de la mochila. 
+            if (modoEdicion)
+                habilitarGuardadoME();
         }
         private void vaciarMochila() { // Vacio la mochila cuando cambio de personaje. 
             mObj1.BackgroundImage = null;
@@ -1096,6 +1113,8 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgPropiedades.Visible = false;
             imgEquipamiento.Visible = false;
             imgDado.Visible = false;
+            imgSaveME.Enabled = false;
+            imgSaveME.BackgroundImage = Properties.Resources.guardarOff;
             if (numTirada == Constantes.MAX_TIRADAS) {
                 imgDado.BackgroundImage = Properties.Resources.dadoApagado;
                 imgDado.Enabled = false;
@@ -1201,13 +1220,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelVistaPersonaje.Visible = true;
         }
         private void imgSaveME_Click(object sender, EventArgs e) {
-            bool modificado;
-            int[] atributos = { pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value };
-            bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
-                                  cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
-            string[] objetosMochila = { (string)mObj1.Tag, (string)mObj2.Tag, (string)mObj3.Tag, (string)mObj4.Tag };
 
-            modificado = album.personajeActual().meHanModificado(habilidades, atributos, objetosMochila);
         }
         private void adaptarObjetosEquipables() {
             foreach (object equipado in panelMochila.Controls)
@@ -1228,6 +1241,31 @@ namespace CS_Ejercicio03_FichaDePersonajes
                         items[i].Tag = mochila[i];
                     }
             return items;
+        }
+        private void habilitarGuardadoME() {
+            bool modificado = false;
+            if (modoEdicion) {
+                int[] atributos = { pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value };
+                bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
+                                  cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
+                string[] objetosMochila = new string[4];
+                if (mObj1.BackgroundImage != null)
+                    objetosMochila[0] = (string)mObj1.BackgroundImage.Tag;
+                if (mObj2.BackgroundImage != null)
+                    objetosMochila[1] = (string)mObj2.BackgroundImage.Tag;
+                if (mObj3.BackgroundImage != null)
+                    objetosMochila[2] = (string)mObj3.BackgroundImage.Tag;
+                if (mObj4.BackgroundImage != null)
+                    objetosMochila[3] = (string)mObj4.BackgroundImage.Tag;
+                modificado = album.personajeActual().meHanModificado(habilidades, atributos, objetosMochila);
+            }
+            if (modificado) {
+                imgSaveME.Enabled = true;
+                imgSaveME.BackgroundImage = Properties.Resources.guardar;
+            } else {
+                imgSaveME.Enabled = false;
+                imgSaveME.BackgroundImage = Properties.Resources.guardarOff;
+            }
         }
     }
 }

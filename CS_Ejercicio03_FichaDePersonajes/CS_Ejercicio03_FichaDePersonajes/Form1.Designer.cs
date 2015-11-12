@@ -2291,9 +2291,9 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
-            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
+            this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.imgSaveME);
             this.Controls.Add(this.imgAtrasME);
             this.Controls.Add(this.panelDatosPjME);
