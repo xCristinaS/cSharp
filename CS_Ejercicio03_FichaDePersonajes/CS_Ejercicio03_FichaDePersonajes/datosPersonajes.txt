@@ -1,1 +1,1 @@
-dfgg,dff,Masculino,Ser mundano,Guerrero,24.19.14.20.16.13.18.18.9.17.,2.2.0.2.1.0.6.0.3.1.,False.False.False.False.True.True.False.True.True.False.True.False.False.False.False.False.False.False.False.,0,3,3,obj3.obj6.obj7.obj1.,
+gf,fggf,Femenino,Ser mundano,Arquero,11.20.13.12.8.14.10.11.13.11.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,3,8,20,...obj5.,

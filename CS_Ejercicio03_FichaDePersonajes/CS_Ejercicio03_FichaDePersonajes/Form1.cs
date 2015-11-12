@@ -922,18 +922,25 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
             this.BackgroundImage = Properties.Resources.fondo;
+            habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         }
         private void imgPropiedades_Click(object sender, EventArgs e) {
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
             panelAtributos.Visible = true;
             panelHabilidades.Visible = true;
+            if (numTiradaME < Constantes.MAX_TIRADAS || numTiradaME < Constantes.MAX_TIRADAS) {
+                imgDado.Enabled = true;
+                imgDado.BackgroundImage = Properties.Resources.dado;
+            }
         }
         private void imgEquipamiento_Click(object sender, EventArgs e) {
             panelAtributos.Visible = false;
             panelHabilidades.Visible = false;
             panelMochila.Visible = true;
             panelObjetos.Visible = true;
+            imgDado.Enabled = false;
+            imgDado.BackgroundImage = Properties.Resources.dadoApagado;
         }
         private void volverMenuSelec(object sender, EventArgs e) {
             if (sender.Equals(imgAtrasNP)) 
@@ -1113,6 +1120,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgPropiedades.Visible = false;
             imgEquipamiento.Visible = false;
             imgDado.Visible = false;
+            imgDado.Enabled = true;
             imgSaveME.Enabled = false;
             imgSaveME.BackgroundImage = Properties.Resources.guardarOff;
             if (numTirada == Constantes.MAX_TIRADAS) {
@@ -1220,7 +1228,29 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelVistaPersonaje.Visible = true;
         }
         private void imgSaveME_Click(object sender, EventArgs e) {
-
+            DialogResult resp = MessageBox.Show("El personaje se sobreescribirá, ¿desea continuar?", "Advertencia", MessageBoxButtons.YesNo);
+            if (resp == System.Windows.Forms.DialogResult.Yes) {
+                int[] atributos = { pbVitalidad.Value, pbPercepcion.Value, pbDestreza.Value, pbFuerza.Value, pbIngenio.Value, pbCoraje.Value, pbCarisma.Value, pbIniciativa.Value, pbReflejos.Value, pbVelocidad.Value };
+                bool[] habilidades = {cboxAbrCerr.Checked, cboxEsquivar.Checked, cboxSigilo.Checked, cboxDetMent.Checked, cboxPersuasion.Checked, cboxTrampasFosos.Checked, cboxOcultarse.Checked, cboxHurtar.Checked, cboxEscalar.Checked, cboxNadar.Checked, cboxEnganiar.Checked, cboxEquilibrio.Checked,
+                                  cboxDisfrazarse.Checked, cboxSaltar.Checked, cboxPunteria.Checked, cboxPrimerosAux.Checked, cboxIntimidar.Checked, cboxInterrog.Checked, cboxLeerLabios.Checked};
+                string[] objetosMochila = new string[4];
+                if (mObj1.BackgroundImage != null)
+                    objetosMochila[0] = (string)mObj1.BackgroundImage.Tag;
+                if (mObj2.BackgroundImage != null)
+                    objetosMochila[1] = (string)mObj2.BackgroundImage.Tag;
+                if (mObj3.BackgroundImage != null)
+                    objetosMochila[2] = (string)mObj3.BackgroundImage.Tag;
+                if (mObj4.BackgroundImage != null)
+                    objetosMochila[3] = (string)mObj4.BackgroundImage.Tag;
+                album.personajeActual().setAtributos(atributos);
+                album.personajeActual().setHabilidades(habilidades);
+                album.personajeActual().setObjetosMochila(objetosMochila);
+                album.personajeActual().setPtosARepartirA(ptosRepAtrib);
+                album.personajeActual().setHabPorSeleccionar(habPorSelect);
+                album.personajeActual().setNumTirada(numTirada);
+                cargarPersonajeModoVision(album.personajeActual());
+                imgAtrasME_Click(sender, e);
+            }
         }
         private void adaptarObjetosEquipables() {
             foreach (object equipado in panelMochila.Controls)
