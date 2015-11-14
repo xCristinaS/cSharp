@@ -1811,7 +1811,7 @@
             this.panelVistaPersonaje.Controls.Add(this.imgAtrasVP);
             this.panelVistaPersonaje.Location = new System.Drawing.Point(-8, -11);
             this.panelVistaPersonaje.Name = "panelVistaPersonaje";
-            this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 679);
+            this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 680);
             this.panelVistaPersonaje.TabIndex = 2;
             // 
             // imgAnterior
@@ -2379,6 +2379,7 @@
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.Maroon;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panelAtributos.ResumeLayout(false);
             this.panelAtributos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).EndInit();

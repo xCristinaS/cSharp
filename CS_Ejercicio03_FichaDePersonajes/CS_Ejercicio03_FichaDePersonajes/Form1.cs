@@ -8,19 +8,27 @@ using WMPLib;
 
 namespace CS_Ejercicio03_FichaDePersonajes {
     public partial class Form1 : Form {
+        // Para mover el formulario. 
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImport("user32.dll")]
+        public static extern bool ReleaseCapture();
+        // Para cambiar el cursor. 
+        [DllImport("user32.dll")]
+        static extern IntPtr LoadCursorFromFile(string lpFileName);
+        IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
+        // Para reproducir música. 
+        WindowsMediaPlayer reproductor = new WindowsMediaPlayer();
+        IWMPPlaylist playlist; IWMPMedia media;
+
         private string[] personajesMagicos = { Constantes.MAGO, Constantes.NIGROMANTE};
         string[] personajesMundanos = { Constantes.ARQUERO, Constantes.DAGUERO, Constantes.CAZADOR, Constantes.GUERRERO, Constantes.PALADIN};
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool modoEdicion = false, carga1 = false, carga2 = false, carga3 = false, carga4 = false;
         private Album album = new Album(); int numTiradaME = 0;
-
-        [DllImport("user32.dll")]
-        static extern IntPtr LoadCursorFromFile(string lpFileName);
-        IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
-
-        WindowsMediaPlayer reproductor = new WindowsMediaPlayer();
-        IWMPPlaylist playlist;  IWMPMedia media;
 
         public Form1() {
             InitializeComponent();
@@ -46,7 +54,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             } else
                 imgAlbum.Enabled = false;
             
-            this.Cursor = new Cursor(cursor);
+            this.Cursor = new Cursor(cursor); // Cambio el cursor. 
             playlist = reproductor.playlistCollection.newPlaylist("myplaylist"); // Creo la lista.
             media = reproductor.newMedia("songGOT.mp3"); // Agrego canción a media. 
             playlist.appendItem(media); // agrego canción a la lista.
@@ -1031,6 +1039,12 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             } else {
                 reproductor.settings.mute = true;
                 mute.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + "musicOff.png");
+            }
+        }
+        private void Form1_MouseDown(object sender, MouseEventArgs e) { // Para mover el formulario. 
+            if (e.Button == MouseButtons.Left) {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
     }
