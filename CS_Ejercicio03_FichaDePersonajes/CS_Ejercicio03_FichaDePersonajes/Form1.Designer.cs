@@ -133,7 +133,6 @@
             this.imgBasura = new System.Windows.Forms.PictureBox();
             this.imgSaveME = new System.Windows.Forms.PictureBox();
             this.imgAtrasME = new System.Windows.Forms.PictureBox();
-            this.panelObjetos = new System.Windows.Forms.Panel();
             this.obj9 = new System.Windows.Forms.PictureBox();
             this.obj8 = new System.Windows.Forms.PictureBox();
             this.obj7 = new System.Windows.Forms.PictureBox();
@@ -143,8 +142,6 @@
             this.obj3 = new System.Windows.Forms.PictureBox();
             this.obj2 = new System.Windows.Forms.PictureBox();
             this.obj1 = new System.Windows.Forms.PictureBox();
-            this.lblObjetosEq = new System.Windows.Forms.Label();
-            this.panelMochila = new System.Windows.Forms.Panel();
             this.mObj10 = new System.Windows.Forms.PictureBox();
             this.mObj9 = new System.Windows.Forms.PictureBox();
             this.mObj8 = new System.Windows.Forms.PictureBox();
@@ -152,6 +149,9 @@
             this.mObj6 = new System.Windows.Forms.PictureBox();
             this.mObj5 = new System.Windows.Forms.PictureBox();
             this.mObj4 = new System.Windows.Forms.PictureBox();
+            this.panelObjetos = new System.Windows.Forms.Panel();
+            this.lblObjetosEq = new System.Windows.Forms.Label();
+            this.panelMochila = new System.Windows.Forms.Panel();
             this.lblMochila = new System.Windows.Forms.Label();
             this.panelVistaPersonaje = new System.Windows.Forms.Panel();
             this.imgAnterior = new System.Windows.Forms.PictureBox();
@@ -200,6 +200,7 @@
             this.lblTipoME = new System.Windows.Forms.Label();
             this.lblNombreJME = new System.Windows.Forms.Label();
             this.lblNombrePME = new System.Windows.Forms.Label();
+            this.mute = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -246,7 +247,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).BeginInit();
-            this.panelObjetos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj7)).BeginInit();
@@ -256,7 +256,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.obj3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).BeginInit();
-            this.panelMochila.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mObj10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj8)).BeginInit();
@@ -264,6 +263,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).BeginInit();
+            this.panelObjetos.SuspendLayout();
+            this.panelMochila.SuspendLayout();
             this.panelVistaPersonaje.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).BeginInit();
@@ -274,6 +275,7 @@
             this.panelAtbPsjMV.SuspendLayout();
             this.PanelDatosPsjMV.SuspendLayout();
             this.panelDatosPjME.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mute)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1537,24 +1539,6 @@
             this.toolTip1.SetToolTip(this.imgAtrasME, "Volver atras.");
             this.imgAtrasME.Click += new System.EventHandler(this.imgAtrasME_Click);
             // 
-            // panelObjetos
-            // 
-            this.panelObjetos.BackColor = System.Drawing.Color.Transparent;
-            this.panelObjetos.Controls.Add(this.obj9);
-            this.panelObjetos.Controls.Add(this.obj8);
-            this.panelObjetos.Controls.Add(this.obj7);
-            this.panelObjetos.Controls.Add(this.obj6);
-            this.panelObjetos.Controls.Add(this.obj5);
-            this.panelObjetos.Controls.Add(this.obj4);
-            this.panelObjetos.Controls.Add(this.obj3);
-            this.panelObjetos.Controls.Add(this.obj2);
-            this.panelObjetos.Controls.Add(this.obj1);
-            this.panelObjetos.Controls.Add(this.lblObjetosEq);
-            this.panelObjetos.Location = new System.Drawing.Point(12, 236);
-            this.panelObjetos.Name = "panelObjetos";
-            this.panelObjetos.Size = new System.Drawing.Size(348, 338);
-            this.panelObjetos.TabIndex = 40;
-            // 
             // obj9
             // 
             this.obj9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -1663,35 +1647,6 @@
             this.toolTip1.SetToolTip(this.obj1, "Arrastrar para equipar.");
             this.obj1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
-            // lblObjetosEq
-            // 
-            this.lblObjetosEq.AutoSize = true;
-            this.lblObjetosEq.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObjetosEq.Location = new System.Drawing.Point(7, 11);
-            this.lblObjetosEq.Name = "lblObjetosEq";
-            this.lblObjetosEq.Size = new System.Drawing.Size(195, 22);
-            this.lblObjetosEq.TabIndex = 0;
-            this.lblObjetosEq.Text = "OBJETOS EQUIPABLES";
-            // 
-            // panelMochila
-            // 
-            this.panelMochila.BackColor = System.Drawing.Color.Transparent;
-            this.panelMochila.Controls.Add(this.mObj10);
-            this.panelMochila.Controls.Add(this.mObj9);
-            this.panelMochila.Controls.Add(this.mObj8);
-            this.panelMochila.Controls.Add(this.mObj7);
-            this.panelMochila.Controls.Add(this.mObj6);
-            this.panelMochila.Controls.Add(this.mObj5);
-            this.panelMochila.Controls.Add(this.mObj4);
-            this.panelMochila.Controls.Add(this.mObj3);
-            this.panelMochila.Controls.Add(this.mObj2);
-            this.panelMochila.Controls.Add(this.mObj1);
-            this.panelMochila.Controls.Add(this.lblMochila);
-            this.panelMochila.Location = new System.Drawing.Point(664, 41);
-            this.panelMochila.Name = "panelMochila";
-            this.panelMochila.Size = new System.Drawing.Size(348, 580);
-            this.panelMochila.TabIndex = 41;
-            // 
             // mObj10
             // 
             this.mObj10.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources._lock;
@@ -1783,6 +1738,53 @@
             this.mObj4.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
             this.mObj4.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
             this.mObj4.DoubleClick += new System.EventHandler(this.sacarObjMochila);
+            // 
+            // panelObjetos
+            // 
+            this.panelObjetos.BackColor = System.Drawing.Color.Transparent;
+            this.panelObjetos.Controls.Add(this.obj9);
+            this.panelObjetos.Controls.Add(this.obj8);
+            this.panelObjetos.Controls.Add(this.obj7);
+            this.panelObjetos.Controls.Add(this.obj6);
+            this.panelObjetos.Controls.Add(this.obj5);
+            this.panelObjetos.Controls.Add(this.obj4);
+            this.panelObjetos.Controls.Add(this.obj3);
+            this.panelObjetos.Controls.Add(this.obj2);
+            this.panelObjetos.Controls.Add(this.obj1);
+            this.panelObjetos.Controls.Add(this.lblObjetosEq);
+            this.panelObjetos.Location = new System.Drawing.Point(12, 236);
+            this.panelObjetos.Name = "panelObjetos";
+            this.panelObjetos.Size = new System.Drawing.Size(348, 338);
+            this.panelObjetos.TabIndex = 40;
+            // 
+            // lblObjetosEq
+            // 
+            this.lblObjetosEq.AutoSize = true;
+            this.lblObjetosEq.Font = new System.Drawing.Font("Monotype Corsiva", 14F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblObjetosEq.Location = new System.Drawing.Point(7, 11);
+            this.lblObjetosEq.Name = "lblObjetosEq";
+            this.lblObjetosEq.Size = new System.Drawing.Size(195, 22);
+            this.lblObjetosEq.TabIndex = 0;
+            this.lblObjetosEq.Text = "OBJETOS EQUIPABLES";
+            // 
+            // panelMochila
+            // 
+            this.panelMochila.BackColor = System.Drawing.Color.Transparent;
+            this.panelMochila.Controls.Add(this.mObj10);
+            this.panelMochila.Controls.Add(this.mObj9);
+            this.panelMochila.Controls.Add(this.mObj8);
+            this.panelMochila.Controls.Add(this.mObj7);
+            this.panelMochila.Controls.Add(this.mObj6);
+            this.panelMochila.Controls.Add(this.mObj5);
+            this.panelMochila.Controls.Add(this.mObj4);
+            this.panelMochila.Controls.Add(this.mObj3);
+            this.panelMochila.Controls.Add(this.mObj2);
+            this.panelMochila.Controls.Add(this.mObj1);
+            this.panelMochila.Controls.Add(this.lblMochila);
+            this.panelMochila.Location = new System.Drawing.Point(664, 41);
+            this.panelMochila.Name = "panelMochila";
+            this.panelMochila.Size = new System.Drawing.Size(348, 580);
+            this.panelMochila.TabIndex = 41;
             // 
             // lblMochila
             // 
@@ -2331,6 +2333,18 @@
             this.lblNombrePME.TabIndex = 0;
             this.lblNombrePME.Text = "Nombre del personaje: ";
             // 
+            // mute
+            // 
+            this.mute.BackColor = System.Drawing.Color.Transparent;
+            this.mute.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.music;
+            this.mute.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.mute.Location = new System.Drawing.Point(959, 0);
+            this.mute.Name = "mute";
+            this.mute.Size = new System.Drawing.Size(30, 23);
+            this.mute.TabIndex = 46;
+            this.mute.TabStop = false;
+            this.mute.Click += new System.EventHandler(this.mute_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2339,6 +2353,7 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.mute);
             this.Controls.Add(this.panelObjetos);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
@@ -2414,8 +2429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgBasura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSaveME)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgAtrasME)).EndInit();
-            this.panelObjetos.ResumeLayout(false);
-            this.panelObjetos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.obj9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj7)).EndInit();
@@ -2425,8 +2438,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.obj3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.obj1)).EndInit();
-            this.panelMochila.ResumeLayout(false);
-            this.panelMochila.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mObj10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj8)).EndInit();
@@ -2434,6 +2445,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mObj6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mObj4)).EndInit();
+            this.panelObjetos.ResumeLayout(false);
+            this.panelObjetos.PerformLayout();
+            this.panelMochila.ResumeLayout(false);
+            this.panelMochila.PerformLayout();
             this.panelVistaPersonaje.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgAnterior)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgSiguiente)).EndInit();
@@ -2449,6 +2464,7 @@
             this.PanelDatosPsjMV.PerformLayout();
             this.panelDatosPjME.ResumeLayout(false);
             this.panelDatosPjME.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mute)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2625,6 +2641,7 @@
         private System.Windows.Forms.PictureBox imgSaveME;
         private System.Windows.Forms.PictureBox exportarA;
         private System.Windows.Forms.PictureBox importarDesde;
+        private System.Windows.Forms.PictureBox mute;
     }
 }
 

@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using WMPLib;
 
 namespace CS_Ejercicio03_FichaDePersonajes {
     public partial class Form1 : Form {
@@ -18,13 +19,15 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         static extern IntPtr LoadCursorFromFile(string lpFileName);
         IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
 
-        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-        
+        WindowsMediaPlayer reproductor = new WindowsMediaPlayer();
+        IWMPPlaylist playlist;  IWMPMedia media;
+
         public Form1() {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e) {
             imgCerrar.Visible = false;
+            mute.Visible = false;
             habilitarDragDrop();
             obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
             deshabilitarHabilidades(); // Para que no se puedan marcar si no hay personaje seleccionado. 
@@ -42,11 +45,22 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 imgAlbum.Enabled = true;
             } else
                 imgAlbum.Enabled = false;
-            /*
+            
             this.Cursor = new Cursor(cursor);
-            wplayer.URL = @"songGOT.mp3";
-            wplayer.controls.play();
-            */
+            playlist = reproductor.playlistCollection.newPlaylist("myplaylist"); // Creo la lista.
+            media = reproductor.newMedia("songGOT.mp3"); // Agrego canción a media. 
+            playlist.appendItem(media); // agrego canción a la lista.
+            media = reproductor.newMedia("songMGS2.mp3");
+            playlist.appendItem(media);
+            media = reproductor.newMedia("songCDM.mp3");
+            playlist.appendItem(media);
+            media = reproductor.newMedia("songLR.mp3");
+            playlist.appendItem(media);
+            media = reproductor.newMedia("songAR1.mp3");
+            playlist.appendItem(media);
+            reproductor.currentPlaylist = playlist; // asigno la lista al reproductor. 
+            reproductor.settings.setMode("loop", true); // para que vuelva a empezar cuando acabe.
+            reproductor.controls.play(); // Doy al play! 
         }
         private void clicCerrar(object sender, EventArgs e) {
             this.Close();
@@ -414,6 +428,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             // Cuando la barra se completa, muestro el menú de selección. 
             if (barraCarga.Value == barraCarga.Maximum) {
                 imgCerrar.Visible = true;
+                mute.Visible = true;
                 menuSeleccion.Visible = true;
                 timer1.Enabled = false;
                 barraCarga.Enabled = false;
@@ -1008,6 +1023,15 @@ namespace CS_Ejercicio03_FichaDePersonajes {
 
                 album.exportarA(ruta);
             }    
+        }
+        private void mute_Click(object sender, EventArgs e) {
+            if (reproductor.settings.mute) {
+                reproductor.settings.mute = false;
+                mute.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + "music.png");
+            } else {
+                reproductor.settings.mute = true;
+                mute.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + "musicOff.png");
+            }
         }
     }
 }
