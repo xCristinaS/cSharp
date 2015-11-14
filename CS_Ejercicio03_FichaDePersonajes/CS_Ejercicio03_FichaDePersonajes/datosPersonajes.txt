@@ -1,1 +1,1 @@
-gf,fggf,Femenino,Ser mundano,Arquero,11.20.13.12.8.14.10.11.13.11.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,3,8,20,...obj5.,
+as,asa,Femenino,Ser mágico,Mago,11.11.4.10.15.5.14.18.11.10.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,obj3.obj6.,

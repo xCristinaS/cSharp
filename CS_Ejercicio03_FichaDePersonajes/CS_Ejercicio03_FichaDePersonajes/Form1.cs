@@ -82,8 +82,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 resetValoresAtrib();
                 vaciarMochila();
                 vaciarObjetosEquip();
+                deshabilitarMochila();
                 resetFlechasAtributos();
                 limpiarHabilidadesMarcadas();
+                imgPropiedades_Click(null, null);
                 deshabilitarHabilidades();
                 this.BackgroundImage = Properties.Resources.fondo;
             }
@@ -101,6 +103,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 if (sender != null && sender.Equals(combClase)) { // Hago la comprobación de si el sender es != null porque llamo a este método cuando cargo el personaje para cargar su imagen. 
                     asignarAtributosPlusPSJ(personaje);
                     cargarObjetosEquipables(personaje);
+                    habilitarMochila();
                     vaciarMochila();
                     limpiarHabilidadesMarcadas();
                     resetFlechasAtributos();
@@ -540,6 +543,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
                         ((CheckBox)cb2).Enabled = false;
                 }
             }
+        private void habilitarMochila() {
+            imgEquipamiento.Enabled = true;
+            imgEquipamiento.BackgroundImage = Properties.Resources.mochila;
+        }
+        private void deshabilitarMochila() {
+            imgEquipamiento.Enabled = false;
+            imgEquipamiento.BackgroundImage = Properties.Resources.mochilaOff;
+            panelMochila.Visible = false;
+            panelObjetos.Visible = false;
+        }
         private void limpiarHabilidadesMarcadas() {
             // Para limpiar las habilidades marcadas al cambiar de personaje. 
             foreach (object cb2 in panelHabilidades.Controls) {
@@ -908,6 +921,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgEquipamiento.Visible = false;
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
+            habilitarMochila();
         }
         private void mostrarPaginaNewPersonaje() {
             limpiarPagNewPersonaje();
@@ -921,6 +935,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgEquipamiento.Visible = true;
             panelObjetos.Visible = false;
             panelMochila.Visible = false;
+            deshabilitarMochila();
             this.BackgroundImage = Properties.Resources.fondo;
             habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         }
@@ -929,9 +944,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
             panelMochila.Visible = false;
             panelAtributos.Visible = true;
             panelHabilidades.Visible = true;
-            if (numTiradaME < Constantes.MAX_TIRADAS || numTiradaME < Constantes.MAX_TIRADAS) {
-                imgDado.Enabled = true;
-                imgDado.BackgroundImage = Properties.Resources.dado;
+            if (modoEdicion) {
+                if (numTiradaME < Constantes.MAX_TIRADAS) {
+                    imgDado.Enabled = true;
+                    imgDado.BackgroundImage = Properties.Resources.dado;
+                }
+            } else {
+                if (numTirada < Constantes.MAX_TIRADAS) {
+                    imgDado.Enabled = true;
+                    imgDado.BackgroundImage = Properties.Resources.dado;
+                }
             }
         }
         private void imgEquipamiento_Click(object sender, EventArgs e) {
