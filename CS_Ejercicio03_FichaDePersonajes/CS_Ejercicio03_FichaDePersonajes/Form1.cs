@@ -60,8 +60,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             playlist.appendItem(media); // agrego canción a la lista.
             media = reproductor.newMedia("songMGS2.mp3");
             playlist.appendItem(media);
-            media = reproductor.newMedia("songCDM.mp3");
-            playlist.appendItem(media);
             media = reproductor.newMedia("songLR.mp3");
             playlist.appendItem(media);
             media = reproductor.newMedia("songAR1.mp3");
