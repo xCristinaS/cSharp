@@ -17,6 +17,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public const string LBL_NOMBRE_PJ = "Nombre del personaje: ";
         public const string LBL_NOMBRE_JUG = "Nombre del jugador: ";
         public const string LBL_TIPO = "Tipo: ";
+        public const string RUTA_RECURSOS = "..\\..\\Resources\\";
+        public const string EXTENSION_PNG = ".png";
 
         // Incremento atributos Guerrero:
         public const int GUERRERO_FUERZA_PLUS = 10;

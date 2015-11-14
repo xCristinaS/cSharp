@@ -70,7 +70,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             this.Close();
             album.exportarPjs();
         }
-        private void comboboxCambiado(object sender, EventArgs e) { // Este método es lanzado cuando cambia el comboboxRaza. 
+        private void combRaza_Change(object sender, EventArgs e) {  
             combClase.Items.Clear();
             // Los valores del combClase variarán en función de la raza seleccionada. Si el indice es 0, se cargarán 
             // los personajesMagicos en el combClase, en caso contrario se cargarán los personajesMundanos.
@@ -127,48 +127,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
         }
         private void cargarImgPersonaje(string personaje) {
-            // Evalúo la cadena personaje y establezco la imagen de fondo correspondiente al personaje seleccionado y su género. 
-            switch (personaje) {
-                case "cazadoa": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el femenino se añade una "a".
-                    this.BackgroundImage = Properties.Resources.cazadora;
-                    break;
-                case "cazadoo": // Al elegir "cazador" arriba a cazador se le quita la "r" y si esta marcado el masculino se le añade una "o".
-                    this.BackgroundImage = Properties.Resources.cazador;
-                    break;
-                case "arquero":
-                    this.BackgroundImage = Properties.Resources.arquero;
-                    break;
-                case "arquera":
-                    this.BackgroundImage = Properties.Resources.arquera;
-                    break;
-                case "paladio": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el masculino se añade una "o".
-                    this.BackgroundImage = Properties.Resources.paladin;
-                    break;
-                case "paladia": // Al elegir "paladin" arriba se le quita la "n" y si está marcado el femenino se añade una "a". 
-                    this.BackgroundImage = Properties.Resources.paladina;
-                    break;
-                case "daguero":
-                    this.BackgroundImage = Properties.Resources.daguero;
-                    break;
-                case "daguera":
-                    this.BackgroundImage = Properties.Resources.daguera;
-                    break;
-                case "guerrero":
-                    this.BackgroundImage = Properties.Resources.guerrero;
-                    break;
-                case "guerrera":
-                    this.BackgroundImage = Properties.Resources.guerrera;
-                    break;
-                case "mago":
-                    this.BackgroundImage = Properties.Resources.mago;
-                    break;
-                case "maga":
-                    this.BackgroundImage = Properties.Resources.maga;
-                    break;
-                case "nigromant":
-                    this.BackgroundImage = Properties.Resources.nigromante;
-                    break;
-            }
+            this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + personaje + Constantes.EXTENSION_PNG);
         }
         private void asignarAtributosPlusPSJ(string personaje) { // Doy un valor extra a cada atributo en función del personaje seleccionado.
             switch (personaje) {
@@ -260,32 +219,17 @@ namespace CS_Ejercicio03_FichaDePersonajes
             darValorAtributosAleatorios(); // Cada vez que se cambia de personaje debo volver a sumar los valores aleatorios a la base de ptos por personaje.
         }
         private void darValorAtributosAleatorios() {
-            pbCarisma.Value += valoresAtributosAleatorios[0];
-            pbCoraje.Value += valoresAtributosAleatorios[1];
-            pbDestreza.Value += valoresAtributosAleatorios[2];
-            pbFuerza.Value += valoresAtributosAleatorios[3];
-            pbIngenio.Value += valoresAtributosAleatorios[4];
-            pbIniciativa.Value += valoresAtributosAleatorios[5];
-            pbPercepcion.Value += valoresAtributosAleatorios[6];
-            pbReflejos.Value += valoresAtributosAleatorios[7];
-            pbVelocidad.Value += valoresAtributosAleatorios[8];
-            pbVitalidad.Value += valoresAtributosAleatorios[9];
+            pbCarisma.Value += valoresAtributosAleatorios[0]; pbCoraje.Value += valoresAtributosAleatorios[1]; pbDestreza.Value += valoresAtributosAleatorios[2]; pbFuerza.Value += valoresAtributosAleatorios[3];
+            pbIngenio.Value += valoresAtributosAleatorios[4]; pbIniciativa.Value += valoresAtributosAleatorios[5]; pbPercepcion.Value += valoresAtributosAleatorios[6]; pbReflejos.Value += valoresAtributosAleatorios[7];
+            pbVelocidad.Value += valoresAtributosAleatorios[8]; pbVitalidad.Value += valoresAtributosAleatorios[9];
             // Reestablezco los puntos a repartir, puesto que si he llegado aquí es porque se ha cambiado de personaje y
             // en ese caso, si se hizo un reparto de puntos para el personaje anterior los cambios deben ser suprimidos.
             ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
         private void resetValoresAtrib() {
-            pbCarisma.Value = 0;
-            pbCoraje.Value = 0;
-            pbDestreza.Value = 0;
-            pbFuerza.Value = 0;
-            pbIngenio.Value = 0;
-            pbIniciativa.Value = 0;
-            pbPercepcion.Value = 0;
-            pbReflejos.Value = 0;
-            pbVelocidad.Value = 0;
-            pbVitalidad.Value = 0;
+            pbCarisma.Value = 0; pbCoraje.Value = 0; pbDestreza.Value = 0; pbFuerza.Value = 0; pbIngenio.Value = 0; pbIniciativa.Value = 0;
+            pbPercepcion.Value = 0; pbReflejos.Value = 0; pbVelocidad.Value = 0; pbVitalidad.Value = 0;
         }
         private void repartirPtosAtb(object sender, EventArgs e) {
             // Si hay un personaje seleccionado y el evento lo lanzó una flecha (imagen en pictureBox) de incremento, incrementaré el atributo
@@ -304,97 +248,27 @@ namespace CS_Ejercicio03_FichaDePersonajes
             // dicha flecha. A su vez, al .Tag asociado a la flecha de decremento le doy un +1. Lo que pretendo con esto, 
             // es que únicamente se pueda decrementar cuando previamente se haya incrementado, para nunca alterar la base 
             // que se estableció al sumar los puntos asociados a cada personaje con los valores aleatorios. 
-            if (sender.Equals(incVit) && pbVitalidad.Value < pbVitalidad.Maximum) {
-                pbVitalidad.Value++;
-                ptosRepAtrib--;
-                decVit.Tag = ((int)decVit.Tag) + 1;
-                decVit.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbVitalidad.Value == pbVitalidad.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incVit.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incVit.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incCar) && pbCarisma.Value < pbCarisma.Maximum) {
-                pbCarisma.Value++;
-                ptosRepAtrib--;
-                decCar.Tag = ((int)decCar.Tag) + 1;
-                decCar.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbCarisma.Value == pbCarisma.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incCar.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incCar.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incCor) && pbCoraje.Value < pbCoraje.Maximum) {
-                pbCoraje.Value++;
-                ptosRepAtrib--;
-                decCor.Tag = ((int)decCor.Tag) + 1;
-                decCor.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbCoraje.Value == pbCoraje.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incCor.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incCor.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incDest) && pbDestreza.Value < pbDestreza.Maximum) {
-                pbDestreza.Value++;
-                ptosRepAtrib--;
-                decDest.Tag = ((int)decDest.Tag) + 1;
-                decDest.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbDestreza.Value == pbDestreza.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incDest.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incDest.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incFuer) && pbFuerza.Value < pbFuerza.Maximum) {
-                pbFuerza.Value++;
-                ptosRepAtrib--;
-                decFuer.Tag = ((int)decFuer.Tag) + 1;
-                decFuer.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbFuerza.Value == pbFuerza.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incFuer.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incFuer.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incIng) && pbIngenio.Value < pbIngenio.Maximum) {
-                pbIngenio.Value++;
-                ptosRepAtrib--;
-                decIng.Tag = ((int)decIng.Tag) + 1;
-                decIng.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbIngenio.Value == pbIngenio.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incIng.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incIng.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incIni) && pbIniciativa.Value < pbIniciativa.Maximum) {
-                pbIniciativa.Value++;
-                ptosRepAtrib--;
-                decIni.Tag = ((int)decIni.Tag) + 1;
-                decIni.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbIniciativa.Value == pbIniciativa.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incIni.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incIni.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incPerc) && pbPercepcion.Value < pbPercepcion.Maximum) {
-                pbPercepcion.Value++;
-                ptosRepAtrib--;
-                decPerc.Tag = ((int)decPerc.Tag) + 1;
-                decPerc.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbPercepcion.Value == pbPercepcion.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incPerc.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incPerc.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            } else if (sender.Equals(incRef) && pbReflejos.Value < pbReflejos.Maximum) {
-                pbReflejos.Value++;
-                ptosRepAtrib--;
-                decRef.Tag = ((int)decRef.Tag) + 1;
-                decRef.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbReflejos.Value == pbReflejos.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incRef.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incRef.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                 }
-            } else if (sender.Equals(incVel) && pbVelocidad.Value < pbVelocidad.Maximum) {
-                pbVelocidad.Value++;
-                ptosRepAtrib--;
-                decVel.Tag = ((int)decVel.Tag) + 1;
-                decVel.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
-                if (pbVelocidad.Value == pbVelocidad.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
-                    incVel.BackgroundImage = Properties.Resources.flechaDerApagada;
-                    incVel.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
-                }
-            }
+            if (sender.Equals(incVit) && pbVitalidad.Value < pbVitalidad.Maximum) 
+                incrementarPb(pbVitalidad, decVit, incVit);
+            else if (sender.Equals(incCar) && pbCarisma.Value < pbCarisma.Maximum)
+                incrementarPb(pbCarisma, decCar, incCar);
+            else if (sender.Equals(incCor) && pbCoraje.Value < pbCoraje.Maximum)
+                incrementarPb(pbCoraje, decCor, incCor);
+            else if (sender.Equals(incDest) && pbDestreza.Value < pbDestreza.Maximum)
+                incrementarPb(pbDestreza, decDest, incDest);
+            else if (sender.Equals(incFuer) && pbFuerza.Value < pbFuerza.Maximum) 
+                incrementarPb(pbFuerza, decFuer, incFuer);
+            else if (sender.Equals(incIng) && pbIngenio.Value < pbIngenio.Maximum) 
+                incrementarPb(pbIngenio, decIng, incIng);
+            else if (sender.Equals(incIni) && pbIniciativa.Value < pbIniciativa.Maximum) 
+                incrementarPb(pbIniciativa, decIni, incIni);
+            else if (sender.Equals(incPerc) && pbPercepcion.Value < pbPercepcion.Maximum)
+                incrementarPb(pbPercepcion, decPerc, incPerc);
+            else if (sender.Equals(incRef) && pbReflejos.Value < pbReflejos.Maximum) 
+                incrementarPb(pbReflejos, decRef, incRef);
+            else if (sender.Equals(incVel) && pbVelocidad.Value < pbVelocidad.Maximum)
+                incrementarPb(pbVelocidad, decVel, incVel);
+            
             if (ptosRepAtrib == 0) { // Cuando los puntos a repartir llegan a 0, apago las flechas de incremento. 
                 foreach (object pbAtributo in panelAtributos.Controls)
                     if (pbAtributo is PictureBox)
@@ -403,97 +277,41 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
         }
+        private void incrementarPb(ProgressBar barra, PictureBox btnDecremento, PictureBox btnIncremento) {
+            barra.Value++;
+            ptosRepAtrib--;
+            btnDecremento.Tag = ((int)btnDecremento.Tag) + 1;
+            btnDecremento.BackgroundImage = Properties.Resources.flechaIzq; // Activo la flecha de decremento (cambio su imagen). 
+            if (barra.Value == barra.Maximum) { // Si tras incrementar la barra ha llegado al máximo, desactivo la flecha de incremento (cambio su imagen).
+                btnIncremento.BackgroundImage = Properties.Resources.flechaDerApagada;
+                btnIncremento.Tag = -1; // Meto un -1 para usarlo como centinela, cuando el valor del tag sea -1 significa que la barra esta llena. 
+            }
+        }
         private void decrementarAtributo(object sender) {
             // Evalúo que flecha de decremento fue seleccionada y decremento el valor de la progressbar asociada a dicha flecha.
             // Sólo podre decrementar el valor de la progressbar si el tag de la flecha de decremento fue previamente incrementado (esta 
             // comprobación se hace previamente, en el evento "repartirPtosAtb" que es el que se lanza al hacer clic en la flecha de decremento).
-            if (sender.Equals(decVit)) {
-                pbVitalidad.Value--;
-                ptosRepAtrib++;
-                decVit.Tag = ((int)decVit.Tag) - 1;
-                incVit.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incVit.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento. 
-                if ((int)decVit.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decVit.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decCar)) {
-                pbCarisma.Value--;
-                ptosRepAtrib++;
-                decCar.Tag = ((int)decCar.Tag) - 1;
-                incCar.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incCar.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decCar.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decCar.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decCor)) {
-                pbCoraje.Value--;
-                ptosRepAtrib++;
-                decCor.Tag = ((int)decCor.Tag) - 1;
-                incCor.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incCor.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decCor.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decCor.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decDest)) {
-                pbDestreza.Value--;
-                ptosRepAtrib++;
-                decDest.Tag = ((int)decDest.Tag) - 1;
-                incDest.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incDest.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decDest.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decDest.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decFuer)) {
-                pbFuerza.Value--;
-                ptosRepAtrib++;
-                decFuer.Tag = ((int)decFuer.Tag) - 1;
-                incFuer.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incFuer.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decFuer.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decFuer.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decIng)) {
-                pbIngenio.Value--;
-                ptosRepAtrib++;
-                decIng.Tag = ((int)decIng.Tag) - 1;
-                incIng.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incIng.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decIng.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decIng.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decIni)) {
-                pbIniciativa.Value--;
-                ptosRepAtrib++;
-                decIni.Tag = ((int)decIni.Tag) - 1;
-                incIni.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incIni.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decIni.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decIni.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decPerc)) {
-                pbPercepcion.Value--;
-                ptosRepAtrib++;
-                decPerc.Tag = ((int)decPerc.Tag) - 1;
-                incPerc.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incPerc.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decPerc.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decPerc.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decRef)) {
-                pbReflejos.Value--;
-                ptosRepAtrib++;
-                decRef.Tag = ((int)decRef.Tag) - 1;
-                incRef.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incRef.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decRef.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decRef.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            } else if (sender.Equals(decVel)) {
-                pbVelocidad.Value--;
-                ptosRepAtrib++;
-                decVel.Tag = ((int)decVel.Tag) - 1;
-                incVel.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
-                incVel.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
-                if ((int)decVel.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
-                    decVel.BackgroundImage = Properties.Resources.flechaIzqApagada;
-            }
-            if (ptosRepAtrib == 0) {
-                foreach (object pbAtributo in panelAtributos.Controls)
-                    if (pbAtributo is PictureBox)
-                        if (((PictureBox)pbAtributo).Name.StartsWith("i"))  // Si la flecha es de incremento, la apago, para indicar que no se puede incrementar la barra. 
-                            ((PictureBox)pbAtributo).BackgroundImage = Properties.Resources.flechaDerApagada;
-            }
+            if (sender.Equals(decVit)) 
+                decrementarPb(pbVitalidad, decVit, incVit);
+            else if (sender.Equals(decCar)) 
+                decrementarPb(pbCarisma, decCar, incCar);
+            else if (sender.Equals(decCor)) 
+                decrementarPb(pbCoraje, decCor, incCor);
+            else if (sender.Equals(decDest))
+                decrementarPb(pbDestreza, decDest, incDest);
+            else if (sender.Equals(decFuer))
+                decrementarPb(pbFuerza, decFuer, incFuer);
+            else if (sender.Equals(decIng)) 
+                decrementarPb(pbIngenio, decIng, incIng);
+            else if (sender.Equals(decIni)) 
+                decrementarPb(pbIniciativa, decIni, incIni);
+            else if (sender.Equals(decPerc))
+                decrementarPb(pbPercepcion, decPerc, incPerc);
+            else if (sender.Equals(decRef)) 
+                decrementarPb(pbReflejos, decRef, incRef);
+            else if (sender.Equals(decVel)) 
+                decrementarPb(pbVelocidad, decVel, incVel);
+            
             // Si he llegado hasta aquí es porque he decrementado alguna de las flechas. Si los puntos a repartir son igual a 1, significa que previamente eran 0 y por
             // tanto todas las flechas de incremento estaban apagadas, en ese caso vuelvo a habilitar todas las flechas de incremento siempre y cuando la barra asociada a ellas
             // no esté llena. 
@@ -504,6 +322,15 @@ namespace CS_Ejercicio03_FichaDePersonajes
                             ((PictureBox)pbAtributo).BackgroundImage = Properties.Resources.flechaDer;
             }
             lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib; // Actualizo los puntos a repartir. 
+        }
+        private void decrementarPb(ProgressBar barra, PictureBox btnDecremento, PictureBox btnIncremento) {
+            barra.Value--;
+            ptosRepAtrib++;
+            btnDecremento.Tag = ((int)btnDecremento.Tag) - 1;
+            btnIncremento.Tag = 0; // Para que el centinela (el tag) deje de indicar que la barra esta llena.
+            btnIncremento.BackgroundImage = Properties.Resources.flechaDer; // Vuelvo a habilitar la flecha de incremento.
+            if ((int)btnDecremento.Tag == 0) // Si el tag es 0, es porque ya he acabado con los puntos de decremento que tenía, en ese caso apago la flecha. 
+                btnDecremento.BackgroundImage = Properties.Resources.flechaIzqApagada;
         }
         private void habilidadesCheckedChange(object sender, EventArgs e) {
             CheckBox cb = (CheckBox)sender; 
@@ -1287,7 +1114,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                             }
         }
         private Image[] cargarObjetosEnMochila(string[] mochila) {
-            Image[] items = new Image[4]; String aux;
+            Image[] items = new Image[4];
             for (int i = 0; i < mochila.Length; i++)
                 foreach (object o in panelObjetos.Controls)
                     if (o is PictureBox && ((PictureBox)o).Name.Equals(mochila[i])) {
@@ -1344,8 +1171,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                     ruta += ".txt";
 
                 album.exportarA(ruta);
-            }
-                
+            }    
         }
     }
 }

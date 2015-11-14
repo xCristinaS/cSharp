@@ -99,11 +99,13 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                     p = Personaje.montarPersonaje(linea);
                     igual = false;
                     if (p.getNombreJ() != null && p.getNombreP() != null && p.getGenero() != null && p.getClase() != null) {
-                        for (int i = 0; !igual && i < lista.Count; i++)
-                            if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
-                                igual = true;
-                        if (!igual)
-                            lista.AddLast(p);
+                        if (p.getGenero().Equals("Femenino") || p.getGenero().Equals("Masculino")) {
+                            for (int i = 0; !igual && i < lista.Count; i++)
+                                if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
+                                    igual = true;
+                            if (!igual)
+                                lista.AddLast(p);
+                        }
                     }
                 }
                 lector.Close();

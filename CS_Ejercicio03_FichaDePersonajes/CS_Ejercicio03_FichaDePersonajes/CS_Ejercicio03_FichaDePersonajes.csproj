@@ -77,18 +77,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -102,52 +102,7 @@
     <None Include="Resources\fondo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fondo3.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Equis.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Equis1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazador.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazadora.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrera.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrero.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maga.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mago.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nigromante.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladina.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dado.png" />
@@ -160,54 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flechaIzq.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquero.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladin.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\paladina.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\arquera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\gerrera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\eevee.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cursor.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\guerrero.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguero.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\daguera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazadora.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cazador.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\nigromante.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\mago.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maga.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pantallaCarga.png" />
@@ -228,12 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flechaIzqApagada.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\female.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\female.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

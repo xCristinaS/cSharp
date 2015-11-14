@@ -145,9 +145,6 @@
   <data name="cuchillo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cuchillo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="daguero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\daguero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="espada1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espada1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,17 +202,11 @@
   <data name="ballesta2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ballesta2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="maga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\maga.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="album" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\album.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="guadania" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\guadania.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arquero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arquero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arco4Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arco4Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -228,9 +219,6 @@
   </data>
   <data name="arco" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arco.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cazador" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cazador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="nuevoPersonaje" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\nuevoPersonaje.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,9 +244,6 @@
   <data name="hacha" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hacha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="arquera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arquera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="arco5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arco5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -282,9 +267,6 @@
   </data>
   <data name="ballesta2Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ballesta2Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cazadora" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cazadora.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="armaduraL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\armaduraL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -321,9 +303,6 @@
   </data>
   <data name="arco3Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arco3Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrero" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrero.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="lanza" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lanza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -363,9 +342,6 @@
   </data>
   <data name="eden2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eden2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="paladin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paladin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arco4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\arco4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -408,9 +384,6 @@
   </data>
   <data name="espada5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espada5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="guerrera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\guerrera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dagaOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dagaOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -457,9 +430,6 @@
   <data name="espadaMOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espadaMOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="daguera" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\daguera.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="espadaEd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espadaEd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -471,9 +441,6 @@
   </data>
   <data name="espada7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espada7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="nigromante" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nigromante.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mazoOff" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mazoOff.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -508,9 +475,6 @@
   <data name="n2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\n2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="paladina" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\paladina.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="espada6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\espada6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -522,9 +486,6 @@
   </data>
   <data name="anterior" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\anterior.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mago" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mago.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

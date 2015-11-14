@@ -1186,7 +1186,7 @@
             this.combRaza.Name = "combRaza";
             this.combRaza.Size = new System.Drawing.Size(188, 25);
             this.combRaza.TabIndex = 5;
-            this.combRaza.SelectedIndexChanged += new System.EventHandler(this.comboboxCambiado);
+            this.combRaza.SelectedIndexChanged += new System.EventHandler(this.combRaza_Change);
             this.combRaza.TextChanged += new System.EventHandler(this.comprobarSiRelleno);
             // 
             // combClase
@@ -1282,6 +1282,7 @@
             this.exportarA.Size = new System.Drawing.Size(197, 158);
             this.exportarA.TabIndex = 3;
             this.exportarA.TabStop = false;
+            this.toolTip1.SetToolTip(this.exportarA, "Exportar personajes.");
             this.exportarA.Click += new System.EventHandler(this.exportarA_Click);
             // 
             // importarDesde
@@ -1294,6 +1295,7 @@
             this.importarDesde.Size = new System.Drawing.Size(197, 158);
             this.importarDesde.TabIndex = 2;
             this.importarDesde.TabStop = false;
+            this.toolTip1.SetToolTip(this.importarDesde, "Importar personajes.");
             this.importarDesde.Click += new System.EventHandler(this.importarDesde_Click);
             // 
             // imgAlbum
@@ -1493,7 +1495,7 @@
             this.imgEdit.Size = new System.Drawing.Size(56, 50);
             this.imgEdit.TabIndex = 44;
             this.imgEdit.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgEdit, "Volver atras.");
+            this.toolTip1.SetToolTip(this.imgEdit, "Editar personaje.");
             this.imgEdit.Click += new System.EventHandler(this.imgEdit_Click);
             // 
             // imgBasura
@@ -1506,7 +1508,7 @@
             this.imgBasura.Size = new System.Drawing.Size(56, 50);
             this.imgBasura.TabIndex = 50;
             this.imgBasura.TabStop = false;
-            this.toolTip1.SetToolTip(this.imgBasura, "Volver atras.");
+            this.toolTip1.SetToolTip(this.imgBasura, "Eliminar personaje.");
             this.imgBasura.Click += new System.EventHandler(this.eliminarPJ);
             // 
             // imgSaveME
@@ -1562,6 +1564,7 @@
             this.obj9.Size = new System.Drawing.Size(100, 80);
             this.obj9.TabIndex = 9;
             this.obj9.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj9, "Arrastrar para equipar.");
             this.obj9.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj8
@@ -1573,6 +1576,7 @@
             this.obj8.Size = new System.Drawing.Size(100, 80);
             this.obj8.TabIndex = 8;
             this.obj8.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj8, "Arrastrar para equipar.");
             this.obj8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj7
@@ -1584,6 +1588,7 @@
             this.obj7.Size = new System.Drawing.Size(100, 80);
             this.obj7.TabIndex = 7;
             this.obj7.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj7, "Arrastrar para equipar.");
             this.obj7.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj6
@@ -1595,6 +1600,7 @@
             this.obj6.Size = new System.Drawing.Size(100, 80);
             this.obj6.TabIndex = 6;
             this.obj6.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj6, "Arrastrar para equipar.");
             this.obj6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj5
@@ -1606,6 +1612,7 @@
             this.obj5.Size = new System.Drawing.Size(100, 80);
             this.obj5.TabIndex = 5;
             this.obj5.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj5, "Arrastrar para equipar.");
             this.obj5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj4
@@ -1617,6 +1624,7 @@
             this.obj4.Size = new System.Drawing.Size(100, 80);
             this.obj4.TabIndex = 4;
             this.obj4.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj4, "Arrastrar para equipar.");
             this.obj4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj3
@@ -1628,6 +1636,7 @@
             this.obj3.Size = new System.Drawing.Size(100, 80);
             this.obj3.TabIndex = 3;
             this.obj3.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj3, "Arrastrar para equipar.");
             this.obj3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj2
@@ -1639,6 +1648,7 @@
             this.obj2.Size = new System.Drawing.Size(100, 80);
             this.obj2.TabIndex = 2;
             this.obj2.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj2, "Arrastrar para equipar.");
             this.obj2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // obj1
@@ -1650,6 +1660,7 @@
             this.obj1.Size = new System.Drawing.Size(100, 80);
             this.obj1.TabIndex = 1;
             this.obj1.TabStop = false;
+            this.toolTip1.SetToolTip(this.obj1, "Arrastrar para equipar.");
             this.obj1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.obj_MouseDown);
             // 
             // lblObjetosEq
@@ -1692,6 +1703,7 @@
             this.mObj10.Size = new System.Drawing.Size(100, 80);
             this.mObj10.TabIndex = 10;
             this.mObj10.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj10, "Bloqueado.");
             // 
             // mObj9
             // 
@@ -1704,6 +1716,7 @@
             this.mObj9.Size = new System.Drawing.Size(100, 80);
             this.mObj9.TabIndex = 9;
             this.mObj9.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj9, "Bloqueado.");
             // 
             // mObj8
             // 
@@ -1716,6 +1729,7 @@
             this.mObj8.Size = new System.Drawing.Size(100, 80);
             this.mObj8.TabIndex = 8;
             this.mObj8.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj8, "Bloqueado.");
             // 
             // mObj7
             // 
@@ -1728,6 +1742,7 @@
             this.mObj7.Size = new System.Drawing.Size(100, 80);
             this.mObj7.TabIndex = 7;
             this.mObj7.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj7, "Bloqueado.");
             // 
             // mObj6
             // 
@@ -1740,6 +1755,7 @@
             this.mObj6.Size = new System.Drawing.Size(100, 80);
             this.mObj6.TabIndex = 6;
             this.mObj6.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj6, "Bloqueado.");
             // 
             // mObj5
             // 
@@ -1752,6 +1768,7 @@
             this.mObj5.Size = new System.Drawing.Size(100, 80);
             this.mObj5.TabIndex = 5;
             this.mObj5.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj5, "Bloqueado.");
             // 
             // mObj4
             // 
@@ -1762,6 +1779,7 @@
             this.mObj4.Size = new System.Drawing.Size(100, 80);
             this.mObj4.TabIndex = 4;
             this.mObj4.TabStop = false;
+            this.toolTip1.SetToolTip(this.mObj4, "Doble clic para sacar objecto.");
             this.mObj4.DragDrop += new System.Windows.Forms.DragEventHandler(this.mObj_DragDrop);
             this.mObj4.DragEnter += new System.Windows.Forms.DragEventHandler(this.mObj_DragEnter);
             this.mObj4.DoubleClick += new System.EventHandler(this.sacarObjMochila);
@@ -2321,14 +2339,13 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
-            this.Controls.Add(this.menuSeleccion);
+            this.Controls.Add(this.panelObjetos);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.panelAtributos);
             this.Controls.Add(this.imgSaveME);
             this.Controls.Add(this.imgAtrasME);
             this.Controls.Add(this.panelDatosPjME);
-            this.Controls.Add(this.panelObjetos);
             this.Controls.Add(this.imgEquipamiento);
             this.Controls.Add(this.imgDado);
             this.Controls.Add(this.imgPropiedades);
@@ -2339,6 +2356,7 @@
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.barraCarga);
             this.Controls.Add(this.panelVistaPersonaje);
+            this.Controls.Add(this.menuSeleccion);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
