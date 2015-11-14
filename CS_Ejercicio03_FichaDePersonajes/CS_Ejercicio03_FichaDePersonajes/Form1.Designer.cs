@@ -198,6 +198,8 @@
             this.lblTipoME = new System.Windows.Forms.Label();
             this.lblNombreJME = new System.Windows.Forms.Label();
             this.lblNombrePME = new System.Windows.Forms.Label();
+            this.importarDesde = new System.Windows.Forms.PictureBox();
+            this.exportarA = new System.Windows.Forms.PictureBox();
             this.panelAtributos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.incVel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incRef)).BeginInit();
@@ -270,6 +272,8 @@
             this.panelAtbPsjMV.SuspendLayout();
             this.PanelDatosPsjMV.SuspendLayout();
             this.panelDatosPjME.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.importarDesde)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exportarA)).BeginInit();
             this.SuspendLayout();
             // 
             // panelAtributos
@@ -1259,11 +1263,13 @@
             // menuSeleccion
             // 
             this.menuSeleccion.BackColor = System.Drawing.Color.Transparent;
+            this.menuSeleccion.Controls.Add(this.exportarA);
+            this.menuSeleccion.Controls.Add(this.importarDesde);
             this.menuSeleccion.Controls.Add(this.imgAlbum);
             this.menuSeleccion.Controls.Add(this.nuevoPersonaje);
             this.menuSeleccion.Location = new System.Drawing.Point(3, 41);
             this.menuSeleccion.Name = "menuSeleccion";
-            this.menuSeleccion.Size = new System.Drawing.Size(1009, 204);
+            this.menuSeleccion.Size = new System.Drawing.Size(1009, 608);
             this.menuSeleccion.TabIndex = 30;
             // 
             // imgAlbum
@@ -2283,6 +2289,26 @@
             this.lblNombrePME.TabIndex = 0;
             this.lblNombrePME.Text = "Nombre del personaje: ";
             // 
+            // importarDesde
+            // 
+            this.importarDesde.BackColor = System.Drawing.Color.White;
+            this.importarDesde.Location = new System.Drawing.Point(560, 384);
+            this.importarDesde.Name = "importarDesde";
+            this.importarDesde.Size = new System.Drawing.Size(100, 158);
+            this.importarDesde.TabIndex = 2;
+            this.importarDesde.TabStop = false;
+            this.importarDesde.Click += new System.EventHandler(this.importarDesde_Click);
+            // 
+            // exportarA
+            // 
+            this.exportarA.BackColor = System.Drawing.Color.White;
+            this.exportarA.Location = new System.Drawing.Point(753, 384);
+            this.exportarA.Name = "exportarA";
+            this.exportarA.Size = new System.Drawing.Size(100, 158);
+            this.exportarA.TabIndex = 3;
+            this.exportarA.TabStop = false;
+            this.exportarA.Click += new System.EventHandler(this.exportarA_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2291,6 +2317,7 @@
             this.BackgroundImage = global::CS_Ejercicio03_FichaDePersonajes.Properties.Resources.pantallaCarga;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1024, 661);
+            this.Controls.Add(this.menuSeleccion);
             this.Controls.Add(this.panelMochila);
             this.Controls.Add(this.panelHabilidades);
             this.Controls.Add(this.panelAtributos);
@@ -2307,7 +2334,6 @@
             this.Controls.Add(this.panelPsj);
             this.Controls.Add(this.lblMsgCarga);
             this.Controls.Add(this.barraCarga);
-            this.Controls.Add(this.menuSeleccion);
             this.Controls.Add(this.panelVistaPersonaje);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2399,6 +2425,8 @@
             this.PanelDatosPsjMV.PerformLayout();
             this.panelDatosPjME.ResumeLayout(false);
             this.panelDatosPjME.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.importarDesde)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exportarA)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2573,6 +2601,8 @@
         private System.Windows.Forms.Label lblNombrePME;
         private System.Windows.Forms.PictureBox imgAtrasME;
         private System.Windows.Forms.PictureBox imgSaveME;
+        private System.Windows.Forms.PictureBox exportarA;
+        private System.Windows.Forms.PictureBox importarDesde;
     }
 }
 

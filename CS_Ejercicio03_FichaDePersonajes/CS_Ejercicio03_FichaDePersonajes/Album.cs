@@ -34,7 +34,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return lista.Count;
         }
         public void importarPjs() {
-            StreamReader lector; string linea; Personaje p;
+            StreamReader lector; string linea;
             if (File.Exists("..\\..\\datosPersonajes.txt")) {
                 lector = new StreamReader("..\\..\\datosPersonajes.txt");
                 while((linea = lector.ReadLine()) != null) 
@@ -90,6 +90,31 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 if (p.getNombreP().Equals(nombreP))
                     r = true;
             return r;
+        }
+        public void importarDesde(string ruta) {
+            StreamReader lector; string linea; Personaje p; bool igual;
+            if (File.Exists(ruta)) {
+                lector = new StreamReader(ruta);
+                while ((linea = lector.ReadLine()) != null) {
+                    p = Personaje.montarPersonaje(linea);
+                    igual = false;
+                    if (p.getNombreJ() != null && p.getNombreP() != null && p.getGenero() != null && p.getClase() != null) {
+                        for (int i = 0; !igual && i < lista.Count; i++)
+                            if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
+                                igual = true;
+                        if (!igual)
+                            lista.AddLast(p);
+                    }
+                }
+                lector.Close();
+            }
+        }
+        public void exportarA(string ruta) {
+            StreamWriter escritor = new StreamWriter(ruta);
+            foreach (Personaje p in lista)
+                escritor.WriteLine(p.escribirPersonaje());
+
+            escritor.Close();
         }
     }
 }

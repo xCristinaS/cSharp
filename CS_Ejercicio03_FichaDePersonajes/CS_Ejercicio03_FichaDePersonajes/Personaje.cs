@@ -71,35 +71,36 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             Personaje p = new Personaje(); string[] campos = cadena.Split(','); int i;
             string auxAtb , auxTags, auxHab, auxObjMoch;
             string[] auxAtb2, auxTags2, auxHab2, auxObjMoch2;
-            p.nombreP = campos[0];
-            p.nombreJ = campos[1];
-            p.genero = campos[2];
-            p.raza = campos[3];
-            p.clase = campos[4];
-            auxAtb = campos[5];
-            auxTags = campos[6];
-            auxHab = campos[7];
-            p.numTirada = Convert.ToInt32(campos[8]);
-            p.habPorSeleccionar = Convert.ToInt32(campos[9]);
-            p.ptosARepartirA = Convert.ToInt32(campos[10]);
-            auxObjMoch = campos[11];
+            if (campos.Length >= 11) {
+                p.nombreP = campos[0];
+                p.nombreJ = campos[1];
+                p.genero = campos[2];
+                p.raza = campos[3];
+                p.clase = campos[4];
+                auxAtb = campos[5];
+                auxTags = campos[6];
+                auxHab = campos[7];
+                p.numTirada = Convert.ToInt32(campos[8]);
+                p.habPorSeleccionar = Convert.ToInt32(campos[9]);
+                p.ptosARepartirA = Convert.ToInt32(campos[10]);
+                auxObjMoch = campos[11];
 
-            auxAtb2 = auxAtb.Split('.');
-            for (i = 0; i < auxAtb2.Length - 1; i++) 
-                p.atributos[i] = Convert.ToInt32(auxAtb2[i]);
+                auxAtb2 = auxAtb.Split('.');
+                for (i = 0; i < auxAtb2.Length - 1; i++)
+                    p.atributos[i] = Convert.ToInt32(auxAtb2[i]);
 
-            auxTags2 = auxTags.Split('.');
-            for (i = 0; i < auxTags2.Length -1; i++)
-                p.tagsAtb[i] = Convert.ToInt32(auxTags2[i]);
+                auxTags2 = auxTags.Split('.');
+                for (i = 0; i < auxTags2.Length - 1; i++)
+                    p.tagsAtb[i] = Convert.ToInt32(auxTags2[i]);
 
-            auxHab2 = auxHab.Split('.');
-            for (i = 0; i < auxHab2.Length -1; i++)
-                p.habilidades[i] = Convert.ToBoolean(auxHab2[i]);
+                auxHab2 = auxHab.Split('.');
+                for (i = 0; i < auxHab2.Length - 1; i++)
+                    p.habilidades[i] = Convert.ToBoolean(auxHab2[i]);
 
-            auxObjMoch2 = auxObjMoch.Split('.');
-            for (i = 0; i < auxObjMoch2.Length -1; i++)
-                p.objetosMochila[i] = auxObjMoch2[i];
-
+                auxObjMoch2 = auxObjMoch.Split('.');
+                for (i = 0; i < auxObjMoch2.Length - 1; i++)
+                    p.objetosMochila[i] = auxObjMoch2[i];
+            }
             return p;
         }
         public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {

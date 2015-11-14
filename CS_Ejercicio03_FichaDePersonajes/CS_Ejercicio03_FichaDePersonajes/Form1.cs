@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace CS_Ejercicio03_FichaDePersonajes
 {
@@ -56,6 +57,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             actualizarFlechasDesplazamiento();
             if (!album.vacio()) {
                 imgAlbum.BackgroundImage = Properties.Resources.album;
+                imgAlbum.Enabled = true;
             } else
                 imgAlbum.Enabled = false;
             /*
@@ -1318,6 +1320,32 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 imgSaveME.Enabled = false;
                 imgSaveME.BackgroundImage = Properties.Resources.guardarOff;
             }
+        }
+        private void importarDesde_Click(object sender, EventArgs e) {
+            OpenFileDialog dialogo = new OpenFileDialog();
+            DialogResult resultado = dialogo.ShowDialog();
+            if (resultado == DialogResult.OK) 
+                if ((Regex.Match(dialogo.FileName, ".txt")).Length > 0) {
+                    album.importarDesde(dialogo.FileName);
+                    actualizarFlechasDesplazamiento();
+                    if (!album.vacio()) {
+                        imgAlbum.BackgroundImage = Properties.Resources.album;
+                        imgAlbum.Enabled = true;
+                    } else
+                        imgAlbum.Enabled = false;
+                }
+        }
+        private void exportarA_Click(object sender, EventArgs e) {
+            SaveFileDialog dialogo = new SaveFileDialog(); string ruta;
+            DialogResult resultado = dialogo.ShowDialog();
+            if (resultado == DialogResult.OK) {
+                ruta = dialogo.FileName;
+                if ((Regex.Match(dialogo.FileName, ".txt")).Length == 0)
+                    ruta += ".txt";
+
+                album.exportarA(ruta);
+            }
+                
         }
     }
 }
