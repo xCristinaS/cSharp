@@ -92,10 +92,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 this.BackgroundImage = Properties.Resources.fondo;
             }
         } 
-        private void actualizarImg(object sender, EventArgs e) {
-            mostrarImgPersonaje(sender);
-        }
-        private void mostrarImgPersonaje(object sender) {
+        private void actualizarImgPsj(object sender, EventArgs e) {
             String personaje;
             if (!combClase.Text.Equals("")) {
                 habilitarHabilidades();
@@ -224,8 +221,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             pbVelocidad.Value += valoresAtributosAleatorios[8]; pbVitalidad.Value += valoresAtributosAleatorios[9];
             // Reestablezco los puntos a repartir, puesto que si he llegado aquí es porque se ha cambiado de personaje y
             // en ese caso, si se hizo un reparto de puntos para el personaje anterior los cambios deben ser suprimidos.
-            ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB;
-            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
+            ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB; lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
         }
         private void resetValoresAtrib() {
             pbCarisma.Value = 0; pbCoraje.Value = 0; pbDestreza.Value = 0; pbFuerza.Value = 0; pbIngenio.Value = 0; pbIniciativa.Value = 0;
@@ -311,7 +307,6 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 decrementarPb(pbReflejos, decRef, incRef);
             else if (sender.Equals(decVel)) 
                 decrementarPb(pbVelocidad, decVel, incVel);
-            
             // Si he llegado hasta aquí es porque he decrementado alguna de las flechas. Si los puntos a repartir son igual a 1, significa que previamente eran 0 y por
             // tanto todas las flechas de incremento estaban apagadas, en ese caso vuelvo a habilitar todas las flechas de incremento siempre y cuando la barra asociada a ellas
             // no esté llena. 

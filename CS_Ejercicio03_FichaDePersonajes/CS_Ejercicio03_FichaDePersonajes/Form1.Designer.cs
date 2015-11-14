@@ -1144,7 +1144,7 @@
             this.rbtnFemenino.Text = "Femenino";
             this.rbtnFemenino.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rbtnFemenino.UseVisualStyleBackColor = false;
-            this.rbtnFemenino.CheckedChanged += new System.EventHandler(this.actualizarImg);
+            this.rbtnFemenino.CheckedChanged += new System.EventHandler(this.actualizarImgPsj);
             // 
             // lblGenero
             // 
@@ -1169,7 +1169,7 @@
             this.rbtnMasculino.TabStop = true;
             this.rbtnMasculino.Text = "Masculino";
             this.rbtnMasculino.UseVisualStyleBackColor = false;
-            this.rbtnMasculino.CheckedChanged += new System.EventHandler(this.actualizarImg);
+            this.rbtnMasculino.CheckedChanged += new System.EventHandler(this.actualizarImgPsj);
             // 
             // combRaza
             // 
@@ -1200,7 +1200,7 @@
             this.combClase.Name = "combClase";
             this.combClase.Size = new System.Drawing.Size(188, 25);
             this.combClase.TabIndex = 6;
-            this.combClase.SelectedIndexChanged += new System.EventHandler(this.actualizarImg);
+            this.combClase.SelectedIndexChanged += new System.EventHandler(this.actualizarImgPsj);
             this.combClase.TextChanged += new System.EventHandler(this.comprobarSiRelleno);
             // 
             // panelPsj
