@@ -1,21 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 
-namespace CS_Ejercicio03_FichaDePersonajes
-{
+namespace CS_Ejercicio03_FichaDePersonajes {
     public partial class Form1 : Form {
-        private string[] personajesMagicos = { "Mago", "Nigromante" };
-        string[] personajesMundanos = { "Arquero", "Daguero", "Cazador", "Guerrero", "Paladin" };
+        private string[] personajesMagicos = { Constantes.MAGO, Constantes.NIGROMANTE};
+        string[] personajesMundanos = { Constantes.ARQUERO, Constantes.DAGUERO, Constantes.CAZADOR, Constantes.GUERRERO, Constantes.PALADIN};
         int[] valoresAtributosAleatorios = new int[10]; private bool dadoApagado = false;
         private int numTirada = 0, ptosRepAtrib = Constantes.PTOS_REPARTIR_ATB, habPorSelect = Constantes.HABILIDADES_SELECCIONABLES, aux = 0;
         private Random rnd = new Random(); bool modoEdicion = false, carga1 = false, carga2 = false, carga3 = false, carga4 = false;
@@ -30,24 +23,13 @@ namespace CS_Ejercicio03_FichaDePersonajes
         public Form1() {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e) {
             imgCerrar.Visible = false;
             habilitarDragDrop();
             obtenerValoresAleatorios(); // Relleno el arrays de valores de los atributos con números aleatorios.
             deshabilitarHabilidades(); // Para que no se puedan marcar si no hay personaje seleccionado. 
-            lblPuntosRepartirA.Text = Constantes.PTOS_A_REP + ptosRepAtrib;
             lblHabilidadesPorSelec.Text = Constantes.HAB_POR_SELEC + habPorSelect;
-            // A todos los picture box que están en el panel de atributos les cambio su .Tag a valor 0, para despúes poder 
-            // jugar con los valores que se le vayan dando e incrementar o decrementar las progressbar de habilidades en 
-            // función de los puntos que reparta el usuario. 
-            foreach (object pbAtributo in panelAtributos.Controls) {
-                if (pbAtributo is PictureBox) {
-                    ((PictureBox)pbAtributo).Tag = 0;
-                    if (((PictureBox)pbAtributo).Name.StartsWith("d"))  // Si la flecha es de decremento, la apago, para indicar que no se puede decrementar la barra. 
-                        ((PictureBox)pbAtributo).BackgroundImage = Properties.Resources.flechaIzqApagada;
-                }
-            }
+            resetFlechasAtributos();
             // Oculto todos los elementos para emular un menú de carga. 
             ocultarPaginaNewPersonaje();
             panelVistaPersonaje.Visible = false;
@@ -395,11 +377,18 @@ namespace CS_Ejercicio03_FichaDePersonajes
             }
             // Si el dado estaba habilidato y el número de tiradas llega al máximo permitido, apago el dado y cambio la imagen del dado 
             // para que aparezca deshabilitado. 
-            if (!dadoApagado && (numTirada == Constantes.MAX_TIRADAS || numTiradaME == Constantes.MAX_TIRADAS)) {
-                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
-                dadoApagado = true;
-                imgDado.Enabled = false;
-            }
+            if (!dadoApagado && (numTirada == Constantes.MAX_TIRADAS || numTiradaME == Constantes.MAX_TIRADAS))
+                deshabilitarDado();
+        }
+        private void habilitarDado() { 
+            imgDado.BackgroundImage = Properties.Resources.dado;
+            dadoApagado = false;
+            imgDado.Enabled = true;
+        }
+        private void deshabilitarDado() {
+            imgDado.BackgroundImage = Properties.Resources.dadoApagado;
+            dadoApagado = true;
+            imgDado.Enabled = false;
         }
         private void obtenerValoresAleatorios() {
             // Relleno el array de valores aleatorios para los atributos. 
@@ -493,10 +482,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
                 }
                 ocultarPaginaNewPersonaje();
                 actualizarFlechasDesplazamiento();
-                numTirada = 0;
-                imgDado.BackgroundImage = Properties.Resources.dado;
-                imgDado.Enabled = true;
-                dadoApagado = false;
+                numTirada = 0; habilitarDado();
                 this.BackgroundImage = Properties.Resources.fondo;
                 menuSeleccion.Visible = true;
             } else 
@@ -655,18 +641,16 @@ namespace CS_Ejercicio03_FichaDePersonajes
         private void mObj_DragDrop(object sender, DragEventArgs e) {
             PictureBox img = (PictureBox)sender; bool centinela = false; string obj;
             obj = (string) e.Data.GetData(DataFormats.StringFormat);
-            String prueba;
             
-            // Busco entre los objetos equipables algun objeto igual al que he arrastrado a la mochila, cuando lo encuentro: 
-            foreach (object o in panelObjetos.Controls) {
-                if (!centinela && o is PictureBox)
-                    if ((prueba = ((PictureBox)o).Name).Equals(obj)) {
-                        img.BackgroundImage = ((PictureBox)o).BackgroundImage;
-                        img.BackgroundImage.Tag = obj;
-                        ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag; // Cambio la imagen por la que guarda el tag de ese elemento, que es esa imagen pero apagada. 
-                        ((PictureBox)o).Tag = img.BackgroundImage; // Guardo la imagen "encendida" en el tag. 
-                        ((PictureBox)o).Enabled = false; // Deshabilito esa imagen para no poder hacer mas drag and drop. 
-                        centinela = true;
+            foreach (object o in panelObjetos.Controls) { // recorro los objetos del inventario. 
+                if (!centinela && o is PictureBox) // si "o" es un picturebox y el centinela no ha saltado
+                    if (((PictureBox)o).Name.Equals(obj)) { // si el nombre del pictureBox es el "string" con el nombre que capturo el ratón al hacer mouseDown
+                        img.BackgroundImage = ((PictureBox)o).BackgroundImage; // cojo la imagen del inventario y se la pongo a la mochila
+                        img.BackgroundImage.Tag = obj; // meto el nombre del objeto del inventario del que he cogido la imagen en el tag de la imagen
+                        ((PictureBox)o).BackgroundImage = (Image)((PictureBox)o).Tag;  // cambio la imagen del objeto del inventario por la de su tag, que contiene la apagada
+                        ((PictureBox)o).Tag = img.BackgroundImage;  // meto en el tag la imagen encendida, que ya la tiene el hueco de la mochila. 
+                        ((PictureBox)o).Enabled = false; // deshabilito el mouseDown del objeto del inventario
+                        centinela = true; // hago saltar al centinela para que no busque mas
                     }
             }
             if (modoEdicion)
@@ -747,29 +731,21 @@ namespace CS_Ejercicio03_FichaDePersonajes
             habPorSelect = Constantes.HABILIDADES_SELECCIONABLES;
         }
         private void imgPropiedades_Click(object sender, EventArgs e) {
-            panelObjetos.Visible = false;
-            panelMochila.Visible = false;
-            panelAtributos.Visible = true;
-            panelHabilidades.Visible = true;
-            if (modoEdicion) {
-                if (numTiradaME < Constantes.MAX_TIRADAS) {
-                    imgDado.Enabled = true;
-                    imgDado.BackgroundImage = Properties.Resources.dado;
-                }
-            } else {
-                if (numTirada < Constantes.MAX_TIRADAS) {
-                    imgDado.Enabled = true;
-                    imgDado.BackgroundImage = Properties.Resources.dado;
-                }
-            }
+            panelObjetos.Visible = false; // Oculto inventario. 
+            panelMochila.Visible = false; // Oculto mochila. 
+            panelAtributos.Visible = true; // Muestro atributos. 
+            panelHabilidades.Visible = true; // Muestro habilidades. 
+            if (modoEdicion) { // Si estoy en modo edición
+                if (numTiradaME < Constantes.MAX_TIRADAS) habilitarDado(); // y me quedan tiradas habilito el dado. 
+            } else // Si no estoy en modo edición
+                if (numTirada < Constantes.MAX_TIRADAS) habilitarDado(); // y tengo tiradas disponibles habilito el dado. 
         }
         private void imgEquipamiento_Click(object sender, EventArgs e) {
-            panelAtributos.Visible = false;
-            panelHabilidades.Visible = false;
-            panelMochila.Visible = true;
-            panelObjetos.Visible = true;
-            imgDado.Enabled = false;
-            imgDado.BackgroundImage = Properties.Resources.dadoApagado;
+            panelAtributos.Visible = false; // oculto los atributos. 
+            panelHabilidades.Visible = false; // oculto habilidades. 
+            panelMochila.Visible = true; // muestro mochila. 
+            panelObjetos.Visible = true; // muestro inventario. 
+            deshabilitarDado(); // deshabilito el dado. 
         }
         private void volverMenuSelec(object sender, EventArgs e) {
             if (sender.Equals(imgAtrasNP)) 
@@ -881,32 +857,27 @@ namespace CS_Ejercicio03_FichaDePersonajes
             imgEquipamiento.Visible = true; imgDado.Visible = true;
             cargarPersonajeModoEdicion(album.personajeActual());
         }
-        private void ocultarModoEdicion() {
+        private void ocultarModoEdicion() { // oculto todos los elementos correspondientes al modo edición. 
             imgSaveME.Visible = false; imgAtrasME.Visible = false; panelDatosPjME.Visible = false; panelMochila.Visible = false;
             panelObjetos.Visible = false; panelAtributos.Visible = false; panelHabilidades.Visible = false; imgPropiedades.Visible = false;
             imgEquipamiento.Visible = false; imgDado.Visible = false; imgDado.Enabled = true; imgSaveME.Enabled = false;
             imgSaveME.BackgroundImage = Properties.Resources.guardarOff;
-            if (numTirada == Constantes.MAX_TIRADAS) {
-                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
-                imgDado.Enabled = false;
-                dadoApagado = true;
-            } else {
-                imgDado.BackgroundImage = Properties.Resources.dado;
-                imgDado.Enabled = true;
-                dadoApagado = false;
-            }
-            if (modoEdicion)
-                album.personajeActual().setNumTirada(numTiradaME);
-            modoEdicion = false; numTiradaME = 0; vaciarMochila();
+            if (numTirada == Constantes.MAX_TIRADAS) // si no tengo tiradas
+                deshabilitarDado(); // deshabilito el dado. 
+            else // en caso contrario
+                habilitarDado(); // lo habilito. 
+            if (modoEdicion) // si se oculta el modo edición pero estaba previamente en él
+                album.personajeActual().setNumTirada(numTiradaME); // almaceno el número de tiradas por si se han modificado. 
+            modoEdicion = false; numTiradaME = 0; vaciarMochila(); 
         }
         private void cargarPersonajeModoVision(Personaje p) {
-            string[] hab = dameNombresHab(p);
+            string[] hab = dameNombresHab(p); // cargo todos los datos del personaje que se muestran en la vista de personaje. 
             cargarDatoPersonaje(p, lblNombPersMV, lblNombJugMV, lblTipoPsjMV, pbVitMV, pbPercMV, pbDestMV, pbFuerMV, pbIngMV, pbCorMV, pbCarMV, pbIniMV, pbRefMV, pbVelMV, imgObj1MV, imgObj2MV, imgObj3MV, imgObj4MV);
             hab1MV.Text = hab[0]; hab2MV.Text = hab[1]; hab3MV.Text = hab[2]; hab4MV.Text = hab[3];
             hab5MV.Text = hab[4]; hab6MV.Text = hab[5]; hab7MV.Text = hab[6]; hab8MV.Text = hab[7];
             cargarImgPersonaje(identificarPersonaje(p.getClase()));
         }
-        private void cargarPersonajeModoEdicion(Personaje p) {
+        private void cargarPersonajeModoEdicion(Personaje p) { // cargo todos los datos del personaje que se muestran en el modo edición. 
             cargarDatoPersonaje(p, lblNombrePME, lblNombreJME, lblTipoME, pbVitalidad, pbPercepcion, pbDestreza, pbFuerza, pbIngenio, pbCoraje, pbCarisma, pbIniciativa, pbReflejos, pbVelocidad, mObj1, mObj2, mObj3, mObj4);
             cboxAbrCerr.Checked = p.getHabilidades()[0]; cboxEsquivar.Checked = p.getHabilidades()[1]; cboxSigilo.Checked = p.getHabilidades()[2]; cboxDetMent.Checked = p.getHabilidades()[3];
             cboxPersuasion.Checked = p.getHabilidades()[4]; cboxTrampasFosos.Checked = p.getHabilidades()[5]; cboxOcultarse.Checked = p.getHabilidades()[6]; cboxHurtar.Checked = p.getHabilidades()[7];
@@ -924,15 +895,10 @@ namespace CS_Ejercicio03_FichaDePersonajes
             adaptarObjetosEquipables();
             if (habPorSelect > 0)
                 habilitarHabilidades();
-            if (numTiradaME == Constantes.MAX_TIRADAS) {
-                imgDado.BackgroundImage = Properties.Resources.dadoApagado;
-                imgDado.Enabled = false;
-                dadoApagado = true;
-            } else {
-                imgDado.BackgroundImage = Properties.Resources.dado;
-                imgDado.Enabled = true;
-                dadoApagado = false;
-            }
+            if (numTiradaME == Constantes.MAX_TIRADAS)
+                deshabilitarDado();
+            else 
+                habilitarDado();
         }
         private void cargarDatoPersonaje(Personaje p, Label nombreP, Label nombreJ, Label tipo, ProgressBar vitalidad, ProgressBar percepcion, ProgressBar destreza, ProgressBar fuerza, ProgressBar ingenio, ProgressBar coraje, ProgressBar carisma, ProgressBar iniciativa, ProgressBar reflejos, ProgressBar velocidad, PictureBox objeto1, PictureBox objeto2, PictureBox objeto3, PictureBox objeto4) {
             Image[] objetosMochila; // Cargo los datos del personaje comunes al modo edición y al modo visión. 
@@ -998,11 +964,11 @@ namespace CS_Ejercicio03_FichaDePersonajes
         }
         private Image[] cargarObjetosEnMochila(string[] mochila) {
             Image[] items = new Image[4];
-            for (int i = 0; i < mochila.Length; i++)
-                foreach (object o in panelObjetos.Controls)
-                    if (o is PictureBox && ((PictureBox)o).Name.Equals(mochila[i])) {
-                        items[i] = (Image)((PictureBox)o).BackgroundImage;
-                        items[i].Tag = mochila[i];
+            for (int i = 0; i < mochila.Length; i++) // recorro los nombres de los objetos que tiene el personaje equipado en mochila
+                foreach (object o in panelObjetos.Controls) // recorro los objetos del inventario
+                    if (o is PictureBox && ((PictureBox)o).Name.Equals(mochila[i])) { // si el nombre del obj del inventario es igual al que fue equipado en la mochila
+                        items[i] = (Image)((PictureBox)o).BackgroundImage; // meto la imagen del objeto del inventario en el array de imagenes
+                        items[i].Tag = mochila[i]; // como tag le agrego el nombre del pictureBox que contenia la imagen en el inventario. 
                     }
             return items;
         }
@@ -1022,9 +988,9 @@ namespace CS_Ejercicio03_FichaDePersonajes
             OpenFileDialog dialogo = new OpenFileDialog();
             DialogResult resultado = dialogo.ShowDialog();
             if (resultado == DialogResult.OK) 
-                if ((Regex.Match(dialogo.FileName, ".txt")).Length > 0) {
-                    album.importarDesde(dialogo.FileName);
-                    actualizarFlechasDesplazamiento();
+                if ((Regex.Match(dialogo.FileName, ".txt")).Length > 0) { // si el archivo seleccionado tiene extension .txt
+                    album.importarDesde(dialogo.FileName); // importo
+                    actualizarFlechasDesplazamiento(); 
                     if (!album.vacio()) {
                         imgAlbum.BackgroundImage = Properties.Resources.album;
                         imgAlbum.Enabled = true;
@@ -1037,7 +1003,7 @@ namespace CS_Ejercicio03_FichaDePersonajes
             DialogResult resultado = dialogo.ShowDialog();
             if (resultado == DialogResult.OK) {
                 ruta = dialogo.FileName;
-                if ((Regex.Match(dialogo.FileName, ".txt")).Length == 0)
+                if ((Regex.Match(dialogo.FileName, ".txt")).Length == 0) 
                     ruta += ".txt";
 
                 album.exportarA(ruta);

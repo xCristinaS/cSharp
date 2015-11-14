@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace CS_Ejercicio03_FichaDePersonajes {
@@ -98,15 +95,16 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 while ((linea = lector.ReadLine()) != null) {
                     p = Personaje.montarPersonaje(linea);
                     igual = false;
-                    if (p.getNombreJ() != null && p.getNombreP() != null && p.getGenero() != null && p.getClase() != null) {
-                        if (p.getGenero().Equals("Femenino") || p.getGenero().Equals("Masculino")) {
-                            for (int i = 0; !igual && i < lista.Count; i++)
-                                if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
-                                    igual = true;
-                            if (!igual)
-                                lista.AddLast(p);
-                        }
-                    }
+                    if (p.getNombreJ() != null && p.getNombreP() != null && p.getGenero() != null && p.getClase() != null)
+                        if (p.getGenero().Equals("Femenino") || p.getGenero().Equals("Masculino"))
+                            if (p.getRaza().Equals(Constantes.SER_MAGICO) || p.getRaza().Equals(Constantes.SER_MUNDANO))
+                                if (p.getClase().Equals(Constantes.ARQUERO) || p.getClase().Equals(Constantes.DAGUERO) || p.getClase().Equals(Constantes.PALADIN) || p.getClase().Equals(Constantes.NIGROMANTE) || p.getClase().Equals(Constantes.MAGO) || p.getClase().Equals(Constantes.CAZADOR) || p.getClase().Equals(Constantes.GUERRERO)) { 
+                                    for (int i = 0; !igual && i < lista.Count; i++)
+                                        if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
+                                            igual = true;
+                                        if (!igual)
+                                            lista.AddLast(p);
+                                    }
                 }
                 lector.Close();
             }

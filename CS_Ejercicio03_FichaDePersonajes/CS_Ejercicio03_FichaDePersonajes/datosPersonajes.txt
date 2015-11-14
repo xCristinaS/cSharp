@@ -1,2 +1,3 @@
-aMano,oks,Masculino,Ser mágico,Mago,11.11.4.10.15.5.14.18.11.10.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,obj3.obj6...,
-personaje1,aa,Masculino,Ser mundano,Daguero,9.9.22.7.12.23.17.13.7.20.,0.0.0.0.0.0.0.0.0.0.,False.False.False.True.True.False.False.True.True.False.True.False.True.False.True.False.False.False.False.,0,1,20,obj4..obj8.obj9.,
+P1,Cris,Femenino,Ser mágico,Mago,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,
+P2,Cris,Femenino,Ser mágico,Mago,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,
+P3,Alex,Masculino,Ser mágico,Cazador,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,

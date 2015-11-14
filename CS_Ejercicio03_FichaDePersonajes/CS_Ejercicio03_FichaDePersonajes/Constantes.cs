@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CS_Ejercicio03_FichaDePersonajes {
+﻿namespace CS_Ejercicio03_FichaDePersonajes {
     class Constantes {
         public const int MAX_VALOR_ALEATORIO = 15;
         public const int MIN_VALOR_ALEATORIO = 1;
@@ -19,6 +13,15 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         public const string LBL_TIPO = "Tipo: ";
         public const string RUTA_RECURSOS = "..\\..\\Resources\\";
         public const string EXTENSION_PNG = ".png";
+        public const string SER_MAGICO = "Ser mágico";
+        public const string SER_MUNDANO = "Ser mundano";
+        public const string ARQUERO = "Arquero";
+        public const string DAGUERO = "Daguero";
+        public const string PALADIN = "Paladin";
+        public const string CAZADOR = "Cazador";
+        public const string MAGO = "Mago";
+        public const string NIGROMANTE = "Nigromante";
+        public const string GUERRERO = "Guerrero";
 
         // Incremento atributos Guerrero:
         public const int GUERRERO_FUERZA_PLUS = 10;
