@@ -59,13 +59,15 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 if (i == objetosMochila.Length - 1)
                     cadena += ",";
             }
+            //cadena += hashCode() + ",";
             return cadena;
         }
         public static Personaje montarPersonaje(string cadena) {
-            Personaje p = new Personaje(); string[] campos = cadena.Split(','); int i;
+            Personaje p = null; string[] campos = cadena.Split(','); int i;
             string auxAtb , auxTags, auxHab, auxObjMoch;
             string[] auxAtb2, auxTags2, auxHab2, auxObjMoch2;
             if (campos.Length >= 11) {
+                p = new Personaje();
                 p.nombreP = campos[0];
                 p.nombreJ = campos[1];
                 p.genero = campos[2];
@@ -94,8 +96,30 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 auxObjMoch2 = auxObjMoch.Split('.');
                 for (i = 0; i < auxObjMoch2.Length - 1; i++)
                     p.objetosMochila[i] = auxObjMoch2[i];
-            }
+
+                /*
+                int hashPersonaje = p.hashCode();
+                int hashLeido = Convert.ToInt32(campos[12]);
+                if (p.hashCode() != Convert.ToInt32(campos[12]))
+                    p = null;
+                    */
+            } 
             return p;
+        }
+        public int hashCode() {
+            int hashCode;
+            hashCode = nombreP.GetHashCode() + nombreJ.GetHashCode() + genero.GetHashCode() + raza.GetHashCode() + clase.GetHashCode();
+            for (int i = 0; i < atributos.Length; i++)
+                hashCode += atributos[i].GetHashCode() * 1000;
+            for (int i = 0; i < tagsAtb.Length; i++)
+                hashCode += tagsAtb[i].GetHashCode() * 2000;
+            for (int i = 0; i < habilidades.Length; i++)
+                hashCode += habilidades[i].GetHashCode() * 14527;
+            for (int i = 0; i < objetosMochila.Length; i++)
+                if (objetosMochila[i] != null)
+                    hashCode += objetosMochila[i].GetHashCode();
+            hashCode += numTirada.GetHashCode() + habPorSeleccionar.GetHashCode() + ptosARepartirA.GetHashCode();
+            return hashCode;
         }
         public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {
             bool r = false; int i;

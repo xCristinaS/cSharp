@@ -1,3 +1,2 @@
-P1,Cris,Femenino,Ser mágico,Mago,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,
-P2,Cris,Femenino,Ser mágico,Mago,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,
-P3,Alex,Masculino,Ser mágico,Cazador,15.10.11.6.17.12.8.17.16.9.,4.1.1.1.1.1.0.0.2.4.,False.False.False.False.True.True.True.True.False.False.False.False.True.True.False.False.False.False.False.,0,2,5,obj3.obj2.obj6.obj4.,
+fdddf,dddd,Masculino,Ser mundano,Guerrero,10.11.9.21.12.20.4.12.10.11.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,....,-1001267029,
+fff,ffff,Masculino,Ser mundano,Paladin,8.9.5.17.17.18.12.14.8.13.,0.0.0.0.1.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,19,....,-2057849958,

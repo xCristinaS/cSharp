@@ -116,7 +116,18 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             if (!personaje.Equals("nigromant")) { // Si el personaje seleccionado es diferente al nigromante (nigromante no tiene genero)
                 if (rbtnFemenino.Checked) // a la cadena personaje le agrego una "a".
                     personaje += "a";
-                if (rbtnMasculino.Checked) // a la cadena personaje le agrego una "o".
+                else // a la cadena personaje le agrego una "o".
+                    personaje += "o";
+            }
+            return personaje;
+        }
+        private string identificarPersonaje(string personaje, string genero) {
+            personaje = personaje.Substring(0, personaje.Length - 1); // A la cadena del personaje seleccionado le quito el último carácter  
+            personaje = personaje.ToLower(); // lo paso a minúsculas.
+            if (!personaje.Equals("nigromant")) { // Si el personaje seleccionado es diferente al nigromante (nigromante no tiene genero)
+                if (genero.Equals("Femenino")) // a la cadena personaje le agrego una "a".
+                    personaje += "a";
+                else // a la cadena personaje le agrego una "o".
                     personaje += "o";
             }
             return personaje;
@@ -896,7 +907,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             cargarDatoPersonaje(p, lblNombPersMV, lblNombJugMV, lblTipoPsjMV, pbVitMV, pbPercMV, pbDestMV, pbFuerMV, pbIngMV, pbCorMV, pbCarMV, pbIniMV, pbRefMV, pbVelMV, imgObj1MV, imgObj2MV, imgObj3MV, imgObj4MV);
             hab1MV.Text = hab[0]; hab2MV.Text = hab[1]; hab3MV.Text = hab[2]; hab4MV.Text = hab[3];
             hab5MV.Text = hab[4]; hab6MV.Text = hab[5]; hab7MV.Text = hab[6]; hab8MV.Text = hab[7];
-            cargarImgPersonaje(identificarPersonaje(p.getClase()));
+            cargarImgPersonaje(identificarPersonaje(p.getClase(), p.getGenero()));
         }
         private void cargarPersonajeModoEdicion(Personaje p) { // cargo todos los datos del personaje que se muestran en el modo edición. 
             cargarDatoPersonaje(p, lblNombrePME, lblNombreJME, lblTipoME, pbVitalidad, pbPercepcion, pbDestreza, pbFuerza, pbIngenio, pbCoraje, pbCarisma, pbIniciativa, pbReflejos, pbVelocidad, mObj1, mObj2, mObj3, mObj4);
