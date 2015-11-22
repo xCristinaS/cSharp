@@ -36,7 +36,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 lector = new StreamReader("..\\..\\datosPersonajes.txt");
                 while((linea = lector.ReadLine()) != null) 
                     if ((p = Personaje.montarPersonaje(linea)) != null)
-                        lista.AddLast(Personaje.montarPersonaje(linea));
+                        lista.AddLast(p);
                 
                 lector.Close();
             } else
@@ -90,22 +90,18 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return r;
         }
         public void importarDesde(string ruta) {
-            StreamReader lector; string linea; Personaje p; bool igual;
+            StreamReader lector; string linea; Personaje p; bool importar = true;
             if (File.Exists(ruta)) {
                 lector = new StreamReader(ruta);
                 while ((linea = lector.ReadLine()) != null) {
-                    p = Personaje.montarPersonaje(linea);
-                    igual = false;
-                    if (p.getNombreJ() != null && p.getNombreP() != null && p.getGenero() != null && p.getClase() != null)
-                        if (p.getGenero().Equals("Femenino") || p.getGenero().Equals("Masculino"))
-                            if (p.getRaza().Equals(Constantes.SER_MAGICO) || p.getRaza().Equals(Constantes.SER_MUNDANO))
-                                if (p.getClase().Equals(Constantes.ARQUERO) || p.getClase().Equals(Constantes.DAGUERO) || p.getClase().Equals(Constantes.PALADIN) || p.getClase().Equals(Constantes.NIGROMANTE) || p.getClase().Equals(Constantes.MAGO) || p.getClase().Equals(Constantes.CAZADOR) || p.getClase().Equals(Constantes.GUERRERO)) { 
-                                    for (int i = 0; !igual && i < lista.Count; i++)
-                                        if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
-                                            igual = true;
-                                        if (!igual)
-                                            lista.AddLast(p);
-                                    }
+                    if ((p = Personaje.montarPersonaje(linea)) != null) {
+                        for (int i = 0; i < lista.Count; i++) // para no importar personajes con el mismo nombre.
+                            if (lista.ElementAt(i).getNombreP().Equals(p.getNombreP()))
+                                importar = false;
+                        
+                        if (importar)
+                            lista.AddLast(p);
+                    }
                 }
                 lector.Close();
             }

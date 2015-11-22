@@ -59,7 +59,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 if (i == objetosMochila.Length - 1)
                     cadena += ",";
             }
-            //cadena += hashCode() + ",";
+            cadena += hashCode() + ",";
             return cadena;
         }
         public static Personaje montarPersonaje(string cadena) {
@@ -97,29 +97,37 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 for (i = 0; i < auxObjMoch2.Length - 1; i++)
                     p.objetosMochila[i] = auxObjMoch2[i];
 
-                /*
                 int hashPersonaje = p.hashCode();
                 int hashLeido = Convert.ToInt32(campos[12]);
                 if (p.hashCode() != Convert.ToInt32(campos[12]))
                     p = null;
-                    */
             } 
             return p;
         }
         public int hashCode() {
-            int hashCode;
-            hashCode = nombreP.GetHashCode() + nombreJ.GetHashCode() + genero.GetHashCode() + raza.GetHashCode() + clase.GetHashCode();
-            for (int i = 0; i < atributos.Length; i++)
-                hashCode += atributos[i].GetHashCode() * 1000;
-            for (int i = 0; i < tagsAtb.Length; i++)
-                hashCode += tagsAtb[i].GetHashCode() * 2000;
-            for (int i = 0; i < habilidades.Length; i++)
-                hashCode += habilidades[i].GetHashCode() * 14527;
-            for (int i = 0; i < objetosMochila.Length; i++)
+            int hashCode = 0; int i;
+            hashCode += hashDeString(nombreJ); hashCode += hashDeString(nombreP); hashCode += hashDeString(genero);
+            hashCode += hashDeString(raza); hashCode += hashDeString(clase);
+            hashCode += numTirada * 4547; hashCode += habPorSeleccionar * 4547; hashCode += ptosARepartirA * 4547;
+            for (i = 0; i < objetosMochila.Length; i++)
                 if (objetosMochila[i] != null)
-                    hashCode += objetosMochila[i].GetHashCode();
-            hashCode += numTirada.GetHashCode() + habPorSeleccionar.GetHashCode() + ptosARepartirA.GetHashCode();
+                    hashCode += hashDeString(objetosMochila[i]);
+            for (i = 0; i < atributos.Length; i++)
+                hashCode += atributos[i] * 34215789;
+            for (i = 0; i < tagsAtb.Length; i++)
+                hashCode += tagsAtb[i] * 74589112;
+            for (i = 0; i < habilidades.Length; i++)
+                if (habilidades[i])
+                    hashCode += 8888888;
+                else
+                    hashCode += 4444444;
             return hashCode;
+        }
+        private int hashDeString(string s) {
+            int codigo = 0; char[] caracteres = s.ToCharArray();
+            for (int i = 0; i < caracteres.Length; i++)
+                codigo += caracteres[i] * 14752;
+            return codigo;
         }
         public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {
             bool r = false; int i;
