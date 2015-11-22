@@ -34,9 +34,9 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             StreamReader lector; string linea; Personaje p;
             if (File.Exists("..\\..\\datosPersonajes.txt")) {
                 lector = new StreamReader("..\\..\\datosPersonajes.txt");
-                while((linea = lector.ReadLine()) != null) 
-                    if ((p = Personaje.montarPersonaje(linea)) != null)
-                        lista.AddLast(p);
+                while((linea = lector.ReadLine()) != null) // leo el fichero linea a linea
+                    if ((p = Personaje.montarPersonaje(linea)) != null) // si el personaje que monto de la linea no es nulo
+                        lista.AddLast(p); // lo agrego a la lista de personajes del álbum.
                 
                 lector.Close();
             } else

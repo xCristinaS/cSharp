@@ -28,7 +28,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             this.ptosARepartirA = ptosARepartirA;
             this.objetosMochila = objetosMochila;
         }
-        public string escribirPersonaje() {
+        public string escribirPersonaje() { // escribo los atributos del personaje separados por "," y si es un array separo además cada elemento del array por "." para después hacer un split.
             string cadena = ""; int i;
             cadena += nombreP + ",";
             cadena += nombreJ + ",";
@@ -63,8 +63,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return cadena;
         }
         public static Personaje montarPersonaje(string cadena) {
-            Personaje p = null; string[] campos = cadena.Split(','); int i;
-            string auxAtb , auxTags, auxHab, auxObjMoch;
+            Personaje p = null; string[] campos = cadena.Split(','); // recupero los atributos del personaje y se los voy asignando.
+            string auxAtb , auxTags, auxHab, auxObjMoch; int i;
             string[] auxAtb2, auxTags2, auxHab2, auxObjMoch2;
             if (campos.Length >= 11) {
                 p = new Personaje();
@@ -81,7 +81,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 p.ptosARepartirA = Convert.ToInt32(campos[10]);
                 auxObjMoch = campos[11];
 
-                auxAtb2 = auxAtb.Split('.');
+                auxAtb2 = auxAtb.Split('.'); // a los campos que son array le vuelvo a hacer split para obtener los valores. 
                 for (i = 0; i < auxAtb2.Length - 1; i++)
                     p.atributos[i] = Convert.ToInt32(auxAtb2[i]);
 
@@ -130,6 +130,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             return codigo;
         }
         public bool meHanModificado(bool[] habilidades, int[]atributos, string[] objetosMochila) {
+            // comparo si han modificado algo del personaje para habilitar la opción de guardado o no. 
             bool r = false; int i;
             if (!r) {
                 for (i = 0; !r && i < this.atributos.Length; i++)
