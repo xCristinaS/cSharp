@@ -1,5 +1,5 @@
 ﻿namespace CS_Ejercicio04_Coleccion {
-    partial class Form1 {
+    partial class FormInicioSesion {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -52,7 +52,7 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // Form1
+            // FormInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,7 +62,7 @@
             this.Controls.Add(this.txtUsuario);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "FormInicioSesion";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS_Ejercicio04_Coleccion {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class FormInicioSesion : Form {
+        public FormInicioSesion() {
             InitializeComponent();
         }
 
@@ -22,9 +22,12 @@ namespace CS_Ejercicio04_Coleccion {
             SqlCommand orden = new SqlCommand(select, conexion);
 
             int resultado = (int)orden.ExecuteScalar();
-            if (resultado == 1)
-                MessageBox.Show("logueado.");
-            else
+            if (resultado == 1) {
+                this.Hide();
+                SeleccionGenero form2 = new SeleccionGenero();
+                form2.FormClosed += (s, args) => this.Show();
+                form2.Show();
+            }  else
                 MessageBox.Show("NO logueado.");
 
             BddConection.closeConnection(conexion);
