@@ -24,13 +24,17 @@ namespace CS_Ejercicio04_Coleccion {
             int resultado = (int)orden.ExecuteScalar();
             if (resultado == 1) {
                 this.Hide();
-                SeleccionGenero form2 = new SeleccionGenero();
+                SeleccionGenero form2 = new SeleccionGenero(usuario);
                 form2.FormClosed += (s, args) => this.Show();
                 form2.Show();
             }  else
-                MessageBox.Show("NO logueado.");
+                MessageBox.Show("No fue posible establecer la conexión.");
 
             BddConection.closeConnection(conexion);
+        }
+
+        private void FormInicioSesion_Load(object sender, EventArgs e) {
+
         }
     }
 }
