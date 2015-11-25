@@ -1,5 +1,5 @@
 ﻿namespace CS_Ejercicio04_Coleccion {
-    partial class SeleccionGenero {
+    partial class MisLibros {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,7 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.comboGeneros = new System.Windows.Forms.ComboBox();
-            this.listaLibros = new System.Windows.Forms.ListBox();
+            this.lvLibros = new System.Windows.Forms.ListView();
+            this.imgCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // comboGeneros
@@ -36,24 +38,37 @@
             this.comboGeneros.TabIndex = 0;
             this.comboGeneros.SelectedIndexChanged += new System.EventHandler(this.comboGeneros_SelectedIndexChanged);
             // 
-            // listaLibros
+            // lvLibros
             // 
-            this.listaLibros.FormattingEnabled = true;
-            this.listaLibros.Location = new System.Drawing.Point(12, 60);
-            this.listaLibros.Name = "listaLibros";
-            this.listaLibros.Size = new System.Drawing.Size(334, 342);
-            this.listaLibros.TabIndex = 1;
+            this.lvLibros.Location = new System.Drawing.Point(39, 68);
+            this.lvLibros.Name = "lvLibros";
+            this.lvLibros.Size = new System.Drawing.Size(272, 130);
+            this.lvLibros.TabIndex = 2;
+            this.lvLibros.UseCompatibleStateImageBehavior = false;
             // 
-            // SeleccionGenero
+            // imgCerrar
+            // 
+            this.imgCerrar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.imgCerrar.Location = new System.Drawing.Point(326, 12);
+            this.imgCerrar.Name = "imgCerrar";
+            this.imgCerrar.Size = new System.Drawing.Size(18, 21);
+            this.imgCerrar.TabIndex = 3;
+            this.imgCerrar.TabStop = false;
+            this.imgCerrar.Click += new System.EventHandler(this.imgCerrar_Click);
+            // 
+            // MisLibros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(358, 413);
-            this.Controls.Add(this.listaLibros);
+            this.Controls.Add(this.imgCerrar);
+            this.Controls.Add(this.lvLibros);
             this.Controls.Add(this.comboGeneros);
-            this.Name = "SeleccionGenero";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "MisLibros";
             this.Text = "SeleccionGenero";
-            this.Load += new System.EventHandler(this.SeleccionGenero_Load);
+            this.Load += new System.EventHandler(this.MisLibros_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -61,6 +76,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboGeneros;
-        private System.Windows.Forms.ListBox listaLibros;
+        private System.Windows.Forms.ListView lvLibros;
+        private System.Windows.Forms.PictureBox imgCerrar;
     }
 }

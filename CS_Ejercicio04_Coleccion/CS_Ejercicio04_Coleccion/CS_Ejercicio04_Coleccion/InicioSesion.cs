@@ -24,7 +24,7 @@ namespace CS_Ejercicio04_Coleccion {
             int resultado = (int)orden.ExecuteScalar();
             if (resultado == 1) {
                 this.Hide();
-                SeleccionGenero form2 = new SeleccionGenero(usuario);
+                MisLibros form2 = new MisLibros(usuario);
                 form2.FormClosed += (s, args) => this.Show();
                 form2.Show();
             }  else
@@ -35,6 +35,10 @@ namespace CS_Ejercicio04_Coleccion {
 
         private void FormInicioSesion_Load(object sender, EventArgs e) {
 
+        }
+
+        private void imgCerrar_Click(object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

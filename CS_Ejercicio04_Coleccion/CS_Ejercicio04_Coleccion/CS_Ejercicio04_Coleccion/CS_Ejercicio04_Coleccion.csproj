@@ -47,22 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BddConection.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Constantes.cs" />
+    <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="InicioSesion.Designer.cs">
+      <DependentUpon>InicioSesion.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SeleccionGenero.cs">
+    <Compile Include="MisLibros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SeleccionGenero.Designer.cs">
-      <DependentUpon>SeleccionGenero.cs</DependentUpon>
+    <Compile Include="MisLibros.Designer.cs">
+      <DependentUpon>MisLibros.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="InicioSesion.resx">
+      <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -73,8 +74,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SeleccionGenero.resx">
-      <DependentUpon>SeleccionGenero.cs</DependentUpon>
+    <EmbeddedResource Include="MisLibros.resx">
+      <DependentUpon>MisLibros.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

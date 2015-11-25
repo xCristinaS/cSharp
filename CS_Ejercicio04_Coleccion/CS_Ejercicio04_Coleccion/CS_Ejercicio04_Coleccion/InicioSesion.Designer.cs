@@ -26,6 +26,8 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtClave = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.imgCerrar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUsuario
@@ -52,11 +54,22 @@
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
+            // imgCerrar
+            // 
+            this.imgCerrar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.imgCerrar.Location = new System.Drawing.Point(254, 12);
+            this.imgCerrar.Name = "imgCerrar";
+            this.imgCerrar.Size = new System.Drawing.Size(18, 21);
+            this.imgCerrar.TabIndex = 4;
+            this.imgCerrar.TabStop = false;
+            this.imgCerrar.Click += new System.EventHandler(this.imgCerrar_Click);
+            // 
             // FormInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.imgCerrar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.txtClave);
             this.Controls.Add(this.txtUsuario);
@@ -65,6 +78,7 @@
             this.Name = "FormInicioSesion";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormInicioSesion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -75,6 +89,7 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.TextBox txtClave;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.PictureBox imgCerrar;
     }
 }
 
