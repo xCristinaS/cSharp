@@ -14,6 +14,7 @@ namespace CS_Ejercicio04_Coleccion {
 
         private string usuario; // para saber que usuario inicio sesión. 
         private ImageList listaImg = new ImageList();
+        private string libroMarcado;
 
         public MisLibros(string usuario) {
             InitializeComponent();
@@ -23,6 +24,8 @@ namespace CS_Ejercicio04_Coleccion {
         private void MisLibros_Load(object sender, EventArgs e) {
             lvLibros.View = View.LargeIcon;
             lvLibros.LargeImageList = listaImg;
+            
+            
             listaImg.ImageSize = new Size(60, 80);
             cargarGenerosCombo();
         }
@@ -68,6 +71,14 @@ namespace CS_Ejercicio04_Coleccion {
 
         private void imgCerrar_Click(object sender, EventArgs e) {
             this.Close();
+        }
+
+        private void lvLibros_ItemActivate(object sender, EventArgs e) {
+            string titulo = ((ListViewItem)lvLibros.SelectedItems[0]).Text;
+            this.Hide();
+            DetallesLibro form3 = new DetallesLibro(usuario, titulo);
+            form3.FormClosed += (s, args) => this.Show();
+            form3.Show();
         }
     }
 }

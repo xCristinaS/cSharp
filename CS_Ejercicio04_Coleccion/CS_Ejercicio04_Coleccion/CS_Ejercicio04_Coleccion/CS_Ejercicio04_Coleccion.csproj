@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="BddConection.cs" />
     <Compile Include="Constantes.cs" />
+    <Compile Include="DetallesLibro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetallesLibro.Designer.cs">
+      <DependentUpon>DetallesLibro.cs</DependentUpon>
+    </Compile>
     <Compile Include="InicioSesion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,9 @@
     <Compile Include="MisLibros.Designer.cs">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DetallesLibro.resx">
+      <DependentUpon>DetallesLibro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InicioSesion.resx">
       <DependentUpon>InicioSesion.cs</DependentUpon>
     </EmbeddedResource>

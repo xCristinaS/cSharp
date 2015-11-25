@@ -41,10 +41,12 @@
             // lvLibros
             // 
             this.lvLibros.Location = new System.Drawing.Point(39, 68);
+            this.lvLibros.MultiSelect = false;
             this.lvLibros.Name = "lvLibros";
             this.lvLibros.Size = new System.Drawing.Size(272, 130);
             this.lvLibros.TabIndex = 2;
             this.lvLibros.UseCompatibleStateImageBehavior = false;
+            this.lvLibros.ItemActivate += new System.EventHandler(this.lvLibros_ItemActivate);
             // 
             // imgCerrar
             // 

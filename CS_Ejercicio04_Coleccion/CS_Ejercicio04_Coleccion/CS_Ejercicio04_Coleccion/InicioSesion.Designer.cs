@@ -77,7 +77,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormInicioSesion";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.FormInicioSesion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
