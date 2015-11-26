@@ -33,15 +33,10 @@ namespace CS_05_MiniPrac_DragDrop {
             else if (sender is ListBox)
                 ((ListBox)sender).Items.Add((string)e.Data.GetData(DataFormats.Text));
             else {
-                if (e.Data.GetData(DataFormats.Text) is string) {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = (string)e.Data.GetData(DataFormats.Text);
-                    item.SubItems.Add("columna");
-                    ((ListView)sender).Items.Add(item);
-                } else {
-                    ((ListView)sender).Items.AddRange(((ListView.ListViewItemCollection)e.Data.GetData(typeof(ListView.ListViewItemCollection))));
-                    
-                }
+                ListViewItem item = new ListViewItem();
+                item.Text = (string)e.Data.GetData(DataFormats.Text);
+                item.SubItems.Add("columna");
+                ((ListView)sender).Items.Add(item);
             }
         }
 
@@ -51,6 +46,22 @@ namespace CS_05_MiniPrac_DragDrop {
 
         private void itemDrag(object sender, ItemDragEventArgs e) {
             ((ListView)sender).DoDragDrop(((ListView)sender).SelectedItems, DragDropEffects.All);
+        }
+
+        private void listView2_dragDrop(object sender, DragEventArgs e) {
+            ListView.SelectedListViewItemCollection seleccionados = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
+            ListViewItem itemlist;
+            foreach (Object item in seleccionados) {
+                if (item is ListViewItem) {
+                    itemlist = (ListViewItem)((ListViewItem)item).Clone();
+                    listView2.Items.Add(itemlist);
+                }
+            }
+
+        }
+
+        private void listView2_dragEnter(object sender, DragEventArgs e) {
+            e.Effect = DragDropEffects.All;
         }
     }
 }

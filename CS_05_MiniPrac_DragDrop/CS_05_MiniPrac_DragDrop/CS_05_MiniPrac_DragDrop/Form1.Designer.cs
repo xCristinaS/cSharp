@@ -99,8 +99,8 @@
             this.listView2.Size = new System.Drawing.Size(121, 97);
             this.listView2.TabIndex = 6;
             this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.DragDrop += new System.Windows.Forms.DragEventHandler(this.dragDrop);
-            this.listView2.DragEnter += new System.Windows.Forms.DragEventHandler(this.dragEnter);
+            this.listView2.DragDrop += new System.Windows.Forms.DragEventHandler(this.listView2_dragDrop);
+            this.listView2.DragEnter += new System.Windows.Forms.DragEventHandler(this.listView2_dragEnter);
             // 
             // Form1
             // 
