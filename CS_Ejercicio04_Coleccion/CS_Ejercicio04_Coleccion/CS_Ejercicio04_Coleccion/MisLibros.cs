@@ -14,7 +14,6 @@ namespace CS_Ejercicio04_Coleccion {
 
         private string usuario; // para saber que usuario inicio sesión. 
         private ImageList listaImg = new ImageList();
-        private string libroMarcado;
 
         public MisLibros(string usuario) {
             InitializeComponent();
@@ -24,8 +23,6 @@ namespace CS_Ejercicio04_Coleccion {
         private void MisLibros_Load(object sender, EventArgs e) {
             lvLibros.View = View.LargeIcon;
             lvLibros.LargeImageList = listaImg;
-            
-            
             listaImg.ImageSize = new Size(60, 80);
             cargarGenerosCombo();
         }

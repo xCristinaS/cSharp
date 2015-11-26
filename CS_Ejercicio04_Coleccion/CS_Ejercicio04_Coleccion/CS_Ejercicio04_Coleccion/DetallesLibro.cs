@@ -27,7 +27,7 @@ namespace CS_Ejercicio04_Coleccion {
 
         private void cargarLibro() {
             string select = string.Format("select autor from libro where titulo = '"+libro+"'");
-            SqlConnection conexion = BddConection.newConnection();
+            SqlConnection conexion = BddConection.newConnection(); bool ponComa = false;
             SqlCommand orden = new SqlCommand(select, conexion);
             SqlDataReader datos = orden.ExecuteReader();
             titulo.Text = libro;
@@ -39,6 +39,23 @@ namespace CS_Ejercicio04_Coleccion {
             datos = orden.ExecuteReader();
             if (datos.Read())
                 portada.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + datos.GetString(0) + Constantes.EXT_JPG);
+            datos.Close();
+            select = string.Format("select genero from LibroGenero where titulo = '" + libro + "'");
+            orden = new SqlCommand(select, conexion);
+            datos = orden.ExecuteReader();
+            while (datos.Read()) {
+                if (!ponComa) {
+                    genero.Text = datos.GetString(0);
+                    ponComa = true;
+                } else
+                    genero.Text += ", " + datos.GetString(0);
+            }
+            datos.Close();
+            select = string.Format("select sipnosis from libro where titulo = '" + libro + "'");
+            orden = new SqlCommand(select, conexion);
+            datos = orden.ExecuteReader();
+            if (datos.Read())
+                sipnosis.Text = (string)datos.GetString(0);
             datos.Close();
             BddConection.closeConnection(conexion);
         }

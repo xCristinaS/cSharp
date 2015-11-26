@@ -68,6 +68,12 @@
     <Compile Include="MisLibros.Designer.cs">
       <DependentUpon>MisLibros.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tienda.Designer.cs">
+      <DependentUpon>Tienda.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DetallesLibro.resx">
       <DependentUpon>DetallesLibro.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +91,9 @@
     </Compile>
     <EmbeddedResource Include="MisLibros.resx">
       <DependentUpon>MisLibros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tienda.resx">
+      <DependentUpon>Tienda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
