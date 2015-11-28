@@ -62,17 +62,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MisLibros.cs">
+    <Compile Include="Libros.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MisLibros.Designer.cs">
-      <DependentUpon>MisLibros.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tienda.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tienda.Designer.cs">
-      <DependentUpon>Tienda.cs</DependentUpon>
+    <Compile Include="Libros.Designer.cs">
+      <DependentUpon>Libros.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="DetallesLibro.resx">
       <DependentUpon>DetallesLibro.cs</DependentUpon>
@@ -89,11 +83,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="MisLibros.resx">
-      <DependentUpon>MisLibros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tienda.resx">
-      <DependentUpon>Tienda.cs</DependentUpon>
+    <EmbeddedResource Include="Libros.resx">
+      <DependentUpon>Libros.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

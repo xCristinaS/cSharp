@@ -22,7 +22,9 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void DetallesLibro_Load(object sender, EventArgs e) {
+            CenterToScreen();
             cargarLibro();
+            panelSinopsis.AutoScroll = true;
         }
 
         private void cargarLibro() {
