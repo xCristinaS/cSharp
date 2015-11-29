@@ -17,5 +17,6 @@ namespace CS_Ejercicio04_Coleccion {
         public static string FALLO = RUTA_RECURSOS + "fallo.png";
         public static string BIEN = RUTA_RECURSOS + "bien.png";
         public static string DETALLES_EXT_PNG = "Detalles" + EXT_PNG;
+        public static int ITEMS_COMBO_SCROLL = 10;
     }
 }

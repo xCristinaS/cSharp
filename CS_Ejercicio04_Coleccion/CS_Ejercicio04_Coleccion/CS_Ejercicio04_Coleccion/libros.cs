@@ -46,6 +46,8 @@ namespace CS_Ejercicio04_Coleccion {
             generosTienda.Items.Add(Constantes.MOSTRAR_TODOS);
             misGeneros.SelectedIndex = misGeneros.Items.Count-1;
             generosTienda.SelectedIndex = generosTienda.Items.Count - 1;
+            misGeneros.DropDownHeight = misGeneros.ItemHeight * Constantes.ITEMS_COMBO_SCROLL;
+            generosTienda.DropDownHeight = misGeneros.ItemHeight * Constantes.ITEMS_COMBO_SCROLL;
             datos.Close();
             BddConection.closeConnection(conexion);
         }
@@ -116,11 +118,14 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_ItemActivate(object sender, EventArgs e) {
-            string titulo = ((ListViewItem) ((ListView)sender).SelectedItems[0]).Text; 
-            this.Hide();
-            DetallesLibro form3 = new DetallesLibro(usuario, titulo);
-            form3.FormClosed += (s, args) => this.Show();
-            form3.Show();
+            string titulo;
+            if (((ListView)sender).SelectedItems.Count > 0) {
+                titulo = ((ListViewItem)((ListView)sender).SelectedItems[0]).Text;
+                this.Hide();
+                DetallesLibro form3 = new DetallesLibro(usuario, titulo);
+                form3.FormClosed += (s, args) => this.Show();
+                form3.Show();
+            }
         }
 
         private void lvLibros_ItemDrag(object sender, ItemDragEventArgs e) {
@@ -135,7 +140,10 @@ namespace CS_Ejercicio04_Coleccion {
             ListView lista = (ListView) sender; bool guardar = true; int cont;
             ListView.SelectedListViewItemCollection objetos; ListViewItem item; System.Collections.IEnumerator enumerator;
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
-            
+
+            if (!misGeneros.SelectedItem.ToString().Equals(generosTienda.SelectedItem.ToString()))
+                misGeneros.SelectedIndex = generosTienda.SelectedIndex;
+
             foreach (ListViewItem it in objetos) {
                 cont = 0;
                 guardar = true;
