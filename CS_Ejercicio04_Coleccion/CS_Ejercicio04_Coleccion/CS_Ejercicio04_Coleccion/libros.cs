@@ -27,6 +27,9 @@ namespace CS_Ejercicio04_Coleccion {
             tienda.LargeImageList = listaImgTienda;
             listaImgMisLibros.ImageSize = new Size(85, 115);
             cargarGenerosCombo();
+            this.BackgroundImage = Image.FromFile(Constantes.FONDO_FORM);
+            imgCerrar.BackgroundImage = Image.FromFile(Constantes.BOTON_CERRAR);
+            eliminar.BackgroundImage = Image.FromFile(Constantes.PAPELERA);
         }
 
         private void cargarGenerosCombo() {
@@ -51,6 +54,7 @@ namespace CS_Ejercicio04_Coleccion {
             ComboBox combo = (ComboBox)sender;
             string genero = combo.SelectedItem.ToString();
             cargarLibros(genero, combo);
+            cargarFondoGenero(genero, combo);
         }
 
         private void cargarLibros(string genero, ComboBox combo) {
@@ -112,7 +116,7 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_ItemActivate(object sender, EventArgs e) {
-            string titulo = ((ListViewItem) ((ListView)sender).SelectedItems[0]).Text;
+            string titulo = ((ListViewItem) ((ListView)sender).SelectedItems[0]).Text; 
             this.Hide();
             DetallesLibro form3 = new DetallesLibro(usuario, titulo);
             form3.FormClosed += (s, args) => this.Show();
@@ -128,11 +132,12 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_DragDrop(object sender, DragEventArgs e) {
-            ListView lista = (ListView) sender; bool guardar = true; int cont = 0;
+            ListView lista = (ListView) sender; bool guardar = true; int cont;
             ListView.SelectedListViewItemCollection objetos; ListViewItem item; System.Collections.IEnumerator enumerator;
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
             
             foreach (ListViewItem it in objetos) {
+                cont = 0;
                 guardar = true;
                 foreach (ListViewItem itEnLista in lista.Items)
                     if (it.Text.Equals(itEnLista.Text))
@@ -184,6 +189,13 @@ namespace CS_Ejercicio04_Coleccion {
                         misLibros.Items.Remove(itemEnLista);
             }
             BddConection.closeConnection(conexion);
+        }
+
+        private void cargarFondoGenero(string genero, ComboBox combo) {
+            if (combo.Equals(misGeneros))
+                misLibros.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero + Constantes.EXT_PNG);
+            else 
+                tienda.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero + Constantes.EXT_PNG);
         }
     }
 }

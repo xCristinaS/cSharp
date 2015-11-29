@@ -39,10 +39,11 @@
             // 
             // imgCerrar
             // 
-            this.imgCerrar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.imgCerrar.Location = new System.Drawing.Point(721, 8);
+            this.imgCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.imgCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgCerrar.Location = new System.Drawing.Point(720, 2);
             this.imgCerrar.Name = "imgCerrar";
-            this.imgCerrar.Size = new System.Drawing.Size(18, 21);
+            this.imgCerrar.Size = new System.Drawing.Size(30, 30);
             this.imgCerrar.TabIndex = 5;
             this.imgCerrar.TabStop = false;
             this.imgCerrar.Click += new System.EventHandler(this.imgCerrar_Click);
@@ -60,6 +61,7 @@
             // genero
             // 
             this.genero.AutoSize = true;
+            this.genero.BackColor = System.Drawing.Color.Transparent;
             this.genero.Font = new System.Drawing.Font("Times New Roman", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genero.Location = new System.Drawing.Point(373, 112);
             this.genero.Name = "genero";
@@ -70,6 +72,7 @@
             // titulo
             // 
             this.titulo.AutoSize = true;
+            this.titulo.BackColor = System.Drawing.Color.Transparent;
             this.titulo.Font = new System.Drawing.Font("Times New Roman", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titulo.Location = new System.Drawing.Point(301, 32);
             this.titulo.MaximumSize = new System.Drawing.Size(430, 56);
@@ -82,6 +85,7 @@
             // autor
             // 
             this.autor.AutoSize = true;
+            this.autor.BackColor = System.Drawing.Color.Transparent;
             this.autor.Font = new System.Drawing.Font("Times New Roman", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.autor.Location = new System.Drawing.Point(357, 95);
             this.autor.Name = "autor";
@@ -103,6 +107,7 @@
             // 
             // panelSinopsis
             // 
+            this.panelSinopsis.BackColor = System.Drawing.Color.Transparent;
             this.panelSinopsis.Controls.Add(this.sipnosis);
             this.panelSinopsis.Location = new System.Drawing.Point(300, 141);
             this.panelSinopsis.MaximumSize = new System.Drawing.Size(439, 275);
@@ -113,6 +118,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(303, 112);
             this.label3.Name = "label3";
@@ -123,6 +129,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(305, 95);
             this.label2.Name = "label2";
@@ -134,6 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(753, 444);
             this.Controls.Add(this.panelSinopsis);
             this.Controls.Add(this.label3);

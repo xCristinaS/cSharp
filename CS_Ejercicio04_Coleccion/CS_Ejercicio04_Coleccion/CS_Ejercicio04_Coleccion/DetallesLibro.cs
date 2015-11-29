@@ -25,6 +25,7 @@ namespace CS_Ejercicio04_Coleccion {
             CenterToScreen();
             cargarLibro();
             panelSinopsis.AutoScroll = true;
+            imgCerrar.BackgroundImage = Image.FromFile(Constantes.BOTON_CERRAR);
         }
 
         private void cargarLibro() {
@@ -48,6 +49,7 @@ namespace CS_Ejercicio04_Coleccion {
             while (datos.Read()) {
                 if (!ponComa) {
                     genero.Text = datos.GetString(0);
+                    this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero.Text + Constantes.EXT_PNG);
                     ponComa = true;
                 } else
                     genero.Text += ", " + datos.GetString(0);

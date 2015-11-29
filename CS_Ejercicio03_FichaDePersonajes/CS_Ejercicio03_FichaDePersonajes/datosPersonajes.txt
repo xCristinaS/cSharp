@@ -1,2 +1,2 @@
-2,v,Femenino,Ser mágico,Mago,16.21.17.9.14.15.21.15.20.9.,1.1.1.1.1.1.1.0.0.3.,True.True.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,6,10,obj3.obj2...,1963208645,
-3,a,Femenino,Ser mundano,Daguero,17.14.19.3.14.20.5.12.17.11.,0.0.0.0.0.0.0.0.0.0.,False.False.True.False.True.True.False.False.False.False.False.False.False.False.False.False.False.False.False.,2,5,20,....,360132909,
+2,v,Femenino,Ser mágico,Mago,16.21.17.9.14.15.21.15.20.9.,1.1.1.1.1.1.1.0.0.3.,True.True.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,6,10,obj3.obj2.,1963208645,
+3,a,Femenino,Ser mundano,Daguero,17.14.19.3.14.20.5.12.17.11.,0.0.0.0.0.0.0.0.0.0.,False.False.True.False.True.True.False.False.False.False.False.False.False.False.False.False.False.False.False.,2,5,20,,360132909,
