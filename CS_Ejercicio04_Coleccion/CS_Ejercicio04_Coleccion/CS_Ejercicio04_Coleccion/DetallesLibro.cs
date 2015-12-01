@@ -49,7 +49,7 @@ namespace CS_Ejercicio04_Coleccion {
             while (datos.Read()) {
                 if (!ponComa) {
                     genero.Text = datos.GetString(0);
-                    this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero.Text + Constantes.EXT_PNG);
+                    this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero.Text + Constantes.DETALLES_EXT_PNG);
                     ponComa = true;
                 } else
                     genero.Text += ", " + datos.GetString(0);
