@@ -124,6 +124,7 @@ namespace CS_Ejercicio04_Coleccion {
                 this.Hide();
                 DetallesLibro form3 = new DetallesLibro(usuario, titulo);
                 form3.FormClosed += (s, args) => this.Show();
+                form3.FormClosed += (s, args) => this.cargarTodosMisLibros();
                 form3.Show();
             }
         }

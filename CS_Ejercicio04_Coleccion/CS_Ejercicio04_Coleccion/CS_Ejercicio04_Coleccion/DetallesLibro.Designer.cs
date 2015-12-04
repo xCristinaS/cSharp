@@ -32,9 +32,11 @@
             this.panelSinopsis = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.imgComprarVender = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portada)).BeginInit();
             this.panelSinopsis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgComprarVender)).BeginInit();
             this.SuspendLayout();
             // 
             // imgCerrar
@@ -137,12 +139,24 @@
             this.label2.TabIndex = 15;
             this.label2.Text = "Autor:";
             // 
+            // imgComprarVender
+            // 
+            this.imgComprarVender.BackColor = System.Drawing.Color.Transparent;
+            this.imgComprarVender.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.imgComprarVender.Location = new System.Drawing.Point(660, 79);
+            this.imgComprarVender.Name = "imgComprarVender";
+            this.imgComprarVender.Size = new System.Drawing.Size(79, 56);
+            this.imgComprarVender.TabIndex = 18;
+            this.imgComprarVender.TabStop = false;
+            this.imgComprarVender.Click += new System.EventHandler(this.imgComprarVender_Click);
+            // 
             // DetallesLibro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(753, 444);
+            this.Controls.Add(this.imgComprarVender);
             this.Controls.Add(this.panelSinopsis);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -160,6 +174,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.portada)).EndInit();
             this.panelSinopsis.ResumeLayout(false);
             this.panelSinopsis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgComprarVender)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +191,6 @@
         private System.Windows.Forms.Panel panelSinopsis;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox imgComprarVender;
     }
 }
