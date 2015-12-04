@@ -32,9 +32,13 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void newUsu_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!newNick.Text.Equals("") && !newPass.Text.Equals("") && !newPassRepeat.Text.Equals("")) 
-                if (newNickValido() && passCorrectas() && e.KeyChar == (char)Keys.Enter) 
+            if (!newNick.Text.Equals("") && !newPass.Text.Equals("") && !newPassRepeat.Text.Equals(""))
+                if (newNickValido() && passCorrectas() && e.KeyChar == (char)Keys.Enter) {
                     registrarUsuario();
+                    wrong1.Visible = false;
+                    wrong2.Visible = false;
+                    wrong3.Visible = false;
+                }
         }
 
         private bool newNickValido() {

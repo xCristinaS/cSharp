@@ -154,12 +154,18 @@ namespace CS_Ejercicio04_Coleccion {
 
                 if (guardar) {
                     agregarLibroAMiColeccion(it.Text); 
-                    if (!misGeneros.SelectedItem.ToString().Equals(generosTienda.SelectedItem.ToString()))
-                        misGeneros.SelectedIndex = generosTienda.SelectedIndex;
-                    else
-                        cargarTodosMisLibros();
                 }
             }
+            actualizarLibrosEnLista();
+        }
+
+        private void actualizarLibrosEnLista() {
+            if (misGeneros.SelectedIndex != generosTienda.SelectedIndex)
+                misGeneros.SelectedIndex = generosTienda.SelectedIndex;
+            else if (misGeneros.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                cargarTodosMisLibros();
+            else
+                cargarMisLibros(misGeneros.SelectedItem.ToString());
         }
 
         private void agregarLibroAMiColeccion(string libro) {
@@ -188,7 +194,7 @@ namespace CS_Ejercicio04_Coleccion {
                 orden.ExecuteScalar();
             }
             BddConection.closeConnection(conexion);
-            cargarMisLibros(misGeneros.SelectedItem.ToString());
+            actualizarLibrosEnLista();
         }
 
         private void cargarFondoGenero(string genero, ComboBox combo) {
