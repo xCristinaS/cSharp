@@ -137,33 +137,22 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_DragDrop(object sender, DragEventArgs e) {
-            ListView lista = (ListView) sender; bool guardar = true; int cont;
-            ListView.SelectedListViewItemCollection objetos; ListViewItem item; System.Collections.IEnumerator enumerator;
+            ListView lista = (ListView) sender; bool guardar = true;
+            ListView.SelectedListViewItemCollection objetos; 
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
 
             if (!misGeneros.SelectedItem.ToString().Equals(generosTienda.SelectedItem.ToString()))
                 misGeneros.SelectedIndex = generosTienda.SelectedIndex;
 
             foreach (ListViewItem it in objetos) {
-                cont = 0;
                 guardar = true;
                 foreach (ListViewItem itEnLista in lista.Items)
                     if (it.Text.Equals(itEnLista.Text))
                         guardar = false;
 
                 if (guardar) {
-                    item = new ListViewItem(); // creo el nuevo item. 
-                    item.Text = it.Text; // le asigno el título del libro que voy a agregar a la colección.
-                    enumerator = listaImgTienda.Images.GetEnumerator(); // saco un iterador de la lista de imagenes de la tienda. 
-                    enumerator.MoveNext();
-                    while (cont < it.ImageIndex) { // recorro el iterador hasta encontrar la imagen de la portada asociada al título. 
-                        cont++;
-                        enumerator.MoveNext();
-                    } 
-                    listaImgMisLibros.Images.Add((Image)enumerator.Current); // agrego la imagen a la lista de imagenes de mi colección. 
-                    item.ImageIndex = listaImgMisLibros.Images.Count - 1; // hago que la nueva imagen apunte a su portada. 
-                    lista.Items.Add(item); // agrego el item a la lista. 
                     agregarLibroAMiColeccion(it.Text); // inserto el libro en la bdd. 
+                    cargarMisLibros(misGeneros.SelectedItem.ToString());
                 }
             }
         }
@@ -184,7 +173,7 @@ namespace CS_Ejercicio04_Coleccion {
             ListView.SelectedListViewItemCollection objetos;
             SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden;
-
+            
             objetos = (ListView.SelectedListViewItemCollection)e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
             foreach (ListViewItem it in objetos) {
                 titulo = it.Text;

@@ -7,8 +7,6 @@ using System.Drawing;
 namespace CS_Ejercicio04_Coleccion {
     public partial class FormInicioSesion : Form {
 
-        private LinkedList<String> usuarios = null;
-
         public FormInicioSesion() {
             InitializeComponent();
         }
@@ -38,26 +36,16 @@ namespace CS_Ejercicio04_Coleccion {
                 if (newNickValido() && passCorrectas() && e.KeyChar == (char)Keys.Enter) 
                     registrarUsuario();
         }
-        
-        private void obtenerNicksBdd() {
-            SqlConnection conexion = BddConection.newConnection();
-            string select = "select nick from usuario;", nick;
-            SqlCommand orden = new SqlCommand(select, conexion);
-            SqlDataReader datos = orden.ExecuteReader();
-
-            while (datos.Read()) {
-                nick = datos.GetString(0);
-                usuarios.AddLast(nick);
-            }
-            datos.Close();
-            BddConection.closeConnection(conexion);
-        }
 
         private bool newNickValido() {
             bool result = true; string nuevoUsu = newNick.Text;
-            foreach (string nick in usuarios)
-                if (nuevoUsu.Equals(nick))
-                    result = false;
+            SqlConnection conexion = BddConection.newConnection();
+            string select = "select count(*) from usuario where nick = '" + nuevoUsu + "'";
+            SqlCommand orden = new SqlCommand(select, conexion);
+            SqlDataReader datos = orden.ExecuteReader();
+            datos.Read();
+            if (datos.GetInt32(0) == 0)
+                result = false;
 
             if (result)
                 wrong1.BackgroundImage = Image.FromFile(Constantes.BIEN);
@@ -88,7 +76,6 @@ namespace CS_Ejercicio04_Coleccion {
             string insert = string.Format("insert into usuario values ('{0}', '{1}');", newUsu, newClave);
             SqlCommand orden = new SqlCommand(insert, conexion);
             orden.ExecuteScalar();
-            usuarios.AddLast(newUsu);
             BddConection.closeConnection(conexion);
         }
 
@@ -123,10 +110,6 @@ namespace CS_Ejercicio04_Coleccion {
         private void registrarse_Click(object sender, EventArgs e) {
             panelLogin.Hide();
             panelNuevoUsu.Show();
-            if (usuarios == null) {
-                usuarios = new LinkedList<String>();
-                obtenerNicksBdd();
-            }
             resetCampos();
         }
 
