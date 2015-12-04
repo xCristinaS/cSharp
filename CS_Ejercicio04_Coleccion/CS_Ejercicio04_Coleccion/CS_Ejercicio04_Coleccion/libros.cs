@@ -165,6 +165,10 @@ namespace CS_Ejercicio04_Coleccion {
             actualizarLibrosEnLista();
         }
 
+        private void comprarLibros() {
+
+        }
+
         private void actualizarLibrosEnLista() {
             if (misGeneros.SelectedIndex != generosTienda.SelectedIndex)
                 misGeneros.SelectedIndex = generosTienda.SelectedIndex;
@@ -187,20 +191,22 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void eliminar_DragDrop(object sender, DragEventArgs e) {
-            string titulo; string select;
             ListView.SelectedListViewItemCollection objetos;
             SqlConnection conexion = BddConection.newConnection();
-            SqlCommand orden;
-            
             objetos = (ListView.SelectedListViewItemCollection)e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
-            foreach (ListViewItem it in objetos) {
+            eliminarLibros(conexion, objetos);
+            BddConection.closeConnection(conexion);
+            actualizarLibrosEnLista();
+        }
+        
+        private void eliminarLibros(SqlConnection conexion, ListView.SelectedListViewItemCollection objSeleccionados) {
+            SqlCommand orden; string select; string titulo;
+            foreach (ListViewItem it in objSeleccionados) {
                 titulo = it.Text;
                 select = string.Format("delete from libroUsu where titulo = '{0}' and nick = '{1}';", titulo, usuario);
                 orden = new SqlCommand(select, conexion);
                 orden.ExecuteScalar();
             }
-            BddConection.closeConnection(conexion);
-            actualizarLibrosEnLista();
         }
 
         private void cargarFondoGenero(string genero, ComboBox combo) {
@@ -249,5 +255,37 @@ namespace CS_Ejercicio04_Coleccion {
             else
                 BddConection.ejecutarSelectBuscador(string.Format("select l.titulo, imagenPortada from librousu u, libro l , libroGenero g where u.titulo = l.titulo and l.titulo = g.titulo and l.titulo like '%{0}%' and autor like '%{1}%' and genero = '{2}'", titulo, autor, misGeneros.SelectedItem.ToString()), misLibros, listaImgMisLibros);
         }
+
+        private void verDetallesToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (sender.Equals(contextMenuStripMisLibros.Items[0]))
+                lvLibros_ItemActivate(misLibros, null);
+            else
+                lvLibros_ItemActivate(tienda, null);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e) {
+            SqlConnection conexion = BddConection.newConnection();
+            eliminarLibros(conexion, misLibros.SelectedItems);
+            BddConection.closeConnection(conexion);
+            if (misGeneros.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                cargarTodosMisLibros();
+            else
+                cargarMisLibros(misGeneros.SelectedItem.ToString());
+        }
+
+        private void comprarToolStripMenuItem_Click(object sender, EventArgs e) {
+
+        }
+
+        private void ListView_MouseClick(object sender, MouseEventArgs e) {
+            ListView lista = (ListView) sender;
+            if (e.Button == MouseButtons.Right && lista.FocusedItem.Bounds.Contains(e.Location) == true) {
+                if (lista.Equals(misLibros))
+                    contextMenuStripMisLibros.Show(Cursor.Position);
+                else
+                    contextMenuStripTienda.Show(Cursor.Position);
+            }
+        }
+
     }
 }

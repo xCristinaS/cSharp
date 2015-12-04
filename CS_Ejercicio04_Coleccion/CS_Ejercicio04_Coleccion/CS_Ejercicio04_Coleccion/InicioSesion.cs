@@ -165,5 +165,9 @@ namespace CS_Ejercicio04_Coleccion {
             agregarNuevoUsuarioBdd();
             resetCampos();
         }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
+            MessageBox.Show("Aplicación creada por Cristina Sola.", "Información");
+        }
     }
 }

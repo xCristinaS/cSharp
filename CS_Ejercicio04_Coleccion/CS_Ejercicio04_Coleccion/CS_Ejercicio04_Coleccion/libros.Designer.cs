@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.misGeneros = new System.Windows.Forms.ComboBox();
             this.misLibros = new System.Windows.Forms.ListView();
             this.imgCerrar = new System.Windows.Forms.PictureBox();
@@ -35,8 +36,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.buscadorTitulo = new System.Windows.Forms.TextBox();
             this.buscadorAutor = new System.Windows.Forms.TextBox();
+            this.contextMenuStripMisLibros = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verDetallesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStripTienda = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verDetallesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.comprarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eliminar)).BeginInit();
+            this.contextMenuStripMisLibros.SuspendLayout();
+            this.contextMenuStripTienda.SuspendLayout();
             this.SuspendLayout();
             // 
             // misGeneros
@@ -65,6 +74,7 @@
             this.misLibros.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.lvLibros_ItemDrag);
             this.misLibros.DragDrop += new System.Windows.Forms.DragEventHandler(this.lvLibros_DragDrop);
             this.misLibros.DragEnter += new System.Windows.Forms.DragEventHandler(this.lvLibros_DragEnter);
+            this.misLibros.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView_MouseClick);
             // 
             // imgCerrar
             // 
@@ -90,6 +100,7 @@
             this.tienda.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.lvLibros_ItemDrag);
             this.tienda.DragDrop += new System.Windows.Forms.DragEventHandler(this.lvLibros_DragDrop);
             this.tienda.DragEnter += new System.Windows.Forms.DragEventHandler(this.lvLibros_DragEnter);
+            this.tienda.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ListView_MouseClick);
             // 
             // label1
             // 
@@ -181,6 +192,50 @@
             this.buscadorAutor.Enter += new System.EventHandler(this.buscador_FocusEnter);
             this.buscadorAutor.Leave += new System.EventHandler(this.buscador_FocusLeave);
             // 
+            // contextMenuStripMisLibros
+            // 
+            this.contextMenuStripMisLibros.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verDetallesToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStripMisLibros.Name = "contextMenuStripMisLibros";
+            this.contextMenuStripMisLibros.Size = new System.Drawing.Size(134, 48);
+            // 
+            // verDetallesToolStripMenuItem
+            // 
+            this.verDetallesToolStripMenuItem.Name = "verDetallesToolStripMenuItem";
+            this.verDetallesToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.verDetallesToolStripMenuItem.Text = "Ver detalles";
+            this.verDetallesToolStripMenuItem.Click += new System.EventHandler(this.verDetallesToolStripMenuItem_Click);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // contextMenuStripTienda
+            // 
+            this.contextMenuStripTienda.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verDetallesToolStripMenuItem1,
+            this.comprarToolStripMenuItem});
+            this.contextMenuStripTienda.Name = "contextMenuStripTienda";
+            this.contextMenuStripTienda.Size = new System.Drawing.Size(134, 48);
+            // 
+            // verDetallesToolStripMenuItem1
+            // 
+            this.verDetallesToolStripMenuItem1.Name = "verDetallesToolStripMenuItem1";
+            this.verDetallesToolStripMenuItem1.Size = new System.Drawing.Size(133, 22);
+            this.verDetallesToolStripMenuItem1.Text = "Ver detalles";
+            this.verDetallesToolStripMenuItem1.Click += new System.EventHandler(this.verDetallesToolStripMenuItem_Click);
+            // 
+            // comprarToolStripMenuItem
+            // 
+            this.comprarToolStripMenuItem.Name = "comprarToolStripMenuItem";
+            this.comprarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.comprarToolStripMenuItem.Text = "Comprar";
+            this.comprarToolStripMenuItem.Click += new System.EventHandler(this.comprarToolStripMenuItem_Click);
+            // 
             // Libros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +260,8 @@
             this.Load += new System.EventHandler(this.Libros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eliminar)).EndInit();
+            this.contextMenuStripMisLibros.ResumeLayout(false);
+            this.contextMenuStripTienda.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +281,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox buscadorTitulo;
         private System.Windows.Forms.TextBox buscadorAutor;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripMisLibros;
+        private System.Windows.Forms.ToolStripMenuItem verDetallesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTienda;
+        private System.Windows.Forms.ToolStripMenuItem verDetallesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem comprarToolStripMenuItem;
     }
 }
