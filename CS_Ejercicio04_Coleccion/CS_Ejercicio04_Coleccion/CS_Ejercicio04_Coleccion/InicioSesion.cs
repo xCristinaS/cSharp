@@ -32,13 +32,26 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void newUsu_KeyPress(object sender, KeyPressEventArgs e) {
+            if (e.KeyChar == (char)Keys.Enter) 
+                validarYCrearUsuario();
+        }
+        
+        private bool validarYCrearUsuario() {
+            bool usuarioCreado = false;
             if (!newNick.Text.Equals("") && !newPass.Text.Equals("") && !newPassRepeat.Text.Equals(""))
-                if (newNickValido() && passCorrectas() && e.KeyChar == (char)Keys.Enter) {
+                if (newNickValido() && passCorrectas()) {
                     registrarUsuario();
                     wrong1.Visible = false;
                     wrong2.Visible = false;
                     wrong3.Visible = false;
+                    usuarioCreado = true;
                 }
+            return usuarioCreado;
+        }
+
+        private void validarYLoguear() {
+            if (!txtUsuario.Text.Equals("") && !txtClave.Text.Equals(""))
+                iniciarSesion();
         }
 
         private bool newNickValido() {
@@ -106,26 +119,27 @@ namespace CS_Ejercicio04_Coleccion {
             passCorrectas();
         }
 
-        private void inicioSesion_Click(object sender, EventArgs e) {
-            panelLogin.Show();
-            panelNuevoUsu.Hide();
-            resetCampos();
-            wrong1.Visible = false;
-            wrong2.Visible = false;
-            wrong3.Visible = false;
-        }
-
         private void registrarse_Click(object sender, EventArgs e) {
             panelLogin.Hide();
             panelNuevoUsu.Show();
             resetCampos();
         }
 
+        private void inicioSesion_Click(object sender, EventArgs e) {
+            panelLogin.Show();
+            panelNuevoUsu.Hide();
+            resetCampos();
+        }
+
         private void btnAceptar_Click(object sender, EventArgs e) {
             if (panelLogin.Visible)
-                iniciarSesion();
-            else
-                registrarUsuario();
+                validarYLoguear();
+            else {
+                if (validarYCrearUsuario()) {
+                    panelNuevoUsu.Visible = false;
+                    panelLogin.Visible = true;
+                }
+            }
         }
 
         private void iniciarSesion() {
@@ -142,7 +156,7 @@ namespace CS_Ejercicio04_Coleccion {
                 form2.FormClosed += (s, args) => this.Show();
                 form2.Show();
             } else
-                MessageBox.Show("No fue posible establecer la conexión.");
+                MessageBox.Show("El usuario y/o contraseña introducidos no son válidos.", "Error");
 
             BddConection.closeConnection(conexion);
         }
