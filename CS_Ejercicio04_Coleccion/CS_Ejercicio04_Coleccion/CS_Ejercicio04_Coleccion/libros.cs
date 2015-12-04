@@ -141,8 +141,7 @@ namespace CS_Ejercicio04_Coleccion {
             ListView.SelectedListViewItemCollection objetos; 
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
 
-            if (!misGeneros.SelectedItem.ToString().Equals(generosTienda.SelectedItem.ToString()))
-                misGeneros.SelectedIndex = generosTienda.SelectedIndex;
+            cargarTodosMisLibros();
 
             foreach (ListViewItem it in objetos) {
                 guardar = true;
@@ -151,8 +150,11 @@ namespace CS_Ejercicio04_Coleccion {
                         guardar = false;
 
                 if (guardar) {
-                    agregarLibroAMiColeccion(it.Text); // inserto el libro en la bdd. 
-                    cargarMisLibros(misGeneros.SelectedItem.ToString());
+                    agregarLibroAMiColeccion(it.Text); 
+                    if (!misGeneros.SelectedItem.ToString().Equals(generosTienda.SelectedItem.ToString()))
+                        misGeneros.SelectedIndex = generosTienda.SelectedIndex;
+                    else
+                        cargarTodosMisLibros();
                 }
             }
         }
