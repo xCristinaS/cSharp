@@ -167,6 +167,8 @@
             this.buscadorTitulo.Size = new System.Drawing.Size(170, 26);
             this.buscadorTitulo.TabIndex = 14;
             this.buscadorTitulo.TextChanged += new System.EventHandler(this.buscador_TextChanged);
+            this.buscadorTitulo.Enter += new System.EventHandler(this.buscador_FocusEnter);
+            this.buscadorTitulo.Leave += new System.EventHandler(this.buscador_FocusLeave);
             // 
             // buscadorAutor
             // 
@@ -176,6 +178,8 @@
             this.buscadorAutor.Size = new System.Drawing.Size(170, 26);
             this.buscadorAutor.TabIndex = 15;
             this.buscadorAutor.TextChanged += new System.EventHandler(this.buscador_TextChanged);
+            this.buscadorAutor.Enter += new System.EventHandler(this.buscador_FocusEnter);
+            this.buscadorAutor.Leave += new System.EventHandler(this.buscador_FocusLeave);
             // 
             // Libros
             // 

@@ -9,6 +9,7 @@ namespace CS_Ejercicio04_Coleccion {
         private string usuario; // para saber que usuario inicio sesión. 
         private ImageList listaImgMisLibros = new ImageList();
         private ImageList listaImgTienda = new ImageList();
+        private bool usandoBuscador = false;
 
         public Libros(string usuario) {
             InitializeComponent();
@@ -55,8 +56,12 @@ namespace CS_Ejercicio04_Coleccion {
         private void comboGeneros_SelectedIndexChanged(object sender, EventArgs e) {
             ComboBox combo = (ComboBox)sender;
             string genero = combo.SelectedItem.ToString();
-            cargarLibros(genero, combo);
-            cargarFondoGenero(genero, combo);
+            if (!usandoBuscador) {
+                BddConection.cerrarConexion();
+                cargarLibros(genero, combo);
+                cargarFondoGenero(genero, combo);
+            } else
+                buscador_TextChanged(null, null);
         }
 
         private void cargarLibros(string genero, ComboBox combo) {
@@ -208,11 +213,10 @@ namespace CS_Ejercicio04_Coleccion {
         private void buscador_TextChanged(object sender, EventArgs e) {
             string titulo = buscadorTitulo.Text, autor = buscadorAutor.Text;
             if (!titulo.Equals("") || !autor.Equals("")) {
-                string selectTienda = string.Format("select titulo, imagenPortada from libro where titulo like '%{0}%' and autor like '%{1}%'", titulo, autor);
-                string selectColeccion = string.Format("select l.titulo, imagenPortada from librousu u, libro l where u.titulo = l.titulo and l.titulo like '%{0}%' and autor like '%{1}%'", titulo, autor);
-                traerLibrosDeBdd(selectTienda, tienda, listaImgTienda);
-                traerLibrosDeBdd(selectColeccion, misLibros, listaImgMisLibros);
+                usandoBuscador = true;
+                calcularSelectBuscador(titulo, autor);
             } else {
+                usandoBuscador = false;
                 if (misGeneros.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
                     cargarTodosMisLibros();
                 else
@@ -223,6 +227,27 @@ namespace CS_Ejercicio04_Coleccion {
                 else 
                     cargarLibrosTienda(generosTienda.SelectedItem.ToString());
             }     
+        }
+
+        private void buscador_FocusEnter(object sender, EventArgs e) {
+            BddConection.abrirConexion();
+        }
+
+        private void buscador_FocusLeave(object sender, EventArgs e) {
+            if (!usandoBuscador)
+                BddConection.cerrarConexion();
+        }
+
+        private void calcularSelectBuscador(string titulo, string autor) {
+            if (generosTienda.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                BddConection.ejecutarSelectBuscador(string.Format("select titulo, imagenPortada from libro where titulo like '%{0}%' and autor like '%{1}%'", titulo, autor),tienda, listaImgTienda);
+            else
+                BddConection.ejecutarSelectBuscador(string.Format("select l.titulo, imagenPortada from libro l, libroGenero g where l.titulo = g.titulo and l.titulo like '%{0}%' and autor like '%{1}%' and genero = '{2}'", titulo, autor, generosTienda.SelectedItem.ToString()),tienda,listaImgTienda);
+
+            if (misGeneros.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                BddConection.ejecutarSelectBuscador(string.Format("select l.titulo, imagenPortada from librousu u, libro l where u.titulo = l.titulo and l.titulo like '%{0}%' and autor like '%{1}%'", titulo, autor),misLibros,listaImgMisLibros);
+            else
+                BddConection.ejecutarSelectBuscador(string.Format("select l.titulo, imagenPortada from librousu u, libro l , libroGenero g where u.titulo = l.titulo and l.titulo = g.titulo and l.titulo like '%{0}%' and autor like '%{1}%' and genero = '{2}'", titulo, autor, misGeneros.SelectedItem.ToString()), misLibros, listaImgMisLibros);
         }
     }
 }
