@@ -129,6 +129,10 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_ItemDrag(object sender, ItemDragEventArgs e) {
+            if (sender.Equals(tienda))
+                eliminar.AllowDrop = false;
+            else
+                eliminar.AllowDrop = true;
             ((ListView)sender).DoDragDrop(((ListView)sender).SelectedItems, DragDropEffects.All);
         }
 
