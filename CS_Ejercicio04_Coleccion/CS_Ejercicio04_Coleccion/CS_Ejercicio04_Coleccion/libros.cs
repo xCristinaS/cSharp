@@ -21,11 +21,11 @@ namespace CS_Ejercicio04_Coleccion {
             misLibros.AllowDrop= true;
             misLibros.View = View.LargeIcon;
             misLibros.LargeImageList = listaImgMisLibros;
-            listaImgTienda.ImageSize = new Size(85, 115);
+            misLibros.LargeImageList.ImageSize = new Size(100, 135);
             tienda.AllowDrop = true;
             tienda.View = View.LargeIcon;
             tienda.LargeImageList = listaImgTienda;
-            listaImgMisLibros.ImageSize = new Size(85, 115);
+            tienda.LargeImageList.ImageSize = new Size(100, 135);
             cargarGenerosCombo();
             this.BackgroundImage = Image.FromFile(Constantes.FONDO_FORM);
             imgCerrar.BackgroundImage = Image.FromFile(Constantes.BOTON_CERRAR);
@@ -186,12 +186,9 @@ namespace CS_Ejercicio04_Coleccion {
                 select = string.Format("delete from libroUsu where titulo = '{0}' and nick = '{1}';", titulo, usuario);
                 orden = new SqlCommand(select, conexion);
                 orden.ExecuteScalar();
-
-                foreach (ListViewItem itemEnLista in misLibros.Items)
-                    if (it.Text.Equals(itemEnLista.Text))
-                        misLibros.Items.Remove(itemEnLista);
             }
             BddConection.closeConnection(conexion);
+            cargarMisLibros(misGeneros.SelectedItem.ToString());
         }
 
         private void cargarFondoGenero(string genero, ComboBox combo) {
