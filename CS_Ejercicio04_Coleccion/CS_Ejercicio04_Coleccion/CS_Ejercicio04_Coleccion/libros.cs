@@ -147,26 +147,27 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void lvLibros_DragDrop(object sender, DragEventArgs e) {
-            ListView lista = (ListView) sender; bool guardar = true;
             ListView.SelectedListViewItemCollection objetos; 
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
-
+            SqlConnection conexion = BddConection.newConnection();
             cargarTodosMisLibros();
-            foreach (ListViewItem it in objetos) {
+            comprarLibros(objetos, conexion);
+            BddConection.closeConnection(conexion);
+        }
+
+        private void comprarLibros(ListView.SelectedListViewItemCollection objSeleccionados, SqlConnection conexion) {
+            bool guardar = true;
+            foreach (ListViewItem it in objSeleccionados) {
                 guardar = true;
-                foreach (ListViewItem itEnLista in lista.Items)
+                foreach (ListViewItem itEnLista in misLibros.Items)
                     if (it.Text.Equals(itEnLista.Text))
                         guardar = false;
 
                 if (guardar) {
-                    agregarLibroAMiColeccion(it.Text); 
+                    agregarLibroAMiColeccion(it.Text, conexion);
+                    actualizarLibrosEnLista();
                 }
             }
-            actualizarLibrosEnLista();
-        }
-
-        private void comprarLibros() {
-
         }
 
         private void actualizarLibrosEnLista() {
@@ -178,12 +179,10 @@ namespace CS_Ejercicio04_Coleccion {
                 cargarMisLibros(misGeneros.SelectedItem.ToString());
         }
 
-        private void agregarLibroAMiColeccion(string libro) {
+        private void agregarLibroAMiColeccion(string libro, SqlConnection conexion) {
             string select = string.Format("insert into libroUsu Values ('{0}', '{1}')", usuario, libro);
-            SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden = new SqlCommand(select, conexion);
             orden.ExecuteScalar();
-            BddConection.closeConnection(conexion);
         }
 
         private void eliminar_DragEnter(object sender, DragEventArgs e) {
@@ -274,7 +273,9 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void comprarToolStripMenuItem_Click(object sender, EventArgs e) {
-
+            SqlConnection conexion = BddConection.newConnection();
+            comprarLibros(tienda.SelectedItems, conexion);
+            BddConection.closeConnection(conexion);
         }
 
         private void ListView_MouseClick(object sender, MouseEventArgs e) {
