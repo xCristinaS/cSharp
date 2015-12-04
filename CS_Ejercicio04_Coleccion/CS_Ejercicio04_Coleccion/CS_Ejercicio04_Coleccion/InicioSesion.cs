@@ -39,12 +39,15 @@ namespace CS_Ejercicio04_Coleccion {
 
         private bool newNickValido() {
             bool result = true; string nuevoUsu = newNick.Text;
-            SqlConnection conexion = BddConection.newConnection();
-            string select = "select count(*) from usuario where nick = '" + nuevoUsu + "'";
-            SqlCommand orden = new SqlCommand(select, conexion);
-            SqlDataReader datos = orden.ExecuteReader();
-            datos.Read();
-            if (datos.GetInt32(0) == 0)
+            if (!nuevoUsu.Equals("")) {
+                SqlConnection conexion = BddConection.newConnection();
+                string select = "select count(*) from usuario where nick = '" + nuevoUsu + "'";
+                SqlCommand orden = new SqlCommand(select, conexion);
+                SqlDataReader datos = orden.ExecuteReader();
+                datos.Read();
+                if (datos.GetInt32(0) != 0)
+                    result = false;
+            } else
                 result = false;
 
             if (result)
@@ -57,8 +60,9 @@ namespace CS_Ejercicio04_Coleccion {
 
         private bool passCorrectas() {
             bool result = false;
-            if (newPass.Text.Equals(newPassRepeat.Text))
-                result = true;
+            if (!newPass.Text.Equals(""))
+                if (newPass.Text.Equals(newPassRepeat.Text))
+                    result = true;
 
             if (result) {
                 wrong2.BackgroundImage = Image.FromFile(Constantes.BIEN);
@@ -93,7 +97,7 @@ namespace CS_Ejercicio04_Coleccion {
             else if (!((TextBox)sender).Equals(newNick) && !wrong2.Visible) {
                 wrong2.Visible = true;
                 wrong3.Visible = true;
-            }
+            } 
             newNickValido();
             passCorrectas();
         }

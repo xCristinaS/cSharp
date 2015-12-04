@@ -146,7 +146,6 @@ namespace CS_Ejercicio04_Coleccion {
             objetos = (ListView.SelectedListViewItemCollection) e.Data.GetData(typeof(ListView.SelectedListViewItemCollection));
 
             cargarTodosMisLibros();
-
             foreach (ListViewItem it in objetos) {
                 guardar = true;
                 foreach (ListViewItem itEnLista in lista.Items)
@@ -162,6 +161,7 @@ namespace CS_Ejercicio04_Coleccion {
                 }
             }
         }
+
         private void agregarLibroAMiColeccion(string libro) {
             string select = string.Format("insert into libroUsu Values ('{0}', '{1}')", usuario, libro);
             SqlConnection conexion = BddConection.newConnection();
