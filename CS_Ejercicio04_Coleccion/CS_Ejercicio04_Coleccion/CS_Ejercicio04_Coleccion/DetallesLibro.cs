@@ -115,7 +115,7 @@ namespace CS_Ejercicio04_Coleccion {
             orden = new SqlCommand(select, conexion);
             orden.ExecuteScalar();
             BddConection.closeConnection(conexion);
-            this.Close();
+            habilitarCompra();
         }
     }
 }

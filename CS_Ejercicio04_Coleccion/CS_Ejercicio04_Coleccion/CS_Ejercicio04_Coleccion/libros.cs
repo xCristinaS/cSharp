@@ -204,5 +204,25 @@ namespace CS_Ejercicio04_Coleccion {
             else 
                 tienda.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero + Constantes.EXT_PNG);
         }
+
+        private void buscador_TextChanged(object sender, EventArgs e) {
+            string titulo = buscadorTitulo.Text, autor = buscadorAutor.Text;
+            if (!titulo.Equals("") || !autor.Equals("")) {
+                string selectTienda = string.Format("select titulo, imagenPortada from libro where titulo like '%{0}%' and autor like '%{1}%'", titulo, autor);
+                string selectColeccion = string.Format("select l.titulo, imagenPortada from librousu u, libro l where u.titulo = l.titulo and l.titulo like '%{0}%' and autor like '%{1}%'", titulo, autor);
+                traerLibrosDeBdd(selectTienda, tienda, listaImgTienda);
+                traerLibrosDeBdd(selectColeccion, misLibros, listaImgMisLibros);
+            } else {
+                if (misGeneros.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                    cargarTodosMisLibros();
+                else
+                    cargarMisLibros(misGeneros.SelectedItem.ToString());
+
+                if (generosTienda.SelectedItem.ToString().Equals(Constantes.MOSTRAR_TODOS))
+                    cargarTodosEnTienda();
+                else 
+                    cargarLibrosTienda(generosTienda.SelectedItem.ToString());
+            }     
+        }
     }
 }

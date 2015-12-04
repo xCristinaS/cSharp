@@ -31,6 +31,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.generosTienda = new System.Windows.Forms.ComboBox();
             this.eliminar = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buscadorTitulo = new System.Windows.Forms.TextBox();
+            this.buscadorAutor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eliminar)).BeginInit();
             this.SuspendLayout();
@@ -133,12 +137,56 @@
             this.eliminar.DragDrop += new System.Windows.Forms.DragEventHandler(this.eliminar_DragDrop);
             this.eliminar.DragEnter += new System.Windows.Forms.DragEventHandler(this.eliminar_DragEnter);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(505, 152);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 19);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Buscar por título";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(505, 226);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 19);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Buscar por autor";
+            // 
+            // buscadorTitulo
+            // 
+            this.buscadorTitulo.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscadorTitulo.Location = new System.Drawing.Point(491, 174);
+            this.buscadorTitulo.Name = "buscadorTitulo";
+            this.buscadorTitulo.Size = new System.Drawing.Size(170, 26);
+            this.buscadorTitulo.TabIndex = 14;
+            this.buscadorTitulo.TextChanged += new System.EventHandler(this.buscador_TextChanged);
+            // 
+            // buscadorAutor
+            // 
+            this.buscadorAutor.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buscadorAutor.Location = new System.Drawing.Point(491, 248);
+            this.buscadorAutor.Name = "buscadorAutor";
+            this.buscadorAutor.Size = new System.Drawing.Size(170, 26);
+            this.buscadorAutor.TabIndex = 15;
+            this.buscadorAutor.TextChanged += new System.EventHandler(this.buscador_TextChanged);
+            // 
             // Libros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1150, 650);
+            this.Controls.Add(this.buscadorAutor);
+            this.Controls.Add(this.buscadorTitulo);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.eliminar);
             this.Controls.Add(this.generosTienda);
             this.Controls.Add(this.label2);
@@ -168,5 +216,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox generosTienda;
         private System.Windows.Forms.PictureBox eliminar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox buscadorTitulo;
+        private System.Windows.Forms.TextBox buscadorAutor;
     }
 }
