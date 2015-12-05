@@ -8,9 +8,8 @@ namespace CS_Ejercicio04_Coleccion {
         private static SqlConnection conexion; private static bool conexionCerrada = true;
 
         public static SqlConnection newConnection() {
-            //SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=..\..\..\..\bdd\Coleccion.mdf;Integrated Security=True;Connect Timeout=30");
-            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Cristina\Documents\GitHub\cSharp\CS_Ejercicio04_Coleccion\bdd\Coleccion.mdf;Integrated Security=True;Connect Timeout=30");
-            
+            string ruta = Application.StartupPath;
+            SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + System.IO.Path.GetFullPath(@"..\..\..\..\bdd\Coleccion.mdf") + ";Integrated Security=True;Connect Timeout=30");
             connection.Open();
             return connection;
         }
