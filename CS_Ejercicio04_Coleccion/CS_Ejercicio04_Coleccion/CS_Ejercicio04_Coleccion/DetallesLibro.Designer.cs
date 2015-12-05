@@ -98,12 +98,12 @@
             // sipnosis
             // 
             this.sipnosis.AutoSize = true;
-            this.sipnosis.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sipnosis.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sipnosis.Location = new System.Drawing.Point(3, 9);
             this.sipnosis.MaximumSize = new System.Drawing.Size(410, 0);
             this.sipnosis.MinimumSize = new System.Drawing.Size(3, 3);
             this.sipnosis.Name = "sipnosis";
-            this.sipnosis.Size = new System.Drawing.Size(36, 15);
+            this.sipnosis.Size = new System.Drawing.Size(43, 16);
             this.sipnosis.TabIndex = 13;
             this.sipnosis.Text = "label1";
             // 
