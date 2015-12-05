@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "RolSheet", "RolSheet\RolSheet.vdproj", "{C9E3D96D-8CC0-4C4B-B381-4940AEE813F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS_Ejercicio03_FichaDePersonajes", "..\CS_Ejercicio03_FichaDePersonajesInstalador\CS_Ejercicio03_FichaDePersonajes\CS_Ejercicio03_FichaDePersonajes.csproj", "{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9E3D96D-8CC0-4C4B-B381-4940AEE813F4}.Debug|Any CPU.ActiveCfg = Debug
+		{C9E3D96D-8CC0-4C4B-B381-4940AEE813F4}.Debug|Any CPU.Build.0 = Debug
+		{C9E3D96D-8CC0-4C4B-B381-4940AEE813F4}.Release|Any CPU.ActiveCfg = Release
+		{C9E3D96D-8CC0-4C4B-B381-4940AEE813F4}.Release|Any CPU.Build.0 = Release
+		{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C9B930A-C3FD-4DC8-85C5-A5073682DD96}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
