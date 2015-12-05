@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS_Ejercicio04_Coleccion {
@@ -26,6 +20,7 @@ namespace CS_Ejercicio04_Coleccion {
             cargarLibro();
             panelSinopsis.AutoScroll = true;
             imgCerrar.BackgroundImage = Image.FromFile(Constantes.BOTON_CERRAR);
+            leerLibro.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + "ojo.png");
         }
 
         private void cargarLibro() {
@@ -65,10 +60,13 @@ namespace CS_Ejercicio04_Coleccion {
             orden = new SqlCommand(select, conexion);
             datos = orden.ExecuteReader();
             if (datos.Read()) {
-                if (datos.GetInt32(0) == 0)
+                if (datos.GetInt32(0) == 0) {
                     habilitarCompra();
-                else
+                    leerLibro.Visible = false;
+                } else {
                     habilitarEliminacion();
+                    leerLibro.Visible = true;
+                }
             }
             datos.Close();
             BddConection.closeConnection(conexion);
@@ -93,10 +91,13 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void imgComprarVender_Click(object sender, EventArgs e) {
-            if ((bool)imgComprarVender.BackgroundImage.Tag)
+            if ((bool)imgComprarVender.BackgroundImage.Tag) {
                 agregarLibroAMiColeccion();
-            else
+                leerLibro.Visible = true;
+            } else {
                 eliminarLibroDeMiColeccion();
+                leerLibro.Visible = false;
+            }
         }
 
         private void agregarLibroAMiColeccion() {
@@ -116,6 +117,13 @@ namespace CS_Ejercicio04_Coleccion {
             orden.ExecuteScalar();
             BddConection.closeConnection(conexion);
             habilitarCompra();
+        }
+
+        private void leerLibro_Click(object sender, EventArgs e) {
+            this.Hide();
+            LeerLibro form3 = new LeerLibro(libro);
+            form3.FormClosed += (s, args) => this.Show();
+            form3.Show();
         }
     }
 }
