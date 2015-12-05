@@ -39,8 +39,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                         lista.AddLast(p); // lo agrego a la lista de personajes del álbum.
                 
                 lector.Close();
-            } else
-                File.Create("..\\..\\datosPersonajes.txt");
+            } 
         }
         public void exportarPjs() {
             StreamWriter escritor = new StreamWriter("..\\..\\datosPersonajes.txt");

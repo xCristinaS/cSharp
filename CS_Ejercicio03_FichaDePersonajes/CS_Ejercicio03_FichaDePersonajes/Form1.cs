@@ -18,7 +18,7 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         // Para cambiar el cursor. 
         [DllImport("user32.dll")]
         static extern IntPtr LoadCursorFromFile(string lpFileName);
-        IntPtr cursor = LoadCursorFromFile(@"../../Resources/cursor.cur");
+        IntPtr cursor = LoadCursorFromFile(System.IO.Path.GetFullPath(@"../../Resources/cursor.cur"));
         // Para reproducir música. 
         WindowsMediaPlayer reproductor = new WindowsMediaPlayer();
         IWMPPlaylist playlist; IWMPMedia media;
@@ -56,13 +56,13 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             
             this.Cursor = new Cursor(cursor); // Cambio el cursor. 
             playlist = reproductor.playlistCollection.newPlaylist("myplaylist"); // Creo la lista.
-            media = reproductor.newMedia("songGOT.mp3"); // Agrego canción a media. 
+            media = reproductor.newMedia(System.IO.Path.GetFullPath(@"../../Resources/songGOT.mp3")); // Agrego canción a media. 
             playlist.appendItem(media); // agrego canción a la lista.
-            media = reproductor.newMedia("songMGS2.mp3");
+            media = reproductor.newMedia(System.IO.Path.GetFullPath(@"../../Resources/songMGS2.mp3"));
             playlist.appendItem(media);
-            media = reproductor.newMedia("songLR.mp3");
+            media = reproductor.newMedia(System.IO.Path.GetFullPath(@"../../Resources/songLR.mp3"));
             playlist.appendItem(media);
-            media = reproductor.newMedia("songAR1.mp3");
+            media = reproductor.newMedia(System.IO.Path.GetFullPath(@"../../Resources/songAR1.mp3"));
             playlist.appendItem(media);
             reproductor.currentPlaylist = playlist; // asigno la lista al reproductor. 
             reproductor.settings.setMode("loop", true); // para que vuelva a empezar cuando acabe.
@@ -984,6 +984,11 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 imgAtrasME_Click(sender, e); // vuelvo al modo visión. 
             }
         }
+
+        private void panelVistaPersonaje_Paint(object sender, PaintEventArgs e) {
+
+        }
+
         private void adaptarObjetosEquipables() {
             foreach (object equipado in panelMochila.Controls)
                 if (equipado is PictureBox && ((PictureBox)equipado).Enabled) 
