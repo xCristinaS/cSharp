@@ -19,18 +19,21 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         public static void abrirConexion() {
+            // Para abrir una única conexión al usar el buscador. 
             conexion = newConnection();
             conexionCerrada = false;
         }
 
         public static void cerrarConexion() {
+            // Para cerrar la conexión tras dejar de usar el buscador. 
             if (!conexionCerrada) {
                 conexion.Close();
                 conexionCerrada = true;
             }
         }
 
-        public static void ejecutarSelectBuscador(string select, ListView lista, ImageList imagenes) {
+        public static void ejecutarSelectBuscador(string select, ListView lista, ImageList imagenes) { 
+            // Para ejecutar las select realizadas por el buscador en una única conexión, porque cada vez q se escriba se realiza una. 
             string titulo, imagen; int cont = 0;
             SqlCommand orden = new SqlCommand(select, conexion);
             SqlDataReader datos = orden.ExecuteReader();

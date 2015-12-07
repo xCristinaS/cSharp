@@ -1,13 +1,7 @@
 ﻿using eBdb.EpubReader;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS_Ejercicio04_Coleccion {
@@ -32,6 +26,7 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void cargarLibro() {
+            // cargo el libro en el navegador para leerlo. Saco de la bdd el texto que indica qué libro es (la imagenPortada) del libro que se selecciono
             string select; SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden; SqlDataReader datos;
             select = string.Format("select imagenPortada from libro where titulo = '{0}'", libro);
