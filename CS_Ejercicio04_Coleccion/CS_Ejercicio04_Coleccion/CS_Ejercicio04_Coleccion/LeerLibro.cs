@@ -26,7 +26,8 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void cargarLibro() {
-            // cargo el libro en el navegador para leerlo. Saco de la bdd el texto que indica qué libro es (la imagenPortada) del libro que se selecciono
+            // cargo el libro en el navegador para leerlo. Saco de la bdd el texto que indica qué libro es (la imagenPortada) del libro que se selecciono, porque lo 
+            // tengo guardado en la carpeta de recursos con el mismo nombre. Una vez optenido, cargo el epub, y lo muestro en el navegador. 
             string select; SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden; SqlDataReader datos;
             select = string.Format("select imagenPortada from libro where titulo = '{0}'", libro);

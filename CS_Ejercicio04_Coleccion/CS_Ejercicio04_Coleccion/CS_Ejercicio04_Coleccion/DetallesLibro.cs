@@ -24,47 +24,47 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void cargarLibro() {
-            string select = string.Format("select autor from libro where titulo = '{0}'", libro);
+            string select = string.Format("select autor from libro where titulo = '{0}'", libro); // select que me devuelve el autor del libro.
             SqlConnection conexion = BddConection.newConnection(); bool ponComa = false;
             SqlCommand orden = new SqlCommand(select, conexion); 
-            SqlDataReader datos = orden.ExecuteReader();
-            titulo.Text = libro;
-            if (datos.Read())
-                autor.Text = datos.GetString(0);
-            datos.Close();
-            select = string.Format("select imagenPortada from libro where titulo = '{0}'", libro);
+            SqlDataReader datos = orden.ExecuteReader(); // ejecuto select.
+            titulo.Text = libro; // pongo el titulo del libro.
+            if (datos.Read()) // si la select me da resultados.
+                autor.Text = datos.GetString(0); // lo leo y asigno el autor. 
+            datos.Close(); 
+            select = string.Format("select imagenPortada from libro where titulo = '{0}'", libro); // selecciono la portada.
             orden = new SqlCommand(select, conexion);
             datos = orden.ExecuteReader();
             if (datos.Read())
-                portada.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + datos.GetString(0) + Constantes.EXT_JPG);
+                portada.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + datos.GetString(0) + Constantes.EXT_JPG); // cargo la portada. 
             datos.Close();
-            select = string.Format("select genero from LibroGenero where titulo = '{0}'", libro);
+            select = string.Format("select genero from LibroGenero where titulo = '{0}'", libro); // selecciono el/los géneros.
             orden = new SqlCommand(select, conexion);
             datos = orden.ExecuteReader();
             while (datos.Read()) {
                 if (!ponComa) {
-                    genero.Text = datos.GetString(0);
-                    this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero.Text + Constantes.DETALLES_EXT_PNG);
+                    genero.Text = datos.GetString(0); // escribo el género en el textbox. 
+                    this.BackgroundImage = Image.FromFile(Constantes.RUTA_RECURSOS + genero.Text + Constantes.DETALLES_EXT_PNG); // cargo el fondo del género.
                     ponComa = true;
                 } else
-                    genero.Text += ", " + datos.GetString(0);
+                    genero.Text += ", " + datos.GetString(0); 
             }
             datos.Close();
-            select = string.Format("select sipnosis from libro where titulo = '{0}'", libro);
+            select = string.Format("select sipnosis from libro where titulo = '{0}'", libro); // selecciono la sinopsis.
             orden = new SqlCommand(select, conexion);
             datos = orden.ExecuteReader();
             if (datos.Read())
-                sipnosis.Text = (string)datos.GetString(0);
+                sipnosis.Text = (string)datos.GetString(0); // cargo la sinopsis.
             datos.Close();
-            select = string.Format("select count(*) from librousu where titulo = '{0}'", libro);
+            select = string.Format("select count(*) from librousu where titulo = '{0}'", libro); // compruebo si el usuario tiene el libro.
             orden = new SqlCommand(select, conexion);
             datos = orden.ExecuteReader();
             if (datos.Read()) {
-                if (datos.GetInt32(0) == 0) {
+                if (datos.GetInt32(0) == 0) { // si no lo tiene habilito que se pueda comprar.
                     habilitarCompra();
                     leerLibro.Visible = false;
                 } else {
-                    habilitarEliminacion();
+                    habilitarEliminacion(); // si lo tiene habilito la eliminación y el modo lectura. 
                     leerLibro.Visible = true;
                 }
             }
@@ -72,17 +72,17 @@ namespace CS_Ejercicio04_Coleccion {
             BddConection.closeConnection(conexion);
         }
 
-        private void habilitarCompra() {
+        private void habilitarCompra() { // cambio la imagen del picturebox por la de coprar.
             Image img;
             img = Image.FromFile(Constantes.IMG_COMPRAR);
-            img.Tag = true;
+            img.Tag = true; // indico en el tag de la imagen que el usuario no tiene el libro.
             imgComprarVender.BackgroundImage = img;
         }
 
-        private void habilitarEliminacion() {
+        private void habilitarEliminacion() { // cambio la imagen del picturebox por la de vender.
             Image img;
             img = Image.FromFile(Constantes.PAPELERA);
-            img.Tag = false;
+            img.Tag = false; // indico en el tag de la imagen que el usuario tiene el libro.
             imgComprarVender.BackgroundImage = img;
         }
 
@@ -91,16 +91,17 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void imgComprarVender_Click(object sender, EventArgs e) {
-            if ((bool)imgComprarVender.BackgroundImage.Tag) {
-                agregarLibroAMiColeccion();
-                leerLibro.Visible = true;
-            } else {
-                eliminarLibroDeMiColeccion();
-                leerLibro.Visible = false;
+            // Al hacer clic en el picturebox compruebo el tag de la imagen y
+            if ((bool)imgComprarVender.BackgroundImage.Tag) { // si tiene un true, significa que el usuario no lo tenia, entonces como he hecho clic
+                agregarLibroAMiColeccion(); // lo agrego a mi colección
+                leerLibro.Visible = true; // y habilito el modo lectura.
+            } else { // en caso contrario, es el usuario tenía el libro y ha hecho clic en borrar
+                eliminarLibroDeMiColeccion();  // lo elimino de su colección
+                leerLibro.Visible = false; // deshabilito el modo lectura
             }
         }
 
-        private void agregarLibroAMiColeccion() {
+        private void agregarLibroAMiColeccion() { // agrego el libro a la colección del usuario.
             string select = string.Format("insert into libroUsu Values ('{0}', '{1}')", usuario, libro);
             SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden = new SqlCommand(select, conexion);
@@ -109,7 +110,7 @@ namespace CS_Ejercicio04_Coleccion {
             habilitarEliminacion();
         }
 
-        private void eliminarLibroDeMiColeccion() {
+        private void eliminarLibroDeMiColeccion() { // elimino el libro de la colección del usuario. 
             SqlConnection conexion = BddConection.newConnection();
             SqlCommand orden;
             string select = string.Format("delete from libroUsu where titulo = '{0}' and nick = '{1}';", libro, usuario);
@@ -119,7 +120,7 @@ namespace CS_Ejercicio04_Coleccion {
             habilitarCompra();
         }
 
-        private void leerLibro_Click(object sender, EventArgs e) {
+        private void leerLibro_Click(object sender, EventArgs e) { // cuando hago clic en leerLibro, lanzo el formulario de lectura. 
             this.Hide();
             LeerLibro form3 = new LeerLibro(libro);
             form3.FormClosed += (s, args) => this.Show();
