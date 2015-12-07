@@ -143,8 +143,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                         r = true;
             }
             if (!r) {
-                for (i = 0; !r && i < this.objetosMochila.Length; i++)
-                    if (String.Equals(this.objetosMochila[i], objetosMochila[i]))
+                for (i = 0; !r && i < this.objetosMochila.Length; i++) 
+                    if (!String.Equals(this.objetosMochila[i], objetosMochila[i]))
                         r = true;
             }
             return r;

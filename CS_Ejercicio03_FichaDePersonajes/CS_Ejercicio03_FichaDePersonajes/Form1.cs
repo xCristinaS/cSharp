@@ -984,11 +984,6 @@ namespace CS_Ejercicio03_FichaDePersonajes {
                 imgAtrasME_Click(sender, e); // vuelvo al modo visión. 
             }
         }
-
-        private void panelVistaPersonaje_Paint(object sender, PaintEventArgs e) {
-
-        }
-
         private void adaptarObjetosEquipables() {
             foreach (object equipado in panelMochila.Controls)
                 if (equipado is PictureBox && ((PictureBox)equipado).Enabled) 

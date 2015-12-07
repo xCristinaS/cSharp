@@ -1,0 +1,2 @@
+dds,sdd,Femenino,Ser mágico,Nigromante,14.8.20.17.14.20.13.20.13.14.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,obj3.obj4.obj6.obj8.,1099058765,
+sdas,adsdsa,Femenino,Ser mundano,Daguero,12.10.9.12.13.20.14.24.9.18.,0.0.0.0.0.0.0.0.0.0.,False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.False.,0,8,20,obj3..obj6..,678910001,

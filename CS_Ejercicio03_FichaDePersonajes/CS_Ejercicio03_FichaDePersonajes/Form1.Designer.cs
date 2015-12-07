@@ -1813,7 +1813,6 @@
             this.panelVistaPersonaje.Name = "panelVistaPersonaje";
             this.panelVistaPersonaje.Size = new System.Drawing.Size(1039, 680);
             this.panelVistaPersonaje.TabIndex = 2;
-            this.panelVistaPersonaje.Paint += new System.Windows.Forms.PaintEventHandler(this.panelVistaPersonaje_Paint);
             // 
             // imgAnterior
             // 
