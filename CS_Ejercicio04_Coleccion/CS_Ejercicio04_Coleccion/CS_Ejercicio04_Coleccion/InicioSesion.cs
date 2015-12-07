@@ -7,8 +7,6 @@ using System.Drawing;
 namespace CS_Ejercicio04_Coleccion {
     public partial class FormInicioSesion : Form {
 
-        private LinkedList<String> usuarios = null;
-
         public FormInicioSesion() {
             InitializeComponent();
         }
@@ -29,35 +27,50 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void login_KeyPress(object sender, KeyPressEventArgs e) {
+            // cuando pulse la tecla enter, si el campo de usuario y el de contraseña están rellenos trato de iniciar sesión. 
             if (!txtUsuario.Text.Equals("") && !txtClave.Text.Equals("") && e.KeyChar == (char)Keys.Enter) 
                 iniciarSesion();
         }
 
         private void newUsu_KeyPress(object sender, KeyPressEventArgs e) {
-            if (!newNick.Text.Equals("") && !newPass.Text.Equals("") && !newPassRepeat.Text.Equals("")) 
-                if (newNickValido() && passCorrectas() && e.KeyChar == (char)Keys.Enter) 
-                    registrarUsuario();
+            // si he pulsado el enter, trato de validar y crear el nuevo usuario. 
+            if (e.KeyChar == (char)Keys.Enter) 
+                validarYCrearUsuario();
         }
         
-        private void obtenerNicksBdd() {
-            SqlConnection conexion = BddConection.newConnection();
-            string select = "select nick from usuario;", nick;
-            SqlCommand orden = new SqlCommand(select, conexion);
-            SqlDataReader datos = orden.ExecuteReader();
+        private bool validarYCrearUsuario() {
+            // si los campos nick, contraseña y repetir contraseña están rellenos, compruebo si el nuevo nick y las contraseñas son correctas y registro el usuario.
+            bool usuarioCreado = false;
+            if (!newNick.Text.Equals("") && !newPass.Text.Equals("") && !newPassRepeat.Text.Equals(""))
+                if (newNickValido() && passCorrectas()) {
+                    registrarUsuario();
+                    wrong1.Visible = false;
+                    wrong2.Visible = false;
+                    wrong3.Visible = false;
+                    usuarioCreado = true;
+                }
+            return usuarioCreado;
+        }
 
-            while (datos.Read()) {
-                nick = datos.GetString(0);
-                usuarios.AddLast(nick);
-            }
-            datos.Close();
-            BddConection.closeConnection(conexion);
+        private void validarYLoguear() {
+            // si los campos están rellenos, trato de iniciar sesión. 
+            if (!txtUsuario.Text.Equals("") && !txtClave.Text.Equals(""))
+                iniciarSesion();
         }
 
         private bool newNickValido() {
+            // compruebo si en la bdd hay algún usuario con ese nick. En función de ese resultado muestro el nick como válido o no. 
             bool result = true; string nuevoUsu = newNick.Text;
-            foreach (string nick in usuarios)
-                if (nuevoUsu.Equals(nick))
+            if (!nuevoUsu.Equals("")) {
+                SqlConnection conexion = BddConection.newConnection();
+                string select = "select count(*) from usuario where nick = '" + nuevoUsu + "'";
+                SqlCommand orden = new SqlCommand(select, conexion);
+                SqlDataReader datos = orden.ExecuteReader();
+                datos.Read();
+                if (datos.GetInt32(0) != 0)
                     result = false;
+            } else
+                result = false;
 
             if (result)
                 wrong1.BackgroundImage = Image.FromFile(Constantes.BIEN);
@@ -68,9 +81,11 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private bool passCorrectas() {
+            // si las contraseñas son iguales (newPass y newPassRepeat) son válidas. 
             bool result = false;
-            if (newPass.Text.Equals(newPassRepeat.Text))
-                result = true;
+            if (!newPass.Text.Equals(""))
+                if (newPass.Text.Equals(newPassRepeat.Text))
+                    result = true;
 
             if (result) {
                 wrong2.BackgroundImage = Image.FromFile(Constantes.BIEN);
@@ -83,16 +98,17 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void agregarNuevoUsuarioBdd() {
+            // inserta en la bdd el nuevo usuario. 
             SqlConnection conexion = BddConection.newConnection();
             string newUsu = newNick.Text, newClave = newPass.Text;
             string insert = string.Format("insert into usuario values ('{0}', '{1}');", newUsu, newClave);
             SqlCommand orden = new SqlCommand(insert, conexion);
             orden.ExecuteScalar();
-            usuarios.AddLast(newUsu);
             BddConection.closeConnection(conexion);
         }
 
         private void resetCampos() {
+            // reseteo los campos. 
             txtUsuario.Text = "";
             txtClave.Text = "";
             newNick.Text = "";
@@ -101,43 +117,47 @@ namespace CS_Ejercicio04_Coleccion {
         }
 
         private void newUsu_TextChange(object sender, EventArgs e) {
+            // cada vez que presiono una en el nick, o contraseña (ventana de nuevo usuario) compruebo la válidez de los datos. 
             if (((TextBox)sender).Equals(newNick) && !wrong1.Visible)
                 wrong1.Visible = true;
             else if (!((TextBox)sender).Equals(newNick) && !wrong2.Visible) {
                 wrong2.Visible = true;
                 wrong3.Visible = true;
-            }
+            } 
             newNickValido();
             passCorrectas();
         }
 
-        private void inicioSesion_Click(object sender, EventArgs e) {
-            panelLogin.Show();
-            panelNuevoUsu.Hide();
-            resetCampos();
-            wrong1.Visible = false;
-            wrong2.Visible = false;
-            wrong3.Visible = false;
-        }
-
         private void registrarse_Click(object sender, EventArgs e) {
+            // muestro el panel de registro. 
             panelLogin.Hide();
             panelNuevoUsu.Show();
-            if (usuarios == null) {
-                usuarios = new LinkedList<String>();
-                obtenerNicksBdd();
-            }
+            resetCampos();
+        }
+
+        private void inicioSesion_Click(object sender, EventArgs e) {
+            // muestro el panel de login. 
+            panelLogin.Show();
+            panelNuevoUsu.Hide();
             resetCampos();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e) {
+            // si estoy en el panel de login, al hacer clic en aceptar tratará de validar y loguear al usuario. Si estoy en el panel de registro tratará de crear el
+            // nuevo usuario. 
             if (panelLogin.Visible)
-                iniciarSesion();
-            else
-                registrarUsuario();
+                validarYLoguear();
+            else {
+                if (validarYCrearUsuario()) {
+                    panelNuevoUsu.Visible = false;
+                    panelLogin.Visible = true;
+                }
+            }
         }
 
         private void iniciarSesion() {
+            // si el nick y la contra coinciden con un registro de usuario de la bdd, se iniciará sesión y se cargará el siguiente formulario. En caso contrario
+            // se mostrará un mensaje de error. 
             SqlConnection conexion = BddConection.newConnection();
             string usuario = txtUsuario.Text; string clave = txtClave.Text;
             string select = string.Format("select count(*) from usuario where nick = '{0}' and pass = '{1}';", usuario, clave);
@@ -151,14 +171,20 @@ namespace CS_Ejercicio04_Coleccion {
                 form2.FormClosed += (s, args) => this.Show();
                 form2.Show();
             } else
-                MessageBox.Show("No fue posible establecer la conexión.");
+                MessageBox.Show("El usuario y/o contraseña introducidos no son válidos.", "Error");
 
             BddConection.closeConnection(conexion);
         }
 
         private void registrarUsuario() {
+            // agrega el nuevo usuario a la bdd y resetea los campos. 
             agregarNuevoUsuarioBdd();
             resetCampos();
+        }
+
+        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e) {
+            // al hacer click en el acerca de, se muestra el siguiente mensaje. 
+            MessageBox.Show("Aplicación creada por Cristina Sola.", "Información");
         }
     }
 }

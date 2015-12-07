@@ -42,6 +42,8 @@
             this.newNick = new System.Windows.Forms.TextBox();
             this.inicioSesion = new System.Windows.Forms.Label();
             this.registrarse = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAceptar)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -49,6 +51,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.wrong3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrong2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrong1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgCerrar
@@ -254,6 +257,25 @@
             this.registrarse.Text = "Registrarse";
             this.registrarse.Click += new System.EventHandler(this.registrarse_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de...";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            // 
             // FormInicioSesion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,8 +288,10 @@
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.imgCerrar);
             this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormInicioSesion";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.InicioSesion_Load);
@@ -280,6 +304,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.wrong3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrong2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wrong1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +331,8 @@
         private System.Windows.Forms.PictureBox wrong1;
         private System.Windows.Forms.Label inicioSesion;
         private System.Windows.Forms.Label registrarse;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 
