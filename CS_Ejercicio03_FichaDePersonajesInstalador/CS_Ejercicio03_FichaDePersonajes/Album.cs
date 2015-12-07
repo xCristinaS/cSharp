@@ -33,7 +33,8 @@ namespace CS_Ejercicio03_FichaDePersonajes {
         }
         public void importarPjs() {
             StreamReader lector; string linea; Personaje p;
-            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/datosPersonajes.txt";
+
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/RolSheetData/datosPersonajes.txt";
             if (File.Exists(ruta)) {
                 lector = new StreamReader(ruta);
                 while((linea = lector.ReadLine()) != null) // leo el fichero linea a linea
@@ -44,7 +45,9 @@ namespace CS_Ejercicio03_FichaDePersonajes {
             } 
         }
         public void exportarPjs() {
-            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/datosPersonajes.txt";
+            if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/RolSheetData"))
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/RolSheetData");
+            string ruta = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"/RolSheetData/datosPersonajes.txt";
             StreamWriter escritor = new StreamWriter(ruta);
             foreach (Personaje p in lista) 
                 escritor.WriteLine(p.escribirPersonaje());
