@@ -45,6 +45,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_059E6C1B6F994C62B782552DE9E986B5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_05EC993E15274C569D05EC11579831A6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -172,12 +178,6 @@
         "Entry"
         {
         "MsmKey" = "8:_2B2B0FB3FAF24F5D8292362383B58007"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_32783ABF4A164BED9B6F7813FA9DFAFB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -616,7 +616,7 @@
         "Entry"
         {
         "MsmKey" = "8:_AA4B3A108F38C358D7A443DE019036A3"
-        "OwnerKey" = "8:_32783ABF4A164BED9B6F7813FA9DFAFB"
+        "OwnerKey" = "8:_059E6C1B6F994C62B782552DE9E986B5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -982,7 +982,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_32783ABF4A164BED9B6F7813FA9DFAFB"
+        "OwnerKey" = "8:_059E6C1B6F994C62B782552DE9E986B5"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -1003,6 +1003,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -1019,6 +1027,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -4427,7 +4443,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_36DBD55C0BD44AACA4FACFA8911A80B9"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_3A5CBF51994D4D3AA145B5457DE4B677"
             {
             "Name" = "8:RolSheet"
             "Arguments" = "8:"
@@ -4435,7 +4451,21 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_32783ABF4A164BED9B6F7813FA9DFAFB"
+            "Target" = "8:_059E6C1B6F994C62B782552DE9E986B5"
+            "Folder" = "8:_F2F61FD8304C4F1B885825F8ECB0E376"
+            "WorkingFolder" = "8:_812B4668BB034836820B1D93B08CE6A9"
+            "Icon" = "8:_F71D449C4A6949B9AE09F4B8E867D96C"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E8526AE44369476986AFA2CD8AFA8F94"
+            {
+            "Name" = "8:RolSheet"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_059E6C1B6F994C62B782552DE9E986B5"
             "Folder" = "8:_9C65C505E9204153B6602C6BC5CE8BB7"
             "WorkingFolder" = "8:_812B4668BB034836820B1D93B08CE6A9"
             "Icon" = "8:_F71D449C4A6949B9AE09F4B8E867D96C"
@@ -4840,7 +4870,7 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_32783ABF4A164BED9B6F7813FA9DFAFB"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_059E6C1B6F994C62B782552DE9E986B5"
             {
             "SourcePath" = "8:..\\..\\CS_Ejercicio03_FichaDePersonajesInstalador\\CS_Ejercicio03_FichaDePersonajes\\obj\\Debug\\CS_Ejercicio03_FichaDePersonajes.exe"
             "TargetName" = "8:"
