@@ -56,7 +56,7 @@ public class JFX_Ejercicio07_ColorfulCircles extends Application {
                             new Stop(0.57, Color.web("#be4af7")),
                             new Stop(0.71, Color.web("#ed5fc2")),
                             new Stop(0.85, Color.web("#ef504c")),
-                            new Stop(1, Color.web("#f2660f")),}));
+                            new Stop(1, Color.web("#f2660f"))}));
 
         //colors.widthProperty().bind(scene.widthProperty()); // para que la anchura del rectángulo esté ligada a la de scene.
         //colors.heightProperty().bind(scene.heightProperty()); // para que la altura del rectángulo esté ligada a la de scene.

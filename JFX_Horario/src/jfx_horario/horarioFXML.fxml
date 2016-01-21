@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.*?>
+
+<Pane id="panel1" prefHeight="606.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.HorarioController">
+    <children>
+        <ChoiceBox id="comboProfes" fx:id="comboProfes" layoutX="79.0" layoutY="24.0" prefHeight="11.0" prefWidth="647.0" />
+        <ListView layoutX="23.0" layoutY="111.0" prefHeight="468.0" prefWidth="777.0" />
+    </children>
+    <stylesheets>
+        <URL value="@HorarioStyle.css" />
+    </stylesheets>
+</Pane>
