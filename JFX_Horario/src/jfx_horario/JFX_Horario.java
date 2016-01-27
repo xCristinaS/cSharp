@@ -16,13 +16,13 @@ import javafx.stage.Stage;
  * @author Cristina
  */
 public class JFX_Horario extends Application {
-    
+
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("horarioFXML.fxml"));
-        
+
         Scene scene = new Scene(root);
-        
+
         stage.setScene(scene);
         stage.show();
     }
@@ -32,6 +32,7 @@ public class JFX_Horario extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
-    
+
 }

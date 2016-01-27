@@ -9,8 +9,24 @@
 
 <Pane id="panel1" prefHeight="606.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.HorarioController">
     <children>
-        <ChoiceBox id="comboProfes" fx:id="comboProfes" layoutX="79.0" layoutY="24.0" prefHeight="11.0" prefWidth="647.0" />
-        <ListView layoutX="23.0" layoutY="111.0" prefHeight="468.0" prefWidth="777.0" />
+        <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="23.0" layoutY="27.0" prefHeight="25.0" prefWidth="409.0" />
+        <ListView id="lstHorario" fx:id="lstHorario" layoutX="23.0" layoutY="111.0" prefHeight="172.0" prefWidth="777.0" />
+        <RadioButton fx:id="rbDia" layoutX="536.0" layoutY="31.0" mnemonicParsing="false" text="Clases del día">
+            <toggleGroup>
+                <ToggleGroup fx:id="rbGrupo" />
+            </toggleGroup>
+        </RadioButton>
+        <RadioButton fx:id="rbSemana" layoutX="536.0" layoutY="64.0" mnemonicParsing="false" text="Horario semanal" toggleGroup="$rbGrupo" />
+        <TableView fx:id="tHorario" layoutX="23.0" layoutY="308.0" prefHeight="286.0" prefWidth="777.0">
+            <columns>
+                <TableColumn prefWidth="76.0" text="Hora" />
+                <TableColumn prefWidth="154.0" text="Lunes" />
+                <TableColumn minWidth="0.0" prefWidth="134.0" text="Martes" />
+                <TableColumn prefWidth="153.0" text="Miercoles" />
+                <TableColumn minWidth="0.0" prefWidth="125.0" text="Jueves" />
+                <TableColumn prefWidth="132.0" text="Viernes" />
+            </columns>
+        </TableView>
     </children>
     <stylesheets>
         <URL value="@HorarioStyle.css" />
