@@ -97,7 +97,7 @@ public class JefaturaController implements Initializable {
 
     private void cargarProfes() {
         Connection conexion = BddConnection.newConexionMySQL("horario");
-        String select = "Select codProf, nombre from profesor;";
+        String select = "Select codProf, nombre from profesor where tipo = 0;";
         PreparedStatement sentencia;
         ResultSet result;
         ObservableList<String> listaChoiceBox = FXCollections.observableArrayList();

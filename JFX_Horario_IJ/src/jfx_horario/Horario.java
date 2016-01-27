@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import jfx_horario.login.LoginController;
 
 /**
  *
@@ -33,6 +34,9 @@ public class Horario extends Application {
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setOnCloseRequest(event -> {
+            LoginController.cerrarConexion();
+        });
         stage.show();
 
 

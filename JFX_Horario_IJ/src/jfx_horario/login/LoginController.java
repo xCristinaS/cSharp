@@ -1,22 +1,24 @@
 package jfx_horario.login;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import jfx_horario.jefatura.JefaturaController;
+import misClases.BddConnection;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Enumeration;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 /**
@@ -25,24 +27,31 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
-    TextField txtUsuario;
-
-    @FXML
-    TextField txtContra;
+    TextField txtUsuario, txtContra;
 
     @FXML
     Button btnLog;
 
+    @FXML
+    ImageView imgControlU, imgControlC;
+
+
+    private static Connection conexion;
+    private Image imagenCorrecto = new Image("file:..\\..\\imagenes\\bien.png"), imagenFallo = new Image("file:..\\..\\imagenes\\fallo.png");
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initViews();
+        abrirConexion();
+        //imgControlC.setImage(imagenCorrecto);
+        //imgControlU.setImage(imagenFallo);
     }
 
-    private void initViews(){
+    private void initViews() {
         btnLog.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (txtUsuario.getText().equals("cris") && txtContra.getText().equals("cris")){
+                if (txtUsuario.getText().equals("cris") && txtContra.getText().equals("cris")) {
                     try {
                         Parent root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml"));
                         Stage stage = new Stage();
@@ -57,5 +66,26 @@ public class LoginController implements Initializable {
                 }
             }
         });
+    }
+
+
+    public void onTxtUsuarioTextChanged(Event event) {
+
+    }
+
+    public void onTxtContraTextChanged(Event event) {
+
+    }
+
+    public static void abrirConexion() {
+        conexion = BddConnection.newConexionMySQL("horario");
+    }
+
+    public static void cerrarConexion() {
+        try {
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
