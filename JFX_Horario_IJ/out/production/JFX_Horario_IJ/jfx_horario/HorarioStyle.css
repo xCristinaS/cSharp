@@ -12,3 +12,8 @@ and open the template in the editor.
     -fx-background-color: #ccffcc;
 }
 
+#tHorario .celda {
+    -fx-alignment: CENTER;
+    -fx-font-style: italic;
+}
+

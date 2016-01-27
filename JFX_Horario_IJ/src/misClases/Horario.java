@@ -27,11 +27,6 @@ public class Horario {
     public Horario(String tramo){
         this(tramo, " ", " ", " ", " ", " ");
     }
-
-    public  Horario (String tramo, String contenido, Dia dia){
-        if (dia == Dia)
-            this(tramo, contenido, " ", " ", " ", " ");
-    }
     
     public Horario(String tramo, String lunes, String martes, String miercoles, String jueves, String viernes){
         this.tramo = new SimpleStringProperty(tramo);
@@ -40,6 +35,14 @@ public class Horario {
         this.miercoles = new SimpleStringProperty(miercoles);
         this.jueves = new SimpleStringProperty(jueves);
         this.viernes = new SimpleStringProperty(viernes);
+    }
+
+    public void vaciar(){
+        lunes.set("");
+        martes.set("");
+        miercoles.set("");
+        jueves.set("");
+        viernes.set("");
     }
 
     public String getTramo() {

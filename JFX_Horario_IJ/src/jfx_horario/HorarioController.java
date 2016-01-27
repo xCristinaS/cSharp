@@ -17,6 +17,7 @@ import java.util.IntSummaryStatistics;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -37,7 +38,6 @@ import misClases.Constantes;
 import misClases.Tramos;
 
 /**
- *
  * @author Cristina
  */
 public class HorarioController implements Initializable {
@@ -52,7 +52,7 @@ public class HorarioController implements Initializable {
     private TableView<Horario> tHorario;
 
     private ArrayList<String> myListaProfes = new ArrayList<String>();
-    private ObservableList<Horario> datosCol = FXCollections.observableArrayList();
+    private ArrayList<Horario> datosCol = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,18 +63,19 @@ public class HorarioController implements Initializable {
         configComboProfes();
         configRadioButtons();
         configTableHorario();
+        tHorario.visibleProperty().setValue(false);
     }
 
     private void configRadioButtons() {
         rbGrupo.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                if (((RadioButton) newValue).getText().equals(Constantes.H_SEMANAL)) {
-                    lstHorario.visibleProperty().setValue(false);
-                    tHorario.visibleProperty().setValue(true);
-                } else {
-                    lstHorario.visibleProperty().setValue(true);
-                    tHorario.visibleProperty().setValue(false);
+                if (((RadioButton) newValue).getText().equals(Constantes.H_SEMANAL)) { // Si el radioButton seleccionado es el horario semanal
+                    lstHorario.visibleProperty().setValue(false); // oculto el listView del horario del día
+                    tHorario.visibleProperty().setValue(true); // muestro el tableView del horario semanal
+                } else { // si no
+                    lstHorario.visibleProperty().setValue(true); // muestro el horario del día
+                    tHorario.visibleProperty().setValue(false); // oculto el horario semanal
                 }
             }
         });
@@ -85,8 +86,11 @@ public class HorarioController implements Initializable {
         comboProfes.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                cargarHorarioDiaProfe(myListaProfes.get(newValue.intValue()).substring(0, 3));
-                cargarHorarioSemanalProfe(myListaProfes.get(newValue.intValue()).substring(0, 3));
+                cargarHorarioDiaProfe(myListaProfes.get(newValue.intValue()).substring(0, 3)); // cargo el horario diario del profesor.
+                if (!datosCol.isEmpty())
+                    for (Horario h : datosCol) // limpio las columnas del horario del profesor anterior.
+                        h.vaciar();
+                cargarHorarioSemanalProfe(myListaProfes.get(newValue.intValue()).substring(0, 3)); // cargo el horario semanal del profesor.
             }
         });
     }
@@ -96,7 +100,7 @@ public class HorarioController implements Initializable {
         String select = "Select codProf, nombre from profesor;";
         PreparedStatement sentencia;
         ResultSet result;
-        ObservableList<String> listaChoiceBox = FXCollections.observableArrayList(); // tipo de lista que gestiona el choiceBox
+        ObservableList<String> listaChoiceBox = FXCollections.observableArrayList();
         try {
             sentencia = conexion.prepareStatement(select);
             result = sentencia.executeQuery();
@@ -116,12 +120,12 @@ public class HorarioController implements Initializable {
         String select = "select codTramo, h.codCurso, h.codOe, h.codAsignatura, a.nombre from horario h, reparto r, asignatura a where h.codAsignatura = a.codAsignatura and r.codOe = h.codOe and r.codcurso = h.codcurso and r.CodAsignatura = h.CodAsignatura and codProf = ? and codTramo like '" + ((formato.format(new Date())).charAt(0) + "").toUpperCase() + "%' order by codtramo;";
         PreparedStatement sentencia;
         ResultSet result;
-        lstHorario.getItems().clear();
+        lstHorario.getItems().clear(); // limpio la lista con el contenido del profesor anterior
         try {
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, profe);
             result = sentencia.executeQuery();
-            while (result.next()) {
+            while (result.next()) { // voy agregando cada registro a la lista
                 lstHorario.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
         } catch (SQLException ex) {
@@ -155,7 +159,8 @@ public class HorarioController implements Initializable {
         ((TableColumn) tHorario.getColumns().get(3)).setCellValueFactory(new PropertyValueFactory<Horario, String>("miercoles"));
         ((TableColumn) tHorario.getColumns().get(4)).setCellValueFactory(new PropertyValueFactory<Horario, String>("jueves"));
         ((TableColumn) tHorario.getColumns().get(5)).setCellValueFactory(new PropertyValueFactory<Horario, String>("viernes"));
-        tHorario.setItems(datosCol);
+        tHorario.setItems(FXCollections.observableArrayList(datosCol));
+        tHorario.setEditable(true);
         agregarTramosATable();
     }
 
@@ -180,9 +185,8 @@ public class HorarioController implements Initializable {
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, profe);
             result = sentencia.executeQuery();
-            while (result.next()) {
+            while (result.next())
                 montarAsignaturaEnColumna(result.getString(1), result.getString(2) + " - " + result.getString(3), result.getString(4));
-            }
 
             result.close();
             sentencia.close();
@@ -190,36 +194,31 @@ public class HorarioController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(HorarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for (Horario h: datosCol)
-            System.out.println(h);
-
     }
 
     private void montarAsignaturaEnColumna(String tramo, String curso, String codAsignatura) {
         char columna = tramo.charAt(0);
-        int hora = Integer.parseInt(String.valueOf(tramo.charAt(1)));;
+        int hora = Integer.parseInt(String.valueOf(tramo.charAt(1)));
+        Horario h = datosCol.get(hora - 1);
         switch (columna) {
             case 'L':
-                datosCol.remove(hora - 1);
-                datosCol.add(hora - 1, new Horario(dameTramo(tramo.charAt(1)), codAsignatura + "\n" + curso));
+                h.setLunes(String.format("%s (%s)", codAsignatura, curso));
                 break;
             case 'M':
-                datosCol.remove(hora-1);
-                datosCol.add(hora - 1, new Horario(dameTramo(tramo.charAt(1)), codAsignatura + "\n" + curso));
+                h.setMartes(String.format("%s (%s)", codAsignatura, curso));
                 break;
             case 'X':
-                h.setMiercoles(codAsignatura + "\n" + curso);
+                h.setMiercoles(String.format("%s (%s)", codAsignatura, curso));
                 break;
             case 'J':
-                h.setJueves(codAsignatura + "\n" + curso);
+                h.setJueves(String.format("%s (%s)", codAsignatura, curso));
                 break;
             case 'V':
-                h.setViernes(codAsignatura + "\n" + curso);
+                h.setViernes(String.format("%s (%s)", codAsignatura, curso));
                 break;
             default:
                 break;
         }
-        //System.out.println(h);
-        //tHorario.setItems(datosCol);
+        tHorario.getItems().setAll(datosCol);
     }
 }
