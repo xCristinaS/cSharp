@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package jfx_horario;
+package jfx_horario.jefatura;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -13,7 +13,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.IntSummaryStatistics;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,6 +31,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Window;
 import misClases.BddConnection;
 import misClases.Horario;
 import misClases.Constantes;
@@ -40,7 +40,7 @@ import misClases.Tramos;
 /**
  * @author Cristina
  */
-public class HorarioController implements Initializable {
+public class JefaturaController implements Initializable {
 
     @FXML
     private ListView lstHorario;
@@ -110,7 +110,7 @@ public class HorarioController implements Initializable {
             listaChoiceBox.addAll(myListaProfes); // agrego la lista de nombres a la lista que gestiona el choiceBox
             comboProfes.setItems(listaChoiceBox);
         } catch (SQLException ex) {
-            Logger.getLogger(HorarioController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JefaturaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -129,7 +129,7 @@ public class HorarioController implements Initializable {
                 lstHorario.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(HorarioController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JefaturaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -192,7 +192,7 @@ public class HorarioController implements Initializable {
             sentencia.close();
             conexion.close();
         } catch (SQLException ex) {
-            Logger.getLogger(HorarioController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JefaturaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

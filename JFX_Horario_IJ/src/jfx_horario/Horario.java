@@ -15,16 +15,27 @@ import javafx.stage.Stage;
  *
  * @author Cristina
  */
-public class JFX_Horario extends Application {
+public class Horario extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("horarioFXML.fxml"));
+/*
+        Parent root = FXMLLoader.load(getClass().getResource("jefatura/jefatura.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
+
+*/
+        Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
+        stage.setTitle("Horario");
+        Scene scene = new Scene(root);
+
+        stage.setScene(scene);
+        stage.show();
+
+
     }
 
     /**

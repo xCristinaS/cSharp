@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import java.net.*?>
 
-<Pane id="panel1" prefHeight="269.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.HorarioController">
+<Pane id="panel1" prefHeight="269.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.jefatura.JefaturaController">
     <children>
         <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="23.0" layoutY="23.0" prefHeight="25.0" prefWidth="409.0" visibleRowCount="9" />
         <ListView id="lstHorario" fx:id="lstHorario" layoutX="22.0" layoutY="77.0" prefHeight="170.0" prefWidth="838.0" />
@@ -29,6 +29,6 @@
         </TableView>
     </children>
     <stylesheets>
-        <URL value="@HorarioStyle.css" />
+        <URL value="@jefatura.css" />
     </stylesheets>
 </Pane>
