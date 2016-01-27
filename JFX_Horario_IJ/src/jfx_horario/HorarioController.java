@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.IntSummaryStatistics;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -149,7 +150,7 @@ public class HorarioController implements Initializable {
 
     private void configTableHorario() {
         ((TableColumn) tHorario.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<Horario, String>("tramo"));
-        ((TableColumn)tHorario.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<Horario, String>("lunes"));
+        ((TableColumn) tHorario.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<Horario, String>("lunes"));
         ((TableColumn) tHorario.getColumns().get(2)).setCellValueFactory(new PropertyValueFactory<Horario, String>("martes"));
         ((TableColumn) tHorario.getColumns().get(3)).setCellValueFactory(new PropertyValueFactory<Horario, String>("miercoles"));
         ((TableColumn) tHorario.getColumns().get(4)).setCellValueFactory(new PropertyValueFactory<Horario, String>("jueves"));
@@ -189,48 +190,36 @@ public class HorarioController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(HorarioController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        for (Horario h: datosCol)
+            System.out.println(h);
 
     }
 
     private void montarAsignaturaEnColumna(String tramo, String curso, String codAsignatura) {
-        switch (tramo.charAt(0)) {
+        char columna = tramo.charAt(0);
+        int hora = Integer.parseInt(String.valueOf(tramo.charAt(1)));;
+        switch (columna) {
             case 'L':
-                montarAsignaturaEnLunes(tramo.charAt(1), curso, codAsignatura);
+                datosCol.remove(hora - 1);
+                datosCol.add(hora - 1, new Horario(dameTramo(tramo.charAt(1)), codAsignatura + "\n" + curso));
                 break;
             case 'M':
-                montarAsignaturaEnMartes(curso, codAsignatura);
+                datosCol.remove(hora-1);
+                datosCol.add(hora - 1, new Horario(dameTramo(tramo.charAt(1)), codAsignatura + "\n" + curso));
                 break;
             case 'X':
-                montarAsignaturaEnMiercoles(curso, codAsignatura);
+                h.setMiercoles(codAsignatura + "\n" + curso);
                 break;
             case 'J':
-                montarAsignaturaEnJueves(curso, codAsignatura);
+                h.setJueves(codAsignatura + "\n" + curso);
                 break;
             case 'V':
-                montarAsignaturaEnViernes(curso, codAsignatura);
+                h.setViernes(codAsignatura + "\n" + curso);
                 break;
             default:
                 break;
         }
-    }
-
-    private void montarAsignaturaEnLunes(char hora, String curso, String asignatura) {
-        
-    }
-
-    private void montarAsignaturaEnMartes(String curso, String asignatura) {
-
-    }
-
-    private void montarAsignaturaEnMiercoles(String curso, String asignatura) {
-
-    }
-
-    private void montarAsignaturaEnJueves(String curso, String asignatura) {
-
-    }
-
-    private void montarAsignaturaEnViernes(String curso, String asignatura) {
-
+        //System.out.println(h);
+        //tHorario.setItems(datosCol);
     }
 }

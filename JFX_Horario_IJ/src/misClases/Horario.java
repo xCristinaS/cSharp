@@ -12,6 +12,11 @@ import javafx.beans.property.SimpleStringProperty;
  * @author Cristina
  */
 public class Horario {
+
+    private enum Dia {
+        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES
+    }
+
     private SimpleStringProperty tramo;
     private SimpleStringProperty lunes;
     private SimpleStringProperty martes;
@@ -21,6 +26,11 @@ public class Horario {
     
     public Horario(String tramo){
         this(tramo, " ", " ", " ", " ", " ");
+    }
+
+    public  Horario (String tramo, String contenido, Dia dia){
+        if (dia == Dia)
+            this(tramo, contenido, " ", " ", " ", " ");
     }
     
     public Horario(String tramo, String lunes, String martes, String miercoles, String jueves, String viernes){
@@ -64,19 +74,31 @@ public class Horario {
         this.miercoles.set(miercoles);
     }
     
-        public String getJueves() {
+    public String getJueves() {
         return jueves.get();
     }
 
     public void setJueves(String jueves) {
-        this.miercoles.set(jueves);
+        this.jueves.set(jueves);
     }
     
-        public String getViernes() {
-        return miercoles.get();
+    public String getViernes() {
+        return viernes.get();
     }
 
     public void setViernes(String viernes) {
-        this.miercoles.set(viernes);
+        this.viernes.set(viernes);
+    }
+
+    @Override
+    public String toString() {
+        return "Horario{" +
+                "tramo=" + tramo +
+                ", lunes=" + lunes +
+                ", martes=" + martes +
+                ", miercoles=" + miercoles +
+                ", jueves=" + jueves +
+                ", viernes=" + viernes +
+                '}';
     }
 }
