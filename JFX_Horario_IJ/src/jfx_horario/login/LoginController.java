@@ -43,7 +43,6 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initViews();
-        configTextField();
     }
 
     private void initViews() {
@@ -54,9 +53,7 @@ public class LoginController implements Initializable {
                     tryToloadNextWindow();
             }
         });
-    }
 
-    private void configTextField() {
         EventHandler<KeyEvent> evento = new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {

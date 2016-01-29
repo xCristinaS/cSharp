@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.Pane?>
 <?import java.net.URL?>
-<Pane id="panel1" prefHeight="269.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.jefatura.JefaturaController">
+
+<Pane id="jefatura" prefHeight="399.0" prefWidth="1222.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.jefatura.JefaturaController">
     <children>
-        <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="23.0" layoutY="23.0" prefHeight="25.0" prefWidth="409.0" visibleRowCount="9" />
-        <ListView id="lstHorario" fx:id="lstHorario" layoutX="22.0" layoutY="77.0" prefHeight="170.0" prefWidth="838.0" />
-        <RadioButton fx:id="rbDia" layoutX="470.0" layoutY="23.0" mnemonicParsing="false" selected="true" text="Clases del día">
+        <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="25.0" layoutY="31.0" prefHeight="25.0" prefWidth="409.0" visibleRowCount="9" />
+        <ListView id="lstHorario" fx:id="lstHorario" layoutX="25.0" layoutY="113.0" prefHeight="258.0" prefWidth="1172.0" />
+        <RadioButton fx:id="rbDia" layoutX="468.0" layoutY="37.0" mnemonicParsing="false" selected="true" text="Clases del día">
             <toggleGroup>
                 <ToggleGroup fx:id="rbGrupo" />
             </toggleGroup>
         </RadioButton>
-        <RadioButton fx:id="rbSemana" layoutX="470.0" layoutY="48.0" mnemonicParsing="false" text="Horario semanal" toggleGroup="$rbGrupo" />
-        <TableView id="tHorario" fx:id="tHorario" layoutX="22.0" layoutY="77.0" prefHeight="170.0" prefWidth="838.0">
+        <RadioButton fx:id="rbSemana" layoutX="632.0" layoutY="37.0" mnemonicParsing="false" text="Horario semanal" toggleGroup="$rbGrupo" />
+        <TableView id="tHorario" fx:id="tHorario" layoutX="25.0" layoutY="113.0" prefHeight="258.0" prefWidth="1172.0">
             <columns>
-                <TableColumn maxWidth="85.0" minWidth="146.0" prefWidth="85.0" resizable="false" styleClass="celda" text="Hora" />
-                <TableColumn maxWidth="138.0" minWidth="138.0" prefWidth="138.0" resizable="false" styleClass="celda" text="Lunes" />
-                <TableColumn maxWidth="138.0" minWidth="138.0" prefWidth="138.0" resizable="false" styleClass="celda" text="Martes" />
-                <TableColumn maxWidth="138.0" minWidth="138.0" prefWidth="138.0" resizable="false" styleClass="celda" text="Miercoles" />
-                <TableColumn maxWidth="138.0" minWidth="138.0" prefWidth="138.0" resizable="false" styleClass="celda" text="Jueves" />
-                <TableColumn maxWidth="138.0" minWidth="138.0" prefWidth="138.0" resizable="false" styleClass="celda" text="Viernes" />
+                <TableColumn id="columnaHora" maxWidth="210.0" minWidth="146.0" prefWidth="180.0" resizable="false" styleClass="celda" text="Hora" />
+                <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Lunes" />
+                <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Martes" />
+                <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Miercoles" />
+                <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Jueves" />
+                <TableColumn maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Viernes" />
             </columns>
         </TableView>
     </children>

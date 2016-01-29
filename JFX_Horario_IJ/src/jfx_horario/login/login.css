@@ -9,7 +9,29 @@ and open the template in the editor.
 */
 
 #login {
-    
+    -fx-background-image:url("../../imagenes/fondo.jpg");
+    -fx-font-family: "Monotype Corsiva";
+    -fx-font-size: 20px;
 }
+
+#lblError {
+    -fx-font-weight: bold;
+}
+
+TextField,  PasswordField{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.75), 10, 0, 0, 0);
+}
+
+Button {
+    -fx-background-radius: 500;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.75), 15, 0, 0, 0.9);
+    -fx-color: white;
+    -fx-background-color: #337ab7;
+}
+
+Button:hover {
+    -fx-background-color: #286090;
+}
+
 
 

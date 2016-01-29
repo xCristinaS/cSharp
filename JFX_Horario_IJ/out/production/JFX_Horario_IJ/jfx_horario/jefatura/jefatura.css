@@ -8,8 +8,11 @@ and open the template in the editor.
     Author     : Cristina
 */
 
-#panel1 {
-    -fx-background-color: #ccffcc;
+#jefatura {
+    -fx-background-image:url("../../imagenes/fondo.jpg");
+    -fx-background-size:cover;
+    -fx-font-family: "Monotype Corsiva";
+    -fx-font-size: 20px;
 }
 
 #tHorario .celda {
@@ -17,3 +20,6 @@ and open the template in the editor.
     -fx-font-style: italic;
 }
 
+#columnaHora {
+    -fx-font-weight: bold;
+}

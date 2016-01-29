@@ -9,7 +9,10 @@ and open the template in the editor.
 */
 
 #profesor {
-    -fx-background-color: #ccffcc;
+    -fx-background-image:url("../../imagenes/fondo.jpg");
+    -fx-background-size:cover;
+    -fx-font-family: "Monotype Corsiva";
+                            -fx-font-size: 20px;
 }
 
 

@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<Pane id="profesor" fx:id="profesor" prefHeight="256.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+<Pane id="profesor" fx:id="profesor" prefHeight="399.0" prefWidth="1235.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="lblId" layoutX="31.0" layoutY="20.0" text="Label" />
-      <TabPane layoutX="31.0" layoutY="57.0" prefHeight="170.0" prefWidth="838.0" tabClosingPolicy="UNAVAILABLE">
+      <Label fx:id="lblProfesor" layoutX="32.0" layoutY="33.0" text="Label" />
+      <TabPane layoutX="32.0" layoutY="101.0" prefHeight="266.0" prefWidth="1172.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Lunes">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView fx:id="lstLunes" prefHeight="170.0" prefWidth="838.0" />
+                        <ListView fx:id="lstLunes" prefHeight="258.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
             </content>
@@ -21,7 +24,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
                      <children>
-                        <ListView fx:id="lstMartes" prefHeight="170.0" prefWidth="838.0" />
+                        <ListView fx:id="lstMartes" prefHeight="258.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -30,7 +33,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
                      <children>
-                        <ListView fx:id="lstMiercoles" prefHeight="170.0" prefWidth="838.0" />
+                        <ListView fx:id="lstMiercoles" prefHeight="258.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -39,7 +42,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
                      <children>
-                        <ListView fx:id="lstJueves" prefHeight="170.0" prefWidth="838.0" />
+                        <ListView fx:id="lstJueves" prefHeight="258.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
                </content>
@@ -48,7 +51,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
                      <children>
-                        <ListView fx:id="lstViernes" prefHeight="170.0" prefWidth="838.0" />
+                        <ListView fx:id="lstViernes" prefHeight="258.0" prefWidth="1172.0" />
                      </children>
                   </AnchorPane>
                </content>

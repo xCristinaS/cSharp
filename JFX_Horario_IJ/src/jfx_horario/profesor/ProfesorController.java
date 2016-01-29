@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class ProfesorController implements Initializable {
 
     @FXML
-    Label lblId;
+    Label lblProfesor;
 
     @FXML
     ListView lstLunes, lstMartes, lstMiercoles, lstJueves, lstViernes;
@@ -36,7 +36,6 @@ public class ProfesorController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        lblId.setText(idProf);
         cargarHorario();
     }
 
@@ -63,6 +62,14 @@ public class ProfesorController implements Initializable {
                 else
                     lstViernes.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
+
+            select = "select nombre from profesor where codProf = ?";
+            sentencia = conexion.prepareStatement(select);
+            sentencia.setString(1, idProf);
+            result = sentencia.executeQuery();
+            if (result.next())
+                lblProfesor.setText(result.getString(1));
+
             result.close();
             sentencia.close();
             conexion.close();
