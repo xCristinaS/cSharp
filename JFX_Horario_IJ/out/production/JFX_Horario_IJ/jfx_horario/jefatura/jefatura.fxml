@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import java.net.*?>
-
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
 <Pane id="panel1" prefHeight="269.0" prefWidth="882.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jfx_horario.jefatura.JefaturaController">
     <children>
         <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="23.0" layoutY="23.0" prefHeight="25.0" prefWidth="409.0" visibleRowCount="9" />

@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 #login {
-    -fx-background-color: #ccffcc;
+    -fx-background-image: url("@../../imagenes/fondo.jpg");
 }
 
 

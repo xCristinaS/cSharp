@@ -5,6 +5,19 @@
  */
 package jfx_horario.jefatura;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import misClases.BddConnection;
+import misClases.Constantes;
+import misClases.Horario;
+import misClases.Tramos;
+
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,26 +29,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Window;
-import misClases.BddConnection;
-import misClases.Horario;
-import misClases.Constantes;
-import misClases.Tramos;
 
 /**
  * @author Cristina
@@ -109,6 +102,9 @@ public class JefaturaController implements Initializable {
             }
             listaChoiceBox.addAll(myListaProfes); // agrego la lista de nombres a la lista que gestiona el choiceBox
             comboProfes.setItems(listaChoiceBox);
+            result.close();
+            sentencia.close();
+            conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(JefaturaController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -128,6 +124,9 @@ public class JefaturaController implements Initializable {
             while (result.next()) { // voy agregando cada registro a la lista
                 lstHorario.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
+            result.close();
+            sentencia.close();
+            conexion.close();
         } catch (SQLException ex) {
             Logger.getLogger(JefaturaController.class.getName()).log(Level.SEVERE, null, ex);
         }

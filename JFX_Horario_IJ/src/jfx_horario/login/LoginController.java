@@ -1,7 +1,6 @@
 package jfx_horario.login;
 
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +8,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
+import misClases.Constantes;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -27,65 +32,119 @@ import java.util.ResourceBundle;
 public class LoginController implements Initializable {
 
     @FXML
-    TextField txtUsuario, txtContra;
-
+    TextField txtUsuario;
     @FXML
-    Button btnLog;
-
+    PasswordField txtContra;
     @FXML
-    ImageView imgControlU, imgControlC;
-
-
-    private static Connection conexion;
-    private Image imagenCorrecto = new Image("file:..\\..\\imagenes\\bien.png"), imagenFallo = new Image("file:..\\..\\imagenes\\fallo.png");
+    Button btnLogin;
+    @FXML
+    Label lblError;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initViews();
-        abrirConexion();
-        //imgControlC.setImage(imagenCorrecto);
-        //imgControlU.setImage(imagenFallo);
+        configTextField();
     }
 
     private void initViews() {
-        btnLog.setOnAction(new EventHandler<ActionEvent>() {
+        btnLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                if (txtUsuario.getText().equals("cris") && txtContra.getText().equals("cris")) {
-                    try {
-                        Parent root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml"));
-                        Stage stage = new Stage();
-                        stage.setTitle("Jefatura");
-                        stage.setScene(new Scene(root));
-                        btnLog.getScene().getWindow().hide();
-                        stage.showAndWait();
-                        ((Stage) btnLog.getScene().getWindow()).show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+                if (textFielRellenos())
+                    tryToloadNextWindow();
             }
         });
     }
 
-
-    public void onTxtUsuarioTextChanged(Event event) {
-
+    private void configTextField() {
+        EventHandler<KeyEvent> evento = new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().equals(KeyCode.ENTER)) {
+                    if (textFielRellenos())
+                        tryToloadNextWindow();
+                } else
+                    lblError.setVisible(false);
+            }
+        };
+        txtContra.setOnKeyPressed(evento);
+        txtUsuario.setOnKeyPressed(evento);
+        btnLogin.setOnKeyPressed(evento);
     }
 
-    public void onTxtContraTextChanged(Event event) {
+    private int consultarBDD(String idUsuario, String contra) {
+        int r = -1;
+        Connection conexion = BddConnection.newConexionMySQL("horario");
+        PreparedStatement sentencia;
+        ResultSet result;
+        String select = "select tipo from profesor where codProf = ? and contra = ?;";
 
-    }
-
-    public static void abrirConexion() {
-        conexion = BddConnection.newConexionMySQL("horario");
-    }
-
-    public static void cerrarConexion() {
         try {
+            sentencia = conexion.prepareStatement(select);
+            sentencia.setString(1, idUsuario);
+            sentencia.setString(2, contra);
+            result = sentencia.executeQuery();
+            if (result.next())
+                r = result.getByte(1);
+            result.close();
+            sentencia.close();
             conexion.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        return r;
+    }
+
+    public boolean textFielRellenos() {
+        boolean r = false;
+        if (!txtUsuario.getText().isEmpty() && !txtContra.getText().isEmpty() && txtUsuario.getText().length() <= 3) {
+            r = true;
+        } else
+            lblError.setVisible(true);
+        return r;
+    }
+
+    public void tryToloadNextWindow() {
+        int tipoUser;
+        Parent root = null;
+        Stage stage;
+        boolean logueadoConExito = false;
+        String tituloWindow = "";
+
+        tipoUser = consultarBDD(txtUsuario.getText(), txtContra.getText());
+        try {
+            if (tipoUser == Constantes.TIPO_PROFE) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(("../profesor/profesor.fxml")));
+                loader.setController(new ProfesorController(txtUsuario.getText()));
+                root = loader.load();
+                tituloWindow = "Horario Profesor";
+                logueadoConExito = true;
+            } else if (tipoUser == Constantes.TIPO_JEFATURA) {
+                root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml"));
+                tituloWindow = "Jefatura";
+                logueadoConExito = true;
+            } else {
+                lblError.setVisible(true);
+            }
+
+            if (logueadoConExito) {
+                limpiarVentana();
+                stage = new Stage();
+                stage.setTitle(tituloWindow);
+                stage.setScene(new Scene(root));
+                stage.setResizable(false);
+                btnLogin.getScene().getWindow().hide();
+                stage.showAndWait();
+                ((Stage) btnLogin.getScene().getWindow()).show();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void limpiarVentana(){
+        txtContra.setText("");
+        txtUsuario.setText("");
     }
 }

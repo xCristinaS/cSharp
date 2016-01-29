@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<Pane id="profesor" fx:id="profesor" prefHeight="256.0" prefWidth="898.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblId" layoutX="31.0" layoutY="20.0" text="Label" />
+      <TabPane layoutX="31.0" layoutY="57.0" prefHeight="170.0" prefWidth="838.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Lunes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="lstLunes" prefHeight="170.0" prefWidth="838.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Martes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
+                     <children>
+                        <ListView fx:id="lstMartes" prefHeight="170.0" prefWidth="838.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Miercoles">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
+                     <children>
+                        <ListView fx:id="lstMiercoles" prefHeight="170.0" prefWidth="838.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Jueves">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
+                     <children>
+                        <ListView fx:id="lstJueves" prefHeight="170.0" prefWidth="838.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Viernes">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="838.0">
+                     <children>
+                        <ListView fx:id="lstViernes" prefHeight="170.0" prefWidth="838.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+    <stylesheets>
+        <URL value="@profesor.css" />
+    </stylesheets>
+</Pane>
