@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +25,7 @@ import java.util.logging.Logger;
 public class ProfesorController implements Initializable {
 
     @FXML
-    Label lblProfesor;
+    Label lblNombreProf, lblAlta;
 
     @FXML
     ListView lstLunes, lstMartes, lstMiercoles, lstJueves, lstViernes;
@@ -43,6 +45,7 @@ public class ProfesorController implements Initializable {
         Connection conexion = BddConnection.newConexionMySQL("horario");
         PreparedStatement sentencia;
         ResultSet result;
+        SimpleDateFormat formatoParse = new SimpleDateFormat("yyyy-MM-dd"), formato = new SimpleDateFormat("dd/MM/yyyy");
         String select = "select codTramo, h.codCurso, h.codOe, h.codAsignatura, a.nombre from horario h, reparto r, asignatura a where h.codAsignatura = a.codAsignatura and r.codOe = h.codOe and r.codcurso = h.codcurso " +
                 "and r.CodAsignatura = h.CodAsignatura and codProf = ? order by substring(codTramo, 1, 2) like'L%' desc, substring(codTramo, 1, 2) like'M%' desc, substring(codTramo, 1, 2) like'X%' desc, codtramo;";
 
@@ -63,13 +66,18 @@ public class ProfesorController implements Initializable {
                     lstViernes.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
 
-            select = "select nombre from profesor where codProf = ?";
+            select = "select nombre, alta from profesor where codProf = ?;";
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, idProf);
             result = sentencia.executeQuery();
-            if (result.next())
-                lblProfesor.setText(result.getString(1));
-
+            if (result.next()) {
+                lblNombreProf.setText(Constantes.NOMBRE_PROF + result.getString(1));
+                try {
+                    lblAlta.setText(Constantes.ALTA_PROF + formato.format(formatoParse.parse(result.getString(2).substring(0,10))));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
             result.close();
             sentencia.close();
             conexion.close();

@@ -17,4 +17,6 @@ public class Constantes {
     public static final char MARTES = 'M';
     public static final char MIERCOLES = 'X';
     public static final char JUEVES = 'J';
+    public static final String NOMBRE_PROF = "Nombre: ";
+    public static final String ALTA_PROF = "Fecha de alta: ";
 }

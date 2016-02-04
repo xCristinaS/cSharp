@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 #jefatura {
-    -fx-background-image:url("../../imagenes/fondo.jpg");
+    -fx-background-image:url("../../imagenes/fondo.png");
     -fx-background-size:cover;
     -fx-font-family: "Monotype Corsiva";
     -fx-font-size: 20px;
@@ -21,5 +21,5 @@ and open the template in the editor.
 }
 
 #columnaHora {
-    -fx-font-weight: bold;
+
 }

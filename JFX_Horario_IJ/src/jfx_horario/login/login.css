@@ -9,7 +9,7 @@ and open the template in the editor.
 */
 
 #login {
-    -fx-background-image:url("../../imagenes/fondo.jpg");
+    -fx-background-image:url("../../imagenes/fondo.png");
     -fx-font-family: "Monotype Corsiva";
     -fx-font-size: 20px;
 }
@@ -31,6 +31,11 @@ Button {
 
 Button:hover {
     -fx-background-color: #286090;
+}
+
+Button:pressed {
+    -fx-position: relative;
+    -fx-top: 4px;
 }
 
 
