@@ -33,10 +33,4 @@ Button:hover {
     -fx-background-color: #286090;
 }
 
-Button:pressed {
-    -fx-position: relative;
-    -fx-top: 4px;
-}
-
-
 
