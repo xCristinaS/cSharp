@@ -18,6 +18,7 @@ import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
 import misClases.Constantes;
 
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -39,6 +40,8 @@ public class LoginController implements Initializable {
     Button btnLogin;
     @FXML
     Label lblError;
+
+    private double posX, posY;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,6 +134,7 @@ public class LoginController implements Initializable {
                 stage.setTitle(tituloWindow);
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
+                configDragDropWindow(root, stage);
                 btnLogin.getScene().getWindow().hide();
                 stage.showAndWait();
                 ((Stage) btnLogin.getScene().getWindow()).show();
@@ -140,8 +144,22 @@ public class LoginController implements Initializable {
         }
     }
 
+    private void configDragDropWindow(Parent root, Stage stage){
+        root.setOnMousePressed(event -> {
+            posX = event.getX();
+            posY =  event.getY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - posX);
+            stage.setY(event.getScreenY() - posY);
+        });
+    }
+
     private void limpiarVentana(){
         txtContra.setText("");
         txtUsuario.setText("");
     }
+
+
 }
