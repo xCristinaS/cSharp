@@ -49,7 +49,6 @@ public class Horario extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
 
 }
