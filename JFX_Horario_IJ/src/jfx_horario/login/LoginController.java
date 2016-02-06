@@ -1,5 +1,6 @@
 package jfx_horario.login;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -129,15 +130,13 @@ public class LoginController implements Initializable {
             }
 
             if (logueadoConExito) {
-                limpiarVentana();
                 stage = new Stage();
                 stage.setTitle(tituloWindow);
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
                 configDragDropWindow(root, stage);
-                btnLogin.getScene().getWindow().hide();
-                stage.showAndWait();
-                ((Stage) btnLogin.getScene().getWindow()).show();
+                stage.show();
+                ((Stage)btnLogin.getScene().getWindow()).close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -155,12 +154,4 @@ public class LoginController implements Initializable {
             stage.setY(event.getScreenY() - posY);
         });
     }
-
-    private void limpiarVentana(){
-        txtContra.setText("");
-        txtUsuario.setText("");
-    }
-
-    
-
 }

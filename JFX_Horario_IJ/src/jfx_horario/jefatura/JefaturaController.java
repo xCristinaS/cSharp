@@ -9,15 +9,27 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.*;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 import misClases.BddConnection;
 import misClases.Constantes;
 import misClases.Horario;
 import misClases.Tramos;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,9 +55,12 @@ public class JefaturaController implements Initializable {
     private ToggleGroup rbGrupo;
     @FXML
     private TableView<Horario> tHorario;
+    @FXML
+    private ImageView imgSalir;
 
     private ArrayList<String> myListaProfes = new ArrayList<String>();
     private ArrayList<Horario> datosCol = new ArrayList<>();
+    private double posX, posY;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -56,7 +71,9 @@ public class JefaturaController implements Initializable {
         configComboProfes();
         configRadioButtons();
         configTableHorario();
-        tHorario.visibleProperty().setValue(false);
+        configImgSalir();
+        lstHorario.visibleProperty().setValue(false);
+        comboProfes.getSelectionModel().select(0);
     }
 
     private void configRadioButtons() {
@@ -158,6 +175,50 @@ public class JefaturaController implements Initializable {
         ((TableColumn) tHorario.getColumns().get(3)).setCellValueFactory(new PropertyValueFactory<Horario, String>("miercoles"));
         ((TableColumn) tHorario.getColumns().get(4)).setCellValueFactory(new PropertyValueFactory<Horario, String>("jueves"));
         ((TableColumn) tHorario.getColumns().get(5)).setCellValueFactory(new PropertyValueFactory<Horario, String>("viernes"));
+        // Configuro el color del texto de la celda de la columna "hora"
+        ((TableColumn) tHorario.getColumns().get(0)).setCellFactory(new Callback<TableColumn, TableCell>() {
+            @Override
+            public TableCell call(TableColumn param) {
+                return new TableCell<Horario, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            this.setTextFill(Color.DARKBLUE);
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        });
+        // Objecto callback con el que configuro el color del texto de la celda de la tabla (de lunes a viernes).
+        Callback<TableColumn, TableCell> myCallback = new Callback<TableColumn, TableCell>() {
+            @Override
+            public TableCell call(TableColumn param) {
+                return new TableCell<Horario, String>() {
+                    @Override
+                    public void updateItem(String item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (!isEmpty()) {
+                            if (item.contains("2") && item.contains("DAM"))
+                                this.setTextFill(Color.DARKRED);
+                            else if (item.contains("1") && item.contains("DAM"))
+                                this.setTextFill(Color.DARKGOLDENROD);
+                            else if (item.contains("1") && item.contains("SMR"))
+                                this.setTextFill(Color.DARKGREEN);
+                            else
+                                this.setTextFill(Color.DARKVIOLET);
+                            setText(item);
+                        }
+                    }
+                };
+            }
+        };
+        ((TableColumn) tHorario.getColumns().get(1)).setCellFactory(myCallback);
+        ((TableColumn) tHorario.getColumns().get(2)).setCellFactory(myCallback);
+        ((TableColumn) tHorario.getColumns().get(3)).setCellFactory(myCallback);
+        ((TableColumn) tHorario.getColumns().get(4)).setCellFactory(myCallback);
+        ((TableColumn) tHorario.getColumns().get(5)).setCellFactory(myCallback);
         tHorario.setItems(FXCollections.observableArrayList(datosCol));
         tHorario.setEditable(true);
         agregarTramosATable();
@@ -219,5 +280,40 @@ public class JefaturaController implements Initializable {
                 break;
         }
         tHorario.getItems().setAll(datosCol);
+    }
+
+    private void configImgSalir() {
+        imgSalir.setImage(new Image("@../../imagenes/logout.png"));
+        imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Pane root;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
+                    String tituloWindow = "Login";
+                    Stage stage = new Stage();
+                    stage.setTitle(tituloWindow);
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    configDragDropWindow(root, stage);
+                    stage.show();
+                    ((Stage) imgSalir.getScene().getWindow()).close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void configDragDropWindow(Parent root, Stage stage){
+        root.setOnMousePressed(event -> {
+            posX = event.getX();
+            posY = event.getY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - posX);
+            stage.setY(event.getScreenY() - posY);
+        });
     }
 }

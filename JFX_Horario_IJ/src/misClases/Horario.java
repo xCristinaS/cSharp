@@ -13,10 +13,6 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Horario {
 
-    private enum Dia {
-        LUNES, MARTES, MIERCOLES, JUEVES, VIERNES
-    }
-
     private SimpleStringProperty tramo;
     private SimpleStringProperty lunes;
     private SimpleStringProperty martes;

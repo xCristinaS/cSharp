@@ -1,13 +1,23 @@
 package jfx_horario.profesor;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import misClases.BddConnection;
 import misClases.Constantes;
 import misClases.Tramos;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,11 +36,13 @@ public class ProfesorController implements Initializable {
 
     @FXML
     Label lblNombreProf, lblAlta;
-
     @FXML
     ListView lstLunes, lstMartes, lstMiercoles, lstJueves, lstViernes;
+    @FXML
+    ImageView imgSalir;
 
     private final String idProf;
+    private double posX, posY;
 
     public ProfesorController(String idProf) {
         this.idProf = idProf;
@@ -39,6 +51,7 @@ public class ProfesorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarHorario();
+        configImgSalir();
     }
 
     private void cargarHorario() {
@@ -103,5 +116,40 @@ public class ProfesorController implements Initializable {
             default:
                 return "";
         }
+    }
+
+    private void configImgSalir() {
+        imgSalir.setImage(new Image("@../../imagenes/logout.png"));
+        imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Pane root;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
+                    String tituloWindow = "Login";
+                    Stage stage = new Stage();
+                    stage.setTitle(tituloWindow);
+                    stage.setScene(new Scene(root));
+                    stage.setResizable(false);
+                    configDragDropWindow(root, stage);
+                    stage.show();
+                    ((Stage) imgSalir.getScene().getWindow()).close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void configDragDropWindow(Parent root, Stage stage){
+        root.setOnMousePressed(event -> {
+            posX = event.getX();
+            posY = event.getY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - posX);
+            stage.setY(event.getScreenY() - posY);
+        });
     }
 }
