@@ -1,6 +1,5 @@
 package jfx_horario.login;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -19,7 +18,6 @@ import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
 import misClases.Constantes;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
