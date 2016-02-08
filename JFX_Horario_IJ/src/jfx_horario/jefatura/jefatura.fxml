@@ -35,6 +35,6 @@
                          text="Viernes"/>
         </columns>
     </TableView>
-    <ImageView fx:id="imgSalir" fitHeight="91.0" fitWidth="83.0" layoutX="1114.0" layoutY="13.0" pickOnBounds="true"
+    <ImageView fx:id="imgSalir" fitHeight="91.0" fitWidth="83.0" layoutX="1123.0" layoutY="13.0" pickOnBounds="true"
                preserveRatio="true"/>
 </Pane>
