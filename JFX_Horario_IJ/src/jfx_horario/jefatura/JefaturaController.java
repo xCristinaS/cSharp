@@ -496,7 +496,6 @@ public class JefaturaController implements Initializable {
             sentencia.execute();
             sentencia.close();
             conexion.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -513,7 +512,7 @@ public class JefaturaController implements Initializable {
         insert = "insert into horario values('" + codTramo + "', '" + codOe + "', '" + codCurso + "', '" + codAsignatura + "');";
         try {
             sentencia = conexion.prepareStatement(insert);
-            System.out.println("se ha insertado bien");
+            sentencia.execute();
             sentencia.close();
             conexion.close();
         } catch (SQLException e) {
