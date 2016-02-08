@@ -60,6 +60,8 @@ public class JefaturaController implements Initializable {
 
     private ArrayList<String> myListaProfes = new ArrayList<String>();
     private ArrayList<Horario> datosCol = new ArrayList<>();
+    private static Horario registroDePartidaDragDrop;
+    private static char diaMovido;
     private double posX, posY;
 
     @Override
@@ -68,12 +70,14 @@ public class JefaturaController implements Initializable {
     }
 
     private void initViews() {
+        tHorario.setFixedCellSize(36);
+        configImgSalir();
         configComboProfes();
         configRadioButtons();
+        configDragAndDropColumnas();
         configTableHorario();
-        configImgSalir();
-        lstHorario.visibleProperty().setValue(false);
         comboProfes.getSelectionModel().select(0);
+        lstHorario.visibleProperty().setValue(false);
     }
 
     private void configRadioButtons() {
@@ -305,7 +309,7 @@ public class JefaturaController implements Initializable {
         });
     }
 
-    private void configDragDropWindow(Parent root, Stage stage){
+    private void configDragDropWindow(Parent root, Stage stage) {
         root.setOnMousePressed(event -> {
             posX = event.getX();
             posY = event.getY();
@@ -315,5 +319,155 @@ public class JefaturaController implements Initializable {
             stage.setX(event.getScreenX() - posX);
             stage.setY(event.getScreenY() - posY);
         });
+    }
+
+    private void configDragAndDropColumnas() {
+        // comienza el drag and drop:
+        tHorario.setOnDragDetected(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Dragboard db = tHorario.startDragAndDrop(TransferMode.MOVE);
+                ClipboardContent content = new ClipboardContent();
+
+                TablePosition t = tHorario.getSelectionModel().getSelectedCells().get(0);
+                TableColumn columna = tHorario.getColumns().get(t.getColumn());
+                int numeroFila = t.getRow();
+                Horario registro = datosCol.get(numeroFila);
+
+                JefaturaController.registroDePartidaDragDrop = registro;
+
+                switch (columna.getText()) {
+                    case "Hora":
+                        //content.putString(registro.getTramo());
+                        content.putString("");
+                        break;
+                    case "Lunes":
+                        content.putString(registro.getLunes());
+                        diaMovido = 'L';
+                        break;
+                    case "Martes":
+                        content.putString(registro.getMartes());
+                        diaMovido = 'M';
+                        break;
+                    case "Miercoles":
+                        content.putString(registro.getMiercoles());
+                        diaMovido = 'X';
+                        break;
+                    case "Jueves":
+                        content.putString(registro.getJueves());
+                        diaMovido = 'J';
+                        break;
+                    case "Viernes":
+                        content.putString(registro.getViernes());
+                        diaMovido = 'V';
+                        break;
+                }
+                db.setContent(content);
+                event.consume();
+            }
+        });
+
+        tHorario.setOnDragOver(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                if (event.getDragboard().hasString())
+                    event.acceptTransferModes(TransferMode.MOVE);
+
+                event.consume();
+            }
+        });
+
+        tHorario.setOnDragDropped(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                final double HEIGHT_CONTENIDO_TABLA = tHorario.getFixedCellSize() * tHorario.getColumns().size();
+                final double ALTO_CABECERA = tHorario.getHeight() - HEIGHT_CONTENIDO_TABLA + 4;
+                final double ALTO_CELDA = tHorario.getFixedCellSize();
+
+                int columna, fila;
+                Dragboard db = event.getDragboard();
+                boolean success = false;
+                Horario registroFila;
+                String dragContent;
+
+                if (db.hasString()) {
+                    dragContent = db.getString();
+                    columna = (int) (event.getSceneX() - 23) / Constantes.ANCHO_CELDA; // le tengo que restar 23 por el margen, para que me pille bien el número de columna.
+                    fila = (int) ((event.getSceneY() - ALTO_CABECERA) / ALTO_CELDA) - 3; // Le resto 3 porque hay una especie de desfase extraño, para q la fila empiece a contar en 0.
+                    System.out.println(String.format("fila: %d - columna: %d", fila, columna));
+                    if (!dragContent.equals("") && fila >= 0 && columna > 0) { // entro si la fila se corresponde con algún registro y no con la cabecera de la tabla y la columna no es la del tramo horario.
+                        registroFila = datosCol.get(fila);
+                        if (celdaValidaToDrop(columna, registroFila, dragContent)) {
+                            success = true;
+                        }
+                    }
+                }
+                event.setDropCompleted(success);
+                event.consume();
+            }
+        });
+
+        tHorario.setOnDragDone(new EventHandler<DragEvent>() {
+            public void handle(DragEvent event) {
+                if (event.getTransferMode() == TransferMode.MOVE) {
+                    switch (diaMovido){
+                        case 'L':
+                            JefaturaController.registroDePartidaDragDrop.setLunes("");
+                            break;
+                        case 'M':
+                            JefaturaController.registroDePartidaDragDrop.setMartes("");
+                            break;
+                        case 'X':
+                            JefaturaController.registroDePartidaDragDrop.setMiercoles("");
+                            break;
+                        case 'J':
+                            JefaturaController.registroDePartidaDragDrop.setJueves("");
+                            break;
+                        case 'V':
+                            JefaturaController.registroDePartidaDragDrop.setViernes("");
+                            break;
+                    }
+
+                    tHorario.getItems().removeAll(datosCol);
+                    tHorario.getItems().setAll(datosCol);
+                }
+                event.consume();
+            }
+        });
+    }
+
+    private boolean celdaValidaToDrop(int columna, Horario registro, String dragContent){
+        boolean resp = false;
+        switch(columna){
+            case 1:
+                if (registro.getLunes().equals("")) {
+                    registro.setLunes(dragContent);
+                    resp = true;
+                }
+                break;
+            case 2:
+                if (registro.getMartes().equals("")) {
+                    registro.setMartes(dragContent);
+                    resp = true;
+                }
+                break;
+            case 3:
+                if (registro.getMiercoles().equals("")) {
+                    registro.setMiercoles(dragContent);
+                    resp = true;
+                }
+                break;
+            case 4:
+                if (registro.getJueves().equals("")) {
+                    registro.setJueves(dragContent);
+                    resp = true;
+                }
+                break;
+            case 5:
+                if (registro.getViernes().equals("")) {
+                    registro.setViernes(dragContent);
+                    resp = true;
+                }
+                break;
+        }
+        return resp;
     }
 }

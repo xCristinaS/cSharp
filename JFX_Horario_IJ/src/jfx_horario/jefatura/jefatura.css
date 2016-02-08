@@ -19,7 +19,7 @@ and open the template in the editor.
     -fx-alignment: CENTER;
     -fx-font-style: italic;
 }
-
+/* para ocultar la fila seleccionada*/
 .table-row-cell:filled:selected {
   -fx-background: -fx-control-inner-background ;
   -fx-background-color: -fx-table-cell-border-color, -fx-background ;

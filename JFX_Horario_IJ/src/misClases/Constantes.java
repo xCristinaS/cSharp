@@ -19,4 +19,5 @@ public class Constantes {
     public static final char JUEVES = 'J';
     public static final String NOMBRE_PROF = "Nombre: ";
     public static final String ALTA_PROF = "Fecha de alta: ";
+    public static final int ANCHO_CELDA = 198;
 }
