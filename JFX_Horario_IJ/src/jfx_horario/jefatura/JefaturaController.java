@@ -387,15 +387,26 @@ public class JefaturaController implements Initializable {
                 boolean success = false;
                 Horario registroFila;
                 String dragContent;
+                char diaColumna = ' ';
 
                 if (db.hasString()) {
                     dragContent = db.getString();
                     columna = (int) (event.getSceneX() - 23) / Constantes.ANCHO_CELDA; // le tengo que restar 23 por el margen, para que me pille bien el número de columna.
                     fila = (int) ((event.getSceneY() - ALTO_CABECERA) / ALTO_CELDA) - 3; // Le resto 3 porque hay una especie de desfase extraño, para q la fila empiece a contar en 0.
-                    System.out.println(String.format("fila: %d - columna: %d", fila, columna));
                     if (!dragContent.equals("") && fila >= 0 && columna > 0) { // entro si la fila se corresponde con algún registro y no con la cabecera de la tabla y la columna no es la del tramo horario.
                         registroFila = datosCol.get(fila);
                         if (celdaValidaToDrop(columna, registroFila, dragContent)) {
+                            if (columna == 1)
+                                diaColumna = 'L';
+                            else if (columna == 2)
+                                diaColumna = 'M';
+                            else if (columna == 3)
+                                diaColumna = 'X';
+                            else if (columna == 4)
+                                diaColumna = 'J';
+                            else
+                                diaColumna = 'V';
+                            agregarRegistroABDD(registroFila, diaColumna);
                             success = true;
                         }
                     }
@@ -408,7 +419,8 @@ public class JefaturaController implements Initializable {
         tHorario.setOnDragDone(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    switch (diaMovido){
+                    eliminarRegistroDeBDD();
+                    switch (diaMovido) {
                         case 'L':
                             JefaturaController.registroDePartidaDragDrop.setLunes("");
                             break;
@@ -425,7 +437,6 @@ public class JefaturaController implements Initializable {
                             JefaturaController.registroDePartidaDragDrop.setViernes("");
                             break;
                     }
-
                     tHorario.getItems().removeAll(datosCol);
                     tHorario.getItems().setAll(datosCol);
                 }
@@ -434,9 +445,9 @@ public class JefaturaController implements Initializable {
         });
     }
 
-    private boolean celdaValidaToDrop(int columna, Horario registro, String dragContent){
+    private boolean celdaValidaToDrop(int columna, Horario registro, String dragContent) {
         boolean resp = false;
-        switch(columna){
+        switch (columna) {
             case 1:
                 if (registro.getLunes().equals("")) {
                     registro.setLunes(dragContent);
@@ -469,5 +480,84 @@ public class JefaturaController implements Initializable {
                 break;
         }
         return resp;
+    }
+
+    private void eliminarRegistroDeBDD() {
+        String delete, contenidoRegistro = obtenerContenidoDeRegistro(registroDePartidaDragDrop, diaMovido), codOe, codCurso, codAsignatura, codTramo;
+        Connection conexion = BddConnection.newConexionMySQL("horario");
+        PreparedStatement sentencia;
+        codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
+        codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
+        codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
+        codTramo = diaMovido + getHoraDeTramo(registroDePartidaDragDrop.getTramo());
+        delete = "delete from horario where CodOe='" + codOe + "' and CodCurso='" + codCurso + "' and CodAsignatura='" + codAsignatura + "' and CodTramo ='" + codTramo + "';";
+        try {
+            sentencia = conexion.prepareStatement(delete);
+            sentencia.execute();
+            sentencia.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void agregarRegistroABDD(Horario nuevoRegistro, char diaTramo) {
+        String insert, contenidoRegistro = obtenerContenidoDeRegistro(nuevoRegistro, diaTramo), codOe, codCurso, codAsignatura, codTramo;
+        Connection conexion = BddConnection.newConexionMySQL("horario");
+        PreparedStatement sentencia;
+        codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
+        codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
+        codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
+        codTramo = diaTramo + getHoraDeTramo(nuevoRegistro.getTramo());
+        insert = "insert into horario values('" + codTramo + "', '" + codOe + "', '" + codCurso + "', '" + codAsignatura + "');";
+        try {
+            sentencia = conexion.prepareStatement(insert);
+            System.out.println("se ha insertado bien");
+            sentencia.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String obtenerContenidoDeRegistro(Horario registro, char dia) {
+        String contenidoRegistro = "";
+        switch (dia) {
+            case 'L':
+                contenidoRegistro = registro.getLunes();
+                break;
+            case 'M':
+                contenidoRegistro = registro.getMartes();
+                break;
+            case 'X':
+                contenidoRegistro = registro.getMiercoles();
+                break;
+            case 'J':
+                contenidoRegistro = registro.getJueves();
+                break;
+            case 'V':
+                contenidoRegistro = registro.getViernes();
+                break;
+        }
+        return contenidoRegistro;
+    }
+
+    private String getHoraDeTramo(String tramo) {
+        int resp = 0;
+        if (tramo.equals(Tramos.PRIMERA.getTramo_H()))
+            resp = 1;
+        else if (tramo.equals(Tramos.SEGUNDA.getTramo_H()))
+            resp = 2;
+        else if (tramo.equals(Tramos.TERCERA.getTramo_H()))
+            resp = 3;
+        else if (tramo.equals(Tramos.CUARTA.getTramo_H()))
+            resp = 4;
+        else if (tramo.equals(Tramos.QUINTA.getTramo_H()))
+            resp = 5;
+        else if (tramo.equals(Tramos.SEXTA.getTramo_H()))
+            resp = 6;
+
+        return String.valueOf(resp);
     }
 }
