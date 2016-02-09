@@ -9,6 +9,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -63,6 +65,7 @@ public class JefaturaController implements Initializable {
     private static Horario registroDePartidaDragDrop;
     private static char diaMovido;
     private double posX, posY;
+    private static int filaSelectedRightButton, columnSelectedRightButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,8 +77,9 @@ public class JefaturaController implements Initializable {
         configImgSalir();
         configComboProfes();
         configRadioButtons();
-        configDragAndDropColumnas();
+        configDragAndDropTabla();
         configTableHorario();
+        configContextMenuTable();
         comboProfes.getSelectionModel().select(0);
         lstHorario.visibleProperty().setValue(false);
     }
@@ -105,6 +109,7 @@ public class JefaturaController implements Initializable {
                     for (Horario h : datosCol) // limpio las columnas del horario del profesor anterior.
                         h.vaciar();
                 cargarHorarioSemanalProfe(myListaProfes.get(newValue.intValue()).substring(0, 3)); // cargo el horario semanal del profesor.
+                refrescarTabla();
             }
         });
     }
@@ -321,7 +326,7 @@ public class JefaturaController implements Initializable {
         });
     }
 
-    private void configDragAndDropColumnas() {
+    private void configDragAndDropTabla() {
         // comienza el drag and drop:
         tHorario.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
@@ -378,35 +383,20 @@ public class JefaturaController implements Initializable {
 
         tHorario.setOnDragDropped(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
-                final double HEIGHT_CONTENIDO_TABLA = tHorario.getFixedCellSize() * tHorario.getColumns().size();
-                final double ALTO_CABECERA = tHorario.getHeight() - HEIGHT_CONTENIDO_TABLA + 4;
-                final double ALTO_CELDA = tHorario.getFixedCellSize();
-
                 int columna, fila;
                 Dragboard db = event.getDragboard();
                 boolean success = false;
                 Horario registroFila;
                 String dragContent;
-                char diaColumna = ' ';
 
                 if (db.hasString()) {
                     dragContent = db.getString();
-                    columna = (int) (event.getSceneX() - 23) / Constantes.ANCHO_CELDA; // le tengo que restar 23 por el margen, para que me pille bien el número de columna.
-                    fila = (int) ((event.getSceneY() - ALTO_CABECERA) / ALTO_CELDA) - 3; // Le resto 3 porque hay una especie de desfase extraño, para q la fila empiece a contar en 0.
+                    columna = obtenerColumna(event.getSceneX());
+                    fila = obtenerFila(event.getSceneY());
                     if (!dragContent.equals("") && fila >= 0 && columna > 0) { // entro si la fila se corresponde con algún registro y no con la cabecera de la tabla y la columna no es la del tramo horario.
                         registroFila = datosCol.get(fila);
                         if (celdaValidaToDrop(columna, registroFila, dragContent)) {
-                            if (columna == 1)
-                                diaColumna = 'L';
-                            else if (columna == 2)
-                                diaColumna = 'M';
-                            else if (columna == 3)
-                                diaColumna = 'X';
-                            else if (columna == 4)
-                                diaColumna = 'J';
-                            else
-                                diaColumna = 'V';
-                            agregarRegistroABDD(registroFila, diaColumna);
+                            agregarRegistroABDD(registroFila, obtenerDiaSegunColumna(columna));
                             success = true;
                         }
                     }
@@ -419,30 +409,39 @@ public class JefaturaController implements Initializable {
         tHorario.setOnDragDone(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    eliminarRegistroDeBDD();
-                    switch (diaMovido) {
-                        case 'L':
-                            JefaturaController.registroDePartidaDragDrop.setLunes("");
-                            break;
-                        case 'M':
-                            JefaturaController.registroDePartidaDragDrop.setMartes("");
-                            break;
-                        case 'X':
-                            JefaturaController.registroDePartidaDragDrop.setMiercoles("");
-                            break;
-                        case 'J':
-                            JefaturaController.registroDePartidaDragDrop.setJueves("");
-                            break;
-                        case 'V':
-                            JefaturaController.registroDePartidaDragDrop.setViernes("");
-                            break;
-                    }
-                    tHorario.getItems().removeAll(datosCol);
-                    tHorario.getItems().setAll(datosCol);
+                    eliminarRegistroDeBDD(JefaturaController.registroDePartidaDragDrop, diaMovido);
+                    eliminarRegistroDeLista(JefaturaController.registroDePartidaDragDrop, diaMovido);
+                   refrescarTabla();
                 }
                 event.consume();
             }
         });
+    }
+
+    private int obtenerColumna(double posicionX){
+        return (int) (posicionX - 23) / Constantes.ANCHO_CELDA; // le tengo que restar 23 por el margen, para que me pille bien el número de columna.
+    }
+
+    private int obtenerFila(double posicionY){
+        final double HEIGHT_CONTENIDO_TABLA = tHorario.getFixedCellSize() * tHorario.getColumns().size();
+        final double ALTO_CABECERA = tHorario.getHeight() - HEIGHT_CONTENIDO_TABLA + 4;
+        final double ALTO_CELDA = tHorario.getFixedCellSize();
+        return (int) ((posicionY - ALTO_CABECERA) / ALTO_CELDA) - 3; // Le resto 3 porque hay una especie de desfase extraño, para q la fila empiece a contar en 0.
+    }
+
+    private char obtenerDiaSegunColumna(int columna){
+        char diaColumna;
+        if (columna == 1)
+            diaColumna = 'L';
+        else if (columna == 2)
+            diaColumna = 'M';
+        else if (columna == 3)
+            diaColumna = 'X';
+        else if (columna == 4)
+            diaColumna = 'J';
+        else
+            diaColumna = 'V';
+        return diaColumna;
     }
 
     private boolean celdaValidaToDrop(int columna, Horario registro, String dragContent) {
@@ -482,14 +481,14 @@ public class JefaturaController implements Initializable {
         return resp;
     }
 
-    private void eliminarRegistroDeBDD() {
-        String delete, contenidoRegistro = obtenerContenidoDeRegistro(registroDePartidaDragDrop, diaMovido), codOe, codCurso, codAsignatura, codTramo;
+    private void eliminarRegistroDeBDD(Horario registro, char diaTramo) {
+        String delete, contenidoRegistro = obtenerContenidoDeRegistro(registro, diaTramo), codOe, codCurso, codAsignatura, codTramo;
         Connection conexion = BddConnection.newConexionMySQL("horario");
         PreparedStatement sentencia;
         codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
         codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
         codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
-        codTramo = diaMovido + getHoraDeTramo(registroDePartidaDragDrop.getTramo());
+        codTramo = diaTramo + getHoraDeTramo(registro.getTramo());
         delete = "delete from horario where CodOe='" + codOe + "' and CodCurso='" + codCurso + "' and CodAsignatura='" + codAsignatura + "' and CodTramo ='" + codTramo + "';";
         try {
             sentencia = conexion.prepareStatement(delete);
@@ -498,6 +497,26 @@ public class JefaturaController implements Initializable {
             conexion.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void eliminarRegistroDeLista(Horario registro, char diaTramo){
+        switch (diaTramo) {
+            case 'L':
+                registro.setLunes("");
+                break;
+            case 'M':
+                registro.setMartes("");
+                break;
+            case 'X':
+                registro.setMiercoles("");
+                break;
+            case 'J':
+                registro.setJueves("");
+                break;
+            case 'V':
+                registro.setViernes("");
+                break;
         }
     }
 
@@ -558,5 +577,54 @@ public class JefaturaController implements Initializable {
             resp = 6;
 
         return String.valueOf(resp);
+    }
+
+    private void configContextMenuTable(){
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem insertar = new MenuItem("Insertar");
+        MenuItem actualizar = new MenuItem("Actualizar");
+        MenuItem eliminar = new MenuItem("Eliminar");
+        tHorario.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.SECONDARY) {
+                    JefaturaController.filaSelectedRightButton = obtenerFila(event.getSceneY());
+                    JefaturaController.columnSelectedRightButton = obtenerColumna(event.getSceneX());
+                }
+            }
+        });
+
+        insertar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+
+            }
+        });
+
+        eliminar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if (!celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("¡Advertencia!");
+                    alert.setHeaderText("Se va a eliminar un registro");
+                    alert.setContentText("¿Está seguro de que desea eliminar el registro definitivamente?");
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.get() == ButtonType.OK) {
+                        eliminarRegistroDeBDD(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton));
+                        eliminarRegistroDeLista(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton));
+                        refrescarTabla();
+                    }
+                }
+            }
+        });
+
+        contextMenu.getItems().addAll(insertar, actualizar, eliminar);
+        tHorario.setContextMenu(contextMenu);
+    }
+
+    private void refrescarTabla(){
+        tHorario.getItems().removeAll(datosCol);
+        tHorario.getItems().setAll(datosCol);
     }
 }
