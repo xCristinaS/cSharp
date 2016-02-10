@@ -5,6 +5,7 @@
  */
 package jfx_horario.jefatura;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -25,6 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import jfx_horario.insertUpdate.InsertUpdateFormController;
 import misClases.BddConnection;
 import misClases.Constantes;
 import misClases.Horario;
@@ -66,6 +68,8 @@ public class JefaturaController implements Initializable {
     private static char diaMovido;
     private double posX, posY;
     private static int filaSelectedRightButton, columnSelectedRightButton;
+    private static String insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe;
+    private static boolean datosRecogidos;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -411,25 +415,25 @@ public class JefaturaController implements Initializable {
                 if (event.getTransferMode() == TransferMode.MOVE) {
                     eliminarRegistroDeBDD(JefaturaController.registroDePartidaDragDrop, diaMovido);
                     eliminarRegistroDeLista(JefaturaController.registroDePartidaDragDrop, diaMovido);
-                   refrescarTabla();
+                    refrescarTabla();
                 }
                 event.consume();
             }
         });
     }
 
-    private int obtenerColumna(double posicionX){
+    private int obtenerColumna(double posicionX) {
         return (int) (posicionX - 23) / Constantes.ANCHO_CELDA; // le tengo que restar 23 por el margen, para que me pille bien el número de columna.
     }
 
-    private int obtenerFila(double posicionY){
+    private int obtenerFila(double posicionY) {
         final double HEIGHT_CONTENIDO_TABLA = tHorario.getFixedCellSize() * tHorario.getColumns().size();
         final double ALTO_CABECERA = tHorario.getHeight() - HEIGHT_CONTENIDO_TABLA + 4;
         final double ALTO_CELDA = tHorario.getFixedCellSize();
         return (int) ((posicionY - ALTO_CABECERA) / ALTO_CELDA) - 3; // Le resto 3 porque hay una especie de desfase extraño, para q la fila empiece a contar en 0.
     }
 
-    private char obtenerDiaSegunColumna(int columna){
+    private char obtenerDiaSegunColumna(int columna) {
         char diaColumna;
         if (columna == 1)
             diaColumna = 'L';
@@ -483,24 +487,15 @@ public class JefaturaController implements Initializable {
 
     private void eliminarRegistroDeBDD(Horario registro, char diaTramo) {
         String delete, contenidoRegistro = obtenerContenidoDeRegistro(registro, diaTramo), codOe, codCurso, codAsignatura, codTramo;
-        Connection conexion = BddConnection.newConexionMySQL("horario");
-        PreparedStatement sentencia;
         codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
         codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
         codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
         codTramo = diaTramo + getHoraDeTramo(registro.getTramo());
         delete = "delete from horario where CodOe='" + codOe + "' and CodCurso='" + codCurso + "' and CodAsignatura='" + codAsignatura + "' and CodTramo ='" + codTramo + "';";
-        try {
-            sentencia = conexion.prepareStatement(delete);
-            sentencia.execute();
-            sentencia.close();
-            conexion.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        ejecutarOrdenSQL(delete);
     }
 
-    private void eliminarRegistroDeLista(Horario registro, char diaTramo){
+    private void eliminarRegistroDeLista(Horario registro, char diaTramo) {
         switch (diaTramo) {
             case 'L':
                 registro.setLunes("");
@@ -579,7 +574,7 @@ public class JefaturaController implements Initializable {
         return String.valueOf(resp);
     }
 
-    private void configContextMenuTable(){
+    private void configContextMenuTable() {
         ContextMenu contextMenu = new ContextMenu();
         MenuItem insertar = new MenuItem("Insertar");
         MenuItem actualizar = new MenuItem("Actualizar");
@@ -597,7 +592,38 @@ public class JefaturaController implements Initializable {
         insertar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                try {
+                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
+                        lanzarVentanaInsertUpdate("Insertar");
+                        if (datosRecogidos) {
+                            insertarNuevoRegistro();
+                            insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
+                            refrescarTabla();
+                        }
+                        datosRecogidos = false;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
+        actualizar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                try {
+                    if (!celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
+                        lanzarVentanaInsertUpdate("Actualizar");
+                        if (datosRecogidos) {
+                            actualizarRegistro();
+                            insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
+                            refrescarTabla();
+                        }
+                        datosRecogidos = false;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -618,13 +644,84 @@ public class JefaturaController implements Initializable {
                 }
             }
         });
-
         contextMenu.getItems().addAll(insertar, actualizar, eliminar);
         tHorario.setContextMenu(contextMenu);
     }
 
-    private void refrescarTabla(){
+    private void lanzarVentanaInsertUpdate(String titulo) throws IOException {
+        Parent root = null;
+        Stage stage;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(("../insertUpdate/insertUpdate.fxml")));
+        loader.setController(new InsertUpdateFormController(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0, 3)));
+        root = loader.load();
+        stage = new Stage();
+        stage.setTitle(titulo);
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        configDragDropWindow(root, stage);
+        stage.showAndWait();
+    }
+
+    private void refrescarTabla() {
         tHorario.getItems().removeAll(datosCol);
         tHorario.getItems().setAll(datosCol);
+    }
+
+    public static void callBack_RecogerDatosFormUpdateInsert(String codAsignatura, String codCurso, String codOe) {
+        insertUpdateCodAsig = codAsignatura;
+        inserUpdateCodCurso = codCurso;
+        inserUpdateCodOe = codOe;
+        datosRecogidos = true;
+    }
+
+    public void insertarNuevoRegistro() {
+        String codTramo = obtenerDiaSegunColumna(columnSelectedRightButton) + getHoraDeTramo(datosCol.get(filaSelectedRightButton).getTramo());
+        String insert = "insert into horario values ('" + codTramo + "', '" + inserUpdateCodOe + "', '" + inserUpdateCodCurso + "', '" + insertUpdateCodAsig + "');";
+        ejecutarOrdenSQL(insert);
+    }
+
+    public void actualizarRegistro() {
+        String codTramo = obtenerDiaSegunColumna(columnSelectedRightButton) + getHoraDeTramo(datosCol.get(filaSelectedRightButton).getTramo());
+        String contenidoRegistro = obtenerContenidoDeRegistro(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton)), codOe, codCurso, codAsignatura;
+        codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
+        codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
+        codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
+        System.out.printf("%s %s %s %s\n", codTramo, codCurso, codOe, codAsignatura);
+        String update = String.format("update horario set codOe = '%s', codCurso='%s', codAsignatura='%s' where codTramo = '%s' and codOe = '%s' and codCurso= '%s' and codAsignatura = '%s'",
+                inserUpdateCodOe, inserUpdateCodCurso, insertUpdateCodAsig, codTramo, codOe, codCurso, codAsignatura);
+        ejecutarOrdenSQL(update);
+    }
+
+    private void ejecutarOrdenSQL(String orden) {
+        Connection conexion = BddConnection.newConexionMySQL("horario");
+        try {
+            PreparedStatement sentencia = conexion.prepareStatement(orden);
+            sentencia.execute();
+            sentencia.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void insertarOActualizarRegistroEnTabla(Horario registro, char diaTramo, String contenido) {
+        switch (diaTramo) {
+            case 'L':
+                registro.setLunes(contenido);
+                break;
+            case 'M':
+                registro.setMartes(contenido);
+                ;
+                break;
+            case 'X':
+                registro.setMiercoles(contenido);
+                break;
+            case 'J':
+                registro.setJueves(contenido);
+                break;
+            case 'V':
+                registro.setViernes(contenido);
+                break;
+        }
     }
 }

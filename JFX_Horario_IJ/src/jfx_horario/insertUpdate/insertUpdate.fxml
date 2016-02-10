@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.Pane?>
+<?import java.net.URL?>
+
+<Pane id="insertUpdate" prefHeight="327.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@insertUpdate.css" />
+    </stylesheets>
+   <children>
+       <Button fx:id="btnEnviar" layoutX="285.0" layoutY="273.0" mnemonicParsing="false" text="Aceptar" textFill="WHITE" />
+      <ListView fx:id="lstClases" layoutX="28.0" layoutY="71.0" prefHeight="182.0" prefWidth="345.0" />
+      <Label fx:id="lblTexto" layoutX="28.0" layoutY="26.0" text="Lista de clases iimpartidas por " />
+   </children>
+</Pane>

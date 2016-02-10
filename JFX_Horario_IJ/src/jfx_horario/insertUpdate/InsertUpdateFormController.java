@@ -1,0 +1,85 @@
+package jfx_horario.insertUpdate;
+
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.stage.Stage;
+import jfx_horario.jefatura.JefaturaController;
+import misClases.BddConnection;
+import misClases.Constantes;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+/**
+ * Created by Cristina on 10/02/2016.
+ */
+public class InsertUpdateFormController implements Initializable {
+
+    @FXML
+    ListView lstClases;
+
+    @FXML
+    Label lblTexto;
+
+    @FXML
+    Button btnEnviar;
+
+    private String codProf;
+
+    public InsertUpdateFormController(String codProf) {
+        this.codProf = codProf;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        initViews();
+    }
+
+    private void initViews() {
+        String select = "select codAsignatura, codCurso, codOe from reparto where codProf = ? order by 2;";
+        Connection conexion = BddConnection.newConexionMySQL("horario");
+        ArrayList<String> contenido = new ArrayList<>();
+        PreparedStatement sentencia;
+        ResultSet result;
+        try {
+            sentencia = conexion.prepareStatement(select);
+            sentencia.setString(1, codProf);
+            result = sentencia.executeQuery();
+            while (result.next())
+                contenido.add(String.format("Asignatura: %s - Curso: %s %s", result.getString(1), result.getString(2), result.getString(3)));
+            select = "select nombre from profesor where codProf = ?";
+            sentencia = conexion.prepareStatement(select);
+            sentencia.setString(1, codProf);
+            result = sentencia.executeQuery();
+            if (result.next())
+                lblTexto.setText(Constantes.TEXTO_CLASES_INSERT_UPDATE + result.getString(1));
+            result.close();
+            sentencia.close();
+            conexion.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        lstClases.getItems().setAll(contenido);
+        btnEnviar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                String contenido = lstClases.getSelectionModel().getSelectedItem() == null? "": (String)lstClases.getSelectionModel().getSelectedItem();
+                if (!contenido.equals("")) {
+                    String[] aux = contenido.split(" ");
+                    JefaturaController.callBack_RecogerDatosFormUpdateInsert(aux[1], aux[4], aux[5]);
+                }
+                ((Stage) btnEnviar.getScene().getWindow()).close();
+            }
+        });
+    }
+}
