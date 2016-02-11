@@ -62,7 +62,7 @@ public class JefaturaController implements Initializable {
     @FXML
     private ImageView imgSalir;
 
-    private ArrayList<String> myListaProfes = new ArrayList<String>();
+    private ArrayList<String> myListaProfes = new ArrayList<String>(), myListaClasesDia = new ArrayList<String>();
     private ArrayList<Horario> datosCol = new ArrayList<>();
     private static Horario registroDePartidaDragDrop;
     private static char diaMovido;
@@ -97,6 +97,7 @@ public class JefaturaController implements Initializable {
                     tHorario.visibleProperty().setValue(true); // muestro el tableView del horario semanal
                 } else { // si no
                     lstHorario.visibleProperty().setValue(true); // muestro el horario del día
+                    cargarHorarioDiaProfe(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0,3));
                     tHorario.visibleProperty().setValue(false); // oculto el horario semanal
                 }
             }
@@ -147,13 +148,15 @@ public class JefaturaController implements Initializable {
         PreparedStatement sentencia;
         ResultSet result;
         lstHorario.getItems().clear(); // limpio la lista con el contenido del profesor anterior
+        myListaClasesDia.clear();
         try {
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, profe);
             result = sentencia.executeQuery();
             while (result.next()) { // voy agregando cada registro a la lista
-                lstHorario.getItems().add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
+                myListaClasesDia.add(String.format("Tramo horario: %s - Curso: %s %s - Código asignatura: %s - Nombre asingnatura: %s", dameTramo(result.getString(1).charAt(1)), result.getString(2), result.getString(3), result.getString(4), result.getString(5)));
             }
+            lstHorario.getItems().setAll(myListaClasesDia);
             result.close();
             sentencia.close();
             conexion.close();
@@ -686,7 +689,6 @@ public class JefaturaController implements Initializable {
         codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
         codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
         codAsignatura = contenidoRegistro.substring(0, contenidoRegistro.indexOf("("));
-        System.out.printf("%s %s %s %s\n", codTramo, codCurso, codOe, codAsignatura);
         String update = String.format("update horario set codOe = '%s', codCurso='%s', codAsignatura='%s' where codTramo = '%s' and codOe = '%s' and codCurso= '%s' and codAsignatura = '%s'",
                 inserUpdateCodOe, inserUpdateCodCurso, insertUpdateCodAsig, codTramo, codOe, codCurso, codAsignatura);
         ejecutarOrdenSQL(update);
