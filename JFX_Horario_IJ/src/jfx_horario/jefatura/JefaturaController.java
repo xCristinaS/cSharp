@@ -582,12 +582,18 @@ public class JefaturaController implements Initializable {
         MenuItem insertar = new MenuItem("Insertar");
         MenuItem actualizar = new MenuItem("Actualizar");
         MenuItem eliminar = new MenuItem("Eliminar");
+
         tHorario.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 if (event.getButton() == MouseButton.SECONDARY) {
                     JefaturaController.filaSelectedRightButton = obtenerFila(event.getSceneY());
                     JefaturaController.columnSelectedRightButton = obtenerColumna(event.getSceneX());
+                    contextMenu.getItems().removeAll(insertar, eliminar, actualizar);
+                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), ""))
+                        contextMenu.getItems().setAll(insertar);
+                    else
+                        contextMenu.getItems().setAll(actualizar,eliminar);
                 }
             }
         });
