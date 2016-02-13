@@ -5,8 +5,7 @@
  */
 package jfx_horario.jefatura;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import javafx.beans.value.ChangeListener;
@@ -815,26 +814,66 @@ public class JefaturaController implements Initializable {
             Document document = new Document();
             PdfWriter.getInstance(document, file);
             document.open();
+            Font titleFont = FontFactory.getFont(FontFactory.TIMES_BOLD, 18, BaseColor.BLACK);
+            Paragraph docTitle = new Paragraph((String)comboProfes.getSelectionModel().getSelectedItem(), titleFont);
+            document.add(docTitle);
+            Font textH1 = FontFactory.getFont(FontFactory.TIMES_ITALIC, 14, BaseColor.BLACK);
             switch (opcion){
                 case 0:
-                    PdfPTable table = new PdfPTable(8);
-                    for(int i = 1; i <= 6; i++){
-                        table.addCell("h"+i);
-                        table.addCell("h"+i+1);
-                    }
-                    document.add(table);
+                    crearTablaEnPDF(document, textH1);
                     break;
                 case 1:
+                    crearListaClasesDiariasPDF(document, textH1);
                     break;
                 case 2:
+                    crearTablaEnPDF(document, textH1);
+                    crearListaClasesDiariasPDF(document, textH1);
                     break;
             }
-            document.add(new Paragraph("Hello World, iText"));
-            document.add(new Paragraph(new Date().toString()));
             document.close();
             file.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void crearTablaEnPDF(Document document, Font fuente) throws DocumentException {
+        Paragraph horarioSemanal = new Paragraph("Horario Semanal:", fuente);
+        document.add(horarioSemanal);
+        document.add(new Paragraph(" "));
+        PdfPTable table = new PdfPTable(5);
+        table.setWidthPercentage(105);
+        table.addCell("Lunes");
+        table.addCell("Martes");
+        table.addCell("Miercoles");
+        table.addCell("Jueves");
+        table.addCell("Viernes");
+
+        for(int fila = 0; fila < datosCol.size(); fila++){
+            table.addCell(datosCol.get(fila).getTramo());
+            table.addCell(datosCol.get(fila).getLunes());
+            table.addCell(datosCol.get(fila).getMartes());
+            table.addCell(datosCol.get(fila).getMiercoles());
+            table.addCell(datosCol.get(fila).getJueves());
+            table.addCell(datosCol.get(fila).getViernes());
+        }
+        document.add(table);
+        document.add(new Paragraph(" "));
+    }
+
+    private void crearListaClasesDiariasPDF(Document document, Font fuente) throws DocumentException {
+        if (lstHorario.getItems().size() > 0) {
+            Paragraph clasesHoy = new Paragraph("Clases de hoy:", fuente);
+            document.add(clasesHoy);
+            document.add(new Paragraph(" "));
+
+            List list = new List(List.UNORDERED);
+            for (int i = 0; i < lstHorario.getItems().size(); i++) {
+                ListItem item = new ListItem((String) lstHorario.getItems().get(i));
+                item.setAlignment(Element.ALIGN_JUSTIFIED);
+                list.add(item);
+            }
+            document.add(list);
         }
     }
 }

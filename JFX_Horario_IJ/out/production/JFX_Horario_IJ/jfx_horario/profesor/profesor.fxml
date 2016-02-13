@@ -43,5 +43,4 @@
     </TabPane>
     <Label fx:id="lblAlta" layoutX="32.0" layoutY="68.0" text="Label"/>
     <ImageView fx:id="imgSalir" fitHeight="91.0" fitWidth="83.0" layoutX="1128.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true"/>
-    <ImageView fx:id="imgImprimir" fitHeight="169.0" fitWidth="56.0" layoutX="1075.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true"/>
 </Pane>
