@@ -5,6 +5,10 @@
  */
 package jfx_horario.jefatura;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -25,6 +29,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import jfx_horario.insertUpdate.InsertUpdateFormController;
@@ -33,7 +38,10 @@ import misClases.Constantes;
 import misClases.Horario;
 import misClases.Tramos;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -328,7 +336,31 @@ public class JefaturaController implements Initializable {
         imgImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
+                ArrayList<String> choices = new ArrayList<>();
+                SimpleDateFormat formato = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
+                int opcion;
+                choices.add("Generar PDF del horario semanal.");
+                choices.add("Generar PDF de las clases del día.");
+                choices.add("Generar PDF con ambos contenidos.");
 
+                ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
+                dialog.setTitle("Generar PDF");
+                dialog.setHeaderText("¿Quiere generar un fichero PDF?");
+                dialog.setContentText("Elija una opción");
+
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()) {
+                    opcion = choices.indexOf(result.get());
+                    FileChooser fileChooser = new FileChooser();
+                    fileChooser.setTitle("Guardar");
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF file (*.pdf)", "*.pdf");
+                    fileChooser.getExtensionFilters().add(extFilter);
+                    fileChooser.setInitialFileName(String.format("jefatura_%s", formato.format(new Date())));
+                    File file = fileChooser.showSaveDialog(((Stage) imgSalir.getScene().getWindow()));
+                    if (file != null) {
+                        crearPdf(file, opcion);
+                    }
+                }
             }
         });
     }
@@ -774,6 +806,35 @@ public class JefaturaController implements Initializable {
             case 'V':
                 registro.setViernes(contenido);
                 break;
+        }
+    }
+
+    private void crearPdf(File fichero, int opcion){
+        try {
+            OutputStream file = new FileOutputStream(fichero);
+            Document document = new Document();
+            PdfWriter.getInstance(document, file);
+            document.open();
+            switch (opcion){
+                case 0:
+                    PdfPTable table = new PdfPTable(8);
+                    for(int i = 1; i <= 6; i++){
+                        table.addCell("h"+i);
+                        table.addCell("h"+i+1);
+                    }
+                    document.add(table);
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+            }
+            document.add(new Paragraph("Hello World, iText"));
+            document.add(new Paragraph(new Date().toString()));
+            document.close();
+            file.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

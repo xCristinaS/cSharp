@@ -160,37 +160,4 @@ public class LoginController implements Initializable {
             stage.setY(event.getScreenY() - posY);
         });
     }
-
-    private void crearPDF(){
-
-        try {
-
-            OutputStream file = new FileOutputStream(new File("C:\\Users\\Cristina\\Desktop\\prueba.pdf"));
-
-
-            Document document = new Document();
-
-            PdfWriter.getInstance(document, file);
-
-
-            document.open();
-
-            document.add(new Paragraph("Hello World, iText"));
-
-            document.add(new Paragraph(new Date().toString()));
-
-
-            document.close();
-
-            file.close();
-
-
-        } catch (Exception e) {
-
-
-            e.printStackTrace();
-
-        }
-
-    }
 }

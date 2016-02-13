@@ -60,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/jfx_horario/login/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6334459">
-              <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
               <folding>
                 <element signature="e#1408#1409#0" expanded="true" />
                 <element signature="e#1435#1436#0" expanded="true" />
@@ -73,28 +73,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JefaturaController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="JefaturaController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/jfx_horario/jefatura/JefaturaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="345" column="21" selection-start-line="345" selection-start-column="21" selection-end-line="345" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.5912162">
+              <caret line="364" column="11" selection-start-line="364" selection-start-column="11" selection-end-line="364" selection-end-column="11" />
               <folding>
-                <element signature="e#1961#1969#0" expanded="true" />
-                <element signature="e#2005#2013#0" expanded="true" />
-                <element signature="e#2472#2473#0" expanded="true" />
-                <element signature="e#2499#2500#0" expanded="true" />
+                <element signature="e#2228#2236#0" expanded="true" />
+                <element signature="e#2272#2280#0" expanded="true" />
+                <element signature="e#2739#2740#0" expanded="true" />
+                <element signature="e#2766#2767#0" expanded="true" />
+                <element signature="method#configRadioButtons#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#configComboProfes#0;class#JefaturaController#0" expanded="false" />
-                <element signature="class#4069:4748" expanded="false" />
+                <element signature="class#4336:5015" expanded="false" />
+                <element signature="method#cargarProfes#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#cargarHorarioDiaProfe#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#dameTramo#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#configTableHorario#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#agregarTramosATable#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#cargarHorarioSemanalProfe#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#montarAsignaturaEnColumna#0;class#JefaturaController#0" expanded="false" />
-                <element signature="e#15313#15314#0" expanded="true" />
-                <element signature="e#15390#15391#0" expanded="true" />
-                <element signature="e#15573#15574#0" expanded="true" />
-                <element signature="e#15653#15654#0" expanded="true" />
+                <element signature="method#configEfectoRaton#0;class#JefaturaController#0" expanded="false" />
+                <element signature="e#17046#17047#0" expanded="true" />
+                <element signature="e#17123#17124#0" expanded="true" />
+                <element signature="e#17306#17307#0" expanded="true" />
+                <element signature="e#17386#17387#0" expanded="true" />
                 <element signature="method#configDragDropWindow#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#configDragAndDropTabla#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#obtenerColumna#0;class#JefaturaController#0" expanded="false" />
@@ -106,6 +109,7 @@
                 <element signature="method#agregarRegistroABDD#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#obtenerContenidoDeRegistro#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#getHoraDeTramo#0;class#JefaturaController#0" expanded="false" />
+                <element signature="method#configContextMenuTable#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#lanzarVentanaInsertUpdate#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#refrescarTabla#0;class#JefaturaController#0" expanded="false" />
                 <element signature="method#callBack_RecogerDatosFormUpdateInsert#0;class#JefaturaController#0" expanded="false" />
@@ -178,10 +182,10 @@
         <option value="$PROJECT_DIR$/src/misClases/Constantes.java" />
         <option value="$PROJECT_DIR$/src/jfx_horario/insertUpdate/InsertUpdateFormController.java" />
         <option value="$PROJECT_DIR$/src/jfx_horario/jefatura/jefatura.fxml" />
-        <option value="$PROJECT_DIR$/src/jfx_horario/jefatura/JefaturaController.java" />
         <option value="$PROJECT_DIR$/src/jfx_horario/profesor/profesor.fxml" />
         <option value="$PROJECT_DIR$/src/jfx_horario/profesor/ProfesorController.java" />
         <option value="$PROJECT_DIR$/src/jfx_horario/login/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/jfx_horario/jefatura/JefaturaController.java" />
       </list>
     </option>
   </component>
@@ -693,7 +697,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="21" />
+      <option name="time" value="23" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1125,49 +1129,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/jfx_horario/jefatura/JefaturaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="345" column="21" selection-start-line="345" selection-start-column="21" selection-end-line="345" selection-end-column="21" />
-          <folding>
-            <element signature="e#1961#1969#0" expanded="true" />
-            <element signature="e#2005#2013#0" expanded="true" />
-            <element signature="e#2472#2473#0" expanded="true" />
-            <element signature="e#2499#2500#0" expanded="true" />
-            <element signature="method#configComboProfes#0;class#JefaturaController#0" expanded="false" />
-            <element signature="class#4069:4748" expanded="false" />
-            <element signature="method#cargarHorarioDiaProfe#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#dameTramo#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#configTableHorario#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#agregarTramosATable#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#cargarHorarioSemanalProfe#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#montarAsignaturaEnColumna#0;class#JefaturaController#0" expanded="false" />
-            <element signature="e#15313#15314#0" expanded="true" />
-            <element signature="e#15390#15391#0" expanded="true" />
-            <element signature="e#15573#15574#0" expanded="true" />
-            <element signature="e#15653#15654#0" expanded="true" />
-            <element signature="method#configDragDropWindow#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#configDragAndDropTabla#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#obtenerColumna#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#obtenerFila#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#obtenerDiaSegunColumna#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#celdaValidaToDrop#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#eliminarRegistroDeBDD#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#eliminarRegistroDeLista#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#agregarRegistroABDD#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#obtenerContenidoDeRegistro#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#getHoraDeTramo#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#lanzarVentanaInsertUpdate#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#refrescarTabla#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#callBack_RecogerDatosFormUpdateInsert#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#insertarNuevoRegistro#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#actualizarRegistro#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#ejecutarOrdenSQL#0;class#JefaturaController#0" expanded="false" />
-            <element signature="method#insertarOActualizarRegistroEnTabla#0;class#JefaturaController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/jfx_horario/profesor/ProfesorController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1185,11 +1146,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/jfx_horario/login/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6334459">
-          <caret line="144" column="65" selection-start-line="144" selection-start-column="65" selection-end-line="144" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="161" column="5" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
           <folding>
             <element signature="e#1408#1409#0" expanded="true" />
             <element signature="e#1435#1436#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jfx_horario/jefatura/JefaturaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5912162">
+          <caret line="364" column="11" selection-start-line="364" selection-start-column="11" selection-end-line="364" selection-end-column="11" />
+          <folding>
+            <element signature="e#2228#2236#0" expanded="true" />
+            <element signature="e#2272#2280#0" expanded="true" />
+            <element signature="e#2739#2740#0" expanded="true" />
+            <element signature="e#2766#2767#0" expanded="true" />
+            <element signature="method#configRadioButtons#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#configComboProfes#0;class#JefaturaController#0" expanded="false" />
+            <element signature="class#4336:5015" expanded="false" />
+            <element signature="method#cargarProfes#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#cargarHorarioDiaProfe#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#dameTramo#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#configTableHorario#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#agregarTramosATable#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#cargarHorarioSemanalProfe#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#montarAsignaturaEnColumna#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#configEfectoRaton#0;class#JefaturaController#0" expanded="false" />
+            <element signature="e#17046#17047#0" expanded="true" />
+            <element signature="e#17123#17124#0" expanded="true" />
+            <element signature="e#17306#17307#0" expanded="true" />
+            <element signature="e#17386#17387#0" expanded="true" />
+            <element signature="method#configDragDropWindow#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#configDragAndDropTabla#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#obtenerColumna#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#obtenerFila#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#obtenerDiaSegunColumna#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#celdaValidaToDrop#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#eliminarRegistroDeBDD#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#eliminarRegistroDeLista#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#agregarRegistroABDD#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#obtenerContenidoDeRegistro#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#getHoraDeTramo#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#configContextMenuTable#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#lanzarVentanaInsertUpdate#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#refrescarTabla#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#callBack_RecogerDatosFormUpdateInsert#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#insertarNuevoRegistro#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#actualizarRegistro#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#ejecutarOrdenSQL#0;class#JefaturaController#0" expanded="false" />
+            <element signature="method#insertarOActualizarRegistroEnTabla#0;class#JefaturaController#0" expanded="false" />
           </folding>
         </state>
       </provider>
