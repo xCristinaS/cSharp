@@ -1,9 +1,11 @@
 package jfx_horario.profesor;
 
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -39,7 +41,7 @@ public class ProfesorController implements Initializable {
     @FXML
     ListView lstLunes, lstMartes, lstMiercoles, lstJueves, lstViernes;
     @FXML
-    ImageView imgSalir;
+    ImageView imgSalir, imgImprimir;
 
     private final String idProf;
     private double posX, posY;
@@ -51,7 +53,7 @@ public class ProfesorController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cargarHorario();
-        configImgSalir();
+        configImgSalir_Imprimir();
     }
 
     private void cargarHorario() {
@@ -118,7 +120,7 @@ public class ProfesorController implements Initializable {
         }
     }
 
-    private void configImgSalir() {
+    private void configImgSalir_Imprimir() {
         imgSalir.setImage(new Image("@../../imagenes/logout.png"));
         imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -139,6 +141,35 @@ public class ProfesorController implements Initializable {
                 }
             }
         });
+
+        imgImprimir.setImage(new Image("@../../imagenes/pdf.png"));
+        imgImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+            }
+        });
+
+        // Evento para cambiar el cursor cuando se esté sobre un componente sobre el que se pueda hacer clic.
+        EventHandler evento1 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgImprimir.getScene().setCursor(Cursor.HAND);
+            }
+        };
+        // Evento para poner el cursor por defecto.
+        EventHandler evento2 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgImprimir.getScene().setCursor(Cursor.DEFAULT);
+            }
+        };
+
+        imgImprimir.setOnMouseEntered(evento1);
+        imgImprimir.setOnMouseExited(evento2);
+
+        imgSalir.setOnMouseEntered(evento1);
+        imgSalir.setOnMouseExited(evento2);
     }
 
     private void configDragDropWindow(Parent root, Stage stage){

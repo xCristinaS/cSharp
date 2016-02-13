@@ -1,5 +1,8 @@
 package jfx_horario.login;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,13 +20,18 @@ import javafx.stage.Stage;
 import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
 import misClases.Constantes;
+import org.omg.CORBA.Environment;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 /**
@@ -151,5 +159,38 @@ public class LoginController implements Initializable {
             stage.setX(event.getScreenX() - posX);
             stage.setY(event.getScreenY() - posY);
         });
+    }
+
+    private void crearPDF(){
+
+        try {
+
+            OutputStream file = new FileOutputStream(new File("C:\\Users\\Cristina\\Desktop\\prueba.pdf"));
+
+
+            Document document = new Document();
+
+            PdfWriter.getInstance(document, file);
+
+
+            document.open();
+
+            document.add(new Paragraph("Hello World, iText"));
+
+            document.add(new Paragraph(new Date().toString()));
+
+
+            document.close();
+
+            file.close();
+
+
+        } catch (Exception e) {
+
+
+            e.printStackTrace();
+
+        }
+
     }
 }

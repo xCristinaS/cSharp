@@ -16,12 +16,12 @@
    <children>
        <ComboBox id="comboProfes" fx:id="comboProfes" layoutX="25.0" layoutY="31.0" prefHeight="25.0" prefWidth="409.0" visibleRowCount="9" />
        <ListView id="lstHorario" fx:id="lstHorario" layoutX="25.0" layoutY="113.0" prefHeight="258.0" prefWidth="1172.0" />
-       <RadioButton layoutX="652.0" layoutY="32.0" mnemonicParsing="false" text="Clases del día">
+       <RadioButton fx:id="rbClasesDia" layoutX="652.0" layoutY="32.0" mnemonicParsing="false" text="Clases del día">
            <toggleGroup>
                <ToggleGroup fx:id="rbGrupo" />
            </toggleGroup>
        </RadioButton>
-       <RadioButton layoutX="468.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="Horario semanal" toggleGroup="$rbGrupo" />
+       <RadioButton fx:id="rbHorarioSemanal" layoutX="468.0" layoutY="32.0" mnemonicParsing="false" selected="true" text="Horario semanal" toggleGroup="$rbGrupo" />
        <TableView id="tHorario" fx:id="tHorario" layoutX="25.0" layoutY="113.0" prefHeight="258.0" prefWidth="1190.0">
            <columns>
                <TableColumn id="Tramo" maxWidth="198.0" minWidth="198.0" prefWidth="198.0" resizable="false" styleClass="celda" text="Hora" />
@@ -33,5 +33,6 @@
            </columns>
        </TableView>
        <ImageView fx:id="imgSalir" fitHeight="91.0" fitWidth="83.0" layoutX="1143.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+       <ImageView fx:id="imgImprimir" fitHeight="169.0" fitWidth="56.0" layoutX="1090.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

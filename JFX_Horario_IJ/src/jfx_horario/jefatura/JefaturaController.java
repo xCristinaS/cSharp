@@ -5,16 +5,17 @@
  */
 package jfx_horario.jefatura;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -60,7 +61,9 @@ public class JefaturaController implements Initializable {
     @FXML
     private TableView<Horario> tHorario;
     @FXML
-    private ImageView imgSalir;
+    private ImageView imgSalir, imgImprimir;
+    @FXML
+    private RadioButton rbClasesDia, rbHorarioSemanal;
 
     private ArrayList<String> myListaProfes = new ArrayList<String>(), myListaClasesDia = new ArrayList<String>();
     private ArrayList<Horario> datosCol = new ArrayList<>();
@@ -78,12 +81,13 @@ public class JefaturaController implements Initializable {
 
     private void initViews() {
         tHorario.setFixedCellSize(36);
-        configImgSalir();
+        configImgSalir_Imprimir();
         configComboProfes();
         configRadioButtons();
         configDragAndDropTabla();
         configTableHorario();
         configContextMenuTable();
+        configEfectoRaton();
         comboProfes.getSelectionModel().select(0);
         lstHorario.visibleProperty().setValue(false);
     }
@@ -97,7 +101,7 @@ public class JefaturaController implements Initializable {
                     tHorario.visibleProperty().setValue(true); // muestro el tableView del horario semanal
                 } else { // si no
                     lstHorario.visibleProperty().setValue(true); // muestro el horario del día
-                    cargarHorarioDiaProfe(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0,3));
+                    cargarHorarioDiaProfe(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0, 3));
                     tHorario.visibleProperty().setValue(false); // oculto el horario semanal
                 }
             }
@@ -298,7 +302,7 @@ public class JefaturaController implements Initializable {
         tHorario.getItems().setAll(datosCol);
     }
 
-    private void configImgSalir() {
+    private void configImgSalir_Imprimir() {
         imgSalir.setImage(new Image("@../../imagenes/logout.png"));
         imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
@@ -319,6 +323,46 @@ public class JefaturaController implements Initializable {
                 }
             }
         });
+
+        imgImprimir.setImage(new Image("@../../imagenes/pdf.png"));
+        imgImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+
+            }
+        });
+    }
+
+    private void configEfectoRaton(){
+        // Evento para cambiar el cursor cuando se esté sobre un componente sobre el que se pueda hacer clic.
+        EventHandler evento1 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgImprimir.getScene().setCursor(Cursor.HAND);
+            }
+        };
+        // Evento para poner el cursor por defecto.
+        EventHandler evento2 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgImprimir.getScene().setCursor(Cursor.DEFAULT);
+            }
+        };
+
+        imgImprimir.setOnMouseEntered(evento1);
+        imgImprimir.setOnMouseExited(evento2);
+
+        imgSalir.setOnMouseEntered(evento1);
+        imgSalir.setOnMouseExited(evento2);
+
+        comboProfes.setOnMouseEntered(evento1);
+        comboProfes.setOnMouseExited(evento2);
+
+        rbClasesDia.setOnMouseEntered(evento1);
+        rbClasesDia.setOnMouseExited(evento2);
+
+        rbHorarioSemanal.setOnMouseEntered(evento1);
+        rbHorarioSemanal.setOnMouseExited(evento2);
     }
 
     private void configDragDropWindow(Parent root, Stage stage) {
