@@ -119,7 +119,7 @@ public class LoginController implements Initializable {
                 stage.setTitle(tituloWindow);
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
-                stage.initStyle(StageStyle.UNDECORATED);
+                //stage.initStyle(StageStyle.UNDECORATED);
                 configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
                 stage.show();
                 ((Stage)btnLogin.getScene().getWindow()).close(); // cierro la ventana de loguin

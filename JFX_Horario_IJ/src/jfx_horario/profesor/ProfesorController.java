@@ -85,7 +85,7 @@ public class ProfesorController implements Initializable {
             sentencia.setString(1, idProf);
             result = sentencia.executeQuery();
             if (result.next()) {
-                lblNombreProf.setText(Constantes.NOMBRE_PROF + result.getString(1));
+                lblNombreProf.setText(result.getString(1));
                 try {
                     lblAlta.setText(Constantes.ALTA_PROF + formato.format(formatoParse.parse(result.getString(2).substring(0,10))));
                 } catch (ParseException e) {
@@ -132,7 +132,7 @@ public class ProfesorController implements Initializable {
                     stage.setTitle(tituloWindow);
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
-                    stage.initStyle(StageStyle.UNDECORATED);
+                    //stage.initStyle(StageStyle.UNDECORATED);
                     configDragDropWindow(root, stage);
                     stage.show();
                     ((Stage) imgSalir.getScene().getWindow()).close();

@@ -26,7 +26,7 @@ public class Horario extends Application {
     private double posX, posY;
     @Override
     public void start(Stage stage) throws Exception {
-        stage.initStyle(StageStyle.TRANSPARENT); // Para quitarle el borde a la ventana.
+        //stage.initStyle(StageStyle.TRANSPARENT); // Para quitarle el borde a la ventana.
         BorderPane root = new BorderPane(FXMLLoader.load(getClass().getResource("login/login.fxml")));
 
         root.setOnMousePressed(event -> {

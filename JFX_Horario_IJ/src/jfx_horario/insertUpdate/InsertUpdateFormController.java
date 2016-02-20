@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.stage.WindowEvent;
 import jfx_horario.jefatura.JefaturaController;
 import misClases.BddConnection;
 import misClases.Constantes;
@@ -43,6 +45,8 @@ public class InsertUpdateFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initViews();
+        //JefaturaController.setVentanaInserUpdateAbierta(true);
+        //((Stage) btnEnviar.getScene().getWindow()).setOnHidden();
     }
 
     private void initViews() {
@@ -74,7 +78,7 @@ public class InsertUpdateFormController implements Initializable {
         btnEnviar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) { // cuando hago clic en el botón de enviar
-                String contenido = lstClases.getSelectionModel().getSelectedItem() == null? "": (String)lstClases.getSelectionModel().getSelectedItem(); // si se seleccionó algun registro de la lista
+                String contenido = lstClases.getSelectionModel().getSelectedItem() == null ? "" : (String) lstClases.getSelectionModel().getSelectedItem(); // si se seleccionó algun registro de la lista
                 if (!contenido.equals("")) {
                     String[] aux = contenido.split(" ");
                     JefaturaController.callBack_RecogerDatosFormUpdateInsert(aux[1], aux[4], aux[5]); // le paso los datos a la ventana de jefatura (codAsignatura, codCurso, codOe)

@@ -17,10 +17,7 @@ public class Constantes {
     public static final char MARTES = 'M';
     public static final char MIERCOLES = 'X';
     public static final char JUEVES = 'J';
-    public static final String NOMBRE_PROF = "Nombre: ";
     public static final String ALTA_PROF = "Fecha de alta: ";
     public static final int ANCHO_CELDA = 198;
     public static final String TEXTO_CLASES_INSERT_UPDATE = "Clases que imparte ";
-    public static final int MODO_INSERT = 0;
-    public static final int MODO_UPDATE = 1;
 }

@@ -80,7 +80,7 @@ public class JefaturaController implements Initializable {
     private double posX, posY;
     private static int filaSelectedRightButton, columnSelectedRightButton;
     private static String insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe;
-    private static boolean datosRecogidos;
+    private static boolean datosRecogidos, ventanaInsertUpdateAbierta = false;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -326,7 +326,7 @@ public class JefaturaController implements Initializable {
                     stage.setTitle(tituloWindow);
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
-                    stage.initStyle(StageStyle.UNDECORATED);
+                    //stage.initStyle(StageStyle.UNDECORATED);
                     configDragDropWindow(root, stage);
                     stage.show(); // lo lanzo
                     ((Stage) imgSalir.getScene().getWindow()).close(); // cierro este formulario
@@ -680,7 +680,7 @@ public class JefaturaController implements Initializable {
                     if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) // si la celda está vacía
                         contextMenu.getItems().setAll(insertar); // en el contextMenu agrego el item de insertar
                     else // si tiene contenido
-                        contextMenu.getItems().setAll(actualizar,eliminar); // agrego los items de actualizar y eliminar
+                        contextMenu.getItems().setAll(actualizar, eliminar); // agrego los items de actualizar y eliminar
                 }
             }
         });
@@ -690,11 +690,13 @@ public class JefaturaController implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) { // si en la celda se puede insertar
-                        lanzarVentanaInsertUpdate("Insertar"); // lanzo una nueva ventana
-                        if (datosRecogidos) { // si he recogido información de la ventana lanzada anteriormente
-                            insertarNuevoRegistro(); // inserto el nuevo registro
-                            insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
-                            refrescarTabla();
+                        if (!ventanaInsertUpdateAbierta) {
+                            lanzarVentanaInsertUpdate("Insertar"); // lanzo una nueva ventana
+                            if (datosRecogidos) { // si he recogido información de la ventana lanzada anteriormente
+                                insertarNuevoRegistro(); // inserto el nuevo registro
+                                insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
+                                refrescarTabla();
+                            }
                         }
                         datosRecogidos = false;
                     }
@@ -709,11 +711,13 @@ public class JefaturaController implements Initializable {
             public void handle(ActionEvent event) {
                 try {
                     if (!celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
-                        lanzarVentanaInsertUpdate("Actualizar");
-                        if (datosRecogidos) {
-                            actualizarRegistro();
-                            insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
-                            refrescarTabla();
+                        if (!ventanaInsertUpdateAbierta) {
+                            lanzarVentanaInsertUpdate("Actualizar");
+                            if (datosRecogidos) {
+                                actualizarRegistro();
+                                insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
+                                refrescarTabla();
+                            }
                         }
                         datosRecogidos = false;
                     }
@@ -754,7 +758,11 @@ public class JefaturaController implements Initializable {
         stage.setTitle(titulo);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
-        stage.initStyle(StageStyle.UNDECORATED);
+        //stage.initStyle(StageStyle.UNDECORATED);
+        ventanaInsertUpdateAbierta = true;
+        stage.setOnHidden(event -> {
+            ventanaInsertUpdateAbierta = false;
+        });
         configDragDropWindow(root, stage);
         stage.showAndWait();
     }
