@@ -177,6 +177,7 @@ public class JefaturaController implements Initializable {
     }
 
     private String dameTramo(char hora) {
+        // recibo el char con la hora y devuelvo el String del tramo horario correspondiente (ej: 8:15 - 9:15)
         switch (hora) {
             case '1':
                 return Tramos.PRIMERA.getTramo_H();
@@ -196,8 +197,8 @@ public class JefaturaController implements Initializable {
     }
 
     private void configTableHorario() {
-        ((TableColumn) tHorario.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<Horario, String>("tramo"));
-        ((TableColumn) tHorario.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<Horario, String>("lunes"));
+        ((TableColumn) tHorario.getColumns().get(0)).setCellValueFactory(new PropertyValueFactory<Horario, String>("tramo")); // la columna 0 de la tabla está asociada al atributo tramo de mi clase modelo de datos "Horario"
+        ((TableColumn) tHorario.getColumns().get(1)).setCellValueFactory(new PropertyValueFactory<Horario, String>("lunes")); // la 1 al atributo lunes...
         ((TableColumn) tHorario.getColumns().get(2)).setCellValueFactory(new PropertyValueFactory<Horario, String>("martes"));
         ((TableColumn) tHorario.getColumns().get(3)).setCellValueFactory(new PropertyValueFactory<Horario, String>("miercoles"));
         ((TableColumn) tHorario.getColumns().get(4)).setCellValueFactory(new PropertyValueFactory<Horario, String>("jueves"));
@@ -226,7 +227,7 @@ public class JefaturaController implements Initializable {
                     @Override
                     public void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
-                        if (!isEmpty()) {
+                        if (!isEmpty()) { // configuro color según curso
                             if (item.contains("2") && item.contains("DAM"))
                                 this.setTextFill(Color.DARKRED);
                             else if (item.contains("1") && item.contains("DAM"))
@@ -252,6 +253,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void agregarTramosATable() {
+        // creo el contenido de la tabla. En principio, vacía, únicamente rellena por la columna "hora"
         datosCol.add(new Horario(Tramos.PRIMERA.getTramo_H()));
         datosCol.add(new Horario(Tramos.SEGUNDA.getTramo_H()));
         datosCol.add(new Horario(Tramos.TERCERA.getTramo_H()));
@@ -264,6 +266,7 @@ public class JefaturaController implements Initializable {
         Connection conexion = BddConnection.newConexionMySQL("horario");
         PreparedStatement sentencia;
         ResultSet result;
+        // monto la select para obtener de la bdd los datos necesarios para rellenar la tabla del horario semanal del profesor
         String select = "select codTramo, h.codCurso, h.codOe, h.codAsignatura from horario h, reparto r, asignatura a where h.codAsignatura = a.codAsignatura and "
                 + " r.codOe = h.codOe and r.codcurso = h.codcurso and r.CodAsignatura = h.CodAsignatura and codProf = ? order by substring(codTramo, 1, 2) like'L%' desc, "
                 + "substring(codTramo, 1, 2) like'M%' desc, substring(codTramo, 1, 2) like'X%' desc, codtramo;";
@@ -272,7 +275,7 @@ public class JefaturaController implements Initializable {
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, profe);
             result = sentencia.executeQuery();
-            while (result.next())
+            while (result.next()) // recorro los registros que me devuelve la select, y voy montandolos en las columnas correspondientes.
                 montarAsignaturaEnColumna(result.getString(1), result.getString(2) + " - " + result.getString(3), result.getString(4));
 
             result.close();
@@ -284,11 +287,11 @@ public class JefaturaController implements Initializable {
     }
 
     private void montarAsignaturaEnColumna(String tramo, String curso, String codAsignatura) {
-        char columna = tramo.charAt(0);
-        int hora = Integer.parseInt(String.valueOf(tramo.charAt(1)));
-        Horario h = datosCol.get(hora - 1);
-        switch (columna) {
-            case 'L':
+        char columna = tramo.charAt(0); // obtengo el día de la semana
+        int hora = Integer.parseInt(String.valueOf(tramo.charAt(1))); // obtengo la hora
+        Horario h = datosCol.get(hora - 1); // obtengo el registro que se corresponde con esa hora. Si la hora es 1, el registro de mi tabla asociado a esa hora es el 0
+        switch (columna) { // evalúo la columna y le cambio el contenido al registro según su valor
+            case 'L': // si es L, cambio el contenido del atributo lunes de mi registro por el codigo de asignatura y el curso
                 h.setLunes(String.format("%s (%s)", codAsignatura, curso));
                 break;
             case 'M':
@@ -310,54 +313,54 @@ public class JefaturaController implements Initializable {
     }
 
     private void configImgSalir_Imprimir() {
-        imgSalir.setImage(new Image("@../../imagenes/logout.png"));
-        imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        imgSalir.setImage(new Image("@../../imagenes/logout.png")); // cargo la imagen de salir en el imageView imgSalir
+        imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() { // cuando hago clic en ella
             @Override
             public void handle(MouseEvent event) {
                 Pane root;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml")); // cargo el formulario de login
                     String tituloWindow = "Login";
                     Stage stage = new Stage();
                     stage.setTitle(tituloWindow);
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
                     configDragDropWindow(root, stage);
-                    stage.show();
-                    ((Stage) imgSalir.getScene().getWindow()).close();
+                    stage.show(); // lo lanzo
+                    ((Stage) imgSalir.getScene().getWindow()).close(); // cierro este formulario
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
 
-        imgImprimir.setImage(new Image("@../../imagenes/pdf.png"));
-        imgImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        imgImprimir.setImage(new Image("@../../imagenes/pdf.png")); // cargo la imagen en el imageView
+        imgImprimir.setOnMouseClicked(new EventHandler<MouseEvent>() { // cuando hago clic
             @Override
             public void handle(MouseEvent event) {
-                ArrayList<String> choices = new ArrayList<>();
+                ArrayList<String> choices = new ArrayList<>(); // creo un arrayList con las opciones que mostrará el diálogo
                 SimpleDateFormat formato = new SimpleDateFormat("dd_MM_yyyy_HH_mm_ss");
                 int opcion;
                 choices.add("Generar PDF del horario semanal.");
                 choices.add("Generar PDF de las clases del día.");
                 choices.add("Generar PDF con ambos contenidos.");
 
-                ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices);
+                ChoiceDialog<String> dialog = new ChoiceDialog<>(choices.get(0), choices); // creo el dialogo con las opciones especificadas anteriormente y marco por defecto la primera
                 dialog.setTitle("Generar PDF");
                 dialog.setHeaderText("¿Quiere generar un fichero PDF?");
                 dialog.setContentText("Elija una opción");
 
-                Optional<String> result = dialog.showAndWait();
-                if (result.isPresent()) {
-                    opcion = choices.indexOf(result.get());
-                    FileChooser fileChooser = new FileChooser();
+                Optional<String> result = dialog.showAndWait(); // obtengo el resultado
+                if (result.isPresent()) { // si hay resultado
+                    opcion = choices.indexOf(result.get()); // recojo el indice de la opción seleccionada
+                    FileChooser fileChooser = new FileChooser(); // creo un nuevo diálogo para guardar el fichero
                     fileChooser.setTitle("Guardar");
-                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF file (*.pdf)", "*.pdf");
+                    FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF file (*.pdf)", "*.pdf"); // le pongo extensión pdf
                     fileChooser.getExtensionFilters().add(extFilter);
-                    fileChooser.setInitialFileName(String.format("jefatura_%s", formato.format(new Date())));
-                    File file = fileChooser.showSaveDialog(((Stage) imgSalir.getScene().getWindow()));
-                    if (file != null) {
-                        crearPdf(file, opcion);
+                    fileChooser.setInitialFileName(String.format("jefatura_%s", formato.format(new Date()))); // nombre por defecto del fichero
+                    File file = fileChooser.showSaveDialog(((Stage) imgSalir.getScene().getWindow())); // lanzo el nuevo dialogo
+                    if (file != null) { // si se ha seleccionado destino para el nuevo fichero
+                        crearPdf(file, opcion); // creo el pdf
                     }
                 }
             }
@@ -397,6 +400,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void configDragDropWindow(Parent root, Stage stage) {
+        // drag and drop para poder arrastrar la ventana
         root.setOnMousePressed(event -> {
             posX = event.getX();
             posY = event.getY();
@@ -409,28 +413,28 @@ public class JefaturaController implements Initializable {
     }
 
     private void configDragAndDropTabla() {
+        // tHorario.getSelectionModel().setCellSelectionEnabled(true); //Para poder seleccionar por celda.
         // comienza el drag and drop:
         tHorario.setOnDragDetected(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Dragboard db = tHorario.startDragAndDrop(TransferMode.MOVE);
-                ClipboardContent content = new ClipboardContent();
+                Dragboard db = tHorario.startDragAndDrop(TransferMode.MOVE); // modo de transferencia
+                ClipboardContent content = new ClipboardContent(); // contenido a transefir
 
-                TablePosition t = tHorario.getSelectionModel().getSelectedCells().get(0);
-                TableColumn columna = tHorario.getColumns().get(t.getColumn());
-                int numeroFila = t.getRow();
-                Horario registro = datosCol.get(numeroFila);
+                TablePosition t = tHorario.getSelectionModel().getSelectedCells().get(0); // obtengo un tableposition con la fila seleccionada
+                TableColumn columna = tHorario.getColumns().get(t.getColumn()); // obtengo la columna seleccionada
+                int numeroFila = t.getRow(); // obtengo la fila seleccionada
+                Horario registro = datosCol.get(numeroFila); // obtengo el registro seleccionado
 
-                JefaturaController.registroDePartidaDragDrop = registro;
+                JefaturaController.registroDePartidaDragDrop = registro; // hago que registroDePartidaDragDrop apunte al registro que ha sido seleccionado, y desde el cual el usuario comenzó a arrastrar.
 
-                switch (columna.getText()) {
+                switch (columna.getText()) { // consulto desde qué columna se comenzo a arrastrar y asigno el contenido de dicha columna al contenido que se debe enviar en el drag and drop
                     case "Hora":
-                        //content.putString(registro.getTramo());
                         content.putString("");
                         break;
-                    case "Lunes":
-                        content.putString(registro.getLunes());
-                        diaMovido = 'L';
+                    case "Lunes": // si la columna fue lunes
+                        content.putString(registro.getLunes()); // cojo el valor del atributo lunes y lo asigno a content
+                        diaMovido = 'L'; // dia movido guardará el día, necesario para localizar el registro y la columna al finalizar el drag&drop
                         break;
                     case "Martes":
                         content.putString(registro.getMartes());
@@ -466,19 +470,20 @@ public class JefaturaController implements Initializable {
         tHorario.setOnDragDropped(new EventHandler<DragEvent>() {
             public void handle(DragEvent event) {
                 int columna, fila;
-                Dragboard db = event.getDragboard();
+                Dragboard db = event.getDragboard(); // obtengo el objecto que fue enviado
                 boolean success = false;
                 Horario registroFila;
                 String dragContent;
 
-                if (db.hasString()) {
-                    dragContent = db.getString();
-                    columna = obtenerColumna(event.getSceneX());
-                    fila = obtenerFila(event.getSceneY());
+                if (db.hasString()) { // si tiene un String
+                    dragContent = db.getString(); // lo obtengo, pues es el contenido a mover
+                    columna = obtenerColumna(event.getSceneX()); // obtengo la columna en la que estoy a partir de la posición del evento (ratón)
+                    fila = obtenerFila(event.getSceneY()); // obtengo la fila en la que estoy a partir de la posición del evento (ratón)
+                    // fila y columna indicarán que celda hay que modificar
                     if (!dragContent.equals("") && fila >= 0 && columna > 0) { // entro si la fila se corresponde con algún registro y no con la cabecera de la tabla y la columna no es la del tramo horario.
-                        registroFila = datosCol.get(fila);
-                        if (celdaValidaToDrop(columna, registroFila, dragContent)) {
-                            agregarRegistroABDD(registroFila, obtenerDiaSegunColumna(columna));
+                        registroFila = datosCol.get(fila); // obtengo el registro que se tiene que modificar
+                        if (celdaValidaToDrop(columna, registroFila, dragContent)) { // si la celda es válida para hacer drop (es decir, está vacía)
+                            agregarRegistroABDD(registroFila, obtenerDiaSegunColumna(columna)); // agrego ese registro a la bdd.
                             success = true;
                         }
                     }
@@ -489,11 +494,11 @@ public class JefaturaController implements Initializable {
         });
 
         tHorario.setOnDragDone(new EventHandler<DragEvent>() {
-            public void handle(DragEvent event) {
+            public void handle(DragEvent event) { // una vez hecho el drag and drop
                 if (event.getTransferMode() == TransferMode.MOVE) {
-                    eliminarRegistroDeBDD(JefaturaController.registroDePartidaDragDrop, diaMovido);
-                    eliminarRegistroDeLista(JefaturaController.registroDePartidaDragDrop, diaMovido);
-                    refrescarTabla();
+                    eliminarRegistroDeBDD(JefaturaController.registroDePartidaDragDrop, diaMovido); // elimino de la BDD el registro desde donde se inició el drag and drop
+                    eliminarRegistroDeLista(JefaturaController.registroDePartidaDragDrop, diaMovido); // elimino el registro de la lista
+                    refrescarTabla(); // actualizo la tabla
                 }
                 event.consume();
             }
@@ -528,9 +533,10 @@ public class JefaturaController implements Initializable {
 
     private boolean celdaValidaToDrop(int columna, Horario registro, String dragContent) {
         boolean resp = false;
-        switch (columna) {
-            case 1:
-                if (registro.getLunes().equals("")) {
+        // si la celda en la que se pretende hacer un drop no tiene contenido devolverá true.
+        switch (columna) { // evaluo la columna
+            case 1: // si es uno
+                if (registro.getLunes().equals("")) { // compruebo el contenido de lunes, y si está vacía, le pongo el contenido que se arrastró
                     registro.setLunes(dragContent);
                     resp = true;
                 }
@@ -564,6 +570,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void eliminarRegistroDeBDD(Horario registro, char diaTramo) {
+        // monto la orden para eliminar de la bdd el registro indicado por argumento
         String delete, contenidoRegistro = obtenerContenidoDeRegistro(registro, diaTramo), codOe, codCurso, codAsignatura, codTramo;
         codOe = contenidoRegistro.substring(contenidoRegistro.indexOf("-") + 2, contenidoRegistro.length() - 1);
         codCurso = contenidoRegistro.substring(contenidoRegistro.indexOf("(") + 1, contenidoRegistro.indexOf("-"));
@@ -574,7 +581,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void eliminarRegistroDeLista(Horario registro, char diaTramo) {
-        switch (diaTramo) {
+        switch (diaTramo) { // evalúo el carácter y modifico el contenido del atributo que corresponda a ese carácter del registro para eliminar su contenido.
             case 'L':
                 registro.setLunes("");
                 break;
@@ -594,6 +601,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void agregarRegistroABDD(Horario nuevoRegistro, char diaTramo) {
+        // monto la orden para insertar el nuevo registro pasado por agumento
         String insert, contenidoRegistro = obtenerContenidoDeRegistro(nuevoRegistro, diaTramo), codOe, codCurso, codAsignatura, codTramo;
         Connection conexion = BddConnection.newConexionMySQL("horario");
         PreparedStatement sentencia;
@@ -613,6 +621,7 @@ public class JefaturaController implements Initializable {
     }
 
     private String obtenerContenidoDeRegistro(Horario registro, char dia) {
+        // recibo el registro y el caracter que indica el dia (columna de mi modelo de datos) que debo consultar, y obtengo sus datos.
         String contenidoRegistro = "";
         switch (dia) {
             case 'L':
@@ -635,6 +644,7 @@ public class JefaturaController implements Initializable {
     }
 
     private String getHoraDeTramo(String tramo) {
+        // retorno la hora que está asociada a ese tramo (Ej: 8:15 - 9:15 --> primera hora, entonces devuelvo 1)
         int resp = 0;
         if (tramo.equals(Tramos.PRIMERA.getTramo_H()))
             resp = 1;
@@ -653,34 +663,34 @@ public class JefaturaController implements Initializable {
     }
 
     private void configContextMenuTable() {
-        ContextMenu contextMenu = new ContextMenu();
-        MenuItem insertar = new MenuItem("Insertar");
+        ContextMenu contextMenu = new ContextMenu(); // creo el context menu (clic boton derecho del raton)
+        MenuItem insertar = new MenuItem("Insertar"); // creo los items para el contextMenu
         MenuItem actualizar = new MenuItem("Actualizar");
         MenuItem eliminar = new MenuItem("Eliminar");
 
         tHorario.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                if (event.getButton() == MouseButton.SECONDARY) {
-                    JefaturaController.filaSelectedRightButton = obtenerFila(event.getSceneY());
-                    JefaturaController.columnSelectedRightButton = obtenerColumna(event.getSceneX());
-                    contextMenu.getItems().removeAll(insertar, eliminar, actualizar);
-                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), ""))
-                        contextMenu.getItems().setAll(insertar);
-                    else
-                        contextMenu.getItems().setAll(actualizar,eliminar);
+                if (event.getButton() == MouseButton.SECONDARY) { // si hago clic en la tabla con el boton derecho del ratón
+                    JefaturaController.filaSelectedRightButton = obtenerFila(event.getSceneY()); // obtengo la fila seleccionada
+                    JefaturaController.columnSelectedRightButton = obtenerColumna(event.getSceneX()); // obtengo la columna seleccionada
+                    contextMenu.getItems().removeAll(insertar, eliminar, actualizar); // elimino los items del contextMenu
+                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) // si la celda está vacía
+                        contextMenu.getItems().setAll(insertar); // en el contextMenu agrego el item de insertar
+                    else // si tiene contenido
+                        contextMenu.getItems().setAll(actualizar,eliminar); // agrego los items de actualizar y eliminar
                 }
             }
         });
 
-        insertar.setOnAction(new EventHandler<ActionEvent>() {
+        insertar.setOnAction(new EventHandler<ActionEvent>() { // configuro la acción para el item de menu insertar
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
-                        lanzarVentanaInsertUpdate("Insertar");
-                        if (datosRecogidos) {
-                            insertarNuevoRegistro();
+                    if (celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) { // si en la celda se puede insertar
+                        lanzarVentanaInsertUpdate("Insertar"); // lanzo una nueva ventana
+                        if (datosRecogidos) { // si he recogido información de la ventana lanzada anteriormente
+                            insertarNuevoRegistro(); // inserto el nuevo registro
                             insertarOActualizarRegistroEnTabla(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton), String.format("%s (%s - %s)", insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe));
                             refrescarTabla();
                         }
@@ -692,7 +702,7 @@ public class JefaturaController implements Initializable {
             }
         });
 
-        actualizar.setOnAction(new EventHandler<ActionEvent>() {
+        actualizar.setOnAction(new EventHandler<ActionEvent>() { // configuro la acción para el item de menu actualizar
             @Override
             public void handle(ActionEvent event) {
                 try {
@@ -711,17 +721,17 @@ public class JefaturaController implements Initializable {
             }
         });
 
-        eliminar.setOnAction(new EventHandler<ActionEvent>() {
+        eliminar.setOnAction(new EventHandler<ActionEvent>() { // configuro la acción para el item de menu eliminar
             @Override
             public void handle(ActionEvent event) {
-                if (!celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("¡Advertencia!");
-                    alert.setHeaderText("Se va a eliminar un registro");
-                    alert.setContentText("¿Está seguro de que desea eliminar el registro definitivamente?");
-                    Optional<ButtonType> result = alert.showAndWait();
-                    if (result.get() == ButtonType.OK) {
-                        eliminarRegistroDeBDD(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton));
+                if (!celdaValidaToDrop(columnSelectedRightButton, datosCol.get(filaSelectedRightButton), "")) { // si la celda tiene contenido
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION); // creo una ventana de dialogo
+                    alert.setTitle("¡Advertencia!"); // establezco titulo
+                    alert.setHeaderText("Se va a eliminar un registro"); // establezco mensaje de cabecera
+                    alert.setContentText("¿Está seguro de que desea eliminar el registro definitivamente?"); // establezco contenido del diálogo
+                    Optional<ButtonType> result = alert.showAndWait(); // lanzo el dialogo y espero a la respuesta
+                    if (result.get() == ButtonType.OK) { // si se pulsó el botón de OK
+                        eliminarRegistroDeBDD(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton)); // elimino el registro
                         eliminarRegistroDeLista(datosCol.get(filaSelectedRightButton), obtenerDiaSegunColumna(columnSelectedRightButton));
                         refrescarTabla();
                     }
@@ -751,11 +761,12 @@ public class JefaturaController implements Initializable {
         tHorario.getItems().setAll(datosCol);
     }
 
+    // método que será llamado desde la ventana de insertarActualizar para recoger los datos.
     public static void callBack_RecogerDatosFormUpdateInsert(String codAsignatura, String codCurso, String codOe) {
-        insertUpdateCodAsig = codAsignatura;
-        inserUpdateCodCurso = codCurso;
-        inserUpdateCodOe = codOe;
-        datosRecogidos = true;
+        insertUpdateCodAsig = codAsignatura; // obtengo el codigo de asignatura a insertar o actualizar
+        inserUpdateCodCurso = codCurso; // obtengo el codigo de curso a insertar o actualizar
+        inserUpdateCodOe = codOe; // obtengo el codigo de oferta educativa a insertar o actualizar
+        datosRecogidos = true; // indigo que se han recogido nuevos datos
     }
 
     public void insertarNuevoRegistro() {
@@ -809,6 +820,7 @@ public class JefaturaController implements Initializable {
     }
 
     private void crearPdf(File fichero, int opcion){
+        // método para generar un pdf
         try {
             OutputStream file = new FileOutputStream(fichero);
             Document document = new Document();
@@ -841,8 +853,9 @@ public class JefaturaController implements Initializable {
         Paragraph horarioSemanal = new Paragraph("Horario Semanal:", fuente);
         document.add(horarioSemanal);
         document.add(new Paragraph(" "));
-        PdfPTable table = new PdfPTable(5);
+        PdfPTable table = new PdfPTable(6);
         table.setWidthPercentage(105);
+        table.addCell("Tramo");
         table.addCell("Lunes");
         table.addCell("Martes");
         table.addCell("Miercoles");

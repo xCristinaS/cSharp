@@ -56,20 +56,21 @@ public class LoginController implements Initializable {
     }
 
     private void initViews() {
-        btnLogin.setOnAction(new EventHandler<ActionEvent>() {
+        btnLogin.setOnAction(new EventHandler<ActionEvent>() { // cuando se hace clic en el botón
             @Override
             public void handle(ActionEvent event) {
-                if (textFielRellenos())
-                    tryToloadNextWindow();
+                if (textFielRellenos()) // si los campos están rellenos
+                    tryToloadNextWindow(); // trato de lanzar la nueva ventada.
             }
         });
 
+        // Evento que voy a usar para que se lance la nueva ventana si se presiona la tecla enter
         EventHandler<KeyEvent> evento = new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-                if (event.getCode().equals(KeyCode.ENTER)) {
-                    if (textFielRellenos())
-                        tryToloadNextWindow();
+                if (event.getCode().equals(KeyCode.ENTER)) { // si se ha presionado la tecla enter
+                    if (textFielRellenos()) // y los campos están rellenos
+                        tryToloadNextWindow(); // lanzo la ventana
                 } else
                     lblError.setVisible(false);
             }
@@ -79,12 +80,59 @@ public class LoginController implements Initializable {
         btnLogin.setOnKeyPressed(evento);
     }
 
+    public boolean textFielRellenos() {
+        boolean r = false;
+        // si el campo de usuario no está vacío, la contraseña tampoco está vacía y el se han introducido como máximo 3 caracteres en el campo de usuario
+        if (!txtUsuario.getText().isEmpty() && !txtContra.getText().isEmpty() && txtUsuario.getText().length() <= 3) {
+            r = true; // retorno true
+        } else // en caso contrario
+            lblError.setVisible(true); // muestro el mensaje de error
+        return r;
+    }
+
+    public void tryToloadNextWindow() { // trato de lanzar la nueva ventana
+        int tipoUser;
+        Parent root = null;
+        Stage stage;
+        boolean logueadoConExito = false;
+        String tituloWindow = "";
+
+        tipoUser = consultarBDD(txtUsuario.getText(), txtContra.getText()); // consulto qué tipo de usuario es el introducido
+        try {
+            if (tipoUser == Constantes.TIPO_PROFE) { // si se ha tratado de loguear un profesor
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(("../profesor/profesor.fxml"))); // al loader le indico que tiene que inflar las especificaciones xml del profesor
+                loader.setController(new ProfesorController(txtUsuario.getText())); // asigno al loader el controlador del profesor, pasandole como argumento el codigo del profesor
+                root = loader.load(); // inflo las especificaciones
+                tituloWindow = "Horario Profesor";
+                logueadoConExito = true;
+            } else if (tipoUser == Constantes.TIPO_JEFATURA) { // si por el contrario, se ha tratado de loguear jefatura
+                root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml")); // inflo sus especificaciones
+                tituloWindow = "Jefatura";
+                logueadoConExito = true;
+            } else {
+                lblError.setVisible(true);
+            }
+
+            if (logueadoConExito) { // lanzo la nueva ventana
+                stage = new Stage();
+                stage.setTitle(tituloWindow);
+                stage.setScene(new Scene(root));
+                stage.setResizable(false);
+                configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
+                stage.show();
+                ((Stage)btnLogin.getScene().getWindow()).close(); // cierro la ventana de loguin
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private int consultarBDD(String idUsuario, String contra) {
         int r = -1;
         Connection conexion = BddConnection.newConexionMySQL("horario");
         PreparedStatement sentencia;
         ResultSet result;
-        String select = "select tipo from profesor where codProf = ? and contra = ?;";
+        String select = "select tipo from profesor where codProf = ? and contra = ?;"; // obtengo el tipo del código de profesor introducido por el usuario
 
         try {
             sentencia = conexion.prepareStatement(select);
@@ -101,52 +149,6 @@ public class LoginController implements Initializable {
         }
 
         return r;
-    }
-
-    public boolean textFielRellenos() {
-        boolean r = false;
-        if (!txtUsuario.getText().isEmpty() && !txtContra.getText().isEmpty() && txtUsuario.getText().length() <= 3) {
-            r = true;
-        } else
-            lblError.setVisible(true);
-        return r;
-    }
-
-    public void tryToloadNextWindow() {
-        int tipoUser;
-        Parent root = null;
-        Stage stage;
-        boolean logueadoConExito = false;
-        String tituloWindow = "";
-
-        tipoUser = consultarBDD(txtUsuario.getText(), txtContra.getText());
-        try {
-            if (tipoUser == Constantes.TIPO_PROFE) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(("../profesor/profesor.fxml")));
-                loader.setController(new ProfesorController(txtUsuario.getText()));
-                root = loader.load();
-                tituloWindow = "Horario Profesor";
-                logueadoConExito = true;
-            } else if (tipoUser == Constantes.TIPO_JEFATURA) {
-                root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml"));
-                tituloWindow = "Jefatura";
-                logueadoConExito = true;
-            } else {
-                lblError.setVisible(true);
-            }
-
-            if (logueadoConExito) {
-                stage = new Stage();
-                stage.setTitle(tituloWindow);
-                stage.setScene(new Scene(root));
-                stage.setResizable(false);
-                configDragDropWindow(root, stage);
-                stage.show();
-                ((Stage)btnLogin.getScene().getWindow()).close();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void configDragDropWindow(Parent root, Stage stage){

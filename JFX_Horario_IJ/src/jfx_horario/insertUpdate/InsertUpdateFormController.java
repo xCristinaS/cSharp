@@ -46,6 +46,7 @@ public class InsertUpdateFormController implements Initializable {
     }
 
     private void initViews() {
+        // obtengo las asignaturas que imparte el profesor recibido como argumento al crear la instancia de esta ventana
         String select = "select codAsignatura, codCurso, codOe from reparto where codProf = ? order by 2;";
         Connection conexion = BddConnection.newConexionMySQL("horario");
         ArrayList<String> contenido = new ArrayList<>();
@@ -56,29 +57,29 @@ public class InsertUpdateFormController implements Initializable {
             sentencia.setString(1, codProf);
             result = sentencia.executeQuery();
             while (result.next())
-                contenido.add(String.format("Asignatura: %s - Curso: %s %s", result.getString(1), result.getString(2), result.getString(3)));
-            select = "select nombre from profesor where codProf = ?";
+                contenido.add(String.format("Asignatura: %s - Curso: %s %s", result.getString(1), result.getString(2), result.getString(3))); // obtengo los datos y los introduzco en la lista del contenido
+            select = "select nombre from profesor where codProf = ?"; // obtengo el nombre del profesor
             sentencia = conexion.prepareStatement(select);
             sentencia.setString(1, codProf);
             result = sentencia.executeQuery();
             if (result.next())
-                lblTexto.setText(Constantes.TEXTO_CLASES_INSERT_UPDATE + result.getString(1));
+                lblTexto.setText(Constantes.TEXTO_CLASES_INSERT_UPDATE + result.getString(1)); // lo muestro en el label (clases impartidas por: nombre profesor)
             result.close();
             sentencia.close();
             conexion.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        lstClases.getItems().setAll(contenido);
+        lstClases.getItems().setAll(contenido); // agrego el contenido a la lista de clases que imparte ese profesor
         btnEnviar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
-            public void handle(ActionEvent event) {
-                String contenido = lstClases.getSelectionModel().getSelectedItem() == null? "": (String)lstClases.getSelectionModel().getSelectedItem();
+            public void handle(ActionEvent event) { // cuando hago clic en el botón de enviar
+                String contenido = lstClases.getSelectionModel().getSelectedItem() == null? "": (String)lstClases.getSelectionModel().getSelectedItem(); // si se seleccionó algun registro de la lista
                 if (!contenido.equals("")) {
                     String[] aux = contenido.split(" ");
-                    JefaturaController.callBack_RecogerDatosFormUpdateInsert(aux[1], aux[4], aux[5]);
+                    JefaturaController.callBack_RecogerDatosFormUpdateInsert(aux[1], aux[4], aux[5]); // le paso los datos a la ventana de jefatura (codAsignatura, codCurso, codOe)
                 }
-                ((Stage) btnEnviar.getScene().getWindow()).close();
+                ((Stage) btnEnviar.getScene().getWindow()).close(); // cierro esta ventana
             }
         });
     }
