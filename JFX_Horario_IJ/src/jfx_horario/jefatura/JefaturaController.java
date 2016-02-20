@@ -30,6 +30,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import jfx_horario.insertUpdate.InsertUpdateFormController;
 import misClases.BddConnection;
@@ -325,6 +326,7 @@ public class JefaturaController implements Initializable {
                     stage.setTitle(tituloWindow);
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
+                    stage.initStyle(StageStyle.UNDECORATED);
                     configDragDropWindow(root, stage);
                     stage.show(); // lo lanzo
                     ((Stage) imgSalir.getScene().getWindow()).close(); // cierro este formulario
@@ -752,6 +754,7 @@ public class JefaturaController implements Initializable {
         stage.setTitle(titulo);
         stage.setScene(new Scene(root));
         stage.setResizable(false);
+        stage.initStyle(StageStyle.UNDECORATED);
         configDragDropWindow(root, stage);
         stage.showAndWait();
     }

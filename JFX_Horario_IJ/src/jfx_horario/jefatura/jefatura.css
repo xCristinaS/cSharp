@@ -10,7 +10,7 @@ and open the template in the editor.
 
 #jefatura {
     -fx-background-image:url("../../imagenes/fondo.png");
-    -fx-background-size:cover;
+    -fx-background-size: stretch;
     -fx-font-family: "Monotype Corsiva";
     -fx-font-size: 20px;
 }

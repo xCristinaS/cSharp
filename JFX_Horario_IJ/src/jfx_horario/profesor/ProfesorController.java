@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import misClases.BddConnection;
 import misClases.Constantes;
 import misClases.Tramos;
@@ -131,6 +132,7 @@ public class ProfesorController implements Initializable {
                     stage.setTitle(tituloWindow);
                     stage.setScene(new Scene(root));
                     stage.setResizable(false);
+                    stage.initStyle(StageStyle.UNDECORATED);
                     configDragDropWindow(root, stage);
                     stage.show();
                     ((Stage) imgSalir.getScene().getWindow()).close();

@@ -17,6 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
 import misClases.Constantes;
@@ -118,6 +119,7 @@ public class LoginController implements Initializable {
                 stage.setTitle(tituloWindow);
                 stage.setScene(new Scene(root));
                 stage.setResizable(false);
+                stage.initStyle(StageStyle.UNDECORATED);
                 configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
                 stage.show();
                 ((Stage)btnLogin.getScene().getWindow()).close(); // cierro la ventana de loguin

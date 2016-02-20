@@ -11,6 +11,7 @@ and open the template in the editor.
 #insertUpdate {
     -fx-background-image:url("../../imagenes/fondo.png");
     -fx-font-family: "Monotype Corsiva";
+    -fx-background-size: stretch;
     -fx-background-size:cover;
     -fx-font-size: 20px;
 }
