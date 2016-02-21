@@ -43,7 +43,6 @@ public class ProfesorController implements Initializable {
     ImageView imgSalir;
 
     private final String idProf;
-    private double posX, posY;
 
     public ProfesorController(String idProf) {
         this.idProf = idProf;
@@ -87,7 +86,7 @@ public class ProfesorController implements Initializable {
             if (result.next()) {
                 lblNombreProf.setText(result.getString(1));
                 try {
-                    lblAlta.setText(Constantes.ALTA_PROF + formato.format(formatoParse.parse(result.getString(2).substring(0,10))));
+                    lblAlta.setText(Constantes.ALTA_PROF + formato.format(formatoParse.parse(result.getString(2).substring(0, 10))));
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -124,35 +123,10 @@ public class ProfesorController implements Initializable {
         imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
-                Pane root;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
-                    String tituloWindow = "Login";
-                    Stage stage = new Stage();
-                    stage.setTitle(tituloWindow);
-                    stage.setScene(new Scene(root));
-                    stage.setResizable(false);
-                    //stage.initStyle(StageStyle.UNDECORATED);
-                    configDragDropWindow(root, stage);
-                    stage.show();
-                    ((Stage) imgSalir.getScene().getWindow()).close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                jfx_horario.Horario.lanzarVentana("Login", getClass().getResource(Constantes.PATH_XML_LOGIN), null).show();
+                ((Stage) imgSalir.getScene().getWindow()).close();
             }
         });
 
-    }
-
-    private void configDragDropWindow(Parent root, Stage stage){
-        root.setOnMousePressed(event -> {
-            posX = event.getX();
-            posY = event.getY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - posX);
-            stage.setY(event.getScreenY() - posY);
-        });
     }
 }

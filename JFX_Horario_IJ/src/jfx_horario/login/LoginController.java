@@ -21,6 +21,7 @@ import javafx.stage.StageStyle;
 import jfx_horario.profesor.ProfesorController;
 import misClases.BddConnection;
 import misClases.Constantes;
+import misClases.Horario;
 import org.omg.CORBA.Environment;
 
 import java.io.File;
@@ -48,8 +49,6 @@ public class LoginController implements Initializable {
     Button btnLogin;
     @FXML
     Label lblError;
-
-    private double posX, posY;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -93,39 +92,17 @@ public class LoginController implements Initializable {
 
     public void tryToloadNextWindow() { // trato de lanzar la nueva ventana
         int tipoUser;
-        Parent root = null;
-        Stage stage;
-        boolean logueadoConExito = false;
-        String tituloWindow = "";
 
         tipoUser = consultarBDD(txtUsuario.getText(), txtContra.getText()); // consulto qué tipo de usuario es el introducido
-        try {
-            if (tipoUser == Constantes.TIPO_PROFE) { // si se ha tratado de loguear un profesor
-                FXMLLoader loader = new FXMLLoader(getClass().getResource(("../profesor/profesor.fxml"))); // al loader le indico que tiene que inflar las especificaciones xml del profesor
-                loader.setController(new ProfesorController(txtUsuario.getText())); // asigno al loader el controlador del profesor, pasandole como argumento el codigo del profesor
-                root = loader.load(); // inflo las especificaciones
-                tituloWindow = "Horario Profesor";
-                logueadoConExito = true;
-            } else if (tipoUser == Constantes.TIPO_JEFATURA) { // si por el contrario, se ha tratado de loguear jefatura
-                root = FXMLLoader.load(getClass().getResource("../jefatura/jefatura.fxml")); // inflo sus especificaciones
-                tituloWindow = "Jefatura";
-                logueadoConExito = true;
-            } else {
-                lblError.setVisible(true);
-            }
+        if (tipoUser != Constantes.TIPO_JEFATURA && tipoUser != Constantes.TIPO_PROFE) // si el usuario no es ni profesor ni jefatura, muestro el error
+            lblError.setVisible(true);
+        else { // en caso contrario
+            if (tipoUser == Constantes.TIPO_PROFE) // si es el profesor, lanzo la ventana del profesor
+                jfx_horario.Horario.lanzarVentana("Horario Profesor", getClass().getResource(Constantes.PATH_XML_PROFESOR), new ProfesorController(txtUsuario.getText())).show();
+            else // si es jefatura, lanzo la ventana de jefatura
+                jfx_horario.Horario.lanzarVentana("Jefatura", getClass().getResource(Constantes.PATH_XML_JEFATURA), null).show();
 
-            if (logueadoConExito) { // lanzo la nueva ventana
-                stage = new Stage();
-                stage.setTitle(tituloWindow);
-                stage.setScene(new Scene(root));
-                stage.setResizable(false);
-                //stage.initStyle(StageStyle.UNDECORATED);
-                configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
-                stage.show();
-                ((Stage)btnLogin.getScene().getWindow()).close(); // cierro la ventana de loguin
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+            ((Stage)btnLogin.getScene().getWindow()).close(); // cierro la ventana de login
         }
     }
 
@@ -151,17 +128,5 @@ public class LoginController implements Initializable {
         }
 
         return r;
-    }
-
-    private void configDragDropWindow(Parent root, Stage stage){
-        root.setOnMousePressed(event -> {
-            posX = event.getX();
-            posY =  event.getY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - posX);
-            stage.setY(event.getScreenY() - posY);
-        });
     }
 }

@@ -20,4 +20,8 @@ public class Constantes {
     public static final String ALTA_PROF = "Fecha de alta: ";
     public static final int ANCHO_CELDA = 198;
     public static final String TEXTO_CLASES_INSERT_UPDATE = "Clases que imparte ";
+    public static final String PATH_XML_PROFESOR = "../profesor/profesor.fxml";
+    public static final String PATH_XML_JEFATURA= "../jefatura/jefatura.fxml";
+    public static final String PATH_XML_LOGIN = "../login/login.fxml";
+    public static final String PATH_XML_INSERT_UPDATE = "../insertUpdate/insertUpdate.fxml";
 }

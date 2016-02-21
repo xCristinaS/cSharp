@@ -45,8 +45,6 @@ public class InsertUpdateFormController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initViews();
-        //JefaturaController.setVentanaInserUpdateAbierta(true);
-        //((Stage) btnEnviar.getScene().getWindow()).setOnHidden();
     }
 
     private void initViews() {

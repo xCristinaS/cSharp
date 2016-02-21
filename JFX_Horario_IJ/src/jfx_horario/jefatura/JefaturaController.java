@@ -30,7 +30,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import jfx_horario.insertUpdate.InsertUpdateFormController;
 import misClases.BddConnection;
@@ -77,7 +76,6 @@ public class JefaturaController implements Initializable {
     private ArrayList<Horario> datosCol = new ArrayList<>();
     private static Horario registroDePartidaDragDrop;
     private static char diaMovido;
-    private double posX, posY;
     private static int filaSelectedRightButton, columnSelectedRightButton;
     private static String insertUpdateCodAsig, inserUpdateCodCurso, inserUpdateCodOe;
     private static boolean datosRecogidos, ventanaInsertUpdateAbierta = false;
@@ -318,21 +316,8 @@ public class JefaturaController implements Initializable {
         imgSalir.setOnMouseClicked(new EventHandler<MouseEvent>() { // cuando hago clic en ella
             @Override
             public void handle(MouseEvent event) {
-                Pane root;
-                try {
-                    root = FXMLLoader.load(getClass().getResource("../login/login.fxml")); // cargo el formulario de login
-                    String tituloWindow = "Login";
-                    Stage stage = new Stage();
-                    stage.setTitle(tituloWindow);
-                    stage.setScene(new Scene(root));
-                    stage.setResizable(false);
-                    //stage.initStyle(StageStyle.UNDECORATED);
-                    configDragDropWindow(root, stage);
-                    stage.show(); // lo lanzo
-                    ((Stage) imgSalir.getScene().getWindow()).close(); // cierro este formulario
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                jfx_horario.Horario.lanzarVentana("Login", getClass().getResource(Constantes.PATH_XML_LOGIN), null).show();
+                ((Stage) imgSalir.getScene().getWindow()).close(); // cierro este formulario
             }
         });
 
@@ -399,19 +384,6 @@ public class JefaturaController implements Initializable {
 
         rbHorarioSemanal.setOnMouseEntered(evento1);
         rbHorarioSemanal.setOnMouseExited(evento2);
-    }
-
-    private void configDragDropWindow(Parent root, Stage stage) {
-        // drag and drop para poder arrastrar la ventana
-        root.setOnMousePressed(event -> {
-            posX = event.getX();
-            posY = event.getY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - posX);
-            stage.setY(event.getScreenY() - posY);
-        });
     }
 
     private void configDragAndDropTabla() {
@@ -749,21 +721,11 @@ public class JefaturaController implements Initializable {
     }
 
     private void lanzarVentanaInsertUpdate(String titulo) throws IOException {
-        Parent root = null;
-        Stage stage;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(("../insertUpdate/insertUpdate.fxml")));
-        loader.setController(new InsertUpdateFormController(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0, 3)));
-        root = loader.load();
-        stage = new Stage();
-        stage.setTitle(titulo);
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        //stage.initStyle(StageStyle.UNDECORATED);
         ventanaInsertUpdateAbierta = true;
+        Stage stage = jfx_horario.Horario.lanzarVentana(titulo, getClass().getResource(Constantes.PATH_XML_INSERT_UPDATE),new InsertUpdateFormController(myListaProfes.get(comboProfes.getSelectionModel().getSelectedIndex()).substring(0, 3)));
         stage.setOnHidden(event -> {
             ventanaInsertUpdateAbierta = false;
         });
-        configDragDropWindow(root, stage);
         stage.showAndWait();
     }
 

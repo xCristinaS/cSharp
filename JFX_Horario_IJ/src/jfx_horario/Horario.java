@@ -8,6 +8,7 @@ package jfx_horario;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
@@ -16,35 +17,64 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import jfx_horario.login.LoginController;
+import jfx_horario.profesor.ProfesorController;
+
+import java.io.IOException;
+import java.net.URL;
 
 /**
- *
  * @author Cristina
  */
 public class Horario extends Application {
 
-    private double posX, posY;
+    private static double posX, posY;
+
     @Override
     public void start(Stage stage) throws Exception {
         //stage.initStyle(StageStyle.TRANSPARENT); // Para quitarle el borde a la ventana.
         BorderPane root = new BorderPane(FXMLLoader.load(getClass().getResource("login/login.fxml")));
-
-        root.setOnMousePressed(event -> {
-            posX = event.getX();
-            posY =  event.getY();
-        });
-
-        root.setOnMouseDragged(event -> {
-            stage.setX(event.getScreenX() - posX);
-            stage.setY(event.getScreenY() - posY);
-        });
-
+        configDragDropWindow(root, stage);
         stage.setTitle("Login");
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
+    }
+
+    public static Stage lanzarVentana(String titulo, URL rutaXML, Initializable controlador) {
+        Parent root;
+        Stage stage = new Stage();
+        String tituloWindow = titulo;
+        try {
+            if (controlador == null) // si el controlador es igual a null, es porque el fichero xml ya lleva asociado su controlador, en ese caso
+                root = FXMLLoader.load(rutaXML); // inflo sus especificaciones
+            else { // si el fichero no lleva asociado su controlador:
+                FXMLLoader loader = new FXMLLoader(rutaXML); // al loader le indico que tiene que inflar las especificaciones xml
+                loader.setController(controlador); // asigno al loader el controlador recibido como argumento
+                root = loader.load(); // inflo las especificaciones
+            }
+            stage.setTitle(tituloWindow);
+            stage.setScene(new Scene(root));
+            stage.setResizable(false);
+            //stage.initStyle(StageStyle.UNDECORATED);
+            configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stage;
+    }
+
+    private static void configDragDropWindow(Parent root, Stage stage) {
+        root.setOnMousePressed(event -> {
+            posX = event.getX();
+            posY = event.getY();
+        });
+
+        root.setOnMouseDragged(event -> {
+            stage.setX(event.getScreenX() - posX);
+            stage.setY(event.getScreenY() - posY);
+        });
     }
 
     public static void main(String[] args) {
