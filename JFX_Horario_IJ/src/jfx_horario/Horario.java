@@ -6,19 +6,13 @@
 package jfx_horario;
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.stage.Window;
-import jfx_horario.login.LoginController;
-import jfx_horario.profesor.ProfesorController;
 
 import java.io.IOException;
 import java.net.URL;
