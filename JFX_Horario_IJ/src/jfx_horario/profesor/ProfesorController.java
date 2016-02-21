@@ -1,9 +1,11 @@
 package jfx_horario.profesor;
 
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -52,6 +54,7 @@ public class ProfesorController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cargarHorario();
         configImgSalir();
+        configEfectoRaton();
     }
 
     private void cargarHorario() {
@@ -127,6 +130,24 @@ public class ProfesorController implements Initializable {
                 ((Stage) imgSalir.getScene().getWindow()).close();
             }
         });
+    }
 
+    private void configEfectoRaton(){
+        // Evento para cambiar el cursor cuando se esté sobre un componente sobre el que se pueda hacer clic.
+        EventHandler evento1 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgSalir.getScene().setCursor(Cursor.HAND);
+            }
+        };
+        // Evento para poner el cursor por defecto.
+        EventHandler evento2 = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                imgSalir.getScene().setCursor(Cursor.DEFAULT);
+            }
+        };
+        imgSalir.setOnMouseEntered(evento1);
+        imgSalir.setOnMouseExited(evento2);
     }
 }

@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -39,6 +40,7 @@ public class Horario extends Application {
 
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.getIcons().add(new Image("/imagenes/icono.png"));
         stage.show();
     }
 
@@ -57,6 +59,7 @@ public class Horario extends Application {
             stage.setTitle(tituloWindow);
             stage.setScene(new Scene(root));
             stage.setResizable(false);
+            stage.getIcons().add(new Image("/imagenes/icono.png"));
             //stage.initStyle(StageStyle.UNDECORATED);
             configDragDropWindow(root, stage); // para que se pueda arrastrar la ventana
         } catch (IOException e) {
