@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+
+<Pane fx:id="panel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="623.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dragDropListas.DragDropListasController">
+   <children>
+      <ListView fx:id="lst2" layoutX="33.0" layoutY="102.0" prefHeight="259.0" prefWidth="210.0" />
+      <ListView fx:id="lst1" layoutX="331.0" layoutY="102.0" prefHeight="259.0" prefWidth="210.0" />
+      <Label layoutX="79.0" layoutY="49.0" text="lst2" />
+      <Label layoutX="436.0" layoutY="58.0" text="lst1" />
+   </children>
+</Pane>
