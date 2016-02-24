@@ -24,7 +24,7 @@ public class MenuBarController implements Initializable{
     }
 
     private void configMenuBar() {
-        //DragDropListas myMenuBar = new DragDropListas();
+        //myContextMenu myMenuBar = new myContextMenu();
         Menu subMenuArchivo = new Menu("Archivo"), subMenuGuardar = new Menu("Guardar"), guardarComo = new Menu("guardar como...");
 
         MenuItem itemArchivo1 = new MenuItem("Nuevo");
