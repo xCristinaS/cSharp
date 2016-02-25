@@ -84,6 +84,11 @@ public class ListaPropuestasController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        if (btnVotarProp.isVisible() && lstPropuestas.getItems().isEmpty()){
+            btnVotarProp.setVisible(false);
+            txtDetalles.setText("");
+        }
     }
 
     private void configBotones() {
@@ -190,6 +195,8 @@ public class ListaPropuestasController implements Initializable {
             dialog.show();
             cargarPropuestasEnListView();
             propuestaSeleccionada = "";
+            if (!usuarioTieneVotosDisponibles())
+                btnVotarProp.setVisible(false);
         }
     }
 }
