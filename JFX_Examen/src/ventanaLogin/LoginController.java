@@ -9,10 +9,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 import main.Main;
-import utilidad.BddConnection;
-import utilidad.Constantes;
+import misClases.BddConnection;
+import misClases.Constantes;
 import ventanaListaPropuestas.ListaPropuestasController;
 
 import java.net.URL;

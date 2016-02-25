@@ -5,9 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import main.Main;
-import utilidad.BddConnection;
+import misClases.BddConnection;
 
 import java.net.URL;
 import java.sql.Connection;

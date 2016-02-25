@@ -12,7 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import main.Main;
-import utilidad.BddConnection;
+import misClases.BddConnection;
 import ventanaNuevaPropuesta.NuevaPropuestaController;
 
 import java.net.URL;

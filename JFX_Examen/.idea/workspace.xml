@@ -60,23 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ListaPropuestasController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ventanaListaPropuestas/ListaPropuestasController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6112805">
-              <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="estadisticas.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/estadisticas.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.9310346">
-              <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+            <state vertical-scroll-proportion="-5.275862">
+              <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -85,22 +73,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="estadisticas.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/estadisticas.css">
+      <file leaf-file-name="EstadisticasController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.6371951">
+              <caret line="39" column="153" selection-start-line="39" selection-start-column="153" selection-end-line="39" selection-end-column="153" />
+              <folding>
+                <element signature="e#719#720#0" expanded="true" />
+                <element signature="e#748#749#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EstadisticasController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java">
+      <file leaf-file-name="MyTableData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/misClases/MyTableData.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-              <folding />
+              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#652#653#0" expanded="true" />
+                <element signature="e#714#715#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#806#807#0" expanded="true" />
+                <element signature="e#846#847#0" expanded="true" />
+                <element signature="e#904#905#0" expanded="true" />
+                <element signature="e#938#939#0" expanded="true" />
+                <element signature="e#989#990#0" expanded="true" />
+                <element signature="e#1038#1039#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -144,8 +148,9 @@
         <option value="$PROJECT_DIR$/src/ventanaEstadisticas/LoginController.java" />
         <option value="$PROJECT_DIR$/src/ventanaEstadisticas/estadisticas.java" />
         <option value="$PROJECT_DIR$/src/ventanaEstadisticas/estadisticas.fxml" />
-        <option value="$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java" />
         <option value="$PROJECT_DIR$/src/ventanaListaPropuestas/ListaPropuestasController.java" />
+        <option value="$PROJECT_DIR$/src/misClases/MyTableData.java" />
+        <option value="$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java" />
       </list>
     </option>
   </component>
@@ -295,21 +300,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="utilidad" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JFX_Examen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JFX_Examen" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="misClases" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -658,8 +649,8 @@
           <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -675,7 +666,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilidad/Constantes.java">
+    <entry file="file://$PROJECT_DIR$/src/misClases/Constantes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19800332">
           <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
@@ -683,7 +674,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utilidad/BddConnection.java">
+    <entry file="file://$PROJECT_DIR$/src/misClases/BddConnection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7737105">
           <caret line="71" column="5" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
@@ -764,8 +755,18 @@
           <caret line="79" column="209" selection-start-line="79" selection-start-column="32" selection-end-line="79" selection-end-column="209" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#931#932#0" expanded="true" />
-            <element signature="e#962#963#0" expanded="true" />
+            <element signature="e#905#906#0" expanded="true" />
+            <element signature="e#936#937#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ventanaListaPropuestas/ListaPropuestasController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.714939">
+          <caret line="120" column="69" selection-start-line="120" selection-start-column="69" selection-end-line="120" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -778,18 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/estadisticas.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.9310346">
-          <caret line="5" column="54" selection-start-line="5" selection-start-column="54" selection-end-line="5" selection-end-column="54" />
+        <state vertical-scroll-proportion="-5.275862">
+          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -797,12 +790,34 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ventanaListaPropuestas/ListaPropuestasController.java">
+    <entry file="file://$PROJECT_DIR$/src/misClases/MyTableData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6112805">
-          <caret line="116" column="34" selection-start-line="116" selection-start-column="34" selection-end-line="116" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#652#653#0" expanded="true" />
+            <element signature="e#714#715#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#806#807#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
+            <element signature="e#904#905#0" expanded="true" />
+            <element signature="e#938#939#0" expanded="true" />
+            <element signature="e#989#990#0" expanded="true" />
+            <element signature="e#1038#1039#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6371951">
+          <caret line="39" column="153" selection-start-line="39" selection-start-column="153" selection-end-line="39" selection-end-column="153" />
+          <folding>
+            <element signature="e#719#720#0" expanded="true" />
+            <element signature="e#748#749#0" expanded="true" />
           </folding>
         </state>
       </provider>
