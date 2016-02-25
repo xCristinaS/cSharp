@@ -1,4 +1,10 @@
 #panelLogin {
-    /*-fx-background-image:url("../res/fondo.png");
-    -fx-background-size: stretch;*/
+   -fx-background-image:url("../res/fondo.png");
+   -fx-background-size: stretch;
+   -fx-font-family: "Monotype Corsiva";
+   -fx-font-size: 20px;
+}
+
+.btn {
+    -fx-text-fill: rgb(180, 00, 00);
 }

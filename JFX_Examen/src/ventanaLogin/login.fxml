@@ -11,16 +11,16 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane id="panelLogin" prefHeight="140.0" prefWidth="317.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventanaLogin.LoginController">
+<Pane id="panelLogin" prefHeight="153.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ventanaLogin.LoginController">
     <stylesheets>
         <URL value="@login_style.css" />
     </stylesheets>
    <children>
-      <TextField fx:id="txtUsuario" layoutX="104.0" layoutY="20.0" prefHeight="25.0" prefWidth="192.0" />
-      <PasswordField fx:id="txtContra" layoutX="104.0" layoutY="71.0" prefHeight="25.0" prefWidth="192.0" />
+      <TextField fx:id="txtUsuario" layoutX="138.0" layoutY="17.0" prefHeight="40.0" prefWidth="221.0" />
+      <PasswordField fx:id="txtContra" layoutX="138.0" layoutY="68.0" prefHeight="40.0" prefWidth="221.0" />
       <Label layoutX="21.0" layoutY="24.0" text="Usuario (NIF)" />
       <Label layoutX="25.0" layoutY="75.0" text="Contraseña" />
-      <Label fx:id="btnNewUsuario" layoutX="140.0" layoutY="112.0" text="Crear usuario" />
-      <Label fx:id="btnEntrar" layoutX="250.0" layoutY="112.0" text="Entrar" />
+      <Label fx:id="btnNewUsuario" layoutX="146.0" layoutY="113.0" text="Crear usuario" styleClass="btn"/>
+      <Label fx:id="btnEntrar" layoutX="310.0" layoutY="113.0" text="Entrar" styleClass="btn"/>
    </children>
 </Pane>

@@ -7,15 +7,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import java.net.URL?>
 
-<Pane id="panelLogin" prefHeight="456.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane id="panelPropuestas" prefHeight="456.0" prefWidth="684.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@lista_propuestas.css" />
     </stylesheets>
    <children>
       <ListView fx:id="lstPropuestas" layoutX="17.0" layoutY="38.0" prefHeight="366.0" prefWidth="244.0" />
-      <Label fx:id="btnNuevaProp" layoutX="59.0" layoutY="418.0" prefHeight="17.0" prefWidth="109.0" text="Nueva Propuesta" />
-      <Label fx:id="btnVotarProp" layoutX="567.0" layoutY="300.0" text="Votar propuesta" />
-      <Label fx:id="btnVerVotaciones" layoutX="547.0" layoutY="418.0" text="Ver estado votación" />
+      <Label fx:id="btnNuevaProp" layoutX="17.0" layoutY="418.0" prefHeight="26.0" prefWidth="140.0" text="Nueva Propuesta" styleClass="btn"/>
+      <Label fx:id="btnVotarProp" layoutX="531.0" layoutY="300.0" prefHeight="26.0" prefWidth="122.0" text="Votar propuesta" styleClass="btn"/>
+      <Label fx:id="btnVerVotaciones" layoutX="507.0" layoutY="418.0" prefHeight="26.0" prefWidth="146.0" text="Ver estado votación" styleClass="btn"/>
       <TextArea fx:id="txtDetalles" layoutX="288.0" layoutY="38.0" prefHeight="249.0" prefWidth="365.0" />
    </children>
 </Pane>

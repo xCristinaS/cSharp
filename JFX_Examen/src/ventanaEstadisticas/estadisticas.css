@@ -1,4 +1,13 @@
-#panelLogin {
-    /*-fx-background-image:url("../res/fondo.png");
-    -fx-background-size: stretch;*/
+#panelEstadisticas {
+    -fx-background-image:url("../res/fondo.png");
+    -fx-background-size: stretch;
+    -fx-font-family: "Monotype Corsiva";
+    -fx-font-size: 20px;
+}
+
+.table-view {
+    -fx-base: rgb(180, 00, 00);
+    -fx-control-inner-background: white;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
 }
