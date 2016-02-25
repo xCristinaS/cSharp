@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$/src/ventanaEstadisticas/EstadisticasController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ventanaListaPropuestas/ListaPropuestasController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ventanaLogin/LoginController.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ventanaNuevaPropuesta/NuevaPropuestaController.java" charset="UTF-8" />

@@ -49,7 +49,7 @@ public class ListaPropuestasController implements Initializable {
 
         if (!usuarioTieneVotosDisponibles())
             btnVotarProp.setVisible(false);
-        
+
         configBotones();
         cargarDetallesProp();
     }
@@ -91,9 +91,8 @@ public class ListaPropuestasController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 Stage stage = Main.lanzarVentana("Nueva Propuesta", getClass().getResource("../ventanaNuevaPropuesta/nueva_propuesta.fxml"), new NuevaPropuestaController(usuario));
-                stage.setOnHidden(event1 -> {
+                stage.setOnHiding(event1 -> {
                     Main.lanzarVentana("Lista de propuestas", getClass().getResource("../ventanaListaPropuestas/lista_propuestas.fxml"), new ListaPropuestasController(usuario)).show();
-                    cargarPropuestasEnListView();
                 });
                 stage.show();
                 ((Stage)btnVotarProp.getScene().getWindow()).close();
@@ -108,6 +107,18 @@ public class ListaPropuestasController implements Initializable {
                 else {
                     btnVotarProp.setVisible(false);
                 }
+            }
+        });
+
+        btnVerVotaciones.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Stage stage = Main.lanzarVentana("Estadísticas", getClass().getResource("../ventanaEstadisticas/estadisticas.fxml"), null);
+                stage.setOnHiding(event1 -> {
+                    Main.lanzarVentana("Lista de propuestas", getClass().getResource("../ventanaListaPropuestas/lista_propuestas.fxml"), new ListaPropuestasController(usuario)).show();
+                });
+                stage.show();
+                ((Stage)btnVotarProp.getScene().getWindow()).close();
             }
         });
     }
